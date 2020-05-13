@@ -5,7 +5,7 @@
   }
 
   @media (min-width: 768px) {
-    --gutter: 0;
+    --gutter: 32px;
   }
 
   // Header height
@@ -20,4 +20,19 @@
   // Transition durations
   --fast: 400ms;
   --slow: 800ms;
+
+  // Fonts
+  --font-serif: serif;
+  --font-sans-serif: sans-serif;
+
+  // Colors
+  --deep-blue-color: #182755;
+  --light-blue-color: #DAE8F0;
+  --white-color: #FFF;
+  --primary-brand-color: var(--deep-blue-color);
+  --secondary-brand-color: var(--light-blue-color);
+  --font-color: var(--deep-blue-color);
+
+  // Sizing
+  --page-width: 1360px;
 }

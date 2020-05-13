@@ -1,0 +1,221 @@
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'hero' %}
+      {% include 'home-hero' %}
+    {% when 'press' %}
+      {% include 'press' %}
+    {% when 'comparison_chart' %}
+      {% include 'comparison-chart' %}
+    {% when 'collections_list' %}
+      {% include 'collections-list' %}
+    {% when 'details_section' %}
+      {% include 'details-section' %}
+    {% when 'features_list' %}
+      {% include 'features-list' %}
+  {% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Homepage",
+    "blocks": [
+      {
+        "name": "Hero",
+        "type": "hero",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "textarea",
+            "id": "body",
+            "label": "Body"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "name": "Press",
+        "type": "press",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "text",
+            "id": "source_name_1",
+            "label": "Source Name 1"
+          },
+          {
+            "type": "text",
+            "id": "quote_1",
+            "label": "Quote 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_1",
+            "label": "Logo 1"
+          },
+          {
+            "type": "text",
+            "id": "source_name_2",
+            "label": "Source Name 2"
+          },
+          {
+            "type": "text",
+            "id": "quote_2",
+            "label": "Quote 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_2",
+            "label": "Logo 2"
+          },
+          {
+            "type": "text",
+            "id": "source_name_3",
+            "label": "Source Name 3"
+          },
+          {
+            "type": "text",
+            "id": "quote_3",
+            "label": "Quote 3"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_3",
+            "label": "Logo 3"
+          },
+          {
+            "type": "text",
+            "id": "source_name_4",
+            "label": "Source Name 4"
+          },
+          {
+            "type": "text",
+            "id": "quote_4",
+            "label": "Quote 4"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_4",
+            "label": "Logo 4"
+          }
+        ]
+      },
+      {
+        "name": "Collections List",
+        "type": "collections_list",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "collection",
+            "id": "collection_1",
+            "label": "Collection 1"
+          },
+          {
+            "type": "collection",
+            "id": "collection_2",
+            "label": "Collection 2"
+          },
+          {
+            "type": "collection",
+            "id": "collection_3",
+            "label": "Collection 3"
+          },
+          {
+            "type": "collection",
+            "id": "collection_4",
+            "label": "Collection 4"
+          }
+        ]
+      },
+      {
+        "name": "Details Section",
+        "type": "details_section",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "text",
+            "id": "subheader",
+            "label": "Subheader"
+          },
+          {
+            "type": "textarea",
+            "id": "body",
+            "label": "Body"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "name": "Features List",
+        "type": "features_list",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Image 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_3",
+            "label": "Image 3"
+          }
+        ]
+      },
+      {
+        "name": "Comparison Chart",
+        "type": "comparison_chart",
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

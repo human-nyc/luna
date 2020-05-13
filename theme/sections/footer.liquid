@@ -1,0 +1,61 @@
+<div class="footer">
+  <div class="footer__logo">
+    <a href="/">
+      <img src="{{ 'logo_luna@2x.png' | asset_url | image_tag }}" alt="Luna" width="72px" />
+    </a>
+  </div>
+  <div class="footer__inner">
+    <div class="footer__main">
+      <div class="footer__columns">
+        {% for block in section.blocks %}
+          {% if block.type == 'links_column' %}
+            <div class="footer__col">
+              <h4 class="caps-label">{{ block.settings.header }}</h4>
+              <ul>
+                {{ block.settings.richtext }}
+              </ul>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="footer__aside">
+      <div class="footer__form-intro">Get deals and more by signing up</div>
+      <form class="footer__form">
+        <div class="form-wrapper">
+          <input placeholder="Email" />
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <div class="footer__social">
+        <a href="//instragram.com/">Instagram</a>
+        <a href="//facebook.com/">Facebook</a>
+        <a href="//twitter.com/">Twitter</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "blocks": [
+      {
+        "type": "links_column",
+        "name": "Links Column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "textarea",
+            "id": "richtext",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

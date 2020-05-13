@@ -1,19 +1,57 @@
+<div class="header">
+  <div class="header__promo">
+    {{ section.settings.promo_text }}
+  </div>
+  <div class="header__main">
+    <div class="header__main-inner">
+      <div class="header__left">
+        <span class="header-link">Shop</span>
+        <a class="header-link" href="/">How it works</a>
+        <a class="header-link" href="/">Why Luna?</a>
+      </div>
+      <div class="header__center">
+        <div class="header__logo">
+          <img src="" alt="Luna" />
+        </div>
+      </div>
+      <div class="header__right">
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            <a class="header-link" href="/account">Account</a>
+            {{ 'Log out' | customer_logout_link }}
+          {% else %}
+            {{ 'Log in ' | customer_login_link }}
+            {{ 'Register' | customer_register_link }}
+          {% endif %}
+        {% endif %}
+        <a class="header-link" href="/cart">Cart</a>
+      </div>
+    </div>
+  </div>
+  <div class="header__dropdown">
+    <div class="header__dropdown-inner">
+      <span>Product 1</span>
+      <span>Product 2</span>
+      <span>Product 3</span>
+    </div>
+  </div>
+</div>
+
+{% comment %}
 {% render 'linklist' linklist: linklists.main-menu %}
-
-<a href="/cart">cart</a>
-
-{% if shop.customer_accounts_enabled %}
-  {% if customer %}
-    <a href="/account">account</a>
-    {{ 'log out'  | customer_logout_link }}
-  {% else %}
-    {{ 'log in ' | customer_login_link }}
-    {{ 'register' | customer_register_link }}
-  {% endif %}
-{% endif %}
+{% endcomment %}
 
 {% schema %}
   {
-
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "promo_text",
+        "label": "Promotional Text",
+        "default": "Promo Here"
+      }
+    ],
+    "blocks": []
   }
 {% endschema %}
