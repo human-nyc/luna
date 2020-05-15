@@ -13,6 +13,12 @@
       {% include 'details-section' %}
     {% when 'features_list' %}
       {% include 'features-list' %}
+    {% when 'testimonials' %}
+      {% include 'testimonials' %}
+    {% when 'icons_section' %}
+      {% include 'icons-section' %}
+    {% when 'products_slider' %}
+      {% include 'products-slider' %}
   {% endcase %}
 {% endfor %}
 
@@ -218,7 +224,44 @@
           {
             "type": "text",
             "id": "button_text",
-            "label": "Button Text"
+            "label": "Button Text",
+            "default": "How we measure up"
+          }
+        ]
+      },
+      {
+        "name": "Testimonials",
+        "type": "testimonials",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "See what the fans have to say..."
+          }
+        ]
+      },
+      {
+        "name": "Icons Section",
+        "type": "icons_section",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "Good to know"
+          }
+        ]
+      },
+      {
+        "name": "Products Slider",
+        "type": "products_slider",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "Shop More Luna Products"
           }
         ]
       }
