@@ -1,3 +1,40 @@
 .collections-list {
+  background-color: var(--secondary-brand-color);
+  padding: 80px 0;
+  text-align: center;
+}
 
+.collections-list__inner {
+  margin: 0 auto;
+  width: var(--page-width);
+  max-width: 100%;
+}
+
+.collections-list__header {
+  margin-bottom: 72px;
+  padding: 0 var(--gutter);
+}
+
+.collections-list__items {
+  display: flex;
+
+  .item-wrapper {
+    flex: 0 0 auto;
+    padding: 0 12px;
+    width: 25%;
+  }
+}
+
+a.collections-list__item {
+  background-color: var(--primary-brand-color);
+  display: block;
+  padding-bottom: 100%;
+  position: relative;
+
+  .cta-button {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
 }

@@ -1,7 +1,37 @@
 .press {
-
+  padding: 80px var(--gutter);
 }
 
 .press__header {
   text-align: center;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+.press__logos {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 90px 0 70px;
+}
+
+.press-logo {
+  flex: 0 0 auto;
+  text-align: center;
+  width: 200px;
+}
+
+.press__quote {
+  text-align: center;
+
+  blockquote {
+    color: var(--font-color);
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-style: italic;
+  }
 }

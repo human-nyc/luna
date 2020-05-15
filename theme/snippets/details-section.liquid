@@ -1,3 +1,23 @@
 <div class="details-section">
-  I'm the details section.
+  <div class="details-section__inner">
+    <div class="details-section__image">
+      <div class="image-wrapper">
+        <div class="fill-image">
+          <img src="" alt="Image" />
+        </div>
+      </div>
+    </div>
+    <div class="details-section__content">
+      <div class="details-section__content-inner">
+        <h2 class="section-header">{{ block.settings.header }}</h2>
+        <h3 class="section-subheader">{{ block.settings.subheader }}</h3>
+        <p>
+          {{ block.settings.body }}
+        </p>
+        <a class="cta-button cta-button_dark" href="">
+          {{ block.settings.cta_text }}
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

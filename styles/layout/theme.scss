@@ -4,10 +4,15 @@
 @import '../sections/footer';
 
 body {
+  background-color: var(--offwhite-color);
   color: var(--font-color);
   margin: 0;
   font-family: var(--font-sans-serif);
   font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 blockquote {
@@ -22,21 +27,25 @@ h4, h5, h6 {
 
 }
 
-p {
-  line-height: 1.5;
+h2.section-header {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0;
 }
 
-.button {
-  background: black;
-  color: white;
-  transition-property: background, color;
-  transition-duration: var(--slow);
+h3.section-subheader {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.4;
+}
 
-  &:hover {
-    background: black;
-    color: white;
-    transition-duration: var(--fast);
-  }
+p {
+  line-height: 1.5;
 }
 
 // Reuseable things.
@@ -54,9 +63,15 @@ button.cta-button {
   background-color: var(--white-color);
   border-radius: 30px;
   color: var(--font-color);
+  display: inline-block;
   font-size: 14px;
   font-weight: 500;
   padding: 17px 69px 17px 32px;
   text-decoration: none;
   text-transform: uppercase;
+
+  &.cta-button_dark {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
 }
