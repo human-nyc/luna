@@ -1,19 +1,33 @@
+@import '../responsive';
+
 .home-hero {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+
+  @include tablet-portrait {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
 }
 
 .home-hero__content {
   align-items: center;
   background-color: var(--secondary-brand-color);
   display: flex;
-  flex: 0 0 50%;
-  justify-content: center;
+
+  @include tablet-portrait {
+    flex: 0 0 auto;
+    justify-content: center;
+    width: 50%;
+  }
 }
 
 .home-hero__content-inner {
+  margin: 0 auto;
   max-width: 560px;
-  padding: var(--gutter);
+  padding: 40px var(--gutter);
+  text-align: center;
 
   h1 {
     font-size: 52px;
@@ -26,9 +40,21 @@
     line-height: 1.78;
     margin: 28px 0 48px;
   }
+
+  @include tablet-portrait {
+    text-align: left;
+  }
 }
 
 .home-hero__image {
   background-color: var(--primary-brand-color);
-  flex: 0 0 50%;
+  height: 450px;
+  order: -1;
+
+  @include tablet-portrait {
+    flex: 0 0 auto;
+    height: auto;
+    order: 2;
+    width: 50%;
+  }
 }

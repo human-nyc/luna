@@ -1,3 +1,21 @@
 .products-slider {
+  padding: var(--padding-v-mobile) 0;
 
+  @include tablet-portrait {
+    padding: var(--padding-v-desktop) 0;
+  }
+}
+
+.products-slider__header {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.products-slider__main {
+
+}
+
+.products-slider__cta {
+  margin-top: 80px;
+  text-align: center;
 }

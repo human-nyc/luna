@@ -1,11 +1,12 @@
 :root {
   // Left and right page gutter. Can be set using multiple @media breakpoints. Example:
+  --gutter-half: 12px;
   @media (max-width: 767px) {
-    --gutter: 16px;
+    --gutter: 24px;
   }
 
   @media (min-width: 768px) {
-    --gutter: 32px;
+    --gutter: 24px;
   }
 
   // Header height
@@ -23,7 +24,7 @@
 
   // Fonts
   --font-serif: serif;
-  --font-sans-serif: sans-serif;
+  --font-sans-serif: 'Helvetica Neue', sans-serif;
 
   // Colors
   --deep-blue-color: #182755;
@@ -36,4 +37,6 @@
 
   // Sizing
   --page-width: 1360px;
+  --padding-v-desktop: 80px;
+  --padding-v-mobile: 40px;
 }

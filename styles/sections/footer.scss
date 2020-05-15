@@ -13,11 +13,10 @@
 .footer__logo {
   margin: 0 auto;
   max-width: 100%;
-  padding-bottom: 50px;
+  padding: 0 var(--gutter) 50px;
   width: var(--page-width);
 
   img {
-    padding: 0 var(--gutter);
   }
 }
 
