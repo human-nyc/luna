@@ -1,17 +1,17 @@
 <div class="home-hero__content">
   <div class="home-hero__content-inner">
-    <h1>{{ settings.header }}</h1>
+    <h1>{{ section.settings.header }}</h1>
     <p>
-      {{ settings.body }}
+      {{ section.settings.body }}
     </p>
     <a href="" class="cta-button">
-      {{ settings.cta_text }}
+      {{ section.settings.cta_text }}
     </a>
   </div>
 </div>
 <div class="home-hero__image">
   <div class="fill-image">
-    <img src="{{}}" />
+    <img src="{{section.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
   </div>
 </div>
 
