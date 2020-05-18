@@ -1,9 +1,21 @@
 @import '../responsive';
 
-.header {
-  left: 0;
-  position: fixed;
+.promo-banner {
+  background-color: var(--primary-brand-color);
+  color: var(--white-color);
+  font-size: 14px;
+  height: var(--banner-height);
+  line-height: 1;
+  padding: 12px;
+  text-align: center;
+}
+
+#shopify-section-header {
+  position: sticky;
   top: 0;
+}
+
+.header {
   transition: box-shadow var(--slow);
   width: 100%;
   z-index: 1000;
@@ -15,18 +27,7 @@
   }
 }
 
-.header__promo {
-  background-color: var(--primary-brand-color);
-  color: var(--white-color);
-  font-size: 14px;
-  height: var(--banner-height);
-  line-height: 1;
-  padding: 12px;
-  text-align: center;
-}
-
 .header__main {
-  position: relative;
   transition: background-color var(--slow);
 
   .header_scrolled &,
