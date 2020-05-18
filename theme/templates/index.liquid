@@ -1,16 +1,1 @@
-<div class="page-index">
-  {% section 'homepage' %}
-</div>
-
-{% for product in collections.all.products limit:4 %}
-  <div>
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-    {{ product.price | money }}
-    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-    </a>
-  </div>
-{% endfor %}
-
-{{ 'index.css' | asset_url | stylesheet_tag }}
+{{ content_for_index }}
