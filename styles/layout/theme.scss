@@ -6,9 +6,9 @@
 body {
   background-color: var(--offwhite-color);
   color: var(--font-color);
-  margin: 0;
   font-family: var(--font-sans-serif);
   font-size: 16px;
+  margin: 0;
 }
 
 * {
@@ -75,4 +75,8 @@ button.cta-button {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
   }
+}
+
+[v-cloak] {
+  display: none;
 }

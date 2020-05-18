@@ -1,0 +1,18 @@
+<div class="promo-banner">
+  {{ section.settings.promo_text }}
+</div>
+
+{% schema %}
+  {
+    "name": "Promo Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "promo_text",
+        "label": "Text",
+        "default": "Promo Here"
+      }
+    ],
+    "blocks": []
+  }
+{% endschema %}
