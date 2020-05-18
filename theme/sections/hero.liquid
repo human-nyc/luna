@@ -1,0 +1,51 @@
+<div class="home-hero__content">
+  <div class="home-hero__content-inner">
+    <h1>{{ settings.header }}</h1>
+    <p>
+      {{ settings.body }}
+    </p>
+    <a href="" class="cta-button">
+      {{ settings.cta_text }}
+    </a>
+  </div>
+</div>
+<div class="home-hero__image">
+  <div class="fill-image">
+    <img src="{{}}" />
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "class": "home-hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      },
+      {
+        "type": "textarea",
+        "id": "body",
+        "label": "Body"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "Images"
+      }
+    ]
+  }
+{% endschema %}

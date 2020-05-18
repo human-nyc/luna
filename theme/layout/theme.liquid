@@ -8,8 +8,15 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }} <!-- Header hook for plugins -->
-  {{ 'theme.css' | asset_url | stylesheet_tag }}
-  {{ 'application.js' | asset_url | script_tag }}
+
+    <!-- STYLE TAGS -->
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {% render 'font-faces' %}
+    {% render 'style-tags' %}
+
+    <!-- SCRIPT TAGS -->
+    {{ 'theme.js' | asset_url | script_tag }}
+    {% render 'script-tags' %}
 </head>
 <body>
   {% section 'header' %}
