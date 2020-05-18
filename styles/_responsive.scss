@@ -2,6 +2,7 @@ $break-small-viewport: 767px;
 $break-tablet-portrait: 768px;
 $break-tablet-landscape: 992px;
 $break-desktop: 1200px;
+$break-desktop-lg: 1360px;
 
 @mixin small-viewport {
   @media only screen and (max-width: $break-small-viewport) { @content; }
@@ -17,4 +18,8 @@ $break-desktop: 1200px;
 
 @mixin desktop {
   @media only screen and (min-width: $break-desktop) { @content; }
+}
+
+@mixin desktop-lg {
+  @media only screen and (min-width: $break-desktop-lg) { @content; }
 }
