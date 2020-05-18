@@ -25,7 +25,7 @@
   max-width: 100%;
   width: var(--page-width);
 
-  @include tablet-portrait {
+  @include tablet-landscape {
     display: flex;
     justify-content: space-between;
   }
@@ -40,11 +40,19 @@
 }
 
 .footer__columns {
-  display: flex;
+  @include tablet-portrait {
+    display: flex;
+  }
 }
 
 .footer__col {
-  width: 200px;
+  margin-bottom: 40px;
+  width: 100%;
+
+  @include tablet-portrait {
+    margin-bottom: 0;
+    width: 200px;
+  }
 
   ul {
     list-style: none;
@@ -61,11 +69,16 @@
   font-family: var(--font-serif);
   text-align: center;
   line-height: 1.5;
-  margin-top: -.5em;
   margin-bottom: 1em;
+  margin-top: 50px;
+
+  @include tablet-landscape {
+    margin-top: -.5em;
+  }
 }
 
 .footer__form {
+
   .form-wrapper {
     display: flex;
   }

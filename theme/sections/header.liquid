@@ -1,17 +1,24 @@
-<div class="header">
+<div class="header" :class="{ 'header_products_open': isShowingProducts, 'header_scrolled': isScrolled }" id="headerComponent">
   <div class="header__promo">
     {{ section.settings.promo_text }}
   </div>
   <div class="header__main">
     <div class="header__main-inner">
       <div class="header__left">
-        <span class="header-link">Shop</span>
+        <span class="header-link" v-on:click="toggleProducts()">Shop</span>
         <a class="header-link" href="/">How it works</a>
         <a class="header-link" href="/">Why Luna?</a>
+        <div class="header__toggler" @click="toggleOpen()">
+          <div class="toggle-icon">
+            <div class="toggle-icon_bar-one"></div>
+            <div class="toggle-icon_bar-two"></div>
+            <div class="toggle-icon_bar-three"></div>
+          </div>
+        </div>
       </div>
       <div class="header__center">
         <div class="header__logo">
-          <img src="" alt="Luna" />
+          <img src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
         </div>
       </div>
       <div class="header__right">
@@ -24,15 +31,30 @@
             {{ 'Register' | customer_register_link }}
           {% endif %}
         {% endif %}
-        <a class="header-link" href="/cart">Cart</a>
+        <a class="header-link header-link_cart" href="/cart">Cart<span v-cloak> (${cartCount})</span></a>
       </div>
     </div>
   </div>
   <div class="header__dropdown">
     <div class="header__dropdown-inner">
-      <span>Product 1</span>
-      <span>Product 2</span>
-      <span>Product 3</span>
+      <a class="dropdown-item">
+        <div class="dropdown-image">
+          <img alt="Collection 1" />
+        </div>
+        <span>Collection 1</span>
+      </a>
+      <a class="dropdown-item">
+        <div class="dropdown-image">
+          <img alt="Collection 2" />
+        </div>
+        <span>Collection 2</span>
+      </a>
+      <a class="dropdown-item">
+        <div class="dropdown-image">
+          <img alt="Collection 3" />
+        </div>
+        <span>Collection 3</span>
+      </a>
     </div>
   </div>
 </div>
