@@ -1,3 +1,14 @@
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .comparison-chart {
 
 }
@@ -30,10 +41,16 @@
 }
 
 .comparison-chart__wrapper {
+  animation: 800ms fadeUp;
+  display: none;
   margin: 80px auto;
   max-width: 100%;
   padding: 0 var(--gutter);
   width: var(--page-width);
+
+  .comparison-chart_open & {
+    display: block;
+  }
 
   @include small-viewport {
     padding: 0 8px;
