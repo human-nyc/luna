@@ -1,0 +1,75 @@
+<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} {% if section.settings.blue_background == true %}split-block_background_blue{% endif %}">
+  <div class="split-block__inner">
+    <div class="split-block__image">
+      <div class="image-wrapper">
+        <div class="fill-image">
+          <img src="{{section.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+        </div>
+      </div>
+    </div>
+    <div class="split-block__content">
+      <div class="split-block__content-inner">
+        <h2 class="section-header">{{ section.settings.header }}</h2>
+        <h3 class="section-subheader">{{ section.settings.subheader }}</h3>
+        <p>
+          {{ section.settings.body }}
+        </p>
+        <a class="cta-button cta-button_dark" href="">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Details Block",
+    "class": "details-block",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      },
+      {
+        "type": "text",
+        "id": "subheader",
+        "label": "Subheader"
+      },
+      {
+        "type": "textarea",
+        "id": "body",
+        "label": "Body"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Shop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_on_left",
+        "label": "Show image on left",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blue_background",
+        "label": "Blue background"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Split block with text and image",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

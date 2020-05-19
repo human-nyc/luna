@@ -1,0 +1,35 @@
+{% include 'products-slider' %}
+
+
+{% schema %}
+  {
+    "name": "Products Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "See what the fans have to say..."
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Featured Product",
+        "type": "featured_product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_item",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Products slider",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}

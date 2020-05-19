@@ -1,0 +1,86 @@
+<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} {% if section.settings.blue_background == true %}split-block_background_blue{% endif %}">
+  <div class="split-block__inner">
+    <div class="split-block__image">
+      <div class="image-wrapper">
+        <div class="fill-image">
+          <img src="{{section.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+        </div>
+      </div>
+    </div>
+    <div class="split-block__content">
+      <div class="split-block__content-inner">
+        <h2 class="section-header">{{ section.settings.header }}</h2>
+        <div class="icons-block__items">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'icon_text' %}
+                <div class="item-wrapper">
+                  <div class="icons-block__item">
+                    <img src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
+                    <p>
+                      {{ block.settings.text }}
+                    </p>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Icons Block",
+    "class": "icons-block",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_on_left",
+        "label": "Show image on left",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "blue_background",
+        "label": "Blue background",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Icon Text",
+        "type": "icon_text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Split block with icons list and image",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

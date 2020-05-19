@@ -1,0 +1,132 @@
+@import '../responsive';
+
+.split-block {
+  padding: var(--padding-v-mobile) 0;
+
+  @include tablet-portrait {
+    padding: var(--padding-v-desktop) 0;
+  }
+
+  &.split-block_background_blue {
+    background-color: var(--secondary-brand-color);
+  }
+}
+
+.split-block__inner {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 100%;
+  width: var(--page-width);
+
+  @include tablet-portrait {
+    flex-direction: row;
+    padding: var(--gutter-half);
+  }
+}
+
+.split-block__image {
+  order: -1;
+  padding: 0 var(--gutter);
+
+  .image-wrapper {
+    background-color: var(--primary-brand-color);
+    margin: 0 0 0 auto;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+
+    @include tablet-landscape {
+      padding-bottom: 80%;
+      width: 80%;
+    }
+  }
+
+  @include tablet-portrait {
+    flex: 0 0 auto;
+    order: 2;
+    padding: 0 var(--gutter-half);
+    width: 50%;
+  }
+
+  .split-block_image_left & {
+    .image-wrapper {
+      margin: 0 auto 0 0;
+    }
+
+    @include tablet-portrait {
+      order: -1;
+    }
+  }
+}
+
+.split-block__content {
+  align-items: center;
+  display: flex;
+  padding: var(--padding-v-mobile) var(--gutter) 0;
+  text-align: center;
+
+  @include tablet-portrait {
+    flex: 0 0 auto;
+    padding: 0 var(--gutter-half);
+    text-align: left;
+    width: 50%;
+  }
+}
+
+.split-block__content-inner {
+  max-width: 610px;
+
+  p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 1em 0 2em;
+  }
+
+  .cta-button {
+
+  }
+
+  .icons-block & {
+    text-align: center;
+  }
+
+  .icons-block__items {
+    @include tablet-portrait {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .item-wrapper {
+      margin-top: var(--padding-v-mobile);
+      width: 100%;
+
+      &:not(:last-child) {
+        @include small-viewport {
+          border-bottom: 1px solid darken(#dae8f0, 15);
+        }
+      }
+
+      @include tablet-portrait {
+        border: 0;
+        flex: 0 0 auto;
+        margin-top: var(--padding-v-desktop);
+        width: 50%;
+      }
+    }
+  }
+
+  .icons-block__item {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 var(--gutter);
+    width: calc(200px + 2 * var(--gutter));
+
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      margin: 1em 0 0;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="testimonials__header">
+  <h2 class="section-header">{{ section.settings.header }}</h2>
+</div>
+<div class="testimonials__slider">
+  Slider.
+</div>
+<div class="testimonials__cta">
+  <a class="cta-button cta-button_dark">
+    {{ section.settings.cta_text }}
+  </a>
+</div>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "class": "testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "See what the fans have to say..."
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "See more reviews"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Testimonial",
+        "type": "testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "textarea",
+            "id": "body",
+            "label": "Body"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

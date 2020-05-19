@@ -1,0 +1,55 @@
+<div class="collection-list__inner">
+  <div class="collection-list__header">
+    <h2 class="section-header">{{ section.settings.header }}</h2>
+  </div>
+  <div class="collection-list__items">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'collection_item' %}
+          <div class="item-wrapper">
+            <a class="collection-list__item">
+              <button class="cta-button">Shop ___</button>
+            </a>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection List",
+    "class": "collection-list",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Collection",
+        "type": "collection_item",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "hover_image",
+            "label": "Hover Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

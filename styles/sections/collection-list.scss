@@ -1,6 +1,6 @@
 @import '../responsive';
 
-.collections-list {
+.collection-list {
   background-color: var(--secondary-brand-color);
   padding: var(--padding-v-mobile) 0;
   text-align: center;
@@ -10,13 +10,13 @@
   }
 }
 
-.collections-list__inner {
+.collection-list__inner {
   margin: 0 auto;
   width: var(--page-width);
   max-width: 100%;
 }
 
-.collections-list__header {
+.collection-list__header {
   margin-bottom: 44px;
   padding: 0 var(--gutter);
 
@@ -25,7 +25,7 @@
   }
 }
 
-.collections-list__items {
+.collection-list__items {
   overflow-x: scroll;
   padding: 0 var(--gutter);
   white-space: nowrap;
@@ -50,7 +50,7 @@
   }
 }
 
-a.collections-list__item {
+a.collection-list__item {
   background-color: var(--primary-brand-color);
   display: block;
   padding-bottom: 100%;

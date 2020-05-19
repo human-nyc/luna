@@ -7,7 +7,8 @@
   @include tablet-portrait {
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--banner-height));
+
   }
 }
 
@@ -50,6 +51,7 @@
   background-color: var(--primary-brand-color);
   height: 450px;
   order: -1;
+  position: relative;
 
   @include tablet-portrait {
     flex: 0 0 auto;

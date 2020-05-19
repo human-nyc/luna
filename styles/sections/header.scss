@@ -12,13 +12,15 @@
 
 #shopify-section-header {
   position: sticky;
+  z-index: 100;
   top: 0;
 }
 
 .header {
+  position: absolute;
+  left: 0;
   transition: box-shadow var(--slow);
   width: 100%;
-  z-index: 1000;
 
   &.header_scrolled,
   &.header_products_open {

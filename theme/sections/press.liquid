@@ -1,0 +1,61 @@
+<div class="press__header">
+  <h2>{{ section.settings.header }}</h2>
+</div>
+<div class="press__logos">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'press_mention' %}
+        <div class="press-logo">
+          <img alt="{{ block.settings.name }}"/>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+<div class="press__quote">
+  <blockquote>
+    &ldquo;Recent thing.&rdquo;
+  </blockquote>
+</div>
+
+{% schema %}
+  {
+    "name": "Press",
+    "class": "press",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Press mention",
+        "type": "press_mention",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Selectable images with quotes",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

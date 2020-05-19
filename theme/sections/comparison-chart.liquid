@@ -1,7 +1,7 @@
 <div class="comparison-chart" :class="{ 'comparison-chart_open': isOpen }" id="comparisonChart">
   <div class="comparison-chart__top">
     <button class="cta-button" @click="toggleOpen()">
-      {{ block.settings.button_text }}
+      {{ section.settings.button_text }}
     </button>
   </div>
   <div class="comparison-chart__main">
@@ -63,3 +63,25 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Comparison Chart",
+    "class": "comparison-chart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "How we measure up"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Comparison chart",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
