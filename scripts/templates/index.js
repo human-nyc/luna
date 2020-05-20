@@ -1,4 +1,5 @@
-import '../snippets/header';
-import '../snippets/comparison-chart';
+import '../sections/header';
+import '../sections/comparison-chart';
+import '../sections/press';
 
 console.log('index page');

@@ -1,26 +1,32 @@
-<div class="press__header">
-  <h2>{{ section.settings.header }}</h2>
-</div>
-<div class="press__logos">
-  {% for block in section.blocks %}
-    {% case block.type %}
-      {% when 'press_mention' %}
-        <div class="press-logo">
-          <img alt="{{ block.settings.name }}"/>
+<div class="press" id="press" data-count="{{ section.blocks.size }}">
+  <div class="press__header">
+    <h2>{{ section.settings.header }}</h2>
+  </div>
+  <div class="press__logos">
+    {% for block in section.blocks %}
+      {% if block.type == 'press_mention' %}
+        <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
+          <img src="{{ block.settings.logo | img_url: 'small' }}" alt="{{ block.settings.name }}"/>
         </div>
-    {% endcase %}
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="press__quote">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'press_mention' %}
+          <blockquote :class="{ active: activeItem == {{forloop.index0}}, inactive: inactiveItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
+            &ldquo;{{ block.settings.quote }}&rdquo;
+          </blockquote>
+      {% endcase %}
+    {% endfor %}
+  </div>
 </div>
-<div class="press__quote">
-  <blockquote>
-    &ldquo;Recent thing.&rdquo;
-  </blockquote>
-</div>
+
 
 {% schema %}
   {
     "name": "Press",
-    "class": "press",
     "settings": [
       {
         "type": "text",

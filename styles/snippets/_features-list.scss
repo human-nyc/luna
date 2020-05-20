@@ -54,10 +54,6 @@
   .fill-image {
     background-color: var(--primary-brand-color);
     border-radius: 200px;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+    overflow: hidden;
   }
 }

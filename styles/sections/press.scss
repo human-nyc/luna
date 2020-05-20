@@ -1,3 +1,14 @@
+@keyframes pressFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .press {
   padding: 80px var(--gutter);
 }
@@ -20,18 +31,51 @@
 }
 
 .press-logo {
+  cursor: pointer;
   flex: 0 0 auto;
+  opacity: .2;
   text-align: center;
+  transition: opacity var(--slow);
   width: 200px;
+
+  &.active {
+    opacity: 1;
+    transition-duration: var(--fast);
+  }
 }
 
 .press__quote {
+  height: 92px;
+  position: relative;
   text-align: center;
+
+  @include tablet-portrait {
+    height: 46px;
+  }
 
   blockquote {
     color: var(--font-color);
+    display: none;
     font-family: var(--font-serif);
     font-size: 40px;
     font-style: italic;
+    margin: 0;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &.active {
+      animation: pressFadeIn var(--slow);
+      display: block;
+    }
+
+    &.inactive {
+      display: block;
+      opacity: 0;
+      transition: var(--fast);
+      // transform: translateY(30px);
+    }
   }
 }
