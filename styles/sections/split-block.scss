@@ -75,7 +75,12 @@
 }
 
 .split-block__content-inner {
-  max-width: 610px;
+  max-width: 100%;
+  width: 100%;
+
+  @include tablet-portrait {
+    width: 610px;
+  }
 
   p {
     font-size: 16px;
@@ -126,7 +131,11 @@
       font-size: 20px;
       font-weight: 500;
       line-height: 1.6;
-      margin: 1em 0 0;
+      margin: 1em 0;
+
+      @include tablet-portrait {
+        margin: 1em 0 0;
+      }
     }
   }
 }

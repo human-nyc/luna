@@ -6,8 +6,10 @@
     {% if block.type == 'testimonial' %}
       <div class="testimonials__slide">
         <div class="testimonials__slide-inner">
+          <img src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
           <h4>{{block.settings.name}}</h4>
           <p>{{block.settings.body}}</p>
+          <img class="quote-tail" src="{{ 'quote-tail@2x.png' | asset_url | image_tag }}" alt="" />
         </div>
       </div>
     {% endif %}
@@ -18,6 +20,15 @@
     {{ section.settings.cta_text }}
   </a>
 </div>
+
+<style>
+  .flickity-prev-next-button.previous {
+    background-image: url("{{ 'slider-arrow-left@2x.png' | asset_url }}");
+  }
+  .flickity-prev-next-button.next {
+    background-image: url("{{ 'slider-arrow-right@2x.png' | asset_url }}");
+  }
+</style>
 
 {% schema %}
   {
