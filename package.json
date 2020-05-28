@@ -41,5 +41,8 @@
       "extensions": "scss",
       "quiet": false
     }
+  },
+  "dependencies": {
+    "flickity": "^2.2.1"
   }
 }
