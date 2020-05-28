@@ -2,18 +2,24 @@
   <div class="products-slider__header">
     <h2 class="section-header">{{ section.settings.header }}</h2>
   </div>
-  <div class="products-slider__main">
+  <div class="products-slider__main" id="productSlider">
     {% for block in section.blocks %}
       {% if block.type == 'featured_product' %}
         {% assign product = all_products[block.settings.product_item] %}
-        <div class="product-item">
-          <img src="{{product.featured_image | img_url }}">
-          <div class="">
-            <div class="">
-              <h4>{{product.title}}</h4>
-              <p>{{product.price | money }}</p>
+        <div class="products-slider__slide">
+          <div class="products-slider__item product-item">
+            <div class="products-slider__item-image">
+              <div class="fill-image">
+                <img src="{{product.featured_image | img_url }}">
+              </div>
             </div>
-            <product-options></product-options>
+            <div class="">
+              <div class="">
+                <h4>{{product.title}}</h4>
+                <p>{{product.price | money }}</p>
+              </div>
+              <product-options product="{{block.settings.product_item}}"></product-options>
+            </div>
           </div>
         </div>
       {% endif %}
