@@ -23,6 +23,40 @@ var flkty = new Flickity('#productSlider', {
   }
 });
 
+const AddToCart = Vue.component('add-to-cart', {
+  props: ['products'],
+  data: function() {
+    return {
+      step: 0,
+    };
+  },
+  template: (`
+    <div>
+      <div v-if="step === 0" class="button">
+        <button @click="begin">Add to cart</button>
+      </div>
+      <div v-else class="add-overlay__options">
+        <div class="add-overlay__option">
+          <span>01. Choose your size:</span>
+          <button></button><button></button>
+        </div>
+        <div class="add-overlay__option">
+          <span>02. Choose your blanket weight:</span>
+          <button></button><button></button>
+        </div>
+      </div>
+    </div>
+  `),
+  mounted: function() {
+    console.log('Mounted', this.product);
+  },
+  methods: {
+    begin: function() {
+      this.step += 1;
+    },
+  },
+});
+
 const ProductOptions = Vue.component('product-options', {
   props: ['product'], // declare the props
   template: `<p>I\'m the options.</p>`,
@@ -45,5 +79,6 @@ const product = new Vue({
   },
   components: {
     ProductOptions,
+    AddToCart,
   },
 });

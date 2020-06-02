@@ -12,10 +12,13 @@
               <div class="fill-image">
                 <img src="{{product.featured_image | img_url }}">
               </div>
+              <div class="add-to-cart-wrapper">
+                <add-to-cart product="{{block.settings.product_item}}"></add-to-cart>
+              </div>
             </div>
             <div class="">
               <div class="">
-                <h4>{{product.title}}</h4>
+                <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
                 <p>{{product.price | money }}</p>
               </div>
               <product-options product="{{block.settings.product_item}}"></product-options>
