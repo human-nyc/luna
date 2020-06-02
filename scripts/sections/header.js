@@ -17,8 +17,19 @@ const header = new Vue({
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    toggleProducts: function() {
+    toggleProducts: function(event) {
       this.isShowingProducts = !this.isShowingProducts;
+      event.stopPropagation();
+      if (this.isShowingProducts) {
+        window.addEventListener('click', this.closeProducts);
+      }
+    },
+    closeProducts: function(event) {
+      const dropdown = document.getElementById('headerDropdown');
+      if (!dropdown.contains(event.target)) {
+        this.isShowingProducts = false;
+        window.removeEventListener('click', this.closeProducts);
+      }
     },
     toggleOpen: function() {
       this.isOpen = !this.isOpen;

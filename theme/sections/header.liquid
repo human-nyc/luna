@@ -2,10 +2,10 @@
   <div class="header__main">
     <div class="header__main-inner">
       <div class="header__left">
-        <span class="header-link" v-on:click="toggleProducts()">Shop</span>
+        <span class="header-link" v-on:click="toggleProducts">Shop</span>
         <a class="header-link" href="/">How it works</a>
         <a class="header-link" href="/">Why Luna?</a>
-        <div class="header__toggler" @click="toggleOpen()">
+        <div class="header__toggler" @click="toggleOpen">
           <div class="toggle-icon">
             <div class="toggle-icon_bar-one"></div>
             <div class="toggle-icon_bar-two"></div>
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="header__dropdown">
+  <div class="header__dropdown" id="headerDropdown">
     <div class="header__dropdown-inner">
       <a class="dropdown-item">
         <div class="dropdown-image">
