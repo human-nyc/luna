@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 const productForm = new Vue({
   delimiters: ['${', '}'],
-  el: '#productForm',
+  el: '#ProductForm',
   data: {
     product: {
       variants: [],
@@ -13,6 +13,9 @@ const productForm = new Vue({
     weights: [],
     selectedSize: '',
     selectedColor: '',
+    tab: 1,
+    quantity: 1,
+    selecting: 'color',
   },
   mounted: function() {
     this.product = JSON.parse(this.$el.getAttribute('data-product'));
@@ -37,12 +40,23 @@ const productForm = new Vue({
   },
   methods: {
     selectColor: function(color) {
-      console.log('Selected color: ', color.value);
       this.selectedColor = color.value;
     },
     selectSize: function(event) {
       console.log('Selected size: ', event.target.value);
       this.selectedSize = event.target.value;
+    },
+    selectTab: function(tab) {
+      this.tab = tab;
+    },
+    adjustQuantity: function(increment) {
+      this.quantity += increment;
+      if (this.quantity < 1) {
+        this.quantity = 1;
+      }
+    },
+    focusOption: function(option) {
+      this.selecting = option;
     },
   }
 });
