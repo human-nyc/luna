@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Flickity from 'flickity';
+import ColorOptions, { formatColors } from '../components/color-options';
 
-var flkty = new Flickity('#productSlider', {
+const flkty = new Flickity('#productSlider', {
   pageDots: false,
   prevNextButtons: true,
   fade: true,
@@ -17,8 +18,10 @@ var flkty = new Flickity('#productSlider', {
   }
 });
 
+// Components
+
 const AddToCart = Vue.component('add-to-cart', {
-  props: ['products'],
+  props: ['product'],
   data: function() {
     return {
       step: 0,
@@ -51,39 +54,35 @@ const AddToCart = Vue.component('add-to-cart', {
   },
 });
 
-const ProductOptions = Vue.component('product-options', {
-  props: ['product'], // declare the props
-  template: `<div>
-    <span v-for="color in colors">{{color}}</span>
-  </div>`,
-  data: function() {
-    return {
-      colors: [],
-    };
-  },
-  mounted: function () {
-    fetch('/products/' + this.product + '.json')
-      .then((response) => response.json()).then(data => {
-        console.log(data);
-        this.productData = data.product;
-        this.colors = data.product.options.find(option => option.name.toLowerCase() === 'color').values;
-      });
-  }
-});
+// Instance
 
 const product = new Vue({
   delimiters: ['${', '}'],
   el: '.product-item',
   data: {
-    message: 'Hi',
+    product: '',
+    colors: [],
+  },
+  mounted: function () {
+    this.product = this.$el.getAttribute('data-product');
+    fetch('/products/' + this.product + '.json')
+      .then((response) => response.json()).then(data => {
+        const { product } = data;
+        console.log({ product });
+        this.productData = product;
+        this.colors = formatColors(product);
+      });
   },
   methods: {
     addToCart: function() {
 
-    }
+    },
+    onChangeColor: function(color) {
+      console.log('New color is: ', color);
+    },
   },
   components: {
-    ProductOptions,
     AddToCart,
+    ColorOptions,
   },
 });

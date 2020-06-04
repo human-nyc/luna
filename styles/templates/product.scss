@@ -4,7 +4,6 @@
 @import '../sections/product-detail';
 @import '../sections/product-full-image';
 
-
 .product-hero {
   padding-bottom: var(--padding-v-desktop);
   padding-top: 120px;
@@ -180,13 +179,15 @@
 }
 
 .color-options {
+  margin: 7px -7px;
+
   button {
     background-color: var(--primary-brand-color);
     border-radius: 20px;
     cursor: pointer;
     display: inline-block;
     height: 32px;
-    margin: 0 14px 14px 0;
+    margin: 7px;
     outline: none;
     position: relative;
     vertical-align: bottom;

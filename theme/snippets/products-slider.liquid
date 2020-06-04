@@ -7,21 +7,24 @@
       {% if block.type == 'featured_product' %}
         {% assign product = all_products[block.settings.product_item] %}
         <div class="products-slider__slide">
-          <div class="products-slider__item product-item">
+          <div class="products-slider__item product-item" data-product="{{block.settings.product_item}}">
             <div class="products-slider__item-image">
               <div class="fill-image">
-                <img src="{{product.featured_image | img_url }}">
+                <img src="{{product.featured_image | img_url: '600x600', scale: 2 }}">
               </div>
               <div class="add-to-cart-wrapper">
                 <add-to-cart product="{{block.settings.product_item}}"></add-to-cart>
               </div>
             </div>
-            <div class="">
-              <div class="">
+            <div class="products-slider__item-content">
+              <div class="products-slider__item-details">
                 <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
                 <p>{{product.price | money }}</p>
               </div>
-              <product-options product="{{block.settings.product_item}}"></product-options>
+              <color-options
+                v-bind:colors="colors"
+                @changed="onChangeColor"
+              /></color-options>
             </div>
           </div>
         </div>

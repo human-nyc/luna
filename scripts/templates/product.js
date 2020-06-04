@@ -1,5 +1,7 @@
 import Vue from 'vue';
+import ColorOptions, { formatColors } from '../components/color-options';
 
+import '../components/color-options'; // Would like to remove... but need for export..
 import '../sections/header';
 import '../snippets/features-list';
 import '../sections/product-steps';
@@ -41,10 +43,12 @@ const productForm = new Vue({
         values: products,
       };
     });
+    this.colors = this.options[1].values.map(option => option.value);
   },
   methods: {
-    selectColor: function(color) {
-      this.selectedColor = color.value;
+    onChangeColor: function(color) {
+      this.selectedColor = color;
+      console.log(color);
     },
     selectSize: function(event) {
       console.log('Selected size: ', event.target.value);
@@ -62,5 +66,8 @@ const productForm = new Vue({
     focusOption: function(option) {
       this.selecting = option;
     },
-  }
+  },
+  components: {
+    ColorOptions,
+  },
 });

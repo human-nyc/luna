@@ -39,13 +39,11 @@
             <h3 class="caps-header">01. Choose a color: ${selectedColor}</h3>
           </div>
           <div class="product-hero__option-body">
-            <div v-if="options[1]" class="color-options">
-              <button
-                type="button"
-                v-for="color in options[1].values"
-                @click="selectColor(color)"
-                :class="{'active': selectedColor === color.value}"
-              ></button>
+            <div v-if="options[1]">
+              <color-options
+                v-bind:colors="colors"
+                @changed="onChangeColor"
+              /></color-options>
             </div>
           </div>
         </div>
