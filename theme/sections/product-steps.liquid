@@ -1,0 +1,75 @@
+{% for block in section.blocks %}
+  {% if block.settings.product == product.handle %}
+    <div class="product-steps">
+      <div class="product-steps__inner">
+        <div class="product-steps__image">
+          <div class="image-wrapper">
+            <div class="fill-image">
+              <img src="{{block.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+            </div>
+          </div>
+        </div>
+        <div class="product-steps__content">
+          <div class="product-steps__content-inner">
+            <h2 class="section-header">{{block.settings.header}}</h2>
+            {% if block.settings.step_1 %}
+              <p>{{block.settings.step_1}}</p>
+            {% endif %}
+            {% if block.settings.step_2 %}
+              <p>{{block.settings.step_2}}</p>
+            {% endif %}
+            {% if block.settings.step_3 %}
+              <p>{{block.settings.step_3}}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product Steps",
+    "class": "shopify-section-product-steps",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-steps",
+        "name": "Product Steps",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "header",
+            "type": "text",
+            "label": "Header"
+          },
+          {
+            "id": "step_1",
+            "type": "richtext",
+            "label": "Step 1"
+          },
+          {
+            "id": "step_2",
+            "type": "richtext",
+            "label": "Step 2"
+          },
+          {
+            "id": "step_3",
+            "type": "richtext",
+            "label": "Step 3"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,57 @@
+{% for block in section.blocks %}
+  {% if block.settings.product == product.handle %}
+    <div class="product-detail">
+      <div class="product-detail__inner">
+        <div class="product-detail__image">
+          <div class="image-wrapper">
+            <div class="fill-image">
+              <img src="{{block.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+            </div>
+          </div>
+        </div>
+        <div class="product-detail__content">
+          <div class="product-detail__content-inner">
+            <h2 class="section-header">{{block.settings.header}}</h2>
+            <p>{{block.settings.body}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product Detail",
+    "class": "shopify-section-product-detail",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-detail",
+        "name": "Product Detail",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "header",
+            "type": "text",
+            "label": "Header"
+          },
+          {
+            "id": "body",
+            "type": "richtext",
+            "label": "Body"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -59,10 +59,21 @@ const AddToCart = Vue.component('add-to-cart', {
 
 const ProductOptions = Vue.component('product-options', {
   props: ['product'], // declare the props
-  template: `<p>I\'m the options.</p>`,
+  template: `<div>
+    <span v-for="color in colors">{{color}}</span>
+  </div>`,
+  data: function() {
+    return {
+      colors: [],
+    };
+  },
   mounted: function () {
-    // Do Something?
-    console.log('Options for product: ', this.product);
+    fetch('/products/' + this.product + '.json')
+      .then((response) => response.json()).then(data => {
+        console.log(data);
+        this.productData = data.product;
+        this.colors = data.product.options.find(option => option.name.toLowerCase() === 'color').values;
+      });
   }
 });
 

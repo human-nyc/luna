@@ -1,0 +1,141 @@
+{% for block in section.blocks %}
+  {% if block.settings.product == product.handle %}
+    <div class="features-list">
+      <div class="features-list__inner">
+        <div class="features-list__header">
+          <h2 class="section-header">{{ block.settings.title }}</h2>
+          <h3 class="section-subheader section-subheader_normal">{{ block.settings.intro }}</h3>
+        </div>
+        <div class="features-list__items">
+          <div class="features-list__item">
+            <div class="item-inner">
+              <div class="features-list__item-image">
+                <div class="fill-image">
+                  <img src="{{ block.settings.image_1 | img_url }}" />
+                </div>
+              </div>
+              <h4>{{ block.settings.header_1 }}</h4>
+              <h5>{{ block.settings.subheader_1 }}</h5>
+              <p>{{ block.settings.body_1 }}</p>
+            </div>
+          </div>
+          <div class="features-list__item">
+            <div class="item-inner">
+              <div class="features-list__item-image">
+                <div class="fill-image">
+                  <img src="{{ block.settings.image_2 | img_url }}" />
+                </div>
+              </div>
+              <h4>{{ block.settings.header_2 }}</h4>
+              <h5>{{ block.settings.subheader_2 }}</h5>
+              <p>{{ block.settings.body_2 }}</p>
+            </div>
+          </div>
+          <div class="features-list__item">
+            <div class="item-inner">
+              <div class="features-list__item-image">
+                <div class="fill-image">
+                  <img src="{{ block.settings.image_3 | img_url }}" />
+                </div>
+              </div>
+              <h4>{{ block.settings.header_3 }}</h4>
+              <h5>{{ block.settings.subheader_3 }}</h5>
+              <p>{{ block.settings.body_3 }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product Features",
+    "class": "shopify-section-product-features",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-features",
+        "name": "Product Features",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "intro",
+            "type": "richtext",
+            "label": "Intro Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Section 1 Image"
+          },
+          {
+            "id": "header_1",
+            "type": "text",
+            "label": "Section 1 Header"
+          },
+          {
+            "id": "subheader_1",
+            "type": "text",
+            "label": "Section 1 Subheader"
+          },
+          {
+            "id": "body_1",
+            "type": "richtext",
+            "label": "Section 1 Body"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Section 2 Image"
+          },
+          {
+            "id": "header_2",
+            "type": "text",
+            "label": "Section 2 Header"
+          },
+          {
+            "id": "subheader_2",
+            "type": "text",
+            "label": "Section 2 Subheader"
+          },
+          {
+            "id": "body_2",
+            "type": "richtext",
+            "label": "Section 2 Body"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_3",
+            "label": "Section 3 Image"
+          },
+          {
+            "id": "header_3",
+            "type": "text",
+            "label": "Section 3 Header"
+          },
+          {
+            "id": "subheader_3",
+            "type": "text",
+            "label": "Section 3 Subheader"
+          },
+          {
+            "id": "body_3",
+            "type": "richtext",
+            "label": "Section 3 Body"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

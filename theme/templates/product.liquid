@@ -30,64 +30,56 @@
     </div>
     <div class="product-hero__image">
       <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-      {% comment %}
-      {% for image in product.images %}
-        <a href="{{ image.src | img_url: 'large' }}">
-          <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-        </a>
-      {% endfor %}
-      {% endcomment %}
     </div>
     <div class="product-hero__form">
 
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-        {% comment %}<select name="id" id="productSelect">
-          {% for variant in product.variants %}
-            {% if variant.available %}
-              <option value="{{ variant.id }}">
-                {{ variant.title }} - {{ variant.price | money_with_currency }}
-              </option>
-            {% else %}
-              <option disabled="disabled">
-                {{ variant.title }} - sold out
-              </option>
-            {% endif %}
-          {% endfor %}
-        </select>{% endcomment %}
         <div class="product-hero__option" :class="{'expanded': selecting === 'color'}">
           <div @click="focusOption('color')" class="product-hero__option-header">
             <h3 class="caps-header">01. Choose a color: ${selectedColor}</h3>
           </div>
-          <div v-if="options[1]" class="color-options">
-            <button type="button" v-for="color in options[1].values" @click="selectColor(color)">${color.value}</button>
+          <div class="product-hero__option-body">
+            <div v-if="options[1]" class="color-options">
+              <button
+                type="button"
+                v-for="color in options[1].values"
+                @click="selectColor(color)"
+                :class="{'active': selectedColor === color.value}"
+              ></button>
+            </div>
           </div>
         </div>
         <div class="product-hero__option" :class="{'expanded': selecting === 'size'}">
           <div @click="focusOption('size')" class="product-hero__option-header">
             <h3 class="caps-header">02. Choose your size</h3>
           </div>
-          <select
-            class="variants"
-            name="id"
-            v-model="selectedSize"
-            v-if="options[0]"
-            @change="selectSize"
-          >
-            <option
-              v-for="size in options[0].values"
-              :value="size.value"
-            >${size.value}</option>
-          </select>
+          <div class="product-hero__option-body">
+            <select
+              class="variants"
+              name="id"
+              v-model="selectedSize"
+              v-if="options[0]"
+              @change="selectSize"
+            >
+              <option
+                v-for="size in options[0].values"
+                :value="size.value"
+              >${size.value}</option>
+            </select>
+          </div>
         </div>
         <div class="product-hero__option" :class="{'expanded': selecting === 'weight'}">
           <div @click="focusOption('weight')" class="product-hero__option-header">
             <h3 class="caps-header">03. Choose your blanket weight</h3>
           </div>
+          <div class="product-hero__option-body">
+            Options
+          </div>
         </div>
         <div class="quantity-and-price">
           <div class="quantity-selector">
             <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
-            <input type="number" id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
+            <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
             <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
           </div>
           <span>{{ current_variant.price | money }}</span>
@@ -97,3 +89,10 @@
     </div>
   </div>
 </div>
+
+{% section 'product-features' %}
+{% section 'product-benefits' %}
+{% section 'product-suggestion' %}
+{% section 'product-steps' %}
+{% section 'product-detail' %}
+{% section 'product-full-image' %}

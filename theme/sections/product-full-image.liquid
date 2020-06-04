@@ -1,0 +1,37 @@
+{% for block in section.blocks %}
+  {% if block.settings.product == product.handle %}
+    <div class="product-full-image">
+      <div class="product-full-image__inner">
+        <div class="fill-image">
+          <img src="{{block.settings.image | img_url: '1200x900', crop: 'center', scale: 2 }}" />
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product Full Image",
+    "class": "shopify-section-product-full-image",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-full-image",
+        "name": "Product Full Image",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

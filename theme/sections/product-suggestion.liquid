@@ -1,0 +1,26 @@
+{% for block in section.blocks %}
+  {% if block.settings.product == product.handle %}
+
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product Suggestion",
+    "class": "shopify-section-product-suggestion",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-suggestion",
+        "name": "Product Suggestion",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
