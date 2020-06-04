@@ -1,10 +1,22 @@
 @import '../responsive';
 
-.product-full-image {
+.shopify-section-product-full-image {
+  margin: var(--padding-v-desktop) 0;
+}
 
+.product-full-image {
+  padding: 0 var(--gutter);
+
+  @include tablet-portrait {
+    padding: 0;
+  }
 }
 
 .product-full-image__inner {
-  padding-bottom: 60%;
+  padding-bottom: 100%;
   position: relative;
+
+  @include tablet-portrait {
+    padding-bottom: 60%;
+  }
 }

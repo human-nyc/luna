@@ -1,4 +1,3 @@
-@import '../snippets/features-list';
 @import '../sections/product-features';
 @import '../sections/product-benefits';
 @import '../sections/product-steps';
@@ -7,30 +6,49 @@
 
 
 .product-hero {
-  padding-top: 150px;
-  padding-bottom: 30px;
+  padding-bottom: var(--padding-v-desktop);
+  padding-top: 120px;
+
+  @include tablet-portrait {
+    padding-bottom: 30px;
+    padding-top: 150px;
+  }
 }
 
 .product-hero__inner {
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 100%;
-  padding: 0 25px;
   width: var(--page-width);
+
+  @include tablet-portrait {
+    flex-direction: row;
+    padding: 0 25px;
+  }
 }
 
 .product-hero__header {
   font-family: var(--font-serif);
   margin: 0 auto;
   max-width: 100%;
-  padding: 0 50px;
+  padding: 0 25px;
   width: var(--page-width);
+
+  @include tablet-portrait {
+    padding: 0 50px;
+  }
 }
 
 .product-hero__title {
   font-family: var(--font-serif);
   font-size: 40px;
   margin: 0 0 .5em;
+  text-align: center;
+
+  @include tablet-portrait {
+    text-align: left;
+  }
 }
 
 .product-hero__info,
@@ -42,11 +60,37 @@
 
 .product-hero__info,
 .product-hero__form {
-  width: 28%;
+  width: 100%;
+
+  @include tablet-portrait {
+    width: 33.33%;
+  }
+
+  @include tablet-landscape {
+    width: 28%;
+  }
+}
+
+.product-hero__info {
+  margin-top: var(--padding-v-mobile);
+  order: 10;
+
+  @include tablet-portrait {
+    margin-top: 0;
+    order: -1;
+  }
 }
 
 .product-hero__image {
-  width: 44%;
+  width: 100%;
+
+  @include tablet-portrait {
+    width: 33.33%;
+  }
+
+  @include tablet-landscape {
+    width: 44%;
+  }
 
   img {
     width: 100%;

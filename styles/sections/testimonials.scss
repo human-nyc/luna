@@ -14,33 +14,6 @@
   padding-bottom: 80px;
   position: relative;
   width: 100%;
-
-  .flickity-prev-next-button {
-    appearance: none;
-    background-color: transparent;
-    background-size: 12px 20px;
-    border: 0;
-    cursor: pointer;
-    height: 20px;
-    width: 12px;
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-
-    &.previous {
-      left: 50%;
-      transform: translateX(-300%);
-    }
-
-    &.next {
-      right: 50%;
-      transform: translateX(300%);
-    }
-
-    &:disabled {
-      opacity: .4;
-    }
-  }
 }
 
 .testimonials__slide {

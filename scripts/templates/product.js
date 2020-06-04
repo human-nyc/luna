@@ -1,5 +1,9 @@
 import Vue from 'vue';
 
+import '../sections/header';
+import '../snippets/features-list';
+import '../sections/product-steps';
+
 const productForm = new Vue({
   delimiters: ['${', '}'],
   el: '#ProductForm',

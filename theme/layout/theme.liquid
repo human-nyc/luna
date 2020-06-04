@@ -9,14 +9,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }} <!-- Header hook for plugins -->
 
-    <!-- STYLE TAGS -->
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-    {% render 'font-faces' %}
-    {% render 'style-tags' %}
+  <!-- STYLE TAGS -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {% render 'font-faces' %}
+  {% render 'style-tags' %}
 
-    <!-- SCRIPT TAGS -->
-    {{ 'layout.theme.js' | asset_url | script_tag }}
-    {% render 'script-tags' %}
+  <!-- SCRIPT TAGS -->
+  {{ 'layout.theme.js' | asset_url | script_tag }}
+  {% render 'script-tags' %}
+
+  <style>
+    .flickity-prev-next-button.previous {
+      background-image: url("{{ 'slider-arrow-left@2x.png' | asset_url }}");
+    }
+    .flickity-prev-next-button.next {
+      background-image: url("{{ 'slider-arrow-right@2x.png' | asset_url }}");
+    }
+  </style>
 </head>
 <body>
   {% section 'promo-banner' %}

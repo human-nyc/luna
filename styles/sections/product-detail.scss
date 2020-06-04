@@ -1,7 +1,14 @@
 @import '../responsive';
 
-.product-detail {
+.shopify-section-product-detail {
+  margin: var(--padding-v-desktop) 0;
 
+  @include tablet-portrait {
+    margin: var(--padding-v-desktop) 0;
+  }
+}
+
+.product-detail {
 }
 
 .product-detail__inner {
@@ -22,7 +29,7 @@
   padding: 0 var(--gutter);
 
   .image-wrapper {
-    padding-bottom: 110%;
+    padding-bottom: 120%;
     position: relative;
   }
 
@@ -35,18 +42,21 @@
 }
 
 .product-detail__content {
-  padding: 0 var(--gutter);
+  padding: var(--padding-v-mobile) var(--gutter) 0;
 
   @include tablet-portrait {
+    align-items: center;
     display: flex;
-    flex-direction: column;
     flex: 0 0 auto;
+    flex-direction: column;
     justify-content: center;
-    padding: 0 var(--gutter-half);
+    padding: 0 var(--gutter);
     width: 50%;
   }
 }
 
 .product-detail__content-inner {
+  max-width: 100%;
   text-align: center;
+  width: 500px;
 }
