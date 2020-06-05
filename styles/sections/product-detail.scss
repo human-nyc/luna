@@ -1,14 +1,14 @@
 @import '../responsive';
 
 .shopify-section-product-detail {
+}
+
+.product-detail {
   margin: var(--padding-v-desktop) 0;
 
   @include tablet-portrait {
     margin: var(--padding-v-desktop) 0;
   }
-}
-
-.product-detail {
 }
 
 .product-detail__inner {

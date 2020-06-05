@@ -1,0 +1,42 @@
+@import '../responsive';
+
+.product-suggestion {
+  margin: var(--padding-v-desktop) 0;
+}
+
+.product-suggestion__inner {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 var(--gutter);
+  width: var(--page-width);
+}
+
+.product-suggestion__content {
+  background-color: var(--white-color);
+  display: flex;
+}
+
+.product-suggestion__info {
+  flex: 0 0 auto;
+  padding: 35px var(--gutter);
+  text-align: center;
+  width: 33.33%;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.product-suggestion__product {
+
+}
+
+.product-suggestion__image {
+  flex: 0 0 auto;
+  width: 66.67%;
+
+  .image-wrapper {
+    height: 100%;
+    position: relative;
+  }
+}

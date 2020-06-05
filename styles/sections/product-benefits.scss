@@ -1,14 +1,14 @@
 @import '../responsive';
 
 .shopify-section-product-benefits {
+}
+
+.product-benefits {
   margin: var(--padding-v-desktop) 0;
 
   @include tablet-portrait {
     margin: var(--padding-v-desktop) 0;
   }
-}
-
-.product-benefits {
 }
 
 .product-benefits__inner {
