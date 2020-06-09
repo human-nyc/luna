@@ -8,10 +8,21 @@
 .product-hero {
   padding-bottom: var(--padding-v-desktop);
   padding-top: 120px;
+  position: relative;
 
   @include tablet-portrait {
     padding-bottom: 30px;
     padding-top: 150px;
+  }
+}
+
+.product-hero__corner {
+  bottom: -3px;
+  left: 0;
+  position: absolute;
+
+  img {
+    line-height: 0;
   }
 }
 
@@ -183,7 +194,9 @@
   margin: 7px -7px;
 
   button {
+    appearance: none;
     background-color: var(--primary-brand-color);
+    border: 0;
     border-radius: 20px;
     cursor: pointer;
     display: inline-block;
@@ -221,7 +234,7 @@
     border: 1px solid var(--primary-brand-color);
     border-radius: 30px;
     font-weight: 500;
-    padding: 0 10px;
+    padding: 0 9px;
 
     input {
       appearance: none;
@@ -230,7 +243,7 @@
       font-size: 12px;
       padding: 16px 0;
       text-align: center;
-      width: 30px;
+      width: 20px;
     }
 
     button {
@@ -240,7 +253,7 @@
       border: 0;
       font-size: 18px;
       outline: 0;
-      padding: 5px 10px;
+      padding: 5px 8px;
     }
   }
 }

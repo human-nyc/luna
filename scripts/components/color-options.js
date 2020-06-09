@@ -11,7 +11,7 @@ const ColorOptions = Vue.component('color-options', {
       v-for="color in colors"
       @click="selectColor(color)"
       :class="{'active': selectedColor === color}"
-      data-color="{{color}}"
+      v-bind:data-color="color"
     ></button>
   </div>
   `,

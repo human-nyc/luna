@@ -14,7 +14,11 @@
               <div class="fill-image collection-list__hover-image">
                 <img src="{{ block.settings.hover_image | img_url: 'medium' }}" />
               </div>
-              <button class="cta-button">Shop ___</button>
+              <button class="cta-button">
+                Shop
+                <img class="cta-arrow cta-arrow_blue" src="{{ 'cta-arrow-blue.png' | asset_url | image_tag }}" />
+                <img class="cta-arrow cta-arrow_white" src="{{ 'cta-arrow-white.png' | asset_url | image_tag }}" />
+              </button>
             </a>
           </div>
       {% endcase %}

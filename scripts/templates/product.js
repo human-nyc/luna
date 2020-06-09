@@ -10,9 +10,7 @@ const productForm = new Vue({
   delimiters: ['${', '}'],
   el: '#ProductForm',
   data: {
-    product: {
-      variants: [],
-    },
+    product: null,
     options: [],
     colors: [],
     sizes: [],
@@ -22,6 +20,7 @@ const productForm = new Vue({
     tab: 1,
     quantity: 1,
     selecting: 'color',
+    currentVariant: null,
   },
   mounted: function() {
     this.product = JSON.parse(this.$el.getAttribute('data-product'));
@@ -48,11 +47,11 @@ const productForm = new Vue({
   methods: {
     onChangeColor: function(color) {
       this.selectedColor = color;
-      console.log(color);
+      this.updateVariant();
     },
     selectSize: function(event) {
-      console.log('Selected size: ', event.target.value);
       this.selectedSize = event.target.value;
+      this.updateVariant();
     },
     selectTab: function(tab) {
       this.tab = tab;
@@ -66,6 +65,45 @@ const productForm = new Vue({
     focusOption: function(option) {
       this.selecting = option;
     },
+    updateVariant: function() {
+      const variant = this.product.variants.filter(p =>
+        p.options[1] === this.selectedColor)[0];
+      if (variant) {
+        this.currentVariant = variant;
+      }
+    },
+  },
+  computed: {
+    price: function() {
+      if (!this.product) {
+        return;
+      }
+      let price = this.product.price;
+      if (this.currentVariant) {
+        price = this.currentVariant.price;
+      }
+      return `$${price * this.quantity / 100}`;
+    },
+    compareAtPrice: function() {
+      if (!this.product) {
+        return;
+      }
+      let price = this.product.compare_at_price;
+      if (this.currentVariant) {
+        price = this.currentVariant.compare_at_price;
+      }
+      return `$${price * this.quantity / 100}`;
+    },
+    imageUrl: function() {
+      if (!this.product) {
+        return;
+      }
+      let image = this.product.featured_image;
+      if (this.currentVariant) {
+        image = this.currentVariant.featured_image.src;
+      }
+      return image;
+    }
   },
   components: {
     ColorOptions,

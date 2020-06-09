@@ -68,7 +68,9 @@ h4.caps-label {
 
 a.cta-button,
 button.cta-button {
+  appearance: none;
   background-color: var(--white-color);
+  border: 0;
   border-radius: 30px;
   color: var(--font-color);
   cursor: pointer;
@@ -76,12 +78,35 @@ button.cta-button {
   font-size: 14px;
   font-weight: 500;
   padding: 17px 69px 17px 32px;
+  position: relative;
   text-decoration: none;
   text-transform: uppercase;
 
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
+  }
+
+  .cta-arrow {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+
+    &_white {
+      display: none;
+    }
+  }
+
+  &_dark {
+    .cta-arrow {
+      display: none;
+
+      &_white {
+        display: block;
+      }
+    }
   }
 }
 
