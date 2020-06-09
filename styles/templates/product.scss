@@ -3,6 +3,7 @@
 @import '../sections/product-steps';
 @import '../sections/product-detail';
 @import '../sections/product-full-image';
+@import '../sections/product-reviews';
 @import '../sections/product-suggestion';
 
 .product-hero {
@@ -254,6 +255,16 @@
       font-size: 18px;
       outline: 0;
       padding: 5px 8px;
+    }
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 500;
+
+    &_compare {
+      color: rgba(0,0,0,0.4);
+      text-decoration: line-through;
     }
   }
 }

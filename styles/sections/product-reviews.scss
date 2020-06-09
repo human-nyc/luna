@@ -1,0 +1,25 @@
+@import '../responsive';
+
+.product-reviews {
+  background-color: var(--secondary-brand-color);
+}
+
+.product-reviews__inner {
+  margin: 0 auto;
+  padding: var(--padding-v-desktop) var(--gutter);
+  width: var(--page-width-sm);
+}
+
+.product-reviews__header {
+  text-align: center;
+}
+
+.product-reviews__list {
+  margin: var(--padding-v-desktop) 0;
+}
+
+.product-reviews__item {
+  border-bottom: 1px solid darken(#dae8f0, 15);
+  margin-top: 40px;
+  padding-bottom: 30px;
+}

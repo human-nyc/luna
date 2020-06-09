@@ -80,8 +80,8 @@
             <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
             <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
           </div>
-          <span>${price}</span>
-          <span>${compareAtPrice}</span>
+          <span v-cloak class="price">${price}</span>
+          <span v-cloak class="price price_compare">${compareAtPrice}</span>
         </div>
         <button class="form-button" type="submit" name="add" id="AddToCart">Add to cart</button>
       </form>
@@ -96,3 +96,5 @@
 {% section 'product-steps' %}
 {% section 'product-detail' %}
 {% section 'product-full-image' %}
+{% section 'product-reviews' %}
+

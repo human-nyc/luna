@@ -6,6 +6,8 @@ import '../sections/header';
 import '../snippets/features-list';
 import '../sections/product-steps';
 
+const COLOR_INDEX = 1;
+
 const productForm = new Vue({
   delimiters: ['${', '}'],
   el: '#ProductForm',
@@ -42,7 +44,7 @@ const productForm = new Vue({
         values: products,
       };
     });
-    this.colors = this.options[1].values.map(option => option.value);
+    this.colors = this.options[COLOR_INDEX].values.map(option => option.value);
   },
   methods: {
     onChangeColor: function(color) {
@@ -67,7 +69,7 @@ const productForm = new Vue({
     },
     updateVariant: function() {
       const variant = this.product.variants.filter(p =>
-        p.options[1] === this.selectedColor)[0];
+        p.options[COLOR_INDEX] === this.selectedColor)[0];
       if (variant) {
         this.currentVariant = variant;
       }
