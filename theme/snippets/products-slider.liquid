@@ -16,16 +16,9 @@
                 <add-to-cart product="{{block.settings.product_item}}"></add-to-cart>
               </div>
             </div>
-            <div class="products-slider__item-content">
-              <div class="products-slider__item-details">
-                <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
-                <p>{{product.price | money }}</p>
-              </div>
-              <color-options
-                v-bind:colors="colors"
-                @changed="onChangeColor"
-              /></color-options>
-            </div>
+
+            {% include 'preview-details' %}
+
           </div>
         </div>
       {% endif %}

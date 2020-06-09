@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="48px" viewBox="0 0 34 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>size-queen</title>
+    <g id="pdp--weighted-blankets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="luna_pdp_desktop_step-02" transform="translate(-1242.000000, -455.000000)">
+            <g id="hero_mod" transform="translate(-66.000000, 0.000000)">
+                <g id="step_02" transform="translate(1133.337789, 315.000000)">
+                    <g id="icon_queen" transform="translate(171.000000, 105.000000)">
+                        <g id="size-queen" transform="translate(5.000000, 36.000000)">
+                            <path d="M0,10 L31,10 L31,43 C31,44.6568542 29.6568542,46 28,46 L3,46 C1.34314575,46 2.02906125e-16,44.6568542 0,43 L0,10 L0,10 Z" id="Rectangle-Copy-12" fill="#878787" style="mix-blend-mode: multiply;" opacity="0.300000012"></path>
+                            <rect id="Rectangle-Copy-14" fill="#182755" style="mix-blend-mode: multiply;" x="10" y="5" width="11" height="8" rx="1"></rect>
+                            <rect id="Rectangle-Copy-4" stroke="#182755" x="0" y="0" width="31" height="46" rx="2.8"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

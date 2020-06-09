@@ -8,17 +8,10 @@
             <h2 class="section-header">{{block.settings.title}}</h2>
             <div class="header-underline"></div>
             <p class="section-header">{{block.settings.body}}</p>
-            <img src="{{product.featured_image | img_url: '200x200', scale: 2 }}">
-            <div class="product-suggestion__product">
-              <div class="product-suggestion__product-details">
-                <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
-                <p>{{product.price | money }}</p>
-              </div>
-              <color-options
-                v-bind:colors="colors"
-                @changed="onChangeColor"
-              /></color-options>
-            </div>
+            <img class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}">
+
+            {% include 'preview-details' %}
+
           </div>
           <div class="product-suggestion__image">
             <div class="image-wrapper">

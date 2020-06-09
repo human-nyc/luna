@@ -6,6 +6,7 @@ import '../sections/header';
 import '../snippets/features-list';
 import '../sections/product-steps';
 
+const SIZE_INDEX = 0;
 const COLOR_INDEX = 1;
 
 const productForm = new Vue({
@@ -26,6 +27,10 @@ const productForm = new Vue({
   },
   mounted: function() {
     this.product = JSON.parse(this.$el.getAttribute('data-product'));
+    this.currentVariant = JSON.parse(this.$el.getAttribute('data-variant'));
+    this.selectedColor = this.currentVariant.options[COLOR_INDEX];
+    this.selectedSize = this.currentVariant.options[SIZE_INDEX];
+
     this.options = this.product.options.map((name, index) => {
       let values = [];
       this.product.variants.forEach(variant => {
@@ -68,11 +73,19 @@ const productForm = new Vue({
       this.selecting = option;
     },
     updateVariant: function() {
-      const variant = this.product.variants.filter(p =>
-        p.options[COLOR_INDEX] === this.selectedColor)[0];
+      const variant = this.product.variants
+        .filter(p => p.options[COLOR_INDEX] === this.selectedColor)
+        .filter(p => p.options[SIZE_INDEX] === this.selectedSize)[0];
+
       if (variant) {
         this.currentVariant = variant;
       }
+    },
+    sizeName: function(size) {
+      return size.split(' ')[0].toLowerCase();
+    },
+    sizeDimensions: function(size) {
+      return size.match(/\((.+?)\)/)[1];
     },
   },
   computed: {

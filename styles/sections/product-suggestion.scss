@@ -1,4 +1,5 @@
 @import '../responsive';
+@import '../snippets/preview-details';
 
 .product-suggestion {
   @include tablet-portrait {
@@ -30,7 +31,7 @@
   padding: 35px var(--gutter);
   text-align: center;
 
-  img {
+  .product-image {
     margin: 0 auto;
     max-width: 100%;
     width: 250px;
@@ -44,10 +45,6 @@
   @include tablet-landscape {
     width: 33.33%;
   }
-}
-
-.product-suggestion__product {
-
 }
 
 .product-suggestion__image {
