@@ -1,37 +1,59 @@
 <!-- Fonts go here. This is just example from nature of things -->
 <style type="text/css">
   @font-face {
-    font-family: 'AtlasGrotesk';
+    font-family: 'CentraNo2';
+    font-style: normal;
+    font-weight: 400;
+    src: url('{{ "CentraNo2-Book.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-Book.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-Book.woff2" | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'CentraNo2';
+    font-style: italic;
+    font-weight: 400;
+    src: url('{{ "CentraNo2-BookItalic.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-BookItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-BookItalic.woff2" | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'CentraNo2';
+    font-style: normal;
+    font-weight: 500;
+    src: url('{{ "CentraNo2-Medium.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-Medium.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-Medium.woff2" | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'CentraNo2';
+    font-style: italic;
+    font-weight: 500;
+    src: url('{{ CentraNo2-MediumItalic.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-MediumItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-MediumItalic.woff2" | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'CentraNo2';
+    font-style: normal;
+    font-weight: 600;
+    src: url('{{ "CentraNo2-Bold.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-Bold.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-Bold.woff2" | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'CentraNo2';
+    font-style: italic;
+    font-weight: 600;
+    src: url('{{ "CentraNo2-BoldItalic.eot"  | asset_url }}') format('eot'),
+         url('{{ "CentraNo2-BoldItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "CentraNo2-BoldItalic.woff2" | asset_url }}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Sabon';
     font-style: normal;
     font-weight: normal;
-    src: url('{{ "AtlasGrotesk-Regular-Web.woff2" | asset_url }}') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'AtlasGrotesk';
-    font-style: italic;
-    font-weight: normal;
-    src: url('{{ "AtlasGrotesk-RegularItalic-Web.woff2" | asset_url }}') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'AtlasGrotesk';
-    font-style: normal;
-    font-weight: bold;
-    src: url('{{ "AtlasGrotesk-Bold-Web.woff2" | asset_url }}') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'AtlasGrotesk';
-    font-style: italic;
-    font-weight: bold;
-    src: url('{{ "AtlasGrotesk-BoldItalic-Web.woff2" | asset_url }}') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'GTSuperDisplay';
-    font-style: italic;
-    font-weight: 300;
-    src: url('{{ "GT-Super-Display-Light.woff2" | asset_url }}') format('woff2');
+    src: url('{{ "Sabon_Web.woff" | asset_url }}') format('woff'),
+         url('{{ "Sabon_Web.woff2" | asset_url }}') format('woff2');
   }
 </style>

@@ -11,7 +11,7 @@
 
   <!-- STYLE TAGS -->
   {{ 'theme.css' | asset_url | stylesheet_tag }}
-  {% render 'font-faces' %}
+  {% include 'font-faces' %}
   {% render 'style-tags' %}
 
   <!-- SCRIPT TAGS -->
