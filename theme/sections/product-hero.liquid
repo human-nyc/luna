@@ -47,29 +47,38 @@
             </div>
           </div>
         </div>
-        <div class="product-hero__option" :class="{'expanded': selecting === 'size'}">
+        <div class="product-hero__option" :class="{'expanded': selecting === 'size'}" v-if="sizes">
           <div @click="focusOption('size')" class="product-hero__option-header">
-            <h3 class="caps-header">02. Choose your size</h3>
+            <h3 class="caps-header">02. Choose your size: ${sizeName(selectedSize)}</h3>
           </div>
-          <div class="product-hero__option-body" v-if="options[0]">
+          <div class="product-hero__option-body">
+            <p class="product-hero__option-body-text">All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/size-guide" target="_blank">Click here</a> to view our full size chart.</p>
             <div class="size-options">
-              <div class="size-option" v-for="size in options[0].values">
+              <div class="size-option" v-for="size in sizes">
                 <label>
-                  <span class="size-option__name">${sizeName(size.value)}</span>
-                  <span class="size-option__dimensions">${sizeDimensions(size.value)}</span>
-                  <div class="size-icon" :class="'size-icon_' + sizeName(size.value)"></div>
-                  <input name="size" type="radio" v-model="selectedSize" :value="size.value" @change="selectSize" />
+                  <span class="size-option__name">${sizeName(size)}</span>
+                  <span class="size-option__dimensions">${sizeDimensions(size)}</span>
+                  <div class="size-icon" :class="'size-icon_' + sizeName(size)"></div>
+                  <input name="size" type="radio" v-model="selectedSize" :value="size" @change="selectSize" />
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <div class="product-hero__option" :class="{'expanded': selecting === 'weight'}">
+        <div class="product-hero__option" :class="{'expanded': selecting === 'weight'}" v-if="weights">
           <div @click="focusOption('weight')" class="product-hero__option-header">
             <h3 class="caps-header">03. Choose your blanket weight</h3>
           </div>
           <div class="product-hero__option-body">
-            Options
+            <p class="product-hero__option-body-text">Weighted blankets should be about 10% of your body weight. King blankets are meant for sharing. We recommend starting off with a lighter weight. <a href="/pages/size-chart" target="_blank">Click here</a> to view our full weight chart.</p>
+            <div class="weight-options">
+              <div class="weight-option" v-for="weight in weights">
+                <label>
+                  <input name="weight" type="radio" v-model="selectedWeight" :value="weight" @change="selectWeight" />
+                  <span>${weight}</span>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         <div class="quantity-and-price">

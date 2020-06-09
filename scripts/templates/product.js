@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import querystring from 'querystring';
 import ColorOptions, { formatColors } from '../components/color-options';
 
 import '../components/color-options'; // Would like to remove... but need for export..
@@ -20,6 +21,7 @@ const productForm = new Vue({
     weights: [],
     selectedSize: '',
     selectedColor: '',
+    selectedWeight: '',
     tab: 1,
     quantity: 1,
     selecting: 'color',
@@ -50,6 +52,8 @@ const productForm = new Vue({
       };
     });
     this.colors = this.options[COLOR_INDEX].values.map(option => option.value);
+    this.sizes = this.options[SIZE_INDEX].values.map(option => option.value);
+    this.weights = ['20lb', '25lb', '30lb'];
   },
   methods: {
     onChangeColor: function(color) {
@@ -58,6 +62,10 @@ const productForm = new Vue({
     },
     selectSize: function(event) {
       this.selectedSize = event.target.value;
+      this.updateVariant();
+    },
+    selectWeight: function(event) {
+      this.selectedWeight = event.target.value;
       this.updateVariant();
     },
     selectTab: function(tab) {
@@ -79,6 +87,7 @@ const productForm = new Vue({
 
       if (variant) {
         this.currentVariant = variant;
+        this.replaceHistoryState();
       }
     },
     sizeName: function(size) {
@@ -86,6 +95,15 @@ const productForm = new Vue({
     },
     sizeDimensions: function(size) {
       return size.match(/\((.+?)\)/)[1];
+    },
+    replaceHistoryState() {
+      if (!this.currentVariant) {
+        return;
+      }
+      let getVars = querystring.parse(location.search.substring(1));
+      getVars.variant = this.currentVariant.id;
+      const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
+      history.replaceState({}, '', url);
     },
   },
   computed: {

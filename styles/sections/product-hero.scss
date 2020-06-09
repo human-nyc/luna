@@ -36,6 +36,7 @@
 
 .product-hero__header {
   font-family: var(--font-serif);
+  font-weight: normal;
   margin: 0 auto;
   max-width: 100%;
   padding: 0 25px;
@@ -48,6 +49,7 @@
 
 .product-hero__title {
   font-family: var(--font-serif);
+  font-weight: normal;
   font-size: 40px;
   margin: 0 0 .5em;
   text-align: center;
@@ -219,6 +221,16 @@
   }
 }
 
+.product-hero__option-body-text {
+  font-size: 10px;
+  line-height: 1.6;
+  margin: 0 0 2em;
+
+  a {
+    color: inherit;
+  }
+}
+
 .product-hero {
   .size-options {
     display: flex;
@@ -232,6 +244,7 @@
     width: 25%;
 
     &__name {
+      color: #999;
       display: block;
       font-size: 10px;
       line-height: 1.4;
@@ -240,9 +253,14 @@
     }
 
     &__dimensions {
+      color: #999;
       display: block;
       font-size: 9px;
       line-height: 2;
+    }
+
+    label {
+      cursor: pointer;
     }
   }
 
@@ -253,6 +271,32 @@
     height: 48px;
     margin: 5px auto;
     width: 48px;
+  }
+
+  .weight-option {
+    label {
+      cursor: pointer;
+    }
+
+    span {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 2;
+      opacity: .3;
+      text-transform: uppercase;
+    }
+
+    input {
+      opacity: .3;
+    }
+
+    input:checked {
+      opacity: 1;
+
+      + span {
+        opacity: 1
+      }
+    }
   }
 }
 
