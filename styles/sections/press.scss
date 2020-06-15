@@ -57,6 +57,12 @@
     opacity: 1;
     transition-duration: var(--fast);
   }
+  img {
+    height: 60px;
+    width: 130px;
+    object-fit: contain;
+    object-position: center;
+  }
 }
 
 .press__quote {
