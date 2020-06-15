@@ -94,7 +94,7 @@
           <span v-cloak class="price">${price}</span>
           <span v-cloak class="price price_compare">${compareAtPrice}</span>
         </div>
-        <button class="form-button" type="submit" name="add" id="AddToCart">Add to cart</button>
+        <button class="form-button" type="submit" name="add" v-on:click="submit">Add to cart</button>
       </form>
     </div>
   </div>

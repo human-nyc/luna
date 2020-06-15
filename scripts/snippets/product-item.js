@@ -1,9 +1,11 @@
 import Vue from 'vue';
+import { mapActions } from 'vuex';
+
+import store from '../store';
 import ColorOptions, { formatColors } from '../components/color-options';
 
 const SIZE_INDEX = 0;
 const COLOR_INDEX = 1;
-
 
 // Components
 
@@ -44,6 +46,7 @@ const ProductOverlay = Vue.component('product-overlay', {
 // Instance
 
 const product = new Vue({
+  store,
   delimiters: ['${', '}'],
   el: '.product-item',
   data: {
@@ -64,14 +67,24 @@ const product = new Vue({
       });
   },
   methods: {
-    addToCart: function() {
+    ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+    async submit(e) {
+      e.preventDefault();
 
+      const id = this.currentVariant.id;
+      const properties = {};
+      const quantity = 1;
+      const cartData = { id, properties, quantity };
+
+      await this.addToCart(cartData);
+      await this.hydrateCartItems();
+      this.toggleMiniCart();
     },
-    onChangeColor: function(color) {
+    onChangeColor(color) {
       this.selectedColor = color;
       this.updateVariant();
     },
-    updateVariant: function() {
+    updateVariant() {
       const variant = this.productData.variants
         .filter(p => {
           return p[`option${COLOR_INDEX + 1}`] === this.selectedColor;
@@ -82,7 +95,7 @@ const product = new Vue({
         this.updateImage()
       }
     },
-    updateImage: function() {
+    updateImage() {
       if (!this.productData) {
         return;
       }

@@ -9,7 +9,7 @@
             <div class="header-underline"></div>
             <p class="section-header">{{block.settings.body}}</p>
             <img class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
-            <button class="product-suggestion__cta">Add to cart</button>
+            <button type="button" class="product-suggestion__cta" v-on:click="submit">Add to cart</button>
             <div class="product-suggestions__details">
               {% include 'preview-details' %}
             </div>

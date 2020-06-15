@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import querystring from 'querystring';
+import { mapActions } from 'vuex';
+
+import store from '../store';
 import ColorOptions, { formatColors } from '../components/color-options';
 
 import '../components/color-options'; // Would like to remove... but need for export..
@@ -10,8 +13,10 @@ import '../snippets/product-item';
 
 const SIZE_INDEX = 0;
 const COLOR_INDEX = 1;
+const WEIGHT_INDEX = 2;
 
 const productForm = new Vue({
+  store,
   delimiters: ['${', '}'],
   el: '#ProductForm',
   data: {
@@ -57,6 +62,18 @@ const productForm = new Vue({
     this.weights = ['20lb', '25lb', '30lb'];
   },
   methods: {
+    ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+    async submit(e) {
+      e.preventDefault();
+      const id = this.currentVariant.id;
+      const properties = {};
+      const quantity = this.quantity;
+      const cartData = { id, properties, quantity };
+
+      await this.addToCart(cartData);
+      await this.hydrateCartItems();
+      this.toggleMiniCart();
+    },
     onChangeColor: function(color) {
       this.selectedColor = color;
       this.updateVariant();
