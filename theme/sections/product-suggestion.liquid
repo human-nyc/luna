@@ -1,19 +1,18 @@
 {% for block in section.blocks %}
   {% if block.settings.product == product.handle %}
     {% assign product = all_products[block.settings.suggested_product] %}
-    <div class="product-suggestion">
+    <div class="product-suggestion product-item" data-product="{{block.settings.suggested_product}}">
       <div class="product-suggestion__inner">
         <div class="product-suggestion__content">
           <div class="product-suggestion__info">
             <h2 class="section-header">{{block.settings.title}}</h2>
             <div class="header-underline"></div>
             <p class="section-header">{{block.settings.body}}</p>
-            <img class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}">
-
+            <img class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
             <button class="product-suggestion__cta">Add to cart</button>
-
-            {% include 'preview-details' %}
-
+            <div class="product-suggestions__details">
+              {% include 'preview-details' %}
+            </div>
           </div>
           <div class="product-suggestion__image">
             <div class="image-wrapper">

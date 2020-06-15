@@ -13,19 +13,23 @@
           <button type="button" @click="selectTab(2)" class="caps-header" :class="{'selected': tab === 2}">Benefits</button>
           <button type="button" @click="selectTab(3)" class="caps-header" :class="{'selected': tab === 3}">Details</button>
         </div>
-        <div class="product-tabs__main">
-          <div class="product-tabs__content">
-            <div class="product-tabs__content" v-if="tab === 1">
-              <div>1. {{ product.description }}</div>
+        {% for block in section.blocks %}
+          {% if block.settings.product == product.handle %}
+            <div class="product-tabs__main">
+              <div class="product-tabs__content">
+                <div class="product-tabs__content" v-if="tab === 1">
+                  <div>{{ block.settings.meet_luna }}</div>
+                </div>
+                <div class="product-tabs__content" v-if="tab === 2">
+                  <div>{{ block.settings.benefits }}</div>
+                </div>
+                <div class="product-tabs__content" v-if="tab === 3">
+                  <div>{{ block.settings.details }}</div>
+                </div>
+              </div>
             </div>
-            <div class="product-tabs__content" v-if="tab === 2">
-              <div>2. {{ product.description }}</div>
-            </div>
-            <div class="product-tabs__content" v-if="tab === 3">
-              <div>3. {{ product.description }}</div>
-            </div>
-          </div>
-        </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <div class="product-hero__image">
@@ -111,3 +115,40 @@
     background-image: url("{{ 'size-king.svg' | asset_url }}");
   }
 </style>
+
+
+{% schema %}
+  {
+    "name": "Product Hero",
+    "class": "shopify-section-product-hero",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product-hero",
+        "name": "Product Hero",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "meet_luna",
+            "type": "richtext",
+            "label": "Meet Luna"
+          },
+          {
+            "id": "benefits",
+            "type": "richtext",
+            "label": "Benefits"
+          },
+          {
+            "id": "details",
+            "type": "richtext",
+            "label": "Details"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

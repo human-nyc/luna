@@ -85,6 +85,7 @@
 
   @include tablet-portrait {
     margin-top: 0;
+    padding-bottom: 135px;
     order: -1;
   }
 }
@@ -141,6 +142,16 @@
     &.selected {
       border-bottom: 1px solid var(--font-color);
       opacity: 1;
+    }
+  }
+}
+
+.product-tabs__content {
+  p {
+    font-size: 10px;
+
+    strong {
+      font-size: 12px;
     }
   }
 }
@@ -347,6 +358,7 @@
 .form-button {
   background-color: var(--primary-brand-color);
   border-radius: 30px;
+  border: 0;
   color: var(--white-color);
   cursor: pointer;
   font-size: 12px;

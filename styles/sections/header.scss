@@ -116,7 +116,9 @@
 
 .header {
   a.header-link,
-  span.header-link {
+  button.header-link {
+    background: none;
+    border: 0;
     color: var(--font-color);
     cursor: pointer;
     display: inline-block;
@@ -199,7 +201,7 @@ $toggle-icon-size: 24px;
 
   .header_products_open & {
     display: block;
-    animation: fadeDown var(--slow);
+    animation: fadeDown var(--fast);
   }
 }
 

@@ -10,10 +10,10 @@
           <div class="products-slider__item product-item" data-product="{{block.settings.product_item}}">
             <div class="products-slider__item-image">
               <div class="fill-image">
-                <img src="{{product.featured_image | img_url: '600x600', scale: 2 }}">
+                <img src="{{product.featured_image | img_url: '600x600', scale: 2 }}" v-bind:src="imageUrl">
               </div>
               <div class="add-to-cart-wrapper">
-                <add-to-cart product="{{block.settings.product_item}}"></add-to-cart>
+                <product-overlay product="{{block.settings.product_item}}"></product-overlay>
               </div>
             </div>
 

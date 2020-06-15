@@ -6,6 +6,7 @@ import '../components/color-options'; // Would like to remove... but need for ex
 import '../sections/header';
 import '../snippets/features-list';
 import '../sections/product-steps';
+import '../snippets/product-item';
 
 const SIZE_INDEX = 0;
 const COLOR_INDEX = 1;
