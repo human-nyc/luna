@@ -1,6 +1,6 @@
 import Flickity from 'flickity';
 
-import '../snippets/product-item';
+import '../apps/MiniProduct';
 
 const flkty = new Flickity('#productSlider', {
   pageDots: false,

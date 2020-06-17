@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { mapActions } from 'vuex';
 
 import store from '../store';
-import ColorOptions, { formatColors } from '../components/color-options';
+import ColorOptions, { formatColors } from '../components/ColorOptions';
 
 const SIZE_INDEX = 0;
 const COLOR_INDEX = 1;
@@ -45,7 +45,7 @@ const ProductOverlay = Vue.component('product-overlay', {
 
 // Instance
 
-const product = new Vue({
+const ProductMini = new Vue({
   store,
   delimiters: ['${', '}'],
   el: '.product-item',
