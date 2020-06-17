@@ -1,7 +1,5 @@
 import Flickity from 'flickity';
 
-import '../apps/MiniProduct';
-
 const flkty = new Flickity('#productSlider', {
   pageDots: false,
   prevNextButtons: true,

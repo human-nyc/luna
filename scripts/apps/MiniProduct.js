@@ -17,18 +17,26 @@ const ProductOverlay = Vue.component('product-overlay', {
     };
   },
   template: (`
-    <div>
-      <div v-if="step === 0" class="button">
-        <button @click="begin">Add to cart</button>
+    <div class="add-overlay__">
+      <div v-if="step === 0" class="add-overlay__button">
+        <button type="button" @click="begin">Add to cart</button>
       </div>
       <div v-else class="add-overlay__options">
         <div class="add-overlay__option">
-          <span>01. Choose your size:</span>
-          <button></button><button></button>
+          <h4 class="add-overlay__option-title">
+            01. Choose your size:
+          </h4>
+          <button>Still</button>
+          <button>Need</button>
+          <button>Data</button>
         </div>
         <div class="add-overlay__option">
-          <span>02. Choose your blanket weight:</span>
-          <button></button><button></button>
+          <h4 class="add-overlay__option-title">
+            02. Choose your blanket weight:
+          </h4>
+          <button>Still</button>
+          <button>Need</button>
+          <button>Data</button>
         </div>
       </div>
     </div>
@@ -45,7 +53,7 @@ const ProductOverlay = Vue.component('product-overlay', {
 
 // Instance
 
-const ProductMini = new Vue({
+const MiniProduct = new Vue({
   store,
   delimiters: ['${', '}'],
   el: '.product-item',
@@ -111,3 +119,5 @@ const ProductMini = new Vue({
     ColorOptions,
   },
 });
+
+export default MiniProduct;

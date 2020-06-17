@@ -1,5 +1,16 @@
 @import '../snippets/preview-details';
 
+@keyframes fadeUpOverlay {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .products-slider {
   padding: var(--padding-v-mobile) 0;
 
@@ -51,4 +62,80 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.add-overlay {
+  &__button {
+    text-align: right;
+
+    button {
+      appearance: none;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      color: var(--primary-brand-color);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      padding: 20px 16px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__wrapper {
+
+  }
+
+  &__options {
+    animation: fadeUpOverlay var(--fast);
+    background-color: white;
+    padding: 10px 16px 20px;
+    position: relative;
+
+    &:before {
+      background: linear-gradient(rgba(1, 1, 1, 0), #fff);
+      content: '';
+      height: 30px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -30px;
+    }
+  }
+
+  &__option {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    button {
+      appearance: none;
+      background: none;
+      border: 1px solid var(--primary-brand-color);
+      border-radius: 20px;
+      color: var(--primary-brand-color);
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      opacity: .5;
+      padding: 4px 8px;
+      text-transform: uppercase;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__option-title {
+    border-bottom: 1px solid var(--primary-brand-color);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    margin: 0 0 .8em;
+    padding-bottom: .8em;
+    text-transform: uppercase;
+  }
 }

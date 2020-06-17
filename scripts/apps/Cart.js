@@ -10,5 +10,5 @@ const Cart = new Vue({
   el: '#Cart',
   data: {
 
-  }
+  },
 });

@@ -1,3 +1,5 @@
+import '../apps/MiniProduct';
+
 import '../sections/header';
 import '../sections/comparison-chart';
 import '../sections/press';
