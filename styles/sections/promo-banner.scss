@@ -1,0 +1,13 @@
+.promo-banner {
+  background-color: var(--primary-brand-color);
+  color: var(--white-color);
+  font-size: 14px;
+  min-height: var(--banner-height);
+  overflow: hidden;
+  text-align: center;
+
+  p {
+    line-height: 1.14;
+    margin: 0.893em 0;
+  }
+}
