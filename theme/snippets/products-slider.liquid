@@ -24,6 +24,7 @@
       {% endif %}
     {% endfor %}
   </div>
+  {% unless section.settings.cta_text == "" or section.settings.cta_text == nil %}
   <div class="products-slider__cta">
     <a class="cta-button">
       {{ section.settings.cta_text }}
@@ -31,4 +32,5 @@
       <img class="cta-arrow cta-arrow_white" src="{{ 'cta-arrow-white.png' | asset_url | image_tag }}" />
     </a>
   </div>
+  {% endunless %}
 </div>

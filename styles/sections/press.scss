@@ -11,6 +11,10 @@
 
 .press {
   padding: 80px var(--gutter);
+
+  .html-page_why_luna & {
+    background-color: var(--secondary-brand-color);
+  }
 }
 
 .press__header {

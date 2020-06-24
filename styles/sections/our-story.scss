@@ -1,0 +1,63 @@
+@import '../responsive';
+
+.our-story {
+  background: linear-gradient(var(--secondary-brand-color), var(--offwhite-color));
+  text-align: center;
+}
+
+.our-story__inner {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 var(--gutter);
+  width: 960px;
+}
+
+.our-story__people {
+  margin: var(--padding-v-mobile) auto;
+
+  @include tablet-portrait {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--padding-v-desktop) auto;
+  }
+}
+
+.our-story__person {
+  flex: 0 0 auto;
+  padding: var(--gutter);
+
+  @include tablet-portrait {
+    width: 40%;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.our-story__person-image {
+  border-radius: 400px;
+  border: 3px solid var(--primary-brand-color);
+  overflow: hidden;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.our-story__body {
+  p {
+    font-family: var(--font-serif);
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+
+    @include tablet-portrait {
+      font-size: 2em;
+    }
+  }
+}

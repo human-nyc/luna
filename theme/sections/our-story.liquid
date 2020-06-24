@@ -1,0 +1,61 @@
+<div class="our-story__inner">
+  <h2 class="section-header">{{ section.settings.title }}</h2>
+  <div class="our-story__people">
+    {% for block in section.blocks %}
+      <div class="our-story__person">
+        <div class="our-story__person-image">
+          <div class="fill-image">
+            <img src="{{ block.settings.image | img_url: '500x500' }}" alt="{{ block.settings.name }}" />
+          </div>
+        </div>
+        <h3>{{ block.settings.name }}</h3>
+        <h4>{{ block.settings.position }}</h4>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="our-story__body">
+    {{ section.settings.story }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Story",
+  "class": "our-story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Story"
+    },
+    {
+      "type": "richtext",
+      "id": "story",
+      "label": "Story",
+      "default": "<p>Once upon a time...</p>"
+    }
+  ],
+  "blocks": [{
+    "name": "Person",
+    "type": "person",
+    "settings": [
+      {
+        "type": "text",
+        "id": "name",
+        "label": "Name"
+      },
+      {
+        "type": "text",
+        "id": "position",
+        "label": "Position"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }]
+}
+{% endschema %}
