@@ -1,3 +1,5 @@
+@import '../responsive';
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -11,6 +13,11 @@
 
 .comparison-chart {
 
+}
+
+.comparison-chart__intro {
+  padding: var(--padding-v-desktop) var(--gutter) 0;
+  text-align: center;
 }
 
 .comparison-chart__top {
@@ -38,6 +45,11 @@
     height: auto;
     padding-top: 24px;
   }
+
+  .comparison-chart_page & {
+    height: auto;
+    padding-top: 24px;
+  }
 }
 
 .comparison-chart__wrapper {
@@ -48,7 +60,8 @@
   padding: 0 var(--gutter);
   width: var(--page-width);
 
-  .comparison-chart_open & {
+  .comparison-chart_open &,
+  .comparison-chart_page & {
     display: block;
   }
 

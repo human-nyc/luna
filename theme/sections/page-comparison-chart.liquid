@@ -1,0 +1,28 @@
+<div class="comparison-chart">
+  <div class="comparison-chart__intro">
+    <h2 class="section-header">{{ section.settings.header }}</h2>
+    <h3 class="section-subheader">{{ section.settings.subheader }}</h3>
+  </div>
+  {% include 'comparison-chart' %}
+</div>
+
+{% schema %}
+  {
+    "name": "Page Comparison Chart",
+    "class": "comparison-chart_page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "The Luna Difference"
+      },
+      {
+        "type": "richtext",
+        "id": "subheader",
+        "label": "Subheader",
+        "default": "<p>What makes us different?</p>"
+      }
+    ]
+  }
+{% endschema %}
