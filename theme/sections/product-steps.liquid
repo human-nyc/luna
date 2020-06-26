@@ -1,48 +1,9 @@
 {% for block in section.blocks %}
   {% if block.settings.product == product.handle %}
-    <div class="product-steps" id="ProductSteps">
-      <div class="product-steps__inner">
-        <div class="product-steps__image">
-          <div class="image-wrapper">
-            <div class="fill-image">
-              <img src="{{block.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-steps__content">
-          <div class="product-steps__content-inner">
-            <h2 class="section-header">{{block.settings.header}}</h2>
-            <div class="header-underline"></div>
-            <div class="product-steps__choices">
-              <button type="button" @click="selectStep(1)" :class="{'active': step === 1}">01.</button>
-              <button type="button" @click="selectStep(2)" :class="{'active': step === 2}">02.</button>
-              <button type="button" @click="selectStep(3)" :class="{'active': step === 3}">03.</button>
-            </div>
-            {% if block.settings.step_1 %}
-              <div
-                class="product-steps__item"
-                v-if="step === 1"
-                v-cloak
-              >{{block.settings.step_1}}</div>
-            {% endif %}
-            {% if block.settings.step_2 %}
-              <div
-                class="product-steps__item"
-                v-if="step === 2"
-                v-cloak
-              >{{block.settings.step_2}}</div>
-            {% endif %}
-            {% if block.settings.step_3 %}
-              <div
-                class="product-steps__item"
-                v-if="step === 3"
-                v-cloak
-              >{{block.settings.step_3}}</div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
+    {% assign content = block.settings %}
+
+    {% include 'product-steps' %}
+
   {% endif %}
 {% endfor %}
 

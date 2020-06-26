@@ -1,0 +1,28 @@
+{% assign content = section %}
+
+{% include 'product-benefits' %}
+
+{% schema %}
+  {
+    "name": "Product Benefits How",
+    "class": "shopify-section-product-benefits",
+    "settings": [
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header"
+      },
+      {
+        "id": "list",
+        "type": "html",
+        "label": "Benefit List",
+        "default": "<ul><li>Benefit 1</li><li>Benefit 2</li></ul>"
+      }
+    ]
+  }
+{% endschema %}

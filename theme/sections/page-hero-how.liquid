@@ -1,0 +1,22 @@
+{% include 'page-hero' %}
+
+{% schema %}
+  {
+    "name": "Page Hero How",
+    "class": "page-hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body",
+        "default": "<p>Lorem ipsum</p>"
+      }
+    ]
+  }
+{% endschema %}

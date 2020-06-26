@@ -1,22 +1,9 @@
 {% for block in section.blocks %}
   {% if block.settings.product == product.handle %}
-    <div class="product-benefits">
-      <div class="product-benefits__inner">
-        <div class="product-benefits__image">
-          <div class="image-wrapper">
-            <div class="fill-image">
-              <img src="{{block.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-benefits__content">
-          <div class="product-benefits__content-inner">
-            <h2 class="section-header">{{block.settings.header}}</h2>
-            {{block.settings.list}}
-          </div>
-        </div>
-      </div>
-    </div>
+    {% assign content = block %}
+
+    {% include 'product-benefits' %}
+
   {% endif %}
 {% endfor %}
 
