@@ -1,0 +1,75 @@
+<div class="research-section__inner">
+  <div class="research-section__intro">
+    <h2 class="section-header">{{ section.settings.header }}</h2>
+    {{ section.settings.body }}
+  </div>
+  <div class="research-section__blocks">
+    {% for block in section.blocks %}
+      <div class="research-block">
+        <div class="research-block__image">
+          <div class="research-block__image-wrapper">
+            <div class="fill-image">
+              <img src="{{block.settings.image | img_url: '450x360', crop: 'center', scale: 2}}" />
+            </div>
+          </div>
+        </div>
+        <div class="research-block__content">
+          <div class="research-block__content-wrapper">
+            <img src="{{block.settings.icon | img_url: '64x100', crop: 'center', scale: 2}}" height="64px" />
+            <h3>{{ block.settings.header }}</h3>
+            {{ block.settings.body }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Research",
+    "class": "research-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body",
+        "default": "<p>Lorem ipsum</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "benefit",
+        "name": "Benefit",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          },
+          {
+            "id": "header",
+            "type": "text",
+            "label": "Header"
+          },
+          {
+            "id": "body",
+            "type": "richtext",
+            "label": "Body"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

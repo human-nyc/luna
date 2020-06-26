@@ -1,0 +1,17 @@
+<div class="product-benefits">
+  <div class="product-benefits__inner">
+    <div class="product-benefits__image">
+      <div class="image-wrapper">
+        <div class="fill-image">
+          <img src="{{content.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+        </div>
+      </div>
+    </div>
+    <div class="product-benefits__content">
+      <div class="product-benefits__content-inner">
+        <h2 class="section-header">{{content.settings.header}}</h2>
+        {{content.settings.list}}
+      </div>
+    </div>
+  </div>
+</div>

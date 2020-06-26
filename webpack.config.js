@@ -20,6 +20,7 @@ let config = {
     "index": "./scripts/templates/index.js",
     "list-collections": "./scripts/templates/list-collections.js",
     "page": "./scripts/templates/page.js",
+    "page.how_it_works": "./scripts/templates/page.how_it_works.js",
     "page.why_luna": "./scripts/templates/page.why_luna.js",
     "password": "./scripts/templates/password.js",
     "product": "./scripts/templates/product.js",

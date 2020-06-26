@@ -10,8 +10,21 @@
 }
 
 .features-list__header {
+  margin: 0 auto;
+  max-width: 100%;
   padding: 0 var(--gutter);
   text-align: center;
+  width: 960px;
+
+  h3 > p {
+    font-family: var(--font-sans-serif);
+    font-style: normal;
+
+    > em {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+  }
 }
 
 .features-list__items {
@@ -84,7 +97,7 @@
   position: relative;
 
   .fill-image {
-    background-color: var(--primary-brand-color);
+    background-color: transparent;
     border-radius: 200px;
     overflow: hidden;
   }

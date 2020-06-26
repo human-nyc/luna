@@ -1,0 +1,32 @@
+{% assign content = section.settings %}
+
+{% include 'product-steps' %}
+
+{% schema %}
+  {
+    "name": "Product Steps",
+    "class": "shopify-section-product-steps",
+    "settings": [
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header"
+      },
+      {
+        "id": "step_1",
+        "type": "richtext",
+        "label": "Step 1"
+      },
+      {
+        "id": "step_2",
+        "type": "richtext",
+        "label": "Step 2"
+      },
+      {
+        "id": "step_3",
+        "type": "richtext",
+        "label": "Step 3"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,40 @@
+{% include 'page-hero' %}
+
+{% schema %}
+  {
+    "name": "Page Hero Why",
+    "class": "page-hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body",
+        "default": "<p>Lorem ipsum</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Image Block",
+        "type": "image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,53 @@
+{% include 'features-list' %}
+
+{% schema %}
+  {
+    "name": "Features List",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      },
+      {
+        "type": "richtext",
+        "id": "subheader",
+        "label": "Subheader"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Column",
+        "type": "column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "text",
+            "id": "subheader",
+            "label": "Subheader"
+          },
+          {
+            "type": "textarea",
+            "id": "body",
+            "label": "Body"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text columns with images",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
