@@ -1,9 +1,9 @@
 @import '../responsive';
 
-.shopify-section-product-benefits {
+.shopify-section-checklist {
 }
 
-.product-benefits {
+.checklist-section {
   margin: var(--padding-v-desktop) 0;
 
   @include tablet-portrait {
@@ -11,7 +11,7 @@
   }
 }
 
-.product-benefits__inner {
+.checklist-section__inner {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -24,7 +24,7 @@
   }
 }
 
-.product-benefits__image {
+.checklist-section__image {
   flex: 0 0 auto;
   padding: 0 var(--gutter);
 
@@ -40,7 +40,7 @@
   }
 }
 
-.product-benefits__content {
+.checklist-section__content {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@
   }
 }
 
-.product-benefits__content-inner {
+.checklist-section__content-inner {
   max-width: 100%;
   width: 500px;
 
