@@ -1,0 +1,71 @@
+<div class="chart-section">
+  <div class="chart-section__inner">
+    <div class="chart-section__intro">
+      <h2 class="section-header">{{section.settings.header}}</h2>
+      <h3 class="section-subheader">{{section.settings.subheader}}</h3>
+    </div>
+    <div class="chart-section__content">
+      <div class="sizing-chart">
+        {% for block in section.blocks %}
+          {% if block.type == 'size-option' %}
+            <div class="sizing-chart__option">
+              <h4 class="sizing-chart__name">
+                {{ block.settings.name }}
+              </h4>
+              <span class="sizing-chart__size">
+                {{ block.settings.size }}
+              </span>
+              <div class="sizing-chart__icon">
+                <img src="{{block.settings.icon | img_url: '92x92', crop: 'center', scale: 2}}" height="92px" />
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Sizing Chart",
+    "class": "chart-section_sizing",
+    "settings": [
+      {
+        "id": "header",
+        "label": "Header",
+        "type": "text",
+        "default": "Sizing Chart"
+      },
+      {
+        "id": "subheader",
+        "label": "Subheader",
+        "type": "textarea",
+        "default": "Lorem ispum"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "size-option",
+        "name": "Size Option",
+        "settings": [
+          {
+            "id": "name",
+            "type": "text",
+            "label": "Name"
+          },
+          {
+            "id": "size",
+            "type": "text",
+            "label": "Size"
+          },
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

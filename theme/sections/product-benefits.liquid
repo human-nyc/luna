@@ -2,7 +2,7 @@
   {% if block.settings.product == product.handle %}
     {% assign content = block %}
 
-    {% include 'product-benefits' %}
+    {% include 'checklist-section' %}
 
   {% endif %}
 {% endfor %}
@@ -10,7 +10,7 @@
 {% schema %}
   {
     "name": "Product Benefits",
-    "class": "shopify-section-product-benefits",
+    "class": "shopify-section-checklist",
     "settings": [],
     "blocks": [
       {

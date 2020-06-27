@@ -1,0 +1,62 @@
+<div class="chart-section">
+  <div class="chart-section__inner">
+    <div class="chart-section__intro">
+      <h2 class="section-header">{{section.settings.header}}</h2>
+      <h3 class="section-subheader">{{section.settings.subheader}}</h3>
+    </div>
+    <div class="chart-section__content">
+      <div class="weight-chart">
+        {% for block in section.blocks %}
+          {% if block.type == 'weight-table' %}
+            <div class="weight-chart__table">
+              <h4 class="weight-chart__type">
+                {{block.settings.type}}
+              </h4>
+              {{block.settings.table}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Weight Chart",
+    "class": "chart-section_weight",
+    "settings": [
+      {
+        "id": "header",
+        "label": "Header",
+        "type": "text",
+        "default": "Weight Chart"
+      },
+      {
+        "id": "subheader",
+        "label": "Subheader",
+        "type": "textarea",
+        "default": "Lorem ispum"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "weight-table",
+        "name": "Weight Table",
+        "settings": [
+          {
+            "id": "type",
+            "type": "text",
+            "label": "Type"
+          },
+          {
+            "id": "table",
+            "type": "html",
+            "label": "Table (HTML)",
+            "default": "<table></table>"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
