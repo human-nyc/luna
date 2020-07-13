@@ -1,0 +1,39 @@
+@import '../responsive';
+
+.legal-page {
+  background: linear-gradient(var(--secondary-brand-color), var(--offwhite-color));
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 100px var(--gutter);
+    width: calc(1042px + var(--gutter) * 2);
+
+    @include tablet-portrait {
+      padding: 180px var(--gutter);
+    }
+  }
+
+  &__header {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 1.75em;
+    text-align: center;
+
+    @include tablet-portrait {
+      font-size: 52px;
+    }
+  }
+
+  &__content {
+    font-size: 16px;
+    font-family: var(--font-serif);
+    line-height: 2;
+
+    @include tablet-portrait {
+      font-size: 32px;
+      line-height: 1.5;
+    }
+  }
+}
