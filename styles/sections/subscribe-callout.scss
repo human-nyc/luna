@@ -1,0 +1,44 @@
+@import '../responsive';
+
+@import '../snippets/email-form';
+
+.subscribe-callout {
+  background-color: var(--secondary-brand-color);
+  text-align: center;
+}
+
+.subscribe-callout__inner {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: var(--padding-v-mobile) var(--gutter);
+  text-align: center;
+  width: 480px;
+
+  .section-header {
+    @include tablet-portrait {
+      font-size: var(--font-size-h0);
+    }
+  }
+
+  .section-subheader {
+    font-size: 16px;
+    line-height: 1.78;
+    margin: 2em 0;
+    font-family: var(--font-sans-serif);
+    font-style: normal;
+
+    @include tablet-portrait {
+      font-size: 20px;
+    }
+  }
+
+  @include tablet-portrait {
+    padding: var(--padding-v-desktop) var(--gutter);
+  }
+}
+
+.subscribe-callout__form {
+  margin: 30px auto;
+  max-width: 100%;
+  width: 312px;
+}
