@@ -1,14 +1,18 @@
-<h1>{{ page.title }}</h1>
-{% form 'contact' %}
-  {% if form.posted_successfully? %} Thank you for your contact {% endif %}
-  {{ form.errors | default_errors }}
-  <label for="ContactFormName">name</label>
-  <input type="text" id="ContactFormName" name="contact[name]">
-  <label for="ContactFormEmail">email</label>
-  <input type="email" id="ContactFormEmail" name="contact[email]">
-  <label for="ContactFormPhone">phone</label>
-  <input type="tel" id="ContactFormPhone" name="contact[phone]">
-  <label for="ContactFormMessage">message</label>
-  <textarea rows="10" id="ContactFormMessage" name="contact[body]"></textarea>
-  <input type="submit" value="send">
-{% endform %}
+<div class="page-hero page-hero_contact">
+  <div class="page-hero__content">
+    <h1 class="page-hero__title">{{ page.title }}</h1>
+    <div class="page-hero__body">{{ page.content }}</div>
+  </div>
+  <div class="page-hero__form">
+    {% form 'contact' %}
+      {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+      {{ form.errors | default_errors }}
+      <input type="text" id="ContactFormName" name="contact[name]" placeholder="Name" aria-label="Name">
+      <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email" aria-label="Email">
+      <textarea rows="4" id="ContactFormMessage" name="contact[body]" placeholder="Message" aria-label="Message"></textarea>
+      <input type="submit" value="submit">
+    {% endform %}
+  </div>
+</div>
+
+{% section 'subscribe-callout' %}

@@ -22,7 +22,7 @@
     text-align: center;
 
     @include tablet-portrait {
-      font-size: 52px;
+      font-size: var(--font-size-h0);
     }
   }
 

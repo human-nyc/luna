@@ -1,0 +1,29 @@
+<div class="subscribe-callout__inner">
+  <h2 class="section-header">{{ section.settings.header }}</h2>
+  <h3 class="section-subheader">{{ section.settings.body }}</h3>
+
+  <div class="subscribe-callout__form">
+    {% include 'email-form' %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Subscribe Callout",
+    "class": "subscribe-callout",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "Don't sleep on this."
+      },
+      {
+        "type": "textarea",
+        "id": "body",
+        "label": "Body",
+        "default": "Sign up and save 5% plus additional updates, giveaways and so much more."
+      }
+    ]
+  }
+{% endschema %}

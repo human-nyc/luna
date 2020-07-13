@@ -1,13 +1,17 @@
 @import '../responsive';
 
 .shopify-section-checklist {
+
+  .html-page_sizing & {
+    background-color: var(--secondary-brand-color);
+  }
 }
 
 .checklist-section {
-  margin: var(--padding-v-desktop) 0;
+  padding: var(--padding-v-desktop) 0;
 
   @include tablet-portrait {
-    margin: var(--padding-v-desktop) 0;
+    padding: var(--padding-v-desktop) 0;
   }
 }
 
