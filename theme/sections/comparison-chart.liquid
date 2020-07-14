@@ -1,7 +1,8 @@
 <div class="comparison-chart" :class="{ 'comparison-chart_open': isOpen }" id="comparisonChart">
   <div class="comparison-chart__top">
-    <button class="cta-button" @click="toggleOpen()">
+    <button class="cta-button cta-button_comparison" @click="toggleOpen()">
       {{ section.settings.button_text }}
+      <span  class="cta-button_icon"></span>
     </button>
   </div>
   {% include 'comparison-chart' %}

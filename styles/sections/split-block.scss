@@ -25,6 +25,7 @@
 
   @include tablet-portrait {
     flex-direction: row;
+    justify-content: center;
     padding: var(--gutter-half);
   }
 }
@@ -76,6 +77,13 @@
     text-align: left;
     width: 50%;
   }
+
+  .split-block_no_image & {
+    @include tablet-portrait {
+      text-align: center;
+      width: 100%;
+    }
+  }
 }
 
 .split-block__content-inner {
@@ -84,6 +92,13 @@
 
   @include tablet-portrait {
     width: 610px;
+  }
+
+  .split-block_no_image & {
+    @include tablet-portrait {
+      margin: 0 auto;
+      width: 800px;
+    }
   }
 
   p {
@@ -121,6 +136,12 @@
         flex: 0 0 auto;
         margin-top: var(--padding-v-desktop);
         width: 50%;
+      }
+
+      .split-block_no_image & {
+        @include tablet-portrait {
+          width: 33.33%;
+        }
       }
     }
   }

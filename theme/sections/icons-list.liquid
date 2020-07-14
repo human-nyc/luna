@@ -1,0 +1,57 @@
+<div class="split-block split-block_no_image">
+  <div class="split-block__inner">
+    <div class="split-block__content">
+      <div class="split-block__content-inner">
+        <h2 class="section-header">{{ section.settings.header }}</h2>
+        <div class="icons-block__items">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'icon_text' %}
+                <div class="item-wrapper">
+                  <div class="icons-block__item">
+                    <img src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
+                    <p>
+                      {{ block.settings.text }}
+                    </p>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Icons List",
+    "class": "icons-list",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Icon Text",
+        "type": "icon_text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
