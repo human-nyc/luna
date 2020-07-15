@@ -16,7 +16,7 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'question' %}
-            <div class="faq-question" data-category-id="{{block.settings.cateogry_id}}">
+            <div class="faq-question" data-category-id="{{block.settings.category_id}}" :class="{ active: activeCategory == '{{block.settings.category_id}}' }">
               <h2 class="section-header">{{block.settings.header}}</h2>
               <div>{{block.settings.body}}</div>
             </div>
@@ -64,7 +64,7 @@
           },
           {
             "type": "text",
-            "id": "cateogry_id",
+            "id": "category_id",
             "label": "Category ID (exact match)"
           }
         ]

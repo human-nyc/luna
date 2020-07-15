@@ -20,6 +20,7 @@ let config = {
     "index": "./scripts/templates/index.js",
     "list-collections": "./scripts/templates/list-collections.js",
     "page": "./scripts/templates/page.js",
+    "page.contact": "./scripts/templates/page.contact.js",
     "page.faq": "./scripts/templates/page.faq.js",
     "page.how_it_works": "./scripts/templates/page.how_it_works.js",
     "page.legal": "./scripts/templates/page.legal.js",
