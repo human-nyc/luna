@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="16px" viewBox="0 0 10 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_arrow</title>
+    <g id="faq" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="luna_faq" transform="translate(-921.000000, -389.000000)" fill="#182755" fill-rule="nonzero">
+            <g id="hero_mod">
+                <g id="contact_01" transform="translate(508.000000, 368.000000)">
+                    <g id="icon_arrow" transform="translate(413.000000, 21.000000)">
+                        <polygon id="Path" transform="translate(5.000000, 8.000000) scale(1, -1) rotate(-180.000000) translate(-5.000000, -8.000000) " points="10 1.88444444 8.09352518 0 0 8 8.09352518 16 10 14.1155556 3.81294964 8"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
