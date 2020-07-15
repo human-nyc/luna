@@ -1,26 +1,28 @@
-<div class="faq__aside">
-  <ul>
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'category' %}
-          <li data-id="{{block.settings.identifier}}">
-            {{block.settings.name}}
-          </li>
-      {% endcase %}
-    {% endfor %}
-  </ul>
-</div>
-<div class="faq__main">
-  <div class="faq__main-inner">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'question' %}
-          <div class="faq-question" data-category-id="{{block.settings.cateogry_id}}">
-            <h2>{{block.settings.header}}</h2>
-            <div>{{block.settings.body}}</div>
-          </div>
-      {% endcase %}
-    {% endfor %}
+<div class="faq__inner" id="faq">
+  <div class="faq__aside">
+    <ul>
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'category' %}
+            <li data-id="{{block.settings.identifier}}" :class="{ active: activeCategory == '{{block.settings.identifier}}' }" @click="selectCategory('{{ block.settings.identifier }}')">
+              {{block.settings.name}}
+            </li>
+        {% endcase %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="faq__main">
+    <div class="faq__main-inner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'question' %}
+            <div class="faq-question" data-category-id="{{block.settings.cateogry_id}}">
+              <h2 class="section-header">{{block.settings.header}}</h2>
+              <div>{{block.settings.body}}</div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
