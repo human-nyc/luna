@@ -102,7 +102,7 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: var(--font-size-p);
     line-height: 1.75;
     margin: 1em 0 2em;
   }
@@ -160,7 +160,7 @@
     }
 
     p {
-      font-size: 20px;
+      font-size: var(--font-size-p-lg);
       font-weight: 500;
       line-height: 1.6;
       margin: 1em 0;

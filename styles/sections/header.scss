@@ -129,7 +129,7 @@
     text-decoration: none;
 
     @include tablet-landscape {
-      font-size: 16px;
+      font-size: var(--font-size-p);
       padding: 39px 0 29px;
     }
   }

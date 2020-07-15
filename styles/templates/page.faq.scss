@@ -1,1 +1,29 @@
 @import '../responsive';
+@import '../snippets/page-hero';
+@import '../sections/faq';
+
+.page-hero.page-hero_faq {
+  background-color: var(--secondary-brand-color);
+}
+
+.page-hero_faq {
+  ul {
+    margin: 40px auto 0;
+    max-width: 100%;
+    padding: 0 var(--gutter);
+    width: 400px;
+  }
+
+  li {
+    border-top: 1px solid darken(#dae8f0, 15);
+    font-size: var(--font-size-p-lg);
+    font-weight: 500;
+    list-style: none;
+    padding: .6em 0;
+    text-align: left;
+
+    &:last-child {
+      border-bottom: 1px solid darken(#dae8f0, 15);
+    }
+  }
+}
