@@ -7,7 +7,7 @@ body {
   background-color: var(--offwhite-color);
   color: var(--font-color);
   font-family: var(--font-sans-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   margin: 0;
 }
 
@@ -42,7 +42,7 @@ h2.section-header {
 
 h3.section-subheader {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: var(--font-size-p-lg);
   font-style: italic;
   font-weight: normal;
   line-height: 1.4;

@@ -26,7 +26,10 @@
   --font-serif: 'Sabon', serif;
   --font-sans-serif: 'CentraNo2', sans-serif;
 
+  --font-size-base: 16px;
   --font-size-h0: 52px;
+  --font-size-p-lg: 20px;
+  --font-size-p: var(--font-size-base);
 
   // Colors
   --deep-blue-color: #182755;

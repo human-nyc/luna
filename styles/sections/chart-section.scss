@@ -66,7 +66,7 @@
 }
 
 .weight-chart__type {
-  font-size: 16px;
+  font-size: var(--font-size-p);
   font-weight: 500;
   letter-spacing: 1.92px;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
 
   td, th {
     border-bottom: 1px solid var(--primary-brand-color);
-    font-size: 16px;
+    font-size: var(--font-size-p);
     line-height: 1.5;
     padding: 20px 12px;
     width: 50%;
@@ -104,7 +104,7 @@
     font-weight: bold;
 
     @include small-viewport {
-      font-size: 16px;
+      font-size: var(--font-size-p);
     }
   }
 
@@ -114,7 +114,7 @@
   }
 
   td:nth-child(2) {
-    font-size: 20px;
+    font-size: var(--font-size-p-lg);
     font-weight: 500;
   }
 }

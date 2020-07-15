@@ -127,7 +127,7 @@
 
   td, th {
     border-bottom: 1px solid var(--primary-brand-color);
-    font-size: 16px;
+    font-size: var(--font-size-p);
     line-height: 1.5;
     padding: 32px 12px;
 
@@ -145,7 +145,7 @@
     font-weight: bold;
 
     @include small-viewport {
-      font-size: 16px;
+      font-size: var(--font-size-p);
     }
   }
 
@@ -157,7 +157,7 @@
     width: 180px;
 
     @include small-viewport {
-      font-size: 16px;
+      font-size: var(--font-size-p);
     }
   }
 
@@ -167,7 +167,7 @@
     line-height: 1.2;
 
     @include small-viewport {
-      font-size: 16px;
+      font-size: var(--font-size-p);
     }
   }
 
