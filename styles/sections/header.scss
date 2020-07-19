@@ -28,11 +28,6 @@
 }
 
 .header {
-  position: absolute;
-  left: 0;
-  transition: box-shadow var(--slow);
-  width: 100%;
-
   &.header_scrolled,
   &.header_products_open {
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
@@ -51,11 +46,11 @@
 }
 
 .header__main-inner {
-  display: flex;
+  column-gap: var(--gutter);
+  display: grid;
+  grid-template: "left center right" var(--header-height) / 1fr 100px 1fr;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
-  // width: var(--page-width);
+  padding: 0 var(--gutter);
 
   @include desktop-lg {
     padding: 0 calc(60px - var(--gutter));
@@ -64,8 +59,7 @@
 
 .header__left,
 .header__right {
-  flex: 1 1 100%;
-  padding: 0 var(--gutter);
+  align-self: center;
 
   .header-link:not(.header-link_cart) {
     display: none;
@@ -79,6 +73,7 @@
 }
 
 .header__left {
+  grid-area: left;
   text-align: left;
 
   .header-link {
@@ -89,13 +84,18 @@
 }
 
 .header__center {
-  flex: 0 0 100px;
+  align-self: center;
+  grid-area: center;
 }
 
 .header__logo {
-  padding: 24px;
-
+  a {
+    display: block;
+    overflow: hidden;
+  }
   img {
+    display: block;
+    margin: auto;
     width: 64px;
 
     @include tablet-landscape {
@@ -105,6 +105,7 @@
 }
 
 .header__right {
+  grid-area: right;
   text-align: right;
 
   .header-link {
@@ -125,12 +126,10 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 1.14;
-    padding: 32px 0 24px;
     text-decoration: none;
 
     @include tablet-landscape {
       font-size: var(--font-size-p);
-      padding: 39px 0 29px;
     }
   }
 }
@@ -142,7 +141,6 @@ $toggle-icon-size: 24px;
   height: $toggle-icon-size + 10px;
   width: $toggle-icon-size + 10px;
   display: none;
-  margin-top: 20px;
   position: relative;
 
   @include small-viewport {

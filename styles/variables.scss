@@ -1,21 +1,13 @@
 :root {
-  // Left and right page gutter. Can be set using multiple @media breakpoints. Example:
-  --gutter-half: 12px;
-  @media (max-width: 767px) {
-    --gutter: 24px;
-  }
-
-  @media (min-width: 768px) {
-    --gutter: 24px;
-  }
-
   // Header height
   @media (max-width: 767px) {
-    --header-height: 50px;
+    --header-height: 72px;
+    --padding-v: 40px;
   }
 
   @media (min-width: 768px) {
     --header-height: 100px;
+    --padding-v: 80px;
   }
 
   // Transition durations
@@ -41,10 +33,11 @@
   --font-color: var(--deep-blue-color);
 
   // Sizing
+  --gutter: 24px;
+  --gutter-half: 12px;
   --page-width: 1360px;
   --page-width-sm: 1060px;
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
   --banner-height: 40px;
-  --header-height: 72px;
 }
