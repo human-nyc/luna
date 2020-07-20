@@ -1,0 +1,60 @@
+.product-grid-item {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+  &.on-sale {
+    &::after {
+      border-bottom: 1px solid;
+      border-top: 1px solid;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.6;
+      line-height: 1.4;
+      letter-spacing: 1.2px;
+      padding: 0.5em 1em;
+      position: absolute;
+      content: "sale sale sale sale";
+      right: 0;
+      text-transform: uppercase;
+      top: 0;
+      transform: translate(50%,-50%) rotate(45deg) translateY(6.4em);
+      word-spacing: 1em;
+      // transform: translate(-3em,-3em) rotate(45deg);
+    }
+  }
+}
+
+.product-grid-item__featured-image {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.product-grid-item__title {
+  align-self: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.product-grid-item__price {
+  &.varies::before {
+    content: "From ";
+  }
+}
+
+.product-grid-item__compare_at_price {
+  color: #1f1f1f66;
+  text-decoration: line-through;
+}
+
+.product-grid-item .cta-button {
+  align-self: center;
+}

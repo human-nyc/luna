@@ -1,0 +1,29 @@
+@import '../sections/collection-menu';
+@import '../snippets/pagination';
+@import '../snippets/product-grid-item';
+
+.collection {
+
+}
+
+.collection__top {
+
+}
+
+.collection__product-grid {
+  column-gap: var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: var(--padding-v) 0;
+  padding: 0 var(--gutter);
+  row-gap: var(--gutter);
+
+
+  .collection-menu {
+    align-self: center;
+
+    &:nth-child(odd) {
+      grid-column-end: span 2;
+    }
+  }
+}

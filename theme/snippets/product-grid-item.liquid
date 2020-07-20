@@ -1,0 +1,34 @@
+<div class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}">
+
+  <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+
+    <source
+      srcset="{{ product.featured_image.src | img_url: '160x160', scale: 2 }}"
+      media="(max-width: 767px)"
+    >
+    <source
+      srcset="{{ product.featured_image.src | img_url: '384x384', scale: 2 }}"
+      media="(min-width: 768px)"
+    >
+    <source
+      srcset="{{ product.featured_image.src | img_url: '512x512', scale: 2 }}"
+      media="(min-width: 768px)"
+    >
+
+    <img src="" alt="{{ product.featured_image.alt | escape }}">
+  </a>
+
+  <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+
+  <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
+    {{ product.price | money }}
+    {% if product.compare_at_price %}
+      <span class="product-grid-item__compare_at_price">{{product.compare_at_price | money}}</span>
+    {% endif %}
+  </span>
+
+  {% if product.available %}
+    <button class="cta-button cta-button_dark">Quick Add</button>
+  {% endif %}
+  {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+</div>
