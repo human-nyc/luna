@@ -28,6 +28,8 @@
 }
 
 .header {
+  transition: box-shadow var(--slow);
+
   &.header_scrolled,
   &.header_products_open {
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
