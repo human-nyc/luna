@@ -1,34 +1,74 @@
-<div class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}">
+<product-grid-item
+  inline-template
+  class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}"
+  product-json='{{product | json}}'
+  options-with-values-json='{{product.options_with_values | json}}'
+  first-available-variant='{{product.selected_or_first_available_variant.id}}'
+>
+  <div>
+    <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+      <picture>
+        <source
+          srcset="{{ product.featured_image.src | img_url: '160x160', scale: 2 }}"
+          media="(max-width: 767px)"
+        >
+        <source
+          srcset="{{ product.featured_image.src | img_url: '384x384', scale: 2 }}"
+          media="(min-width: 768px)"
+        >
+        <source
+          srcset="{{ product.featured_image.src | img_url: '512x512', scale: 2 }}"
+          media="(min-width: 768px)"
+        >
 
-  <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+        <img src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
+    </a>
 
-    <source
-      srcset="{{ product.featured_image.src | img_url: '160x160', scale: 2 }}"
-      media="(max-width: 767px)"
-    >
-    <source
-      srcset="{{ product.featured_image.src | img_url: '384x384', scale: 2 }}"
-      media="(min-width: 768px)"
-    >
-    <source
-      srcset="{{ product.featured_image.src | img_url: '512x512', scale: 2 }}"
-      media="(min-width: 768px)"
-    >
+    <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
 
-    <img src="" alt="{{ product.featured_image.alt | escape }}">
-  </a>
+    <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
+      {{ product.price | money }}
+      {% if product.compare_at_price %}
+        <span class="product-grid-item__compare_at_price">{{product.compare_at_price | money}}</span>
+      {% endif %}
+    </span>
 
-  <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
-
-  <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
-    {{ product.price | money }}
-    {% if product.compare_at_price %}
-      <span class="product-grid-item__compare_at_price">{{product.compare_at_price | money}}</span>
+    {% if product.available %}
+      <button class="cta-button cta-button_dark">Quick Add</button>
     {% endif %}
-  </span>
+    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
-  {% if product.available %}
-    <button class="cta-button cta-button_dark">Quick Add</button>
-  {% endif %}
-  {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-</div>
+    <form class="quick-add" @change="respondToChange">
+
+
+
+      <template v-for="option in optionsWithValues">
+        <h4>${option.name}</h4>
+
+        <template v-for="value in option.values">
+          <input v-model="options[option.position]" type="radio" v-bind="inputOptionAttributes(product, option, value)">
+          <label v-bind="labelOptionAttributes(product, option, value)">${value}</label>
+        </template>
+      </template>
+
+
+
+      {% for option in product.options_with_values %}
+        <h4>{{ option.name }}</h4>
+
+        {% for value in option.values %}
+          <input  id="product{{product.id}}_option{{option.name}}_value{{value | handleize}}" type="radio" name="options[{{ option.name | escape }}]" value="{{value}}" {% if option.selected_value == value %}checked{% endif %}>
+          <label for="product{{product.id}}_option{{option.name}}_value{{value | handleize}}">{{value}}</label>
+        {% endfor %}
+      {% endfor %}
+
+
+
+      <select name="id" v-model="selectedOrFirstAvailableVariantId" class="variants">
+        <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
+      </select>
+
+    </form>
+  </div>
+</product-grid-item>
