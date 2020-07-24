@@ -1,0 +1,20 @@
+{% assign linklist = linklists[section.settings.menu] %}
+
+<h2 class="collection-menu__section-header section-header">{{linklist.title}}</h2>
+
+{% render 'linklist' linklist: linklist, class: "collection-menu__linklist" %}
+
+{% schema %}
+  {
+    "name": "Collection Menu",
+    "class": "collection-menu",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Collection Menu"
+      }
+    ]
+  }
+{% endschema %}

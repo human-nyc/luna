@@ -1,0 +1,5 @@
+<div class="pagination">
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}
+</div>
