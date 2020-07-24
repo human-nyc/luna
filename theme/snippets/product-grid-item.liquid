@@ -46,12 +46,25 @@
       <template v-for="option in optionsWithValues">
         <h4>${option.name}</h4>
 
-        <template v-for="value in option.values">
-          <input v-model="options[option.position]" type="radio" v-bind="inputOptionAttributes(product, option, value)">
+        <template v-for="(value, idx) in option.values">
+          <input
+            v-model="options[idx]"
+            type="radio"
+            v-bind="inputOptionAttributes(product, option, value)"
+            :value="value"
+          >
           <label v-bind="labelOptionAttributes(product, option, value)">${value}</label>
         </template>
+
+        <p>${options['Option' + option.position]}</p>
       </template>
 
+
+      <p>
+        <select name="id" v-model="selectedVariant.id" class="variants">
+          <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
+        </select>
+      </p>
 
 
       {% for option in product.options_with_values %}
@@ -62,12 +75,6 @@
           <label for="product{{product.id}}_option{{option.name}}_value{{value | handleize}}">{{value}}</label>
         {% endfor %}
       {% endfor %}
-
-
-
-      <select name="id" v-model="selectedOrFirstAvailableVariantId" class="variants">
-        <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
-      </select>
 
     </form>
   </div>
