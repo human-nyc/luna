@@ -1,0 +1,86 @@
+
+.product__option input[type="radio"] {
+  display: none;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.option--color {
+  background: magenta;
+  border: 1px solid white;
+  border-radius: 50%;
+  box-sizing: content-box;
+  display: inline-block;
+  margin: 0 1em;
+  height: calc(2em - 4px);
+  width: calc(2em - 4px);
+
+  span {
+    display: none;
+  }
+
+  &.option--dark-grey {
+    background: var(--dark-grey);
+  }
+
+  &.option--ivory {
+    background: var(--ivory);
+  }
+
+  &.option--light-blue {
+    background: var(--light-blue);
+  }
+
+  &.option--light-grey {
+    background: var(--light-grey);
+  }
+
+  &.option--navy {
+    background: var(--navy);
+  }
+
+  &.option--white {
+    background: var(--white);
+  }
+
+  &.option--pink {
+    background: var(--pink);
+  }
+
+  &.option--dusty-pink {
+    background: var(--pink);
+  }
+
+
+  input[type="radio"]:checked + & {
+    box-shadow: 0 0 0 1px black;
+  }
+}
+
+.option--size,
+.option--weight {
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  color: #00000088;
+  padding: 0.25em 1em;
+
+  input[type="radio"]:checked + & {
+    border-color: currentColor;
+    color: inherit;
+  }
+}
+
+.option--weight {
+  &[title="5lbs"]::after { content: " - 500lbs" }
+  &[title="7lbs"]::after { content: " - 70lbs" }
+  &[title="10lbs"]::after { content: " - 10pbs" }
+  &[title="12lbs"]::after { content: " - 120lbs" }
+  &[title="15lbs"]::after { content: " - 150lbs" }
+  &[title="17lbs"]::after { content: " - 170lbs" }
+  &[title="20lbs"]::after { content: " - 200lbs" }
+  &[title="22lbs"]::after { content: " - 220lbs" }
+  &[title="25lbs"]::after { content: " - 250lbs" }
+  &[title="30lbs"]::after { content: " - 300lbs" }
+}

@@ -6,8 +6,13 @@
   position: relative;
   text-align: center;
 
+  @media (min-width: 768px) {
+    position: relative;
+  }
+
   &.on-sale {
     &::after {
+      backface-visibility: hidden;
       border-bottom: 1px solid;
       border-top: 1px solid;
       font-size: 10px;
@@ -23,20 +28,40 @@
       top: 0;
       transform: translate(50%,-50%) rotate(45deg) translateY(6.4em);
       word-spacing: 1em;
-      // transform: translate(-3em,-3em) rotate(45deg);
+      z-index: 1;
     }
   }
 }
 
 .product-grid-item__featured-image {
+  position: relative;
+
   img {
     display: block;
     width: 100%;
   }
 }
+.product-grid-item__featured-image-el {
+
+}
+.product-grid-item__hover-image-el {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: opacity var(--slow);
+  z-index: inherit;
+  .product-grid-item__featured-image:hover & {
+    opacity: 1;
+    transition-duration: var(--fast);
+  }
+}
 
 .product-grid-item__title {
   align-self: center;
+  font: 500 20px/1.4 var(--font-sans-serif);
+  margin: 1em 0 0;
   text-decoration: none;
 
   &:hover {
@@ -45,6 +70,7 @@
 }
 
 .product-grid-item__price {
+  font: normal 16px/1.5 var(--font-sans-serif);
   &.varies::before {
     content: "From ";
   }
@@ -53,6 +79,65 @@
 .product-grid-item__compare_at_price {
   color: #1f1f1f66;
   text-decoration: line-through;
+}
+
+
+.quick-add {
+  background: white;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+
+  &.active {
+    display: block;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.product__options {
+  font: 500 10px/1.6 var(--font-sans-serif);
+  list-style-position: inside;
+  list-style-type: decimal;
+  counter-reset: my-sec-counter;
+}
+.product__option {
+  color: var(--light-blue-color);
+
+  &.active {
+    color: var(--deep-blue-color);
+  }
+}
+
+.option-name::before {
+  counter-increment: my-sec-counter;
+  content: counter(my-sec-counter, decimal-leading-zero) ". ";
+}
+.option-name.Color::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose a\00a0";
+}
+.option-name.Size::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your\00a0";
+}
+.option-name.Weight::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your blanket\00a0";
+}
+
+
+.option-name {
+  cursor: pointer;
+  // display: grid;
+  // flex-grow: 1;
+  font: 500 10px/1.6 var(--font-sans-serif);
+  // grid-template-columns: auto 1fr auto;
+  border-bottom: 1px solid;
+  text-align: left;
+  text-transform: uppercase;
 }
 
 .product-grid-item .cta-button {
