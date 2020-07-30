@@ -1,4 +1,9 @@
-<div class="header" :class="{ 'header_scrolled': isScrolled }" id="headerComponent">
+<div class="header" :class="{ 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen }" id="headerComponent">
+
+  <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
+    {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
+  </div>
+
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
@@ -38,16 +43,16 @@
         {% for parent_link in linklists[section.settings.main_nav_left].links %}
 
           {% if parent_link.links.size > 0 %}
-            <a class="header-link" href="{{parent_link.url}}" @click.prevent="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
+            <a :class="['header-link', { active: activeChildLinksIndex == {{forloop.index0}} }]" href="{{parent_link.url}}" @click.prevent="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
           {% else %}
-            <a class="header-link" href="{{parent_link.url}}">{{parent_link.title}}</a>
+            <a :class="['header-link', { active: activeChildLinksIndex == {{forloop.index0}} }]" href="{{parent_link.url}}">{{parent_link.title}}</a>
           {% endif %}
 
 
         {% endfor %}
 
 
-        <div class="header__toggler" @click="toggleOpen">
+        <div class="header__toggler" @click="toggleMobileMenu">
           <div class="toggle-icon">
             <div class="toggle-icon_bar-one"></div>
             <div class="toggle-icon_bar-two"></div>
@@ -93,7 +98,13 @@
       {
         "type": "link_list",
         "id": "main_nav_left",
-        "label": "Main Navigation Left",
+        "label": "Main Navigation Desktop Left",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_nav_mobile",
+        "label": "Main Navigation Mobile",
         "default": "main-menu"
       }
     ],
