@@ -28,6 +28,7 @@
 }
 
 .header {
+  position: relative;
   transition: box-shadow var(--slow);
 
   &.header_scrolled,
@@ -38,10 +39,12 @@
 }
 
 .header__main {
+  position: relative;
   transition: background-color var(--slow);
 
-  .header_scrolled &,
-  .header_products_open & {
+  &:hover,
+  .header__dropdown.active ~ &,
+  .header_scrolled & {
     background-color: var(--offwhite-color);
     transition: background-color var(--fast);
   }
@@ -197,8 +200,10 @@ $toggle-icon-size: 24px;
   display: none;
   padding: 40px 0;
   position: absolute;
+  top: 100%;
   width: 100%;
 
+  &.active,
   .header_products_open & {
     display: block;
     animation: fadeDown var(--fast);
@@ -221,6 +226,7 @@ $toggle-icon-size: 24px;
   }
 
   .dropdown-image {
+    display: block;
     height: 80px;
     margin: 0 auto;
     width: 130px;
@@ -230,5 +236,14 @@ $toggle-icon-size: 24px;
       object-fit: contain;
       width: 100%;
     }
+  }
+  .dropdown-text {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .grandchild-link {
+    color: inherit;
+    text-decoration: none;
   }
 }

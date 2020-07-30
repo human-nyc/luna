@@ -1,10 +1,52 @@
 <div class="header" :class="{ 'header_products_open': isShowingProducts, 'header_scrolled': isScrolled }" id="headerComponent">
+
+  {% for parent_link in linklists[section.settings.main_nav_left].links %}
+    {% if parent_link.links.size > 0 %}
+      <div class="header__dropdown">
+        <div class="header__dropdown-inner">
+          {% for child_link in parent_link.links %}
+            {% case child_link.type %}
+            {% when 'product_link' %}
+              {% assign child_link_image = child_link.object.featured_image %}
+            {% when 'collection_link' %}
+              {% assign child_link_image = child_link.object.image %}
+            {% endcase %}
+
+            <div class="dropdown-item" data-type="{{child_link.type}}">
+              <a href="{{child_link.url}}" class="dropdown-image">
+                <img src="{{child_link_image | img_url: '80x80', crop: 'center', scale: 2 }}" alt="Collection 1" />
+              </a>
+              <a href="{{child_link.url}}" class="dropdown-text">{{child_link.title}}</a>
+
+              {% if child_link.links.size > 0 %}
+                <ul class="grandchild-links">
+                  {% for grandchild_link in child_link.links %}
+                    <li><a href="{{grandchild_link.url}}" class="grandchild-link">{{grandchild_link.title}}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
   <div class="header__main">
     <div class="header__main-inner">
       <div class="header__left">
-        <button type="button" class="header-link" v-on:click="toggleProducts">Shop</button>
-        <a class="header-link" href="/">How it works</a>
-        <a class="header-link" href="/">Why Luna?</a>
+        {% for parent_link in linklists[section.settings.main_nav_left].links %}
+
+          {% if parent_link.links.size > 0 %}
+            <a class="header-link" href="{{parent_link.url}}" @click.prevent="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
+          {% else %}
+            <a class="header-link" href="{{parent_link.url}}">{{parent_link.title}}</a>
+          {% endif %}
+
+
+        {% endfor %}
+
+
         <div class="header__toggler" @click="toggleOpen">
           <div class="toggle-icon">
             <div class="toggle-icon_bar-one"></div>
@@ -32,28 +74,6 @@
       </div>
     </div>
   </div>
-  <div class="header__dropdown" id="headerDropdown">
-    <div class="header__dropdown-inner">
-      <a class="dropdown-item">
-        <div class="dropdown-image">
-          <img alt="Collection 1" />
-        </div>
-        <span>Collection 1</span>
-      </a>
-      <a class="dropdown-item">
-        <div class="dropdown-image">
-          <img alt="Collection 2" />
-        </div>
-        <span>Collection 2</span>
-      </a>
-      <a class="dropdown-item">
-        <div class="dropdown-image">
-          <img alt="Collection 3" />
-        </div>
-        <span>Collection 3</span>
-      </a>
-    </div>
-  </div>
 </div>
 
 {% comment %}
@@ -69,6 +89,12 @@
         "id": "promo_text",
         "label": "Promotional Text",
         "default": "Promo Here"
+      },
+      {
+        "type": "link_list",
+        "id": "main_nav_left",
+        "label": "Main Navigation Left",
+        "default": "main-menu"
       }
     ],
     "blocks": []

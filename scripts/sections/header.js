@@ -5,10 +5,9 @@ const header = new Vue({
   el: '#headerComponent',
   data: {
     message: 'Hello Vue!',
-    isShowingProducts: false,
-    isOpen: false,
     isScrolled: false,
     cartCount: 0,
+    activeChildLinksIndex: -1
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
@@ -17,25 +16,23 @@ const header = new Vue({
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    toggleProducts: function(event) {
-      this.isShowingProducts = !this.isShowingProducts;
-      event.stopPropagation();
-      if (this.isShowingProducts) {
-        window.addEventListener('click', this.closeProducts);
+    toggleActiveChildLinks({ activeChildLinksIndex }) {
+      if(activeChildLinksIndex === this.activeChildLinksIndex) {
+        this.activeChildLinksIndex = -1;
+        this.$el.querySelector('.header__dropdown.active').classList.remove('active');
+      } else {
+        this.$el.querySelectorAll('.header__dropdown').forEach((el, idx) => {
+          el.classList.toggle('active', idx == activeChildLinksIndex);
+        });
+        this.activeChildLinksIndex = activeChildLinksIndex;
       }
-    },
-    closeProducts: function(event) {
-      const dropdown = document.getElementById('headerDropdown');
-      if (!dropdown.contains(event.target)) {
-        this.isShowingProducts = false;
-        window.removeEventListener('click', this.closeProducts);
-      }
-    },
-    toggleOpen: function() {
-      this.isOpen = !this.isOpen;
     },
     handleScroll: function() {
       this.isScrolled = window.scrollY > 50;
+
+      this.$el.querySelectorAll('.header__dropdown').forEach((el, idx) => {
+        el.classList.toggle('active', false);
+      });
     },
   },
 });
