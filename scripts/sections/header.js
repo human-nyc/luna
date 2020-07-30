@@ -16,23 +16,31 @@ const header = new Vue({
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    toggleActiveChildLinks({ activeChildLinksIndex }) {
-      if(activeChildLinksIndex === this.activeChildLinksIndex) {
-        this.activeChildLinksIndex = -1;
-        this.$el.querySelector('.header__dropdown.active').classList.remove('active');
-      } else {
-        this.$el.querySelectorAll('.header__dropdown').forEach((el, idx) => {
-          el.classList.toggle('active', idx == activeChildLinksIndex);
-        });
-        this.activeChildLinksIndex = activeChildLinksIndex;
-      }
-    },
     handleScroll: function() {
       this.isScrolled = window.scrollY > 50;
 
       this.$el.querySelectorAll('.header__dropdown').forEach((el, idx) => {
         el.classList.toggle('active', false);
       });
+    },
+    toggleActiveChildLinks({ activeChildLinksIndex }) {
+      if(this.activeChildLinksIndex == activeChildLinksIndex) {
+        this.activeChildLinksIndex = -1
+      } else {
+        this.activeChildLinksIndex = 0;
+      }
+      // if(activeChildLinksIndex === this.activeChildLinksIndex) {
+      //   this.activeChildLinksIndex = -1;
+      //   this.$el.querySelector('.header__dropdown.active').classList.remove('active');
+      // } else {
+      //   this.$el.querySelectorAll('.header__dropdown').forEach((el, idx) => {
+      //     el.classList.toggle('active', idx == activeChildLinksIndex);
+      //   });
+      //   this.activeChildLinksIndex = activeChildLinksIndex;
+      // }
+    },
+    toggleOpen: function() {
+      this.isOpen = !this.isOpen;
     },
   },
 });

@@ -1,8 +1,8 @@
-<div class="header" :class="{ 'header_products_open': isShowingProducts, 'header_scrolled': isScrolled }" id="headerComponent">
+<div class="header" :class="{ 'header_scrolled': isScrolled }" id="headerComponent">
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
-      <div class="header__dropdown">
+      <div :class="['header__dropdown', { active: activeChildLinksIndex == {{forloop.index0}} }]">
         <div class="header__dropdown-inner">
           {% for child_link in parent_link.links %}
             {% case child_link.type %}
