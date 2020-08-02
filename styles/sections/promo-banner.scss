@@ -4,10 +4,15 @@
   font-size: 14px;
   min-height: var(--banner-height);
   overflow: hidden;
+  padding: 0 var(--gutter);
   text-align: center;
 
   p {
     line-height: 1.14;
     margin: 0.893em 0;
+  }
+
+  a {
+    color: inherit;
   }
 }
