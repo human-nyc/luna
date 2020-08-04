@@ -25,9 +25,10 @@
 
   // Colors
   --deep-blue-color: #182755;
-  --light-blue-color: #DAE8F0;
+  --light-blue-color: #dae8f0;
+  --light-pink: #f8f7f5;
   --offwhite-color: #f8f7f5;
-  --white-color: #FFF;
+  --white-color: #fff;
   --primary-brand-color: var(--deep-blue-color);
   --secondary-brand-color: var(--light-blue-color);
   --font-color: var(--deep-blue-color);
@@ -40,4 +41,10 @@
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
   --banner-height: 40px;
+
+  // Z-index
+  --z-modal: 30;
+  --z-navigation: 20;
+  --z-priority-content: 10;
+  --z-content: 1;
 }

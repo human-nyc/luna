@@ -110,7 +110,7 @@ const actions = {
 
 const getters = {
   cartCount(state) {
-    return state.cartData.item_count
+    return state.cartData.item_count;
   },
 
   cartItems(state) {

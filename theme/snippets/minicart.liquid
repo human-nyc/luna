@@ -1,0 +1,44 @@
+<div id="vuecart" :class="{'minicart': true, 'is-open': miniCartIsOpen}">
+  <div @click="closeMiniCart" class="minicart__background"></div>
+
+  <div class="minicart__inner">
+    <div class="cart-header">
+      <div>
+        <h2 class="section-header">Your Cart</h2>
+        <h3 class="section-subheader">${getItems}</h3>
+      </div>
+
+      <button @click="closeMiniCart" class="cart-closer">close</button>
+    </div>
+
+    <div class="cart-body">
+      <template v-for="(item, index) in cartItems">
+        {% render 'cart-item' %}
+      </template>
+    </div>
+
+    <div v-if="cartCount > 0" class="cart-bottom">
+      <div v-if="getCartLevelDiscountsLength > 0 || getLineLevelDiscountsLength > 0">
+        <div class="cart-discounts">
+          <span v-for="disc in cartLevelDiscounts">&ndash;${getCartLevelDiscount(disc)}</span>
+          <span v-for="disc in getLineLevelDiscounts">&ndash;${formatMoney(disc.amount)} with ${getLineLevelDiscountTitle(disc.discount_application)}</span>
+        </div>
+
+        <div class="cart-subtotal cart-bottom-row">
+          <span>Subtotal</span>
+          <span><s>&nbsp;${formatMoney(cartOriginalSubtotal)}&nbsp;</s>&nbsp;${formatMoney(cartSubtotal)}</span>
+        </div>
+      </div>
+      <div v-else class="cart-subtotal cart-bottom-row">
+        <span>Subtotal</span>
+        <span>${formatMoney(cartSubtotal)}</span>
+      </div>
+
+      <div class="cart-bottom-row">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <a class="cta-button cta-button_dark cart-checkout-link" href="/checkout">Checkout</a>
+    </div>
+  </div>
+</div>
