@@ -3,6 +3,7 @@
 @import '../sections/promo-banner';
 @import '../sections/header';
 @import '../sections/footer';
+@import '../snippets/minicart';
 
 body {
   background-color: var(--offwhite-color);
@@ -17,15 +18,16 @@ body {
 }
 
 blockquote {
-
 }
 
-h1, h2, h3 {
-
+h1,
+h2,
+h3 {
 }
 
-h4, h5, h6 {
-
+h4,
+h5,
+h6 {
 }
 
 h2.section-header {
@@ -71,6 +73,11 @@ h4.caps-label {
   text-transform: uppercase;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 a.cta-button,
 button.cta-button {
   appearance: none;
@@ -84,6 +91,7 @@ button.cta-button {
   font-weight: 500;
   padding: 17px 69px 17px 32px;
   position: relative;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
@@ -176,6 +184,6 @@ button.cta-button {
   }
 
   &:disabled {
-    opacity: .4;
+    opacity: 0.4;
   }
 }

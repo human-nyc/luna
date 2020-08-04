@@ -75,7 +75,10 @@
             {{ 'Register' | customer_register_link }}
           {% endif %}
         {% endif %}
-        <a class="header-link header-link_cart" href="/cart">Cart<span v-cloak> (${cartCount})</span></a>
+        <a
+          @click.prevent='toggleMiniCart'
+          class="header-link header-link_cart"
+          href="/cart">Cart<span v-cloak> (${cartCount})</span></a>
       </div>
     </div>
   </div>
