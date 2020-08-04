@@ -3,7 +3,7 @@
 
 <div class="product-hero" id="ProductForm" data-product="{{ product | json | escape }}" data-variant="{{ current_variant | json | escape }}">
   <div class="product-hero__header">
-    <h1 class="product-hero__title">{{ product.title }}</h1>
+    <h1 class="product-hero__title">{{ product.vendor }} {{ product.title }}</h1>
   </div>
   <div class="product-hero__inner">
     <div class="product-hero__info">

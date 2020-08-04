@@ -1,34 +1,101 @@
-<div class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}">
+{% assign hover_images = product.images | where: "alt", "hover" %}
 
-  <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
 
-    <source
-      srcset="{{ product.featured_image.src | img_url: '160x160', scale: 2 }}"
-      media="(max-width: 767px)"
-    >
-    <source
-      srcset="{{ product.featured_image.src | img_url: '384x384', scale: 2 }}"
-      media="(min-width: 768px)"
-    >
-    <source
-      srcset="{{ product.featured_image.src | img_url: '512x512', scale: 2 }}"
-      media="(min-width: 768px)"
-    >
+<product-grid-item
+  inline-template
+  class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}"
+  product-json='{{product | json}}'
+  options-with-values-json='{{product.options_with_values | json}}'
+>
+  <div>
+    <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+      <picture>
+        <source
+          srcset="{{ product.featured_image.src | img_url: '160x96', crop: 'center', scale: 1 }}"
+          media="(max-width: 767px)"
+        >
+        <source
+          srcset="{{ product.featured_image.src | img_url: '648x388', crop: 'center', scale: 1 }}"
+          media="(min-width: 768px)"
+        >
+        <img class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
 
-    <img src="" alt="{{ product.featured_image.alt | escape }}">
-  </a>
+      {% if hover_images.size > 0 %}
+        <picture>
+          <source
+            srcset="{{ hover_images[0].src | img_url: '160x96', crop: 'center', scale: 1 }}"
+            media="(max-width: 767px)"
+          >
+          <source
+            srcset="{{ hover_images[0].src | img_url: '648x388', crop: 'center', scale: 1 }}"
+            media="(min-width: 768px)"
+          >
 
-  <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+          <img class="product-grid-item__hover-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
+        </picture>
+      {% endif %}
+    </a>
 
-  <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
-    {{ product.price | money }}
-    {% if product.compare_at_price %}
-      <span class="product-grid-item__compare_at_price">{{product.compare_at_price | money}}</span>
+    <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.vendor}} {{ product.title }}</a>
+
+    <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
+      {{ product.price | money }}
+      {% if product.compare_at_price %}
+        <span class="product-grid-item__compare_at_price">{{product.compare_at_price | money}}</span>
+      {% endif %}
+    </span>
+
+    {% if product.available %}
+      <p><button @click="activateQuickAdd" class="cta-button cta-button_dark">Quick Add</button></p>
     {% endif %}
-  </span>
+    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
-  {% if product.available %}
-    <button class="cta-button cta-button_dark">Quick Add</button>
-  {% endif %}
-  {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-</div>
+    <form :class="['quick-add', { active: quickAddIsActive}]" method="post" action="/cart/add" enctype="multipart/form-data" @change="respondToChange">
+      <input type="hidden" name="form_type" value="product">
+      <input type="hidden" name="utf8" value="✓">
+
+      <picture v-if="selectedVariant.featured_image">
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('160x96_crop_center@1x.progressive')"
+          media="(max-width: 767px)"
+        >
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('648x388_crop_center@1x.progressive')"
+          media="(min-width: 768px)"
+        >
+
+        <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
+
+
+      <div class="product__options">
+        <div :class="['product__option', {active: optionIdx == 0 || options[optionIdx - 1] != undefined}]" v-for="(option, optionIdx) in optionsWithValues">
+          <h4 :class="['option-name', option.name]">${option.name}<span v-if="options[optionIdx]">: ${options[optionIdx]}</span></h4>
+
+          <template v-for="value in option.values">
+            <input
+              v-model="options[optionIdx]"
+              type="radio"
+              v-bind="inputOptionAttributes(product, option, value)"
+              :value="value"
+              @input="handleOptionChange({optionIdx})"
+            >
+            <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
+          </template>
+        </div>
+      </div>
+
+      <p>
+        <select name="id" v-model="selectedVariant.id" class="variants" v-if="selectedVariant">
+          <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
+        </select>
+      </p>
+
+      <p v-if="selectedVariant">
+        <button v-if="selectedVariant.available" class="cta-button cta-button_dark" type="submit">Add To Cart</button>
+        <button v-else class="cta-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+      </p>
+    </form>
+  </div>
+</product-grid-item>
