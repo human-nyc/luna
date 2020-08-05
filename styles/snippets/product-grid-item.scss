@@ -1,5 +1,4 @@
 .product-grid-item {
-  background: white;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -34,10 +33,12 @@
 }
 
 .product-grid-item__featured-image {
+  background: var(--offwhite-color);
   position: relative;
 
   img {
     display: block;
+    mix-blend-mode: multiply;
     width: 100%;
   }
 }
@@ -60,6 +61,7 @@
 
 .product-grid-item__title {
   align-self: center;
+  color: inherit;
   font: 500 20px/1.4 var(--font-sans-serif);
   margin: 1em 0 0;
   text-decoration: none;

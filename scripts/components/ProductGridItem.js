@@ -40,13 +40,13 @@ const ProductGridItem = Vue.component('product-grid-item', {
     inputOptionAttributes() {
       return (product, option, value) => ({
         name: `option${option.position}`,
-        id: `"product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
+        id: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(' ', '-')}`
       })
     },
     labelOptionAttributes() {
       return (product, option, value) => ({
-        for: `"product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
+        for: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
         class: `option option--${option.name.toLowerCase()} option--${value.replace(' ', '-').toLowerCase()}`
       })
     },
