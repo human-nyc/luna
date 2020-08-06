@@ -107,6 +107,15 @@
   padding: 0 var(--gutter);
   width: var(--page-width);
 
+  @include tablet-landscape {
+    padding: 0 calc(var(--gutter) * 2);
+  }
+
+  @include desktop {
+    padding: 0 170px;
+    width: calc(var(--page-width) + 340px);
+  }
+
   .comparison-chart_open &,
   .comparison-chart_page & {
     display: block;
