@@ -32,11 +32,6 @@
     width: 400px;
   }
 
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
   li {
     cursor: pointer;
     font-size: var(--font-size-p);
@@ -52,6 +47,16 @@
     &.active {
       opacity: 1;
     }
+  }
+}
+
+.faq__navigation {
+  margin: 0;
+  padding: 0;
+
+  @include tablet-portrait {
+    position: sticky;
+    top: 150px;
   }
 }
 
