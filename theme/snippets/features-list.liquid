@@ -14,7 +14,9 @@
                   <img src="{{ block.settings.image | img_url: '500x500' }}" />
                 </div>
               </div>
-              <h4>{{ block.settings.header }}</h4>
+              <div class="features-list__item-header">
+                <h4>{{ block.settings.header }}</h4>
+              </div>
               {% if block.settings.subheader.length > 0 %}
                 <h5>{{ block.settings.subheader }}</h5>
               {% endif %}
