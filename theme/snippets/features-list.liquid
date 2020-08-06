@@ -15,7 +15,9 @@
                 </div>
               </div>
               <h4>{{ block.settings.header }}</h4>
-              <h5>{{ block.settings.subheader }}</h5>
+              {% if block.settings.subheader.length > 0 %}
+                <h5>{{ block.settings.subheader }}</h5>
+              {% endif %}
               <p>{{ block.settings.body }}</p>
             </div>
           </div>

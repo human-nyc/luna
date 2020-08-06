@@ -1,0 +1,15 @@
+@import '../snippets/features-list';
+
+.philanthropy-list {
+  .features-list__items {
+    margin-top: 40px;
+  }
+
+  .features-list__item-image {
+    padding-bottom: 80%;
+
+    .fill-image {
+      border-radius: 0;
+    }
+  }
+}
