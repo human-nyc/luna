@@ -7,5 +7,5 @@
 import '../apps/Cart';
 import '../apps/Header';
 import '../apps/Product';
-import '../apps/MiniProduct';
+// import '../apps/MiniProduct';
 /* End Vue Imports */

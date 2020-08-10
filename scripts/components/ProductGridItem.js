@@ -8,6 +8,9 @@ const ProductGridItem = Vue.component('product-grid-item', {
     activateQuickAdd() {
       this.quickAddIsActive = true;
     },
+    deactivateQuickAdd() {
+      this.quickAddIsActive = false;
+    },
     respondToChange() {
     },
     handleOptionChange({optionIdx}) {
