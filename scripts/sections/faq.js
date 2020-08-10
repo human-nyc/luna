@@ -6,16 +6,23 @@ const faq = new Vue({
   el: '#faq',
   data: {
     activeCategory: null,
+    navOpen: false,
   },
   mounted() {
     // Get first id...
     const firstElement = document.querySelector('li[data-id]');
     const id = firstElement.getAttribute('data-id');
     this.activeCategory = id;
+    this.activeCategoryName = firstElement.innerHTML;
   },
   methods: {
-    selectCategory: function(id) {
+    selectCategory: function(id, name) {
       this.activeCategory = id;
+      this.activeCategoryName = name;
+      this.navOpen = false;
+    },
+    toggleNavigation: function() {
+      this.navOpen = !this.navOpen;
     }
   },
 });
