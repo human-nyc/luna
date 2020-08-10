@@ -49,10 +49,6 @@
   grid-template: 'left center right' var(--header-height) / 1fr 100px 1fr;
   justify-content: space-between;
   padding: 0 var(--gutter);
-
-  @include desktop-lg {
-    padding: 0 calc(60px - var(--gutter));
-  }
 }
 
 .header__left,

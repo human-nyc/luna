@@ -1,3 +1,5 @@
+@import './responsive';
+
 :root {
   // Header height
   @media (max-width: 767px) {
@@ -51,6 +53,11 @@
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
   --banner-height: 40px;
+
+  @include desktop-lg {
+    --gutter: 60px;
+  }
+
 
   // Z-index
   --z-modal: 30;

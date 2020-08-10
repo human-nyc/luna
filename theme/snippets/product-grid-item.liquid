@@ -3,7 +3,7 @@
 
 <product-grid-item
   inline-template
-  class="product-grid-item {% if product.compare_at_price %}on-sale{% endif %}"
+  class="product-grid-item"
   product-json='{{product | json}}'
   options-with-values-json='{{product.options_with_values | json}}'
 >
@@ -37,7 +37,7 @@
       {% endif %}
     </a>
 
-    <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.vendor}} {{ product.title }}</a>
+    <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
 
     <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
       {{ product.price | money }}
@@ -47,7 +47,7 @@
     </span>
 
     {% if product.available %}
-      <p><button @click="activateQuickAdd" class="cta-button cta-button_dark">Quick Add</button></p>
+      <p><button @click="activateQuickAdd" class="cta-button cta-button_dark small centered">Quick Add</button></p>
     {% endif %}
     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
@@ -96,11 +96,15 @@
         </select>
 
         <p v-if="selectedVariant">
-          <button v-if="selectedVariant.available" class="cta-button cta-button_dark" type="submit">Add To Cart</button>
-          <button v-else class="cta-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+          <button v-if="selectedVariant.available" class="cta-button cta-button_dark small centered" type="submit">Add To Cart</button>
+          <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
         </p>
       </div>
 
     </form>
+
+    {% if product.compare_at_price %}
+      <span class="on-sale"></span>
+    {% endif %}
   </div>
 </product-grid-item>

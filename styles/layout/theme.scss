@@ -13,8 +13,13 @@ body {
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
+body, input, textarea, select, button {
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
 }
 
 blockquote {
@@ -125,6 +130,17 @@ button.cta-button {
   &[disabled] {
     cursor: default;
     opacity: 0.5;
+  }
+
+  &.small {
+    font-size: 12px;
+    padding: 0.66666666em 69px 0.66666666em 2.2857em;
+  }
+
+  &.centered {
+    padding: 17px 32px;
+    padding: 0.66666666em 2.2857em;
+    text-align: center;
   }
 }
 

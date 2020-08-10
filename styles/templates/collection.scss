@@ -12,12 +12,12 @@
 }
 
 .collection__product-grid {
-  column-gap: var(--gutter);
+  column-gap: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: var(--padding-v) 0;
   padding: 0 var(--gutter);
-  row-gap: var(--gutter);
+  row-gap: 24px;
 
 
   .collection-menu {

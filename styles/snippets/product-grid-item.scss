@@ -1,4 +1,5 @@
 .product-grid-item {
+  background: white;
   display: flex;
   flex-direction: column;
   position: static;
@@ -8,12 +9,18 @@
     position: relative;
   }
 
-  &.on-sale {
+  .on-sale {
+    font-size: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18em;
+    height: 140px;
     &::after {
       backface-visibility: hidden;
       border-bottom: 1px solid;
       border-top: 1px solid;
-      font-size: 10px;
       font-weight: 500;
       line-height: 1.6;
       line-height: 1.4;
@@ -37,7 +44,6 @@
 
   img {
     display: block;
-    mix-blend-mode: multiply;
     width: 100%;
   }
 }
