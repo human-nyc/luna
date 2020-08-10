@@ -11,25 +11,70 @@
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .faq__inner {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 100%;
   padding: var(--padding-v-desktop) 0;
   width: var(--page-width);
 
   @include tablet-portrait {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
 }
 
 .faq__aside {
+  background-color: var(--offwhite-color);
   margin-bottom: var(--padding-v-mobile);
-  padding: 0 var(--gutter);
+  padding: 0;
+  position: sticky;
+  top: var(--header-height);
+  z-index: var(--z-navigation);
 
   @include tablet-portrait {
     flex: 0 0 auto;
+    padding: 0 var(--gutter);
+    top: 150px;
     width: 400px;
+  }
+}
+
+.faq__navigation {
+  animation: fadeInDown var(--fast);
+  background-color: var(--offwhite-color);
+  display: none;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  z-index: var(--z-priority-content);
+
+  &.open {
+    display: block;
+  }
+
+  @include tablet-portrait {
+    display: block;
+    left: auto;
+    position: relative;
+    top: auto;
+    width: auto;
+    z-index: 1;
   }
 
   li {
@@ -37,11 +82,12 @@
     font-size: var(--font-size-p);
     font-weight: 500;
     list-style: none;
-    margin-bottom: 1em;
+    padding: 1em var(--gutter);
     opacity: .3;
 
     @include tablet-portrait {
       margin-bottom: 2em;
+      padding: 0;
     }
 
     &.active {
@@ -50,13 +96,38 @@
   }
 }
 
-.faq__navigation {
-  margin: 0;
-  padding: 0;
+.faq__selected-category {
+  background-color: var(--offwhite-color);
+  border: 0;
+  border-bottom: 1px solid var(--primary-brand-color);
+  border-top: 1px solid var(--primary-brand-color);
+  border-radius: 0;
+  color: var(--font-color);
+  font-size: var(--font-size-p);
+  font-weight: 500;
+  list-style: none;
+  padding: 1em var(--gutter);
+  position: relative;
+  width: 100%;
+  text-align: left;
 
   @include tablet-portrait {
-    position: sticky;
-    top: 150px;
+    display: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: var(--gutter);
+    top: 50%;
+    height: 16px;
+    width: 10px;
+    transform: translateY(-50%) rotate(90deg);
+    transition: var(--fast) transform;
+  }
+
+  &.active:after {
+    transform: translateY(-50%) rotate(-90deg);
   }
 }
 

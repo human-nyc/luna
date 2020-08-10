@@ -1,10 +1,13 @@
 <div class="faq__inner" id="faq">
   <div class="faq__aside">
-    <ul class="faq__navigation">
+    <button type="button" class="faq__selected-category" :class="{ active: navOpen }" @click="toggleNavigation()" :aria-expanded="navOpen" aria-haspopup="true">
+      ${activeCategoryName}
+    </button>
+    <ul class="faq__navigation" :class="{ open: navOpen }">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'category' %}
-            <li data-id="{{block.settings.identifier}}" :class="{ active: activeCategory == '{{block.settings.identifier}}' }" @click="selectCategory('{{ block.settings.identifier }}')">
+            <li data-id="{{block.settings.identifier}}" :class="{ active: activeCategory == '{{block.settings.identifier}}' }" @click="selectCategory('{{ block.settings.identifier }}', '{{ block.settings.name }}')">
               {{block.settings.name}}
             </li>
         {% endcase %}
@@ -25,6 +28,12 @@
     </div>
   </div>
 </div>
+
+<style>
+  .faq__selected-category:after {
+    background-image: url({{ 'icon_arrow.svg' | asset_url | image_tag }});
+  }
+</style>
 
 {% schema %}
   {
