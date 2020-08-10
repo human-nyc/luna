@@ -42,7 +42,7 @@
   padding: 0;
   position: sticky;
   top: var(--header-height);
-  z-index: var(--z-navigation);
+  z-index: var(--z-priority-content);
 
   @include tablet-portrait {
     flex: 0 0 auto;
