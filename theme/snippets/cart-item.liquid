@@ -1,7 +1,14 @@
 <div class="cart-item">
   <a :href="item.url" class="cart-item__image">
     <img
+      v-if="item.featured_image && item.featured_image.url"
       :src="getSizedImageUrl(item.featured_image.url, '92x57_crop_center@2x')"
+      :alt="item.featured_image.alt"
+      loading="lazy"
+    >
+    <img
+      v-else
+      src="https://via.placeholder.com/92x57"
       :alt="item.featured_image.alt"
       loading="lazy"
     >
@@ -16,11 +23,11 @@
     </p>
 
     <div class="item-qty">
-      <button @click="handleQtyClick(index + 1, item.quantity - 1)" class="qty__control minus">-</button>
+      <button @click="handleQtyClick(index + 1, item.quantity - 1)" class="qty__control minus">{% render 'svg-minus' %}</button>
       <span>${item.quantity}</span>
-      <button @click="handleQtyClick(index + 1, item.quantity + 1)" class="qty__control plus">+</button>
+      <button @click="handleQtyClick(index + 1, item.quantity + 1)" class="qty__control plus">{% render 'svg-plus' %}</button>
     </div>
 
-    <button @click="removeCartItem(index + 1)" class="item-remove"><span>Remove</span></button>
+    <button @click="removeCartItem(index + 1)" class="item-remove">{% render 'svg-remove' %}</button>
   </div>
 </div>
