@@ -26,6 +26,11 @@
     justify-content: center;
     width: 50%;
   }
+
+  &.home-hero_background_dark {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
 }
 
 .home-hero__content-inner {

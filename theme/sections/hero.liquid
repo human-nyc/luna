@@ -1,10 +1,10 @@
-<div class="home-hero__content">
+<div class="home-hero__content {% if section.settings.dark_background == true %}home-hero_background_dark{% endif %}">
   <div class="home-hero__content-inner">
     <h1>{{ section.settings.header }}</h1>
     <p>
       {{ section.settings.body }}
     </p>
-    <a href="" class="cta-button">
+    <a href="{{ section.settings.cta_link }}" class="cta-button">
       {{ section.settings.cta_text }}
       <img class="cta-arrow cta-arrow_blue" src="{{ 'cta-arrow-blue.png' | asset_url | image_tag }}" />
       <img class="cta-arrow cta-arrow_white" src="{{ 'cta-arrow-white.png' | asset_url | image_tag }}" />
@@ -12,8 +12,16 @@
   </div>
 </div>
 <div class="home-hero__image">
+  {% if section.settings.video_url != blank %}
+  <div class="fill-image">
+    <video autoplay loop muted playsinline defer class="home-hero__video">
+      <source src="{{section.settings.video_url}}" type="video/mp4" />
+    </video>
+  </div>
+  {% else %}
   <div class="fill-image">
     <img src="{{section.settings.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+  {% endif %}
   </div>
 </div>
 
@@ -38,9 +46,25 @@
         "label": "CTA Text"
       },
       {
+        "type": "text",
+        "id": "cta_link",
+        "label": "CTA Link"
+      },
+      {
         "type": "image_picker",
         "id": "image",
         "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "dark_background",
+        "label": "Dark Blue Background?"
+      },
+      {
+        "id": "video_url",
+        "type": "text",
+        "label": "Video URL",
+        "info": "Upload a video to [Settings > Files](/admin/settings/files) and paste the URL here."
       }
     ],
     "presets": [

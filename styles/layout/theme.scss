@@ -155,10 +155,12 @@ button.cta-button {
   right: 0;
   bottom: 0;
 
-  > img {
+  > img,
+  > video {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }
 
