@@ -5,6 +5,10 @@
 @import '../sections/footer';
 @import '../snippets/minicart';
 
+* {
+  box-sizing: border-box; /* do not remove, override in components if needed */
+}
+
 body {
   background-color: var(--offwhite-color);
   color: var(--font-color);
