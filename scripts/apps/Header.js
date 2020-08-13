@@ -17,10 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         message: 'Hello Vue!',
         mobileMenuIsOpen: false,
         isScrolled: false,
-        activeChildLinksIndex: -1
+        activeChildLinksIndex: -1,
+        lightContent: false,
       },
       created() {
         window.addEventListener('scroll', this.handleScroll);
+
+        const hero = document.getElementById('hero');
+        if (hero.classList.contains('hero_background_dark')) {
+          this.lightContent = true;
+        }
       },
       destroyed() {
         window.removeEventListener('scroll', this.handleScroll);

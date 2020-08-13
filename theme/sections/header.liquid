@@ -1,4 +1,4 @@
-<div class="header" :class="{ 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen }" id="headerComponent">
+<div class="header" :class="{ 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent">
 
   <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
     {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
@@ -62,7 +62,10 @@
       </div>
       <div class="header__center">
         <div class="header__logo">
-          <a href="/"><img src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" /></a>
+          <a href="/">
+            <img src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            <img class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
+          </a>
         </div>
       </div>
       <div class="header__right">
