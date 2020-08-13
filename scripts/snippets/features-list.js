@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import Flickity from 'flickity';
 
 var flkty = new Flickity('#featuresListSlider', {
