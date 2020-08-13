@@ -69,10 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
           'removeCartItem',
         ]),
 
-        formatMoney(price = 1000) {
-          return formatMoney(price, '${{amount_no_decimals}}');
-        },
-
         getSizedImageUrl(url, size) {
           return getSizedImageUrl(url, size);
         },
@@ -95,6 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
           await this.changeCartItem(itemData);
         },
       },
+      filters: {
+        formatMoney(price, format) {
+          return formatMoney(price, '${{amount}}');
+        }
+      }
     });
   } else {
     console.log('Vue instance of minicart did not mount');

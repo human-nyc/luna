@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return getSizedImageUrl(url, size);
         },
         formatMoney(price, format) {
-          return formatMoney(price, '${{amount_no_decimals}}');
+          return formatMoney(price, '${{amount}}');
         }
       },
     });

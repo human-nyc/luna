@@ -21,17 +21,17 @@
       <div v-if="getCartLevelDiscountsLength > 0 || getLineLevelDiscountsLength > 0">
         <div class="cart-discounts">
           <span v-for="disc in cartLevelDiscounts">&ndash;${getCartLevelDiscount(disc)}</span>
-          <span v-for="disc in getLineLevelDiscounts">&ndash;${formatMoney(disc.amount)} with ${getLineLevelDiscountTitle(disc.discount_application)}</span>
+          <span v-for="disc in getLineLevelDiscounts">&ndash;${disc.amount | formatMoney} with ${getLineLevelDiscountTitle(disc.discount_application)}</span>
         </div>
 
         <div class="cart-subtotal cart-bottom-row">
           <span>Subtotal</span>
-          <span><s>&nbsp;${formatMoney(cartOriginalSubtotal)}&nbsp;</s>&nbsp;${formatMoney(cartSubtotal)}</span>
+          <span><s>&nbsp;${formatMoney(cartOriginalSubtotal)}&nbsp;</s>&nbsp;${cartSubtotal | formatMoney}</span>
         </div>
       </div>
       <div v-else class="cart-subtotal cart-bottom-row">
         <span>Subtotal</span>
-        <span>${formatMoney(cartSubtotal)}</span>
+        <span>${cartSubtotal | formatMoney}</span>
       </div>
 
       <div class="cart-bottom-row">
