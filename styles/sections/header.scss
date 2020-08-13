@@ -92,8 +92,24 @@
     margin: auto;
     width: 64px;
 
+    &.white-logo {
+      display: none;
+    }
+
     @include tablet-landscape {
       width: 88px;
+    }
+  }
+
+  .header_light_content:not(:hover):not(.header_scrolled):not(.header_products_open) & {
+    @include tablet-landscape {
+      img {
+        display: none;
+
+        &.white-logo {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -135,6 +151,15 @@
     &.active {
       background-position: left 100%;
       background-size: 100% 1.75px;
+    }
+  }
+
+  &.header_light_content:not(:hover):not(.header_scrolled):not(.header_products_open) {
+    a.header-link,
+    button.header-link {
+      @include tablet-landscape {
+        color: white;
+      }
     }
   }
 }
