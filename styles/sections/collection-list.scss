@@ -26,6 +26,7 @@
 }
 
 .collection-list__items {
+  box-sizing: border-box;
   overflow-x: scroll;
   padding: 0 var(--gutter);
   white-space: nowrap;

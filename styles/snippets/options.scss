@@ -1,3 +1,18 @@
+.product__options {
+  counter-reset: my-sec-counter;
+  font: 500 10px/1.6 var(--font-sans-serif);
+  list-style-position: inside;
+  list-style-type: decimal;
+  // padding: 0 var(--gutter);
+}
+
+.product__option {
+  color: var(--light-blue-color);
+
+  &.active {
+    color: var(--deep-blue-color);
+  }
+}
 
 .product__option input[type="radio"] {
   display: none;
@@ -7,13 +22,41 @@
   cursor: pointer;
 }
 
+.option-name::before {
+  counter-increment: my-sec-counter;
+  content: counter(my-sec-counter, decimal-leading-zero) ". ";
+}
+.option-name.Color::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose a\00a0";
+}
+.option-name.Size::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your\00a0";
+}
+.option-name.Weight::before {
+  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your blanket\00a0";
+}
+
+
+.option-name {
+  cursor: pointer;
+  // display: grid;
+  // flex-grow: 1;
+  font: 500 10px/1.6 var(--font-sans-serif);
+  // grid-template-columns: auto 1fr auto;
+  border-bottom: 1px solid;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+
 .option--color {
-  background: magenta;
+  background-image: url('https://cdn.shopify.com/s/files/1/2600/5030/files/sleeping-face_1f634_32x32.png?v=1587682757');
+  background-size: cover;
   border: 1px solid white;
   border-radius: 50%;
   box-sizing: content-box;
   display: inline-block;
-  margin: 0 1em;
+  margin: 1px 1em;
   height: calc(2em - 4px);
   width: calc(2em - 4px);
 
@@ -85,4 +128,10 @@
   &[title="22lbs"]::after { content: " - 220lbs" }
   &[title="25lbs"]::after { content: " - 250lbs" }
   &[title="30lbs"]::after { content: " - 300lbs" }
+}
+
+
+.option-values {
+  overflow-x: auto;
+  // white-space: nowrap;
 }

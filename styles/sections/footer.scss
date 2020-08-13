@@ -13,14 +13,14 @@
   }
 }
 
+
+
 .footer__logo {
+  box-sizing: border-box;
   margin: 0 auto;
   max-width: 100%;
   padding: 0 var(--gutter) 50px;
   width: var(--page-width);
-
-  img {
-  }
 }
 
 .footer__inner {

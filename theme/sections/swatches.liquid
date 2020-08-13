@@ -1,0 +1,41 @@
+<style type="text/css">
+  {% for block in section.blocks %}
+    .option--{{block.settings.title | handleize }} {
+      {% if block.settings.image %}
+        background-image: url('{{block.settings.image | img_url: '18x18', crop: 'center', scale: 2 }}');
+      {% elsif block.settings.hex_code and block.settings.hex_code != 'rgba(0,0,0,0)' %}
+        background-color: {{block.settings.hex_code}};
+      {% endif %}
+    }
+  {% endfor %}
+</style>
+
+{% schema %}
+  {
+    "name": "Swatches",
+    "class": "swatches",
+    "blocks": [
+      {
+        "name": "Swatch",
+        "type": "swatch",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Color name"
+          },
+          {
+            "type": "color",
+            "id": "hex_code",
+            "label": "Swatch Color"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Swatch Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

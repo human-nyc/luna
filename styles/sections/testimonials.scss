@@ -40,6 +40,7 @@
 .testimonials__slide-inner {
   background-color: var(--secondary-brand-color);
   border-radius: 90px;
+  box-sizing: border-box;
   margin: 0 auto;
   max-width: 100%;
   padding: 36px 45px;
