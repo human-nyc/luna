@@ -1,26 +1,23 @@
 import Vue from 'vue';
+import { formatMoney } from '@shopify/theme-currency'
+import { getSizedImageUrl } from "@shopify/theme-images";
 import querystring from 'querystring';
 import { mapActions } from 'vuex';
 
 import store from '../store';
-import ColorOptions from '../components/ColorOptions';
-
-const SIZE_INDEX = 0;
-const COLOR_INDEX = 1;
-const WEIGHT_INDEX = 2;
-
-const selectors = {
-  productEl: '#ProductForm',
-};
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector(selectors.productEl)) {
+  if (document.querySelector('#ProductHero')) {
     new Vue({
+      name: "ProductHero",
       store,
       delimiters: ['${', '}'],
-      el: selectors.productEl,
+      el: '#ProductHero',
       data: {
-        product: null,
+        product: {
+          variants: []
+        },
+        optionsWithValues: [],
         options: [],
         colors: [],
         sizes: [],
@@ -33,33 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         selecting: 'color',
         currentVariant: null,
       },
-      mounted: function () {
-        this.product = JSON.parse(this.$el.getAttribute('data-product'));
-        this.currentVariant = JSON.parse(this.$el.getAttribute('data-variant'));
-        this.selectedColor = this.currentVariant.options[COLOR_INDEX];
-        this.selectedSize = this.currentVariant.options[SIZE_INDEX];
+      mounted() {
+        this.product = JSON.parse(this.$el.dataset.product);
+        this.currentVariant = JSON.parse(this.$el.dataset.currentVariant);
 
-        this.options = this.product.options.map((name, index) => {
-          let values = [];
-          this.product.variants.forEach(variant => {
-            const value = variant.options[index];
-            if (values.includes(value)) {
-              return;
-            }
-            values.push(value);
-          });
-          const products = values.map(value => ({
-            value,
-            variants: this.product.variants.filter(p => p.options[index] === value),
-          }));
-          return {
-            name,
-            values: products,
-          };
-        });
-        this.colors = this.options[COLOR_INDEX].values.map(option => option.value);
-        this.sizes = this.options[SIZE_INDEX].values.map(option => option.value);
-        this.weights = ['20lb', '25lb', '30lb'];
+        this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
       },
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
@@ -74,18 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
           await this.hydrateCartItems();
           this.toggleMiniCart();
         },
-        onChangeColor: function (color) {
-          this.selectedColor = color;
-          this.updateVariant();
+
+
+        handleOptionChange({optionIdx}) {
+          console.log({optionIdx});
+
+          // this.options.forEach((option, idx) => {
+          //   if(idx > optionIdx) {
+          //     this.options[idx] = undefined;
+          //   }
+          // });
+
+          this.options = this.options.filter((option, idx) => {
+            return idx <= optionIdx
+          });
         },
-        selectSize: function (event) {
-          this.selectedSize = event.target.value;
-          this.updateVariant();
-        },
-        selectWeight: function (event) {
-          this.selectedWeight = event.target.value;
-          this.updateVariant();
-        },
+
         selectTab: function (tab) {
           this.tab = tab;
         },
@@ -125,39 +104,55 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
       computed: {
-        price: function () {
-          if (!this.product) {
-            return;
+        selectedVariant: {
+          get() {
+            if(this.product.variants) {
+              var result = this.product.variants.filter(variant => {
+                return this.options.every((option, index) => {
+                  return variant.options[index] === option;
+                });
+              });
+
+              if(result.length > 0) {
+                let getVars = querystring.parse(location.search.substr(1));
+                getVars['cid'] = result[0].id;
+
+                const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
+                history.replaceState({}, '', url);
+              }
+
+
+              return result[0] || null;
+            } else {
+              return { id: 'stevie', price: 0, compare_at_price: 0, featured_image: { src: '' } };
+            }
+          },
+          set(value) {
+            console.log({value});
+            return this.product.variants.find(variant => variant.id == value);
           }
-          let price = this.product.price;
-          if (this.currentVariant) {
-            price = this.currentVariant.price;
-          }
-          return `$${price * this.quantity / 100}`;
         },
-        compareAtPrice: function () {
-          if (!this.product) {
-            return;
-          }
-          let price = this.product.compare_at_price;
-          if (this.currentVariant) {
-            price = this.currentVariant.compare_at_price;
-          }
-          return `$${price * this.quantity / 100}`;
+        inputOptionAttributes() {
+          return (product, option, value) => ({
+            name: `option${option.position}`,
+            id: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
+            key: `"product${product.id}_option${option.name}_value${value.replace(' ', '-')}`
+          })
         },
-        imageUrl: function () {
-          if (!this.product) {
-            return;
-          }
-          let image = this.product.featured_image;
-          if (this.currentVariant) {
-            image = this.currentVariant.featured_image.src;
-          }
-          return image;
-        }
+        labelOptionAttributes() {
+          return (product, option, value) => ({
+            for: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
+            class: `option option--${option.name.toLowerCase()} option--${value.replace(' ', '-').toLowerCase()}`
+          })
+        },
       },
-      components: {
-        ColorOptions,
+      filters: {
+        getSizedImageUrl(url, size) {
+          return getSizedImageUrl(url, size);
+        },
+        formatMoney(price, format) {
+          return formatMoney(price, '${{amount}}');
+        }
       },
     });
   }

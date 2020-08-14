@@ -3,20 +3,43 @@
 @import '../snippets/pagination';
 @import '../snippets/product-grid-item';
 
+body {
+  background: var(--light-blue-color);
+}
+
 .collection {
 
 }
 
 .collection__top {
+  text-align: center;
+}
 
+.collection__title {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.collection__description {
+  font-size: 18px;
+  margin: auto;
+  max-width: 36em;
+  padding: 0 var(--gutter);
 }
 
 .collection__product-grid {
+  background: var(--offwhite-color);
   column-gap: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: var(--padding-v) 0;
-  padding: 0 var(--gutter);
+  padding: 40px var(--gutter);
   row-gap: 24px;
 
 

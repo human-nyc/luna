@@ -51,6 +51,7 @@
 }
 
 .features-list__item {
+  box-sizing: border-box;
   padding: 0 var(--gutter);
   width: 100%;
 

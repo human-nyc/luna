@@ -17,6 +17,7 @@
 }
 
 .split-block__inner {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -48,6 +49,7 @@
   }
 
   @include tablet-portrait {
+    box-sizing: border-box;
     flex: 0 0 auto;
     order: 2;
     padding: 0 var(--gutter-half);
@@ -67,6 +69,7 @@
 
 .split-block__content {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   padding: var(--padding-v-mobile) var(--gutter) 0;
   text-align: center;

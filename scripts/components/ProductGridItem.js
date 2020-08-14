@@ -22,7 +22,9 @@ const ProductGridItem = Vue.component('product-grid-item', {
       //   }
       // });
 
-      this.options = this.options.filter((option, idx) => idx <= optionIdx);
+      this.options = this.options.filter((option, idx) => {
+        return idx <= optionIdx
+      });
     }
   },
   data() {

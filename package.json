@@ -14,7 +14,7 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.10.2",
     "@shopify/theme-addresses": "^3.0.3",
-    "@shopify/theme-currency": "^3.0.3",
+    "@shopify/theme-currency": "^4.0.0",
     "@shopify/theme-images": "^4.0.0",
     "autoprefixer": "^9.7.6",
     "babel-core": "6.26.3",
