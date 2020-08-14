@@ -26,13 +26,15 @@
     "image" auto
     "form" auto
     "info" auto
+    "star-rating" auto
     / auto;
   padding: 0 var(--gutter);
 
   @include tablet-portrait {
     grid-template:
-      "title image form" auto
-      "info  image form" 1fr
+      "title       image form" auto
+      "info        image form" auto
+      "star-rating image form" 1fr
       / 1fr 1fr 1fr;
   }
 
@@ -199,4 +201,9 @@
   text-align: center;
   text-transform: uppercase;
   width: 100%;
+}
+
+.yotpo.bottomLine {
+  align-self: flex-start;
+  grid-area: star-rating;
 }
