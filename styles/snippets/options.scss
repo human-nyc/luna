@@ -3,7 +3,6 @@
   font: 500 10px/1.6 var(--font-sans-serif);
   list-style-position: inside;
   list-style-type: decimal;
-  // padding: 0 var(--gutter);
 }
 
 .product__option {
@@ -39,10 +38,7 @@
 
 .option-name {
   cursor: pointer;
-  // display: grid;
-  // flex-grow: 1;
   font: 500 10px/1.6 var(--font-sans-serif);
-  // grid-template-columns: auto 1fr auto;
   border-bottom: 1px solid;
   text-align: left;
   text-transform: uppercase;
@@ -96,7 +92,6 @@
     background: var(--pink);
   }
 
-
   input[type="radio"]:checked + & {
     box-shadow: 0 0 0 1px black;
   }
@@ -130,8 +125,6 @@
   &[title="30lbs"]::after { content: " - 300lbs" }
 }
 
-
 .option-values {
   overflow-x: auto;
-  // white-space: nowrap;
 }

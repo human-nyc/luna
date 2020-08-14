@@ -4,7 +4,7 @@
 @import '../snippets/product-grid-item';
 
 body {
-  background: #dae8f0;
+  background: var(--light-blue-color);
 }
 
 .collection {
@@ -16,14 +16,14 @@ body {
 }
 
 .collection__title {
-  font-family: SabonLTStd-Roman;
+  font-family: var(--font-serif);
   font-size: 52px;
   font-weight: normal;
   font-style: normal;
   line-height: 1.08;
   letter-spacing: -1px;
   text-align: center;
-  color: #182755;
+  color: var(--font-color);
 }
 
 .collection__description {
@@ -34,7 +34,7 @@ body {
 }
 
 .collection__product-grid {
-  background: #f8f7f5;
+  background: var(--offwhite-color);
   column-gap: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
