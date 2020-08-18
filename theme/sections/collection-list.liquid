@@ -7,12 +7,12 @@
       {% case block.type %}
         {% when 'collection_item' %}
           <div class="item-wrapper">
-            <a class="collection-list__item" href="{{ block.settings.collection.url }}">
+            <a class="collection-list__item" href="{% if block.settings.product == blank %}/collections/{{ block.settings.collection }}{% else %}/products/{{ block.settings.product }}{% endif %}">
               <div class="fill-image">
-                <img src="{% if collection.image %}{{ collection.image | img_url: 'medium' }}{% endif %}" />
+                <img src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
               </div>
               <div class="fill-image collection-list__hover-image">
-                <img src="{{ block.settings.hover_image | img_url: 'medium' }}" />
+                <img src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
               </div>
               <button class="cta-button">
                 Shop
@@ -46,6 +46,16 @@
             "type": "collection",
             "id": "collection",
             "label": "Collection"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           },
           {
             "type": "image_picker",
