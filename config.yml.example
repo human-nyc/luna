@@ -4,4 +4,4 @@ development:
   store: example-store.myshopify.com
   directory: theme
   ignores:
-    - themekit_ignores 
+    - themekit_ignores
