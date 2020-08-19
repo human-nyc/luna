@@ -20,6 +20,10 @@
       color: var(--font-color);
     }
 
+    &:focus {
+      outline-style: none;
+    }
+
     .subscribe-callout & {
       background-color: var(--primary-brand-color);
       color: var(--white-color);
