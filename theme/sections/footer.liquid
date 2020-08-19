@@ -20,10 +20,15 @@
       </div>
     </div>
     <div class="footer__aside">
-      <div class="footer__form-intro">Get deals and more by signing up</div>
-      <div class="footer__form">
-        {% include 'email-form' %}
+
+      <div class="footer__form-intro">
+        {{section.settings.newsletter_copy}}
       </div>
+      <div class="footer__form">
+        {{section.settings.newsletter_embed_code}}
+        <div class="klaviyo-form-XEQfy4"></div>
+      </div>
+
       <div class="footer__social">
         <a href="//instragram.com/">Instagram</a>
         <a href="//facebook.com/">Facebook</a>
@@ -36,6 +41,20 @@
 {% schema %}
   {
     "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_copy",
+        "label": "Newsletter Copy",
+        "default": "Get deals and more by signing up"
+      },
+      {
+        "type": "html",
+        "id": "newsletter_embed_code",
+        "label": "Newsletter embed code",
+        "default": "<div class='klaviyo-form-XEQfy4'></div>"
+      }
+    ],
     "blocks": [
       {
         "type": "links_column",
