@@ -87,6 +87,10 @@ a {
   text-decoration: none;
 }
 
+label[for] {
+  cursor: pointer;
+}
+
 a.cta-button,
 button.cta-button {
   appearance: none;
