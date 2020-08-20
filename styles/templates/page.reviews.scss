@@ -6,15 +6,13 @@
 @import '../sections/subscribe-callout';
 
 
-.page-hero {
+.page-hero.page-hero_reviews {
+  background-color: var(--offwhite-color);
 
-  &__reviews {
-    background-color: var(--offwhite-color);
-  }
-  &__content {
+  .page-hero__content {
     width: 1180px;
   } 
-  &__body {
+  .page-hero__body {
     background-color: #dae8f0;
   }
   .yotpo-label {
