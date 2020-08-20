@@ -93,8 +93,9 @@
         <template v-if="selectedVariant">
           <button v-if="selectedVariant.available" class="form-button" type="submit" v-on:click="submit">Add To Cart</button>
           <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
-          <button v-if="selectedVariant.available" class="form-button affirm-button" type="submit">Pay with affirm</button>
-          <p v-if="selectedVariant.available" class="form-message" >3 interest-free payments of $60 with</p>
+
+          <button v-if="selectedVariant.available" class="form-button affirm-button" type="submit" v-on:click="submit">Pay with affirm</button>
+          <p class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
 
           <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
         </template>
