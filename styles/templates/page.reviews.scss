@@ -5,10 +5,19 @@
 @import '../sections/split-block';
 @import '../sections/subscribe-callout';
 
-.page-hero.page-hero_reviews {
-  background-color: var(--offwhite-color);
 
-  .page-hero__content {
+.page-hero {
+
+  &__reviews {
+    background-color: var(--offwhite-color);
+  }
+  &__content {
     width: 1180px;
+  } 
+  &__body {
+    background-color: #dae8f0;
+  }
+  .yotpo-label {
+    display: none;
   }
 }
