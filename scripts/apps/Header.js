@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', this.handleScroll);
 
         const hero = document.getElementById('hero');
-        if (hero.classList.contains('hero_background_dark')) {
+        if (hero && hero.classList.contains('hero_background_dark')) {
           this.lightContent = true;
         }
       },

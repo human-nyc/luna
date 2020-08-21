@@ -1,11 +1,21 @@
-<div class="product-steps" id="ProductSteps">
+<div class="product-steps {% if content.image != blank %}product-steps_has_image{% endif %}" id="ProductSteps">
   <div class="product-steps__inner">
-    {% if content.image %}
+    {% if content.image != blank %}
     <div class="product-steps__image">
       <div class="image-wrapper">
-        <div class="fill-image">
+        <div class="fill-image" :class="{active: activeImage === 1}">
           <img src="{{content.image | img_url: '720x810', crop: 'center', scale: 2}}" />
         </div>
+        {% if content.image_2 != blank %}
+          <div class="fill-image" :class="{active: activeImage === 2}">
+            <img src="{{content.image_2 | img_url: '720x810', crop: 'center', scale: 2}}" />
+          </div>
+        {% endif %}
+        {% if content.image_3 != blank %}
+          <div class="fill-image" :class="{active: activeImage === 3}">
+            <img src="{{content.image_3 | img_url: '720x810', crop: 'center', scale: 2}}" />
+          </div>
+        {% endif %}
       </div>
     </div>
     {% endif %}
@@ -20,22 +30,22 @@
         </div>
         {% if content.step_1 %}
           <div
-            class="product-steps__item"
-            v-if="step === 1"
+            class="product-steps__item item_1"
+            :class="{active: step === 1}"
             v-cloak
           >{{content.step_1}}</div>
         {% endif %}
         {% if content.step_2 %}
           <div
-            class="product-steps__item"
-            v-if="step === 2"
+            class="product-steps__item item_2"
+            :class="{active: step === 2}"
             v-cloak
           >{{content.step_2}}</div>
         {% endif %}
         {% if content.step_3 %}
           <div
-            class="product-steps__item"
-            v-if="step === 3"
+            class="product-steps__item item_3"
+            :class="{active: step === 3}"
             v-cloak
           >{{content.step_3}}</div>
         {% endif %}
