@@ -35,6 +35,13 @@
   text-transform: uppercase;
   top: 50%;
   transform: translateY(-50%);
+
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--font-color);
+      color: var(--white-color);
+    }
+  }
 }
 
 .product-reviews__list {

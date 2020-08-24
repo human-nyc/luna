@@ -107,15 +107,35 @@ button.cta-button {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-
+  
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--font-color);
+      color: var(--white-color);
+    }
+  }
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
+    
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--white-color);
+        color: var(--primary-brand-color);
+      }
+    }
   }
-
+  
   &.cta-button_grey {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
+    
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--white-color);
+        color: var(--primary-brand-color);
+      }
+    }
   }
 
   .cta-arrow {
@@ -153,7 +173,6 @@ button.cta-button {
 
   &.centered {
     padding: 17px 32px;
-    padding: 0.66666666em 2.2857em;
     text-align: center;
   }
 }

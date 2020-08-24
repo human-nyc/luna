@@ -190,17 +190,7 @@
 #AddToCartForm {
 
   .form-button {
-    background-color: var(--primary-brand-color);
-    border-radius: 30px;
-    border: 0;
-    color: var(--white-color);
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
     margin-top: 40px;
-    padding: 18px 25px;
-    text-align: center;
-    text-transform: uppercase;
     width: 100%;
 
     &.affirm-button {
