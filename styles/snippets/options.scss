@@ -13,10 +13,6 @@
   }
 }
 
-.product__option input[type="radio"] {
-  display: none;
-}
-
 .option {
   cursor: pointer;
 }
@@ -37,94 +33,121 @@
 
 
 .option-name {
-  cursor: pointer;
-  font: 500 10px/1.6 var(--font-sans-serif);
   border-bottom: 1px solid;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  font: 500 10px/1.6 var(--font-sans-serif);
   text-align: left;
   text-transform: uppercase;
+
+  .svg-down-arrow {
+    align-self: center;
+    transform: rotate(180deg);
+  }
+
+  .product_option.active & .svg-down-arrow {
+    transform: none;
+  }
 }
 
 
 .option--color {
-  background-image: url('https://cdn.shopify.com/s/files/1/2600/5030/files/sleeping-face_1f634_32x32.png?v=1587682757');
-  background-size: cover;
-  border: 1px solid white;
-  border-radius: 50%;
-  box-sizing: content-box;
-  display: inline-block;
-  margin: 1px 1em;
-  height: calc(2em - 4px);
-  width: calc(2em - 4px);
-
-  span {
+  input[type="radio"] {
     display: none;
   }
 
-  &.option--dark-grey {
-    background: var(--dark-grey);
+  .option-value {
+    background-size: cover;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-sizing: content-box;
+    display: inline-block;
+    margin: 1px 1em;
+    height: calc(2em - 4px);
+    width: calc(2em - 4px);
+
+    span {
+      display: none;
+    }
   }
 
-  &.option--ivory {
-    background: var(--ivory);
-  }
-
-  &.option--light-blue {
-    background: var(--light-blue);
-  }
-
-  &.option--light-grey {
-    background: var(--light-grey);
-  }
-
-  &.option--navy {
-    background: var(--navy);
-  }
-
-  &.option--white {
-    background: var(--white);
-  }
-
-  &.option--pink {
-    background: var(--pink);
-  }
-
-  &.option--dusty-pink {
-    background: var(--pink);
-  }
-
-  input[type="radio"]:checked + & {
+  input[type="radio"]:checked + .option-value {
     box-shadow: 0 0 0 1px black;
   }
 }
 
-.option--size,
-.option--weight {
-  border: 1px solid #d8d8d8;
-  border-radius: 10px;
-  color: #00000088;
-  display: inline-block;
-  margin: 0.25em;
-  padding: 0.25em 1em;
+.option--size {
+  input[type="radio"] {
+    display: none;
+  }
 
-  input[type="radio"]:checked + & {
+  .option-value {
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    color: #00000088;
+    display: inline-block;
+    margin: 0.25em;
+    padding: 0.25em 1em;
+  }
+  input[type="radio"]:checked + .option-value {
     border-color: currentColor;
     color: inherit;
   }
 }
 
 .option--weight {
-  &[title="5lbs"]::after { content: " - 500lbs" }
-  &[title="7lbs"]::after { content: " - 70lbs" }
-  &[title="10lbs"]::after { content: " - 10pbs" }
-  &[title="12lbs"]::after { content: " - 120lbs" }
-  &[title="15lbs"]::after { content: " - 150lbs" }
-  &[title="17lbs"]::after { content: " - 170lbs" }
-  &[title="20lbs"]::after { content: " - 200lbs" }
-  &[title="22lbs"]::after { content: " - 220lbs" }
-  &[title="25lbs"]::after { content: " - 250lbs" }
-  &[title="30lbs"]::after { content: " - 300lbs" }
+  .option-values {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 12px;
+    width: 1em;
+    height: 1em;
+
+    &:checked {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='10' viewBox='0 0 10 10'%3E%3Cellipse cx='5' cy='5' rx='3' ry='3' fill='%23182755'/%3E%3C/svg%3E");
+      color: inherit;
+    }
+
+    &:focus {
+      outline-style: none;
+    }
+
+    & + label {
+    }
+    &:checked + label {
+      color: inherit;
+    }
+  }
+  .option-value {
+    text-transform: uppercase;
+
+    &[title="5 lbs"]::after { content: "50 lbs body weight" }
+    &[title="7 lbs"]::after { content: "70 lbs body weight" }
+    &[title="10 lbs"]::after { content: "100 lbs body weight" }
+    &[title="12 lbs"]::after { content: "120lbs body weight" }
+    &[title="15 lbs"]::after { content: "150lbs body weight" }
+    &[title="17 lbs"]::after { content: "170lbs body weight" }
+    &[title="20 lbs"]::after { content: "200lbs body weight" }
+    &[title="22 lbs"]::after { content: "220lbs body weight" }
+    &[title="25 lbs"]::after { content: "250lbs body weight" }
+    &[title="30 lbs"]::after { content: "300lbs body weight" }
+
+    &::after {
+      font-size: 8px;
+      margin-left: 1em;
+    }
+  }
 }
 
-.option-values {
-  overflow-x: auto;
-}
+// .product_option:not(.active) .option-values {
+//   display: none;
+// }

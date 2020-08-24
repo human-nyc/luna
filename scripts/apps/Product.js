@@ -14,21 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
       delimiters: ['${', '}'],
       el: '#ProductHero',
       data: {
+        activeOptionIdx: null,
+        colors: [],
+        currentVariant: null,
+        options: [],
+        optionsWithValues: [],
         product: {
           variants: []
         },
-        optionsWithValues: [],
-        options: [],
-        colors: [],
-        sizes: [],
-        weights: [],
-        selectedSize: '',
-        selectedColor: '',
-        selectedWeight: '',
-        tab: 1,
         quantity: 1,
+        selectedColor: '',
+        selectedSize: '',
+        selectedWeight: '',
         selecting: 'color',
-        currentVariant: null,
+        sizes: [],
+        tab: 1,
+        weights: [],
       },
       mounted() {
         this.product = JSON.parse(this.$el.dataset.product);
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+
         async submit(e) {
           e.preventDefault();
           const id = this.currentVariant.id;
@@ -50,33 +52,32 @@ document.addEventListener('DOMContentLoaded', () => {
           this.toggleMiniCart();
         },
 
-
         handleOptionChange({optionIdx}) {
-          console.log({optionIdx});
-
-          // this.options.forEach((option, idx) => {
-          //   if(idx > optionIdx) {
-          //     this.options[idx] = undefined;
-          //   }
-          // });
-
           this.options = this.options.filter((option, idx) => {
             return idx <= optionIdx
           });
         },
 
+        activateOption(optionIdx) {
+          // this.options = this.options.slice(0, optionIdx);
+          this.activeOptionIdx = optionIdx;
+        },
+
         selectTab: function (tab) {
           this.tab = tab;
         },
+
         adjustQuantity: function (increment) {
           this.quantity += increment;
           if (this.quantity < 1) {
             this.quantity = 1;
           }
         },
+
         focusOption: function (option) {
           this.selecting = option;
         },
+
         updateVariant: function () {
           const variant = this.product.variants
             .filter(p => p.options[COLOR_INDEX] === this.selectedColor)
@@ -87,12 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
             this.replaceHistoryState();
           }
         },
+
         sizeName: function (size) {
           return size.split(' ')[0].toLowerCase();
         },
+
         sizeDimensions: function (size) {
           return size.match(/\((.+?)\)/)[1];
         },
+
         replaceHistoryState() {
           if (!this.currentVariant) {
             return;
@@ -115,22 +119,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
               if(result.length > 0) {
                 let getVars = querystring.parse(location.search.substr(1));
-                getVars['cid'] = result[0].id;
+                getVars['variant'] = result[0].id;
+                getVars['mike'] = 'ray';
 
                 const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
                 history.replaceState({}, '', url);
               }
 
-
               return result[0] || null;
             } else {
-              return { id: 'stevie', price: 0, compare_at_price: 0, featured_image: { src: '' } };
+              return { id: null, price: 0, compare_at_price: 0, featured_image: { src: '' } };
             }
           },
           set(value) {
-            console.log({value});
             return this.product.variants.find(variant => variant.id == value);
           }
+        },
+        optionAttributes() {
+          return (option, optionIdx) => ({
+            class: [
+              'product_option',
+              `option--${option.name.toLowerCase()}`,
+              {active: optionIdx == this.activeOptionIdx }
+            ]
+          })
         },
         inputOptionAttributes() {
           return (product, option, value) => ({
@@ -142,9 +154,35 @@ document.addEventListener('DOMContentLoaded', () => {
         labelOptionAttributes() {
           return (product, option, value) => ({
             for: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
-            class: `option option--${option.name.toLowerCase()} option--${value.replace(' ', '-').toLowerCase()}`
+            class: `option-value  option--${value.replace(' ', '-').toLowerCase()}`
           })
         },
+        potentialVariants() {
+          if(this.product.variants) {
+            var result = this.product.variants.filter(variant => {
+              return this.options.slice(0, -1).every((option, index) => {
+                return option === variant.options[index];
+              });
+            });
+
+            return result;
+          } else {
+            return null;
+          }
+        },
+        potentialOptions() {
+          var potentialOptions = [];
+
+          if(this.product.variants) {
+            for(let i = 0; i < 3;i++) {
+              let set = new Set(this.potentialVariants.map(variant => variant.options[i]));
+              potentialOptions.push([...set]);
+            }
+            return potentialOptions;
+          } else {
+            return null;
+          }
+        }
       },
       filters: {
         getSizedImageUrl(url, size) {
