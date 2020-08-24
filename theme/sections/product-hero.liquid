@@ -57,11 +57,16 @@
     <div class="product-hero__form">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         <div class="product__options">
-          <div :class="['product__option', {active: optionIdx == 0 || options[optionIdx - 1] != undefined}]" v-for="(option, optionIdx) in optionsWithValues">
-            <h4 :class="['option-name', option.name]">${option.name}<span v-if="options[optionIdx]">: ${options[optionIdx]}</span></h4>
+
+          <div v-bind="optionAttributes(option, optionIdx)" v-for="(option, optionIdx) in optionsWithValues">
+            <h4 :class="['option-name', option.name]" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
 
             <div class="option-values">
-              <template v-for="value in option.values">
+              <p v-if="option.name == 'Size'">
+                All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank">Size Guide</a>
+              </p>
+
+              <template v-for="(value, valIdx) in option.values">
                 <input
                   v-model="options[optionIdx]"
                   type="radio"
@@ -80,7 +85,7 @@
 
         </div>
 
-        <div class="quantity-and-price" v-if="selectedVariant">
+        <div class="quantity-and-price">
           <div class="quantity-selector">
             <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
             <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
@@ -92,7 +97,10 @@
 
         <template v-if="selectedVariant">
           <button v-if="selectedVariant.available" class="cta-button cta-button_dark small centered form-button" type="submit" v-on:click="submit">Add To Cart</button>
-          <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
+          <button v-else class="cta-button small centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+        </template>
+        <template v-else>
+          <button class="cta-button small centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
         </template>
       </form>
     </div>
