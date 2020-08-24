@@ -202,13 +202,6 @@
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-
-    &.affirm-button {
-      border: solid 1px var(--primary-brand-color);
-      background-color: var(--light-pink);
-      color: var(--primary-brand-color);
-      margin-top: 20px;
-    }
   }
   .form-message {
     font-size: 10px;
@@ -220,6 +213,10 @@
     letter-spacing: 1.2px;
     text-align: center;
     text-transform: uppercase;
+    
+    &.affirm-as-low-as {
+      margin: var(--gutter);
+    }
   }
 }
 
