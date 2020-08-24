@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async submit(e) {
           e.preventDefault();
-          const id = this.currentVariant.id;
+          const { id } = this.selectedVariant;
           const properties = {};
           const quantity = this.quantity;
           const cartData = { id, properties, quantity };
