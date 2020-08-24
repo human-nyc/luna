@@ -14,7 +14,6 @@
     <div class="product-hero__info">
       <div class="product-tabs">
         <div class="product-tabs__header">
-          {% comment %} <button type="button" @click="selectTab(1)" class="caps-header" :class="{'selected': tab === 1}">Meet Luna</button> {% endcomment %}
           <button type="button" @click="selectTab(2)" class="caps-header" :class="{'selected': tab === 1}">Benefits</button>
           <button type="button" @click="selectTab(3)" class="caps-header" :class="{'selected': tab === 2}">Details + Care</button>
         </div>
@@ -22,9 +21,6 @@
           {% if block.settings.product == product.handle %}
             <div class="product-tabs__main">
               <div class="product-tabs__content">
-                {% comment %} <div class="product-tabs__content" v-if="tab === 1">
-                  <div>{{ block.settings.meet_luna }}</div>
-                </div> {% endcomment %}
                 <div class="product-tabs__content" v-if="tab === 1">
                   <div>{{ block.settings.benefits }}</div>
                 </div>
