@@ -12,6 +12,7 @@ body {
 }
 
 .collection__top {
+  margin: var(--padding-v) 0;
   text-align: center;
 }
 
@@ -38,7 +39,6 @@ body {
   column-gap: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: var(--padding-v) 0;
   padding: 40px var(--gutter);
   row-gap: 24px;
 
