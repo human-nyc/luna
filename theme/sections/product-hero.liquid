@@ -66,13 +66,13 @@
                 All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank">Size Guide</a>
               </p>
 
-              <template v-for="(value, valIdx) in option.values">
+              <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">
                 <input
                   v-model="options[optionIdx]"
                   type="radio"
                   v-bind="inputOptionAttributes(product, option, value)"
                   :value="value"
-                  @input="handleOptionChange({optionIdx})"
+                  @change="handleOptionChange({optionIdx})"
                 >
                 <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
               </template>

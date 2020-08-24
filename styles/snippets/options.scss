@@ -19,18 +19,18 @@
 
 .option-name::before {
   counter-increment: my-sec-counter;
-  content: counter(my-sec-counter, decimal-leading-zero) ". ";
+  content: counter(my-sec-counter, decimal-leading-zero) '. ';
 }
 .option-name.Color::before {
-  content: counter(my-sec-counter, decimal-leading-zero) ". Choose a\00a0";
+  content: counter(my-sec-counter, decimal-leading-zero) '. Choose a\00a0';
 }
 .option-name.Size::before {
-  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your\00a0";
+  content: counter(my-sec-counter, decimal-leading-zero) '. Choose your\00a0';
 }
 .option-name.Weight::before {
-  content: counter(my-sec-counter, decimal-leading-zero) ". Choose your blanket\00a0";
+  content: counter(my-sec-counter, decimal-leading-zero)
+    '. Choose your blanket\00a0';
 }
-
 
 .option-name {
   border-bottom: 1px solid;
@@ -51,9 +51,8 @@
   }
 }
 
-
 .option--color {
-  input[type="radio"] {
+  input[type='radio'] {
     display: none;
   }
 
@@ -72,13 +71,13 @@
     }
   }
 
-  input[type="radio"]:checked + .option-value {
+  input[type='radio']:checked + .option-value {
     box-shadow: 0 0 0 1px black;
   }
 }
 
 .option--size {
-  input[type="radio"] {
+  input[type='radio'] {
     display: none;
   }
 
@@ -90,7 +89,7 @@
     margin: 0.25em;
     padding: 0.25em 1em;
   }
-  input[type="radio"]:checked + .option-value {
+  input[type='radio']:checked + .option-value {
     border-color: currentColor;
     color: inherit;
   }
@@ -102,7 +101,7 @@
     grid-template-columns: auto 1fr;
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     appearance: none;
     display: inline-block;
     border: 1px solid;
@@ -130,16 +129,36 @@
   .option-value {
     text-transform: uppercase;
 
-    &[title="5 lbs"]::after { content: "50 lbs body weight" }
-    &[title="7 lbs"]::after { content: "70 lbs body weight" }
-    &[title="10 lbs"]::after { content: "100 lbs body weight" }
-    &[title="12 lbs"]::after { content: "120lbs body weight" }
-    &[title="15 lbs"]::after { content: "150lbs body weight" }
-    &[title="17 lbs"]::after { content: "170lbs body weight" }
-    &[title="20 lbs"]::after { content: "200lbs body weight" }
-    &[title="22 lbs"]::after { content: "220lbs body weight" }
-    &[title="25 lbs"]::after { content: "250lbs body weight" }
-    &[title="30 lbs"]::after { content: "300lbs body weight" }
+    &[title='5 lbs']::after {
+      content: '50 lbs body weight';
+    }
+    &[title='7 lbs']::after {
+      content: '70 lbs body weight';
+    }
+    &[title='10 lbs']::after {
+      content: '100 lbs body weight';
+    }
+    &[title='12 lbs']::after {
+      content: '120lbs body weight';
+    }
+    &[title='15 lbs']::after {
+      content: '150lbs body weight';
+    }
+    &[title='17 lbs']::after {
+      content: '170lbs body weight';
+    }
+    &[title='20 lbs']::after {
+      content: '200lbs body weight';
+    }
+    &[title='22 lbs']::after {
+      content: '220lbs body weight';
+    }
+    &[title='25 lbs']::after {
+      content: '250lbs body weight';
+    }
+    &[title='30 lbs']::after {
+      content: '300lbs body weight';
+    }
 
     &::after {
       font-size: 8px;
@@ -148,6 +167,6 @@
   }
 }
 
-// .product_option:not(.active) .option-values {
-//   display: none;
-// }
+.product_option:not(.active) .option-values {
+  display: none;
+}
