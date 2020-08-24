@@ -12,6 +12,7 @@
   .on-sale {
     font-size: 10px;
     overflow: hidden;
+    pointer-events: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -61,6 +62,20 @@
   height: 100%;
   transition: opacity var(--slow);
   z-index: inherit;
+
+  .product-grid-item__featured-image:hover & {
+    opacity: 1;
+    transition-duration: var(--fast);
+  }
+}
+
+.button--shop-now {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity var(--slow);
 
   .product-grid-item__featured-image:hover & {
     opacity: 1;

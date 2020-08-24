@@ -35,6 +35,14 @@
           <img class="product-grid-item__hover-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
         </picture>
       {% endif %}
+      <span class="cta-button cta-button_dark button--shop-now">
+        {% if product.metafields.global.shop_cta %}
+          {{product.metafields.global.shop_cta}}
+        {% else %}
+          Shop {{ product.title }}
+        {% endif %}
+        {% render 'svg-right-arrow' %}
+      </span>
     </a>
 
     <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
