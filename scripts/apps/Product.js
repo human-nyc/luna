@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import { mapActions } from 'vuex';
+import store from '../store';
+import productOptions from '../mixins/productOptions';
 
 import { formatMoney } from '@shopify/theme-currency'
 import { getSizedImageUrl } from "@shopify/theme-images";
 import querystring from 'querystring';
-
-import store from '../store';
-import productOptions from '../mixins/productOptions';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('#ProductHero')) {

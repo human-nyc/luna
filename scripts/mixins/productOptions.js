@@ -2,11 +2,6 @@ import querystring from 'querystring';
 
 export default {
   methods: {
-    activateOption(optionIdx) {
-      // this.options = this.options.slice(0, optionIdx);
-      this.activeOptionIdx = optionIdx;
-    },
-
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
