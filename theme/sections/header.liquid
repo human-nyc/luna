@@ -1,4 +1,4 @@
-<div class="header" :class="{ 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent">
+<div :class="{'header': true, 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent">
 
   <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
     {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
