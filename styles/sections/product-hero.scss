@@ -10,12 +10,16 @@
 }
 
 .product-hero__corner {
-  bottom: -3px;
+  bottom: 0;
   left: 0;
   position: absolute;
 
+  @media (max-width: 767px) {
+    display: none;
+  }
+
   img {
-    line-height: 0;
+    display: block;
   }
 }
 
