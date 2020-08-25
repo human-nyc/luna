@@ -167,9 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         potentialVariants() {
           if (this.product.variants) {
             let result = this.product.variants.filter(variant => {
-              const optionsArr = this.options;
-
-              return optionsArr.every((option, index) => {
+              return this.opttions.every((option, index) => {
                 return option === variant.options[index];
               });
             });
