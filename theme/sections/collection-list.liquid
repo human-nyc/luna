@@ -15,9 +15,8 @@
                 <img src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
               </div>
               <button class="cta-button">
-                Shop
-                <img class="cta-arrow cta-arrow_blue" src="{{ 'cta-arrow-blue.png' | asset_url | image_tag }}" />
-                <img class="cta-arrow cta-arrow_white" src="{{ 'cta-arrow-white.png' | asset_url | image_tag }}" />
+                {{ block.settings.cta_text }}
+                {% render 'svg-right-arrow' %}
               </button>
             </a>
           </div>
@@ -51,6 +50,12 @@
             "type": "product",
             "id": "product",
             "label": "Product"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text",
+            "default": "Shop"
           },
           {
             "type": "image_picker",
