@@ -14,19 +14,35 @@
     <div class="product-hero__info">
       <div class="product-tabs">
         <div class="product-tabs__header">
-          <button type="button" @click="selectTab(1)" class="caps-header" :class="{'selected': tab === 1}">Benefits</button>
-          <button type="button" @click="selectTab(2)" class="caps-header" :class="{'selected': tab === 2}">Details + Care</button>
+          {% for block in section.blocks %}
+            {% if block.settings.product == product.handle %}
+              {% if block.settings.benefits != blank %}
+                <button type="button" @click="selectTab(1)" class="caps-header" :class="{'selected': tab === 1}">Benefits</button>
+              {% endif %}
+              {% if block.settings.details != blank %}
+                <button type="button" @click="selectTab(2)" class="caps-header" :class="{'selected': tab === 2}">Details + Care</button>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
         </div>
+
         {% for block in section.blocks %}
           {% if block.settings.product == product.handle %}
             <div class="product-tabs__main">
               <div class="product-tabs__content">
-                <div class="product-tabs__content" v-if="tab === 1">
-                  <div>{{ block.settings.benefits }}</div>
-                </div>
-                <div class="product-tabs__content" v-if="tab === 2">
-                  <div>{{ block.settings.details }}</div>
-                </div>
+
+                {% if block.settings.benefits != blank %}
+                  <div class="product-tabs__content" v-if="tab === 1">
+                    <div>{{ block.settings.benefits }}</div>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.details != blank %}
+                  <div class="product-tabs__content" v-if="tab === 2"> 
+                    <div>{{ block.settings.details }}</div>
+                  </div>
+                {% endif %}
+
               </div>
             </div>
           {% endif %}
