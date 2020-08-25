@@ -129,6 +129,10 @@
   .option-value {
     text-transform: uppercase;
 
+    .quick-add & {
+      justify-self: flex-start;
+    }
+
     &[title='5 lbs']::after {
       content: '50 lbs body weight';
     }
