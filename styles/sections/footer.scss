@@ -46,7 +46,38 @@
   @include tablet-portrait {
     display: flex;
   }
+
+  .parent-link-wrapper {
+    margin-bottom: 40px;
+    width: 100%;
+
+    @include tablet-portrait {
+      margin-bottom: 0;
+      width: 200px;
+    }
+
+    .parent-link {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1.68px;
+      line-height: 1;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .child-links {
+      list-style: none;
+      margin: 20px 0 0 0;
+      padding: 0;
+    }
+
+    .child-link  {
+      margin-bottom: 8px;
+    }
+  }
 }
+
+
 
 .footer__col {
   margin-bottom: 40px;
@@ -55,16 +86,6 @@
   @include tablet-portrait {
     margin-bottom: 0;
     width: 200px;
-  }
-
-  ul {
-    list-style: none;
-    margin: 20px 0 0 0;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 8px;
   }
 }
 

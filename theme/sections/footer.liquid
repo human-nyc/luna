@@ -6,19 +6,9 @@
   </div>
   <div class="footer__inner">
     <div class="footer__main">
-      <div class="footer__columns">
-        {% for block in section.blocks %}
-          {% if block.type == 'links_column' %}
-            <div class="footer__col">
-              <h4 class="caps-label">{{ block.settings.header }}</h4>
-              <ul>
-                {{ block.settings.richtext }}
-              </ul>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+      {% render 'linklist', linklist: linklists[section.settings.footer_nav_handle], class: "footer__columns" %}
     </div>
+
     <div class="footer__aside">
 
       <div class="footer__form-intro">
@@ -28,11 +18,7 @@
         {{section.settings.newsletter_embed_code}}
       </div>
 
-      <div class="footer__social">
-        <a href="//instragram.com/">Instagram</a>
-        <a href="//facebook.com/">Facebook</a>
-        <a href="//twitter.com/">Twitter</a>
-      </div>
+      {% render 'linklist', linklist: linklists[section.settings.social_nav_handle], class: "footer__social" %}
     </div>
   </div>
 </div>
@@ -52,7 +38,18 @@
         "id": "newsletter_embed_code",
         "label": "Newsletter embed code",
         "default": "<div class='klaviyo-form-XEQfy4'></div>"
-      }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_handle",
+        "label": "Footer navigation",
+        "default": "footer"
+     },
+     {
+       "type": "link_list",
+       "id": "social_nav_handle",
+       "label": "Social Links"
+     }
     ],
     "blocks": [
       {
