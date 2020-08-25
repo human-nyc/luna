@@ -1,5 +1,4 @@
 @import '../sections/collection-menu';
-@import '../snippets/options';
 @import '../snippets/pagination';
 @import '../snippets/product-grid-item';
 
@@ -8,7 +7,6 @@ body {
 }
 
 .collection {
-
 }
 
 .collection__top {
@@ -41,7 +39,6 @@ body {
   grid-template-columns: repeat(2, 1fr);
   padding: 40px var(--gutter);
   row-gap: 24px;
-
 
   .collection-menu {
     align-self: center;

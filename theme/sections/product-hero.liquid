@@ -56,34 +56,7 @@
 
     <div class="product-hero__form">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-        <div class="product__options">
-
-          <div v-bind="optionAttributes(option, optionIdx)" v-for="(option, optionIdx) in optionsWithValues">
-            <h4 :class="['option-name', option.name]" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
-
-            <div class="option-values">
-              <p v-if="option.name == 'Size'">
-                All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank">Size Guide</a>
-              </p>
-
-              <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">
-                <input
-                  v-model="options[optionIdx]"
-                  type="radio"
-                  v-bind="inputOptionAttributes(product, option, value)"
-                  :value="value"
-                  @change="handleOptionChange({optionIdx})"
-                >
-                <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
-              </template>
-            </div>
-          </div>
-
-          <select name="id" v-model="selectedVariant.id" class="variants" v-if="selectedVariant">
-            <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
-          </select>
-
-        </div>
+        {% render 'product-options' %}
 
         <div class="quantity-and-price">
           <div class="quantity-selector">
@@ -96,7 +69,7 @@
         </div>
 
         <template v-if="selectedVariant">
-          <button v-if="selectedVariant.available" class="cta-button cta-button_dark small centered form-button" type="submit" v-on:click="submit">Add To Cart</button>
+          <button v-if="selectedVariant.available" class="cta-button cta-button_dark small centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
           <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
           <p v-if="selectedVariant.available" class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
           <button v-else class="cta-button small centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>

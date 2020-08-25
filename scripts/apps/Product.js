@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import { mapActions } from 'vuex';
+
 import { formatMoney } from '@shopify/theme-currency'
 import { getSizedImageUrl } from "@shopify/theme-images";
 import querystring from 'querystring';
-import { mapActions } from 'vuex';
 
 import store from '../store';
 import productOptions from '../mixins/productOptions';
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         options: [],
         optionsWithValues: [],
         product: {
-          variants: []
+          variants: [],
         },
         quantity: 1,
         selectedColor: '',
@@ -35,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mounted() {
         this.product = JSON.parse(this.$el.dataset.product);
         this.currentVariant = JSON.parse(this.$el.dataset.currentVariant);
-
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
       },
       mixins: [productOptions],
@@ -107,18 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
           history.replaceState({}, '', url);
         },
       },
-      computed: {
-
-      },
 
       filters: {
+        formatMoney(price, format) {
+          return formatMoney(price, '${{amount}}');
+        },
+
         getSizedImageUrl(url, size) {
           return getSizedImageUrl(url, size);
         },
-
-        formatMoney(price, format) {
-          return formatMoney(price, '${{amount}}');
-        }
       },
     });
   }

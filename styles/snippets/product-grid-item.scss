@@ -1,3 +1,5 @@
+@import './options';
+
 .product-grid-item {
   background: white;
   display: flex;
@@ -29,11 +31,11 @@
       letter-spacing: 1.2px;
       padding: 0.5em 1em;
       position: absolute;
-      content: "sale sale sale sale";
+      content: 'sale sale sale sale';
       right: 0;
       text-transform: uppercase;
       top: 0;
-      transform: translate(50%,-50%) rotate(45deg) translateY(6.4em);
+      transform: translate(50%, -50%) rotate(45deg) translateY(6.4em);
       word-spacing: 1em;
       z-index: 1;
     }
@@ -51,7 +53,6 @@
 }
 
 .product-grid-item__featured-image-el {
-
 }
 
 .product-grid-item__hover-image-el {
@@ -99,7 +100,7 @@
   font: normal 16px/1.5 var(--font-sans-serif);
 
   &.varies::before {
-    content: "From ";
+    content: 'From ';
   }
 }
 
