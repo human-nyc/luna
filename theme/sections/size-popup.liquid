@@ -1,0 +1,62 @@
+<div class="size-popup__background"></div>
+<div class="size-popup__inner">
+  <h2 class="size-popup__title">{{section.settings.title}}</h2>
+  <div class="size-popup__description">{{section.settings.description}}</div>
+
+  <div class="size-popup__sizes">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'size' %}
+        <div class="size-popup__size">
+          <h3>{{block.settings.title}}</h3>
+          <h4>{{block.settings.subtitle}}</h4>
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Size Popup",
+    "class": "size-popup",
+    "settings": [
+      {
+        "default": "Sizing Chart",
+        "id": "title",
+        "label": "title",
+        "type": "text"
+      },
+      {
+        "type": "richtext",
+        "label": "description",
+        "id": "description",
+        "default": "<p>Weighted blankets are much smaller than normal blankets and will not cover the entire bed or hang off the edge of the bed.</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Size",
+        "type": "size",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
