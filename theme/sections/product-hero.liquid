@@ -69,7 +69,7 @@
     <div class="product-hero__form">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         {% render 'product-options' %}
-
+ 
         <div class="quantity-and-price">
           <div class="quantity-selector">
             <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
@@ -81,14 +81,14 @@
         </div>
 
         <template v-if="selectedVariant">
-          <button v-if="selectedVariant.available" class="cta-button cta-button_dark small centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
+          <button v-if="selectedVariant.available" class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
           <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
           <p v-if="selectedVariant.available" class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
-          <button v-else class="cta-button small centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+          <button v-else class="cta-button centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
         </template>
 
         <template v-else>
-          <button class="cta-button small centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
+          <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
         </template>
 
       </form>
