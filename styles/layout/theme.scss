@@ -232,19 +232,23 @@ label[for] {
   border: 0;
   cursor: pointer;
   height: 20px;
-  width: 12px;
+  width: 20px;
   padding: 0;
   position: absolute;
   bottom: 0;
 
+  svg {
+    height: 20px;
+  }
+
   &.previous {
     left: 50%;
-    transform: translateX(-300%);
+    transform: translateX(-200%);
   }
 
   &.next {
     right: 50%;
-    transform: translateX(300%);
+    transform: translateX(200%);
   }
 
   &:disabled {
