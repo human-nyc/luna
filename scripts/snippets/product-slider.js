@@ -1,6 +1,7 @@
 import Flickity from 'flickity';
 
 const flkty = new Flickity('#productSlider', {
+  cellAlign: 'left',
   pageDots: false,
   prevNextButtons: true,
   fade: true,
