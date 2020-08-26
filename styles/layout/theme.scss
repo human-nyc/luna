@@ -110,19 +110,22 @@ label[for] {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  transition-duration: var(--slow);
+  transition-property: background, color;
   white-space: nowrap;
 
   &:hover {
     @media (hover: hover) {
       background-color: var(--font-color);
       color: var(--white-color);
+      transition-duration: var(--fast);
     }
   }
 
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
-    
+
     &:hover {
       @media (hover: hover) {
         background-color: var(--white-color);
@@ -130,11 +133,11 @@ label[for] {
       }
     }
   }
-  
+
   &.cta-button_grey {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
-    
+
     &:hover {
       @media (hover: hover) {
         background-color: var(--white-color);

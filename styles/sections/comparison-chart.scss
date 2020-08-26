@@ -17,16 +17,10 @@
     transition: background-color var(--slow);
     outline: 0;
 
-    &:focus,
     &:hover {
       background-color: var(--primary-brand-color);
       color: var(--white-color);
       transition-duration: var(--fast);
-
-      .cta-button_icon:after,
-      .cta-button_icon:before {
-        background-color: var(--white-color);
-      }
     }
   }
 
@@ -38,7 +32,7 @@
 
     &:after,
     &:before {
-      background-color: var(--primary-brand-color);
+      background-color: currentColor;
       height: 2px;
       width: 10px;
       content: '';
