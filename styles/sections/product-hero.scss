@@ -147,12 +147,10 @@
 }
 
 // Product Form
-
 .quantity-and-price {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
 
   .quantity-selector {
     border: 1px solid var(--primary-brand-color);
@@ -207,7 +205,7 @@
     letter-spacing: 1.2px;
     text-align: center;
     text-transform: uppercase;
-    
+
     &.affirm-as-low-as {
       margin: var(--gutter);
     }

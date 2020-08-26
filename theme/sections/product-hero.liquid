@@ -38,7 +38,7 @@
                 {% endif %}
 
                 {% if block.settings.details != blank %}
-                  <div class="product-tabs__content" v-if="tab === 2"> 
+                  <div class="product-tabs__content" v-if="tab === 2">
                     <div>{{ block.settings.details }}</div>
                   </div>
                 {% endif %}
@@ -64,6 +64,20 @@
 
         <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
       </picture>
+      <picture v-else>
+        <source
+          :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
+          media="(max-width: 767px)"
+        >
+
+        <source
+          :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
+          media="(min-width: 768px)"
+        >
+
+        <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
+
     </div>
 
     <div class="product-hero__form">

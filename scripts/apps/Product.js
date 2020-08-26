@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         options: [],
         optionsWithValues: [],
         product: {
+          featured_image: "",
           variants: [],
         },
         quantity: 1,
