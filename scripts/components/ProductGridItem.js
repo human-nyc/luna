@@ -15,6 +15,7 @@ Vue.component('product-grid-item', {
       optionsWithValues: [],
       product: {
         variants: [],
+        featured_image: "",
       },
       quantity: 1,
       quickAddIsActive: false,

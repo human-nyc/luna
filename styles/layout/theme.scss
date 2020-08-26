@@ -122,6 +122,10 @@ label[for] {
     }
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
