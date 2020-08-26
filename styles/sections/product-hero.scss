@@ -215,4 +215,26 @@
 .yotpo.bottomLine {
   align-self: flex-start;
   grid-area: star-rating;
+
+  .yotpo-display-wrapper {
+    font-size: 14px;
+    padding: calc(var(--gutter) * 2) 0 var(--gutter);
+
+    .yotpo-stars {
+      margin-right: .5em;
+
+      .yotpo-icon {
+        line-height: .85;
+        margin-right: .1em;
+
+        &::before {
+          font-size: 14px;
+        }
+      }
+    }
+    a {
+      font-family: var(--font-serif);
+      letter-spacing: -.02em;
+    }
+  }
 }
