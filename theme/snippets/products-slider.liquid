@@ -1,6 +1,6 @@
 <div class="products-slider">
   <div class="products-slider__header">
-    <h2 class="section-header">{{ section.settings.header }}</h2>
+    <h2 class="section-header">{{ section.settings.title }}</h2>
   </div>
   <div class="products-slider__main" id="productSlider">
     {% for block in section.blocks %}
@@ -26,7 +26,7 @@
   </div>
   {% unless section.settings.cta_text == "" or section.settings.cta_text == nil %}
   <div class="products-slider__cta">
-    <a class="cta-button">
+    <a class="cta-button" href="{{ section.settings.cta_url }}">
       {{ section.settings.cta_text }}
       <img class="cta-arrow cta-arrow_blue" src="{{ 'cta-arrow-blue.png' | asset_url | image_tag }}" />
       <img class="cta-arrow cta-arrow_white" src="{{ 'cta-arrow-white.png' | asset_url | image_tag }}" />

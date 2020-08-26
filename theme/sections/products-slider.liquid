@@ -1,4 +1,4 @@
-{% include 'products-slider' %}
+{% render 'products-slider', section: section %}
 
 {% schema %}
   {
@@ -6,15 +6,21 @@
     "settings": [
       {
         "type": "text",
-        "id": "header",
-        "label": "Header",
+        "id": "title",
+        "label": "Title",
         "default": "Shop More Luna Products"
       },
       {
         "type": "text",
         "id": "cta_text",
         "label": "CTA Text",
-        "default": "Shop More"
+        "default": "Shop All"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL",
+        "default": "/collections/all"
       }
     ],
     "blocks": [
