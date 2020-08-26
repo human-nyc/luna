@@ -55,13 +55,22 @@
     </span>
 
     {% if product.available %}
-      <p><button @click.prevent="activateQuickAdd" class="cta-button cta-button_dark small centered">Quick Add</button></p>
+      <p>
+        <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark small centered">Quick Add</button>
+        <button
+          v-else
+          @click.prevent="submit"
+          class="cta-button cta-button_dark small centered"
+          type="submit"
+        >Add To Cart</button>
+
+      </p>
     {% endif %}
     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
     <form :class="['quick-add', {'active': quickAddIsActive}]" method="post" action="/cart/add" enctype="multipart/form-data">
       <div class="quick-add__top">
-        <button class="close" @click.prevent="deactivateQuickAdd">Close</button>
+        <button class="close" @click.prevent="deactivateQuickAdd">{% render 'svg-close' %}</button>
       </div>
 
       <input type="hidden" name="form_type" value="product">
@@ -75,6 +84,17 @@
           >
           <source
             :srcset="selectedVariant.featured_image.src | getSizedImageUrl('648x388_crop_center@2x.progressive')"
+            media="(min-width: 768px)"
+          >
+          <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+        </picture>
+        <picture v-else>
+          <source
+            :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
+            media="(max-width: 767px)"
+          >
+          <source
+            :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
           <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">

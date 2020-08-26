@@ -151,7 +151,8 @@
     border: none;
     cursor: pointer;
     font: inherit;
-    padding: none;
+    margin: var(--gutter) 0 0;
+    padding: 0;
   }
 }
 
