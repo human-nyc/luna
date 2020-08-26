@@ -27,8 +27,14 @@
       grid-column: 1;
       grid-row: 1/3;
 
-      .cart-item:first-child {
-        padding-top: 10px;
+      .cart-item {
+        &:first-child {
+          padding-top: 10px;
+        }
+
+        &__image img {
+          width: 120px;
+        }
       }
     }
   }
