@@ -1,0 +1,20 @@
+{% section 'swatches' %}
+
+<div class="collection two-across" id="collection-page">
+  <div class="collection__top">
+    <h1 class="collection__title">{{ collection.title }}</h1>
+    <div class="collection__description">{{collection.description}}</div>
+  </div>
+
+  {% paginate collection.products by 9999 %}
+    <div class="collection__product-grid" id="collection">
+      {% for product in collection.products %}
+        {% render 'product-grid-item' product: product %}
+      {% else %}
+        <p>no matches</p>
+      {% endfor %}
+      {% section 'collection-menu' %}
+    </div>
+    {% render 'pagination' paginate: paginate %}
+  {% endpaginate %}
+</div>
