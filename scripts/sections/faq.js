@@ -6,6 +6,7 @@ const faq = new Vue({
   el: '#faq',
   data: {
     activeCategory: null,
+    activeCategoryName: '',
     navOpen: false,
   },
   mounted() {
