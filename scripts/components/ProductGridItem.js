@@ -76,7 +76,7 @@ Vue.component('product-grid-item', {
     handleize(value) {
       if (!value) return '';
       value = value.toString();
-      return value.replace(' ', '-').toLowerCase();
+      return value.replace(/ /g, '-').toLowerCase();
     },
   },
 });
