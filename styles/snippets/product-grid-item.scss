@@ -11,6 +11,10 @@
     position: relative;
   }
 
+  &:nth-child(3n +1) {
+    background: red;
+  }
+
   .on-sale {
     font-size: 10px;
     overflow: hidden;
@@ -87,6 +91,7 @@
 .product-grid-item__title {
   align-self: center;
   color: inherit;
+  flex-grow: 1;
   font: 500 20px/1.4 var(--font-sans-serif);
   margin: 1em 0 0;
   text-decoration: none;
