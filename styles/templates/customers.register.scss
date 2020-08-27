@@ -1,0 +1,9 @@
+.create-customer.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 6em auto;
+  max-width: 500px;
+  padding: 0 var(--gutter);
+  column-gap: var(--gutter);
+  row-gap: 1em;
+}

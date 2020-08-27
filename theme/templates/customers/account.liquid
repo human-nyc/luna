@@ -1,1 +1,58 @@
-<!-- /templates/customers/account.liquid -->
+<div class="account-page">
+  <div class="account-page__top">
+    <h1>My Account</h1>
+    {{ 'Log out' | customer_logout_link }}
+  </div>
+
+  <div class="account-page__order-history">
+    <h2>Orders</h2>
+
+    {% paginate customer.orders by 20 %}
+      {% if customer.orders.size != 0 %}
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">order_number</th>
+              <th scope="col">date</th>
+              <th scope="col">payment_status</th>
+              <th scope="col">fulfillment_status</th>
+              <th scope="col">total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr>
+                <th data-label="order_number" scope="row">
+                  <a href="{{ order.customer_url }}" class="button" aria-label="order_number_link">{{ order.name }}</a>
+                </th>
+                <td data-label="date">{{ order.created_at | time_tag: format: 'date' }}</td>
+                <td data-label="payment_status">{{ order.financial_status_label }}</td>
+                <td data-label="fulfillment_status">{{ order.fulfillment_status_label }}</td>
+                <td data-label="total">{{ order.total_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      {% else %}
+
+        <p>You haven't placed any orders yet.</p>
+
+      {% endif %}
+
+      {% if paginate.pages > 1 %}
+        {{ paginate | default_pagination }}
+      {% endif %}
+
+    {% endpaginate %}
+  </div>
+
+  <div class="account-page__account-details">
+    <h2>Account Details</h2>
+
+    {{ customer.default_address | format_address }}
+
+    <p><a href="{{ routes.account_addresses_url }}" class="cta button">View Addresses ({{ customer.addresses_count }}) {% render 'svg-arrow-right' %}</a></p>
+  </div>
+</div>

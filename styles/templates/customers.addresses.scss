@@ -1,0 +1,53 @@
+.addresses-page {
+  margin: auto;
+  max-width: 1280px;
+  max-width: 750px;
+  padding: 0 var(--gutter);
+
+
+  label:not(input[type="checkbox"] + label) {
+    display: block;
+    margin-top: 1em;
+  }
+
+  input:not([type="button"]):not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  select {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+
+.address-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  [data-aria-hidden="true"] {
+    display: none;
+  }
+
+  [data-line-count="1"] {
+    flex-basis: 100%;
+  }
+  [data-line-count="2"] {
+    flex-basis: 49%;
+  }
+  [data-line-count="3"] {
+    flex-basis: 32%;
+  }
+}
+
+form[data-address-delete-form] {
+  display: inline-block;
+}

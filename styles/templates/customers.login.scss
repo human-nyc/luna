@@ -1,0 +1,28 @@
+.login-page {
+  margin: 6em auto;
+  max-width: 500px;
+  padding: 0 var(--gutter);
+}
+
+.customer-login.form {
+  display: none;
+  grid-template-columns: 1fr;
+  column-gap: var(--gutter);
+  row-gap: 1em;
+
+  .login-page[data-mode="login"] & {
+    display: grid;
+  }
+}
+
+.recover-customer-password.form {
+  display: none;
+  grid-template-columns: 1fr;
+  column-gap: var(--gutter);
+  row-gap: 1em;
+
+  .login-page[data-mode="recover"] & {
+    display: grid;
+  }
+
+}

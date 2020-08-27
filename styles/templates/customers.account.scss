@@ -1,0 +1,20 @@
+.account-page {
+  display: grid;
+  grid-template: "top top" auto "order-history account-details" auto / 2fr 1fr;
+  margin: 0 auto var(--header-height);
+  max-width: 1280px;
+  padding: 0 var(--gutter);
+}
+
+.account-page__top {
+  grid-area: top;
+  text-align: center;
+}
+
+.account-page__order-history {
+  grid-area: order-history;
+}
+
+.account-page__account-details {
+  grid-area: account-details;
+}
