@@ -16,7 +16,7 @@
   {% endfor %}
 </div>
 <div class="testimonials__cta">
-  <a class="cta-button cta-button_dark">
+  <a href="{{ section.settings.cta_link }}" class="cta-button cta-button_dark">
     {{ section.settings.cta_text }}
     {% render 'svg-right-arrow' %}
   </a>
@@ -38,6 +38,11 @@
         "id": "cta_text",
         "label": "CTA Text",
         "default": "See more reviews"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link"
       }
     ],
     "blocks": [
