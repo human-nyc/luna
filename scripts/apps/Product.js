@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import store from '../store';
 import productOptions from '../mixins/productOptions';
 
@@ -39,10 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
 
         if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
+        document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
+
+        document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
       },
       mixins: [productOptions],
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+        ...mapActions('popups', ['openSizePopup']),
 
         async submit(e) {
           e.preventDefault();
@@ -109,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
           history.replaceState({}, '', url);
         },
       },
-
       filters: {
         formatMoney(price, format) {
           return formatMoney(price, '${{amount}}');
@@ -119,6 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
           return getSizedImageUrl(url, size);
         },
       },
+    });
+  }
+
+  if(document.querySelector('#shopify-section-size-popup')) {
+    new Vue({
+      name: 'SizePopup',
+      store,
+      el: '#shopify-section-size-popup',
+      methods: {
+        ...mapActions('popups', ['openSizePopup', 'closeSizePopup']),
+      },
+      computed: {
+        ...mapGetters('popups', ['sizePopupIsOpen'])
+      }
     });
   }
 });

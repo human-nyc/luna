@@ -1,0 +1,64 @@
+<div id="size-popup" :class="['size-popup', { active: sizePopupIsOpen }]">
+  <div class="size-popup__background" @click="closeSizePopup"></div>
+  <div class="size-popup__inner">
+    <button id="size-popup__close-button" class="size-popup__close-button" @click="closeSizePopup">{% render 'svg-close' %}</button>
+    <h2 class="size-popup__title">{{section.settings.title}}</h2>
+    <div class="size-popup__description">{{section.settings.description}}</div>
+
+    <div class="size-popup__sizes">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'size' %}
+          <div class="size-popup-block">
+            <h3 class="size-popup-block__title">{{block.settings.title}}</h3>
+            <h4 class="size-popup-block__subtitle">{{block.settings.subtitle}}</h4>
+            <img class="size-popup-block__icon" src="{{block.settings.icon | img_url: "x92", scale: 2}}">
+          </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Size Popup",
+    "settings": [
+      {
+        "default": "Sizing Chart",
+        "id": "title",
+        "label": "title",
+        "type": "text"
+      },
+      {
+        "type": "richtext",
+        "label": "description",
+        "id": "description",
+        "default": "<p>Weighted blankets are much smaller than normal blankets and will not cover the entire bed or hang off the edge of the bed.</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Size",
+        "type": "size",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
