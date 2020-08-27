@@ -123,7 +123,7 @@
     border-collapse: collapse;
     width: 100%;
   }
-
+  thead th,
   td:not(:first-child) {
     text-align: center;
   }
