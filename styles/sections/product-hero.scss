@@ -215,10 +215,14 @@
 .yotpo.bottomLine {
   align-self: flex-start;
   grid-area: star-rating;
+  padding: var(--gutter) 0;
+  
+  @media (min-width: 1024px) {
+    padding: calc(var(--gutter) * 2) 0 165px;
+  }
 
   .yotpo-display-wrapper {
     font-size: 14px;
-    padding: calc(var(--gutter) * 2) 0 var(--gutter);
 
     .yotpo-stars {
       margin-right: .5em;
@@ -235,6 +239,28 @@
     a {
       font-family: var(--font-serif);
       letter-spacing: -.02em;
+    }
+    .yotpo-regular-box,
+    .sentence-container {
+      padding: 0;
+      margin: 0;
+    }
+    .shoppers-say-title,
+    .review-stars,
+    .display-name,
+    .icon-holder {
+      display: none;
+    }
+    .single-sentence-text-content {
+      margin: 0;
+
+      .sentence {      
+        font-family: var(--font-serif);
+        font-size: 16px;
+        font-style: normal !important;
+        line-height: 1.63;
+        padding-right: 1em;
+      }
     }
   }
 }
