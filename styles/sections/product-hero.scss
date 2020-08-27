@@ -50,7 +50,7 @@
 .product-hero__title {
   font-family: var(--font-serif);
   font-weight: normal;
-  font-size: 40px;
+  font-size: 42px;
   grid-area: title;
   margin: 0;
   text-align: center;
@@ -162,7 +162,7 @@
       appearance: none;
       background: none;
       border: 0;
-      font-size: 12px;
+      font-size: 14px;
       padding: 16px 0;
       text-align: center;
       width: 20px;
@@ -180,7 +180,7 @@
   }
 
   .price {
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 500;
 
     &_compare {
@@ -196,7 +196,7 @@
     width: 100%;
   }
   .form-message {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -207,7 +207,7 @@
     text-transform: uppercase;
 
     &.affirm-as-low-as {
-      margin: var(--gutter);
+      margin: var(--gutter) 0;
     }
   }
 }
