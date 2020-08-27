@@ -2,8 +2,8 @@
 
   <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
     {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
+    {% render 'customer-links' %}
   </div>
-
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
@@ -69,15 +69,7 @@
         </div>
       </div>
       <div class="header__right">
-        {% if shop.customer_accounts_enabled %}
-          {% if customer %}
-            <a class="header-link" href="/account">Account</a>
-            {{ 'Log out' | customer_logout_link }}
-          {% else %}
-            {{ 'Log in ' | customer_login_link }}
-            {{ 'Register' | customer_register_link }}
-          {% endif %}
-        {% endif %}
+        {% render 'customer-links' %}
         <a
           @click.prevent='toggleMiniCart'
           class="header-link header-link_cart"

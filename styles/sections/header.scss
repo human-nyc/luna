@@ -119,6 +119,8 @@
   text-align: right;
 
   .header-link {
+    display: none;
+
     @include tablet-landscape {
       margin-left: 44px;
     }
@@ -133,17 +135,18 @@
     border: 0;
     color: var(--font-color);
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.14;
     text-decoration: none;
-
+    
     transition: background-size 400ms;
     background-size: 0 1.75px;
     background-position: right 100%;
-
+    
     @include tablet-landscape {
+      display: inline-block;
       font-size: var(--font-size-p);
     }
 
@@ -281,10 +284,16 @@ $toggle-icon-size: 24px;
     flex-direction: column;
   }
 
+  .header-link,
   .parent-link-wrapper {
+    margin: 0 0 1em;
     padding: 0 var(--gutter);
   }
-
+  a.header-link {
+    font-weight: 400;
+    font-size: var(--font-size-base);
+  }
+  
   .parent-link {
     color: inherit;
     font: bold 14px/1 var(--font-sans-serif);
@@ -293,13 +302,18 @@ $toggle-icon-size: 24px;
   }
 
   .child-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 1em 0;
+    margin: .5em 0;
+    
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .child-link {
     color: inherit;
+    display: block;
+    margin: .5em 0;
     text-decoration: none;
   }
 }
