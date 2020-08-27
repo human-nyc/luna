@@ -1,5 +1,6 @@
 <div class="size-popup__background"></div>
 <div class="size-popup__inner">
+  <button id="size-popup__close-button" class="size-popup__close-button">{% render 'svg-close' %}</button>
   <h2 class="size-popup__title">{{section.settings.title}}</h2>
   <div class="size-popup__description">{{section.settings.description}}</div>
 
@@ -7,9 +8,10 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'size' %}
-        <div class="size-popup__size">
-          <h3>{{block.settings.title}}</h3>
-          <h4>{{block.settings.subtitle}}</h4>
+        <div class="size-popup-block">
+          <h3 class="size-popup-block__title">{{block.settings.title}}</h3>
+          <h4 class="size-popup-block__subtitle">{{block.settings.subtitle}}</h4>
+          <img class="size-popup-block__icon" src="{{block.settings.icon | img_url: "x92", scale: 2}}">
         </div>
       {% endcase %}
     {% endfor %}

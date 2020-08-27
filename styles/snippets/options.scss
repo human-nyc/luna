@@ -4,6 +4,10 @@
   list-style-position: inside;
   list-style-type: decimal;
   margin-bottom: 40px;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .product__option {
