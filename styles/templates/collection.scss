@@ -36,15 +36,38 @@ body {
   background: var(--offwhite-color);
   column-gap: 24px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   padding: 40px var(--gutter);
   row-gap: 24px;
 
+  .collection.two-across & {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection.three-across & {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .collection-menu {
     align-self: center;
+  }
 
-    &:nth-child(odd) {
+  .collection.two-across & .collection-menu {
+    &:nth-child(2n + 1) {}
+
+    &:nth-child(2n + 2) {
       grid-column-end: span 2;
     }
+  }
+
+  .collection.three-across & .collection-menu {
+    &:nth-child(3n + 1) {
+      grid-column-end: span 3;
+    }
+
+    &:nth-child(3n + 2) {
+      grid-column-end: span 2;
+    }
+
+    &:nth-child(3n + 3) {}
   }
 }

@@ -11,11 +11,11 @@
     <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
       <picture>
         <source
-          srcset="{{ product.featured_image.src | img_url: '160x96', crop: 'center', scale: 1 }}"
+          srcset="{{ product.featured_image.src | img_url: '160x96', crop: 'center', scale: 2 }}"
           media="(max-width: 767px)"
         >
         <source
-          srcset="{{ product.featured_image.src | img_url: '648x388', crop: 'center', scale: 1 }}"
+          srcset="{{ product.featured_image.src | img_url: '648x388', crop: 'center', scale: 2 }}"
           media="(min-width: 768px)"
         >
         <img class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
@@ -24,11 +24,11 @@
       {% if hover_images.size > 0 %}
         <picture>
           <source
-            srcset="{{ hover_images[0].src | img_url: '160x96', crop: 'center', scale: 1 }}"
+            srcset="{{ hover_images[0].src | img_url: '160x96', crop: 'center', scale: 2 }}"
             media="(max-width: 767px)"
           >
           <source
-            srcset="{{ hover_images[0].src | img_url: '648x388', crop: 'center', scale: 1 }}"
+            srcset="{{ hover_images[0].src | img_url: '648x388', crop: 'center', scale: 2 }}"
             media="(min-width: 768px)"
           >
 
