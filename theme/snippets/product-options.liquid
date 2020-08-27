@@ -4,7 +4,7 @@
 
     <div class="option-values">
       <p v-if="option.name == 'Size'">
-        All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank">Size Guide</a>
+        All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank" @click.prevent="toggleActiveSizePopup(true)">Sizing Chart</a>
       </p>
 
       <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">

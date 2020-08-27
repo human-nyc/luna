@@ -39,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
 
         if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
+        document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
+
+        document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
       },
       mixins: [productOptions],
       methods: {
@@ -108,8 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
           history.replaceState({}, '', url);
         },
-      },
 
+        toggleActiveSizePopup(shouldAddClass = false) {
+          document.querySelector('#shopify-section-size-popup').classList.toggle('active', shouldAddClass);
+        }
+      },
       filters: {
         formatMoney(price, format) {
           return formatMoney(price, '${{amount}}');
