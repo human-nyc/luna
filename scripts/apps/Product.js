@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         this.product = JSON.parse(this.$el.dataset.product);
         this.currentVariant = JSON.parse(this.$el.dataset.currentVariant);
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
+
+        if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
       },
       mixins: [productOptions],
       methods: {
