@@ -1,1 +1,15 @@
-<!-- /templates/customers/activate_account.liquid -->
+{% form 'activate_customer_password' %}
+  {{ form.errors | default_errors }}
+
+    <label for="password">Password</label>
+    <input type="password" name="customer[password]" />
+
+    <label for="password_confirmation">Password Confirmation</label>
+    <input type="password" name="customer[password_confirmation]" />
+
+    <input type="submit" value="Activate Account" />
+    <span> or </span>
+    <input type="submit" name="decline" value="Decline Invitation" />
+  </div>
+
+{% endform %}
