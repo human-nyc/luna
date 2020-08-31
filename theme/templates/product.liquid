@@ -1,17 +1,6 @@
 {% section 'product-hero' %}
 {% section 'swatches' %}
 
-{% section 'product-features' %}
-{% section 'product-benefits' %}
-{% section 'product-suggestion' %}
-{% section 'product-steps' %}
-{% section 'product-detail' %}
-{% section 'product-full-image' %}
-{% section 'product-reviews' %}
-{% render 'yotpo-reviews' product: product %}
-
-
-
 <div id="size-popup" :class="['popup', { active: sizePopupIsOpen }]">
   <div class="popup__background" @click="closeSizePopup"></div>
   <div class="popup__inner">
@@ -20,6 +9,8 @@
   </div>
 </div>
 
+{% section 'size-options' %}
+
 <div id="weight-popup" :class="['popup', { active: weightPopupIsOpen }]">
   <div class="popup__background" @click="closeWeightPopup"></div>
   <div class="popup__inner">
@@ -27,3 +18,12 @@
     {% section 'weight-chart' %}
   </div>
 </div>
+
+{% section 'product-features' %}
+{% section 'product-benefits' %}
+{% section 'product-suggestion' %}
+{% section 'product-steps' %}
+{% section 'product-detail' %}
+{% section 'product-full-image' %}
+{% section 'product-reviews' %}
+{% render 'yotpo-reviews' product: product %}
