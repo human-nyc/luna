@@ -1,0 +1,33 @@
+<style type="text/css">
+  {% for block in section.blocks %}
+    .option--{{block.settings.title | handleize }}::after {
+      {% if block.settings.image %}
+        background-image: url('{{block.settings.image | img_url: 'x46', scale: 2 }}');
+      {% endif %}
+    }
+  {% endfor %}
+</style>
+
+{% schema %}
+  {
+    "name": "Size options",
+    "blocks": [
+      {
+        "name": "Size option",
+        "type": "size_option",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Size name"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Size Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
