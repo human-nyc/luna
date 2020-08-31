@@ -15,10 +15,11 @@
   padding: 0 var(--gutter);
   text-align: center;
   width: 960px;
-
+ 
   h3 > p {
     font-family: var(--font-sans-serif);
     font-style: normal;
+    line-height: 1.78;
 
     > em {
       font-family: var(--font-serif);
