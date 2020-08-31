@@ -1,0 +1,30 @@
+// Sizing Chart
+.sizing-chart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 var(--gutter);
+  text-align: center;
+  width: 100%;
+
+  &__option {
+    margin: var(--gutter) 0 0;
+    padding: 0 28px;
+  }
+
+  &__name {
+    font-weight: 500;
+    letter-spacing: 1.92px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__size {
+    display: inline-block;
+    font-size: 14px;
+    margin: .6em 0 1em;
+  }
+
+  &__image {
+  }
+}

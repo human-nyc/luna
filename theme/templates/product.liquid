@@ -1,5 +1,6 @@
-{% section 'swatches' %}
 {% section 'product-hero' %}
+{% section 'swatches' %}
+
 {% section 'product-features' %}
 {% section 'product-benefits' %}
 {% section 'product-suggestion' %}
@@ -8,4 +9,21 @@
 {% section 'product-full-image' %}
 {% section 'product-reviews' %}
 {% render 'yotpo-reviews' product: product %}
-{% section 'size-popup' %}
+
+
+
+<div id="size-popup" :class="['popup', { active: sizePopupIsOpen }]">
+  <div class="popup__background" @click="closeSizePopup"></div>
+  <div class="popup__inner">
+    <button id="popup__close-button" class="popup__close-button" @click="closeSizePopup">{% render 'svg-close' %}</button>
+    {% section 'sizing-chart' %}
+  </div>
+</div>
+
+<div id="weight-popup" :class="['popup', { active: weightPopupIsOpen }]">
+  <div class="popup__background" @click="closeWeightPopup"></div>
+  <div class="popup__inner">
+    <button id="popup__close-button" class="popup__close-button" @click="closeWeightPopup">{% render 'svg-close' %}</button>
+    {% section 'weight-chart' %}
+  </div>
+</div>

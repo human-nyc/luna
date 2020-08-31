@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mixins: [productOptions],
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
-        ...mapActions('popups', ['openSizePopup']),
+        ...mapActions('popups', ['openSizePopup','openWeightPopup']),
 
         async submit(e) {
           e.preventDefault();
@@ -129,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(document.querySelector('#shopify-section-size-popup')) {
+  if(document.querySelector('#size-popup')) {
     new Vue({
       name: 'SizePopup',
       store,
-      el: '#shopify-section-size-popup',
+      el: '#size-popup',
       methods: {
         ...mapActions('popups', ['openSizePopup', 'closeSizePopup']),
       },
@@ -142,4 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  if(document.querySelector('#weight-popup')) {
+    new Vue({
+      name: 'WeightPopup',
+      store,
+      el: '#weight-popup',
+      methods: {
+        ...mapActions('popups', ['openWeightPopup', 'closeWeightPopup']),
+      },
+      computed: {
+        ...mapGetters('popups', ['weightPopupIsOpen'])
+      }
+    });
+  }
+
 });

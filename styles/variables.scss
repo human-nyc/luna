@@ -54,6 +54,11 @@
   --padding-v-mobile: 40px;
   --banner-height: 40px;
 
+  --padding-v: 40px;
+  @include tablet-portrait {
+    --padding-v: 80px;
+  }
+
   @include desktop-lg {
     --gutter: 60px;
   }
