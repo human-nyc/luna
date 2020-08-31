@@ -11,16 +11,19 @@
         Not sure about what weight to buy? Check out our <a href="/pages/sizing" target="_blank" @click.prevent="openWeightPopup">Weight Chart</a>
       </p>
 
-      <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">
-        <input
-          v-model="options[optionIdx]"
-          type="radio"
-          v-bind="inputOptionAttributes(product, option, value)"
-          :value="value"
-          @change="handleOptionChange({optionIdx})"
-        >
-        <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
-      </template>
+      <div class="values">
+        <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">
+          <input
+            v-model="options[optionIdx]"
+            type="radio"
+            v-bind="inputOptionAttributes(product, option, value)"
+            :value="value"
+            @change="handleOptionChange({optionIdx})"
+          >
+          <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
+        </template>
+      </div>
+
     </div>
   </div>
 

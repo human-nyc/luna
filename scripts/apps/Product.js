@@ -129,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(document.querySelector('#shopify-section-size-popup')) {
+  if(document.querySelector('#size-popup')) {
     new Vue({
       name: 'SizePopup',
       store,
-      el: '#shopify-section-size-popup',
+      el: '#size-popup',
       methods: {
         ...mapActions('popups', ['openSizePopup', 'closeSizePopup']),
       },
@@ -143,11 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(document.querySelector('#shopify-section-weight-popup')) {
+  if(document.querySelector('#weight-popup')) {
     new Vue({
       name: 'WeightPopup',
       store,
-      el: '#shopify-section-weight-popup',
+      el: '#weight-popup',
       methods: {
         ...mapActions('popups', ['openWeightPopup', 'closeWeightPopup']),
       },
