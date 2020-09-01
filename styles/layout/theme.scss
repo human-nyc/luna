@@ -13,9 +13,12 @@
 body {
   background-color: var(--offwhite-color);
   color: var(--font-color);
+  display: grid;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-base);
   margin: 0;
+  min-height: 100vh;
+  grid-template-rows: auto auto 1fr auto;
 }
 
 body, input, textarea, select, button {
@@ -90,6 +93,41 @@ a {
 
 label[for] {
   cursor: pointer;
+}
+
+
+.btn {
+  appearance: none;
+  background-color: var(--white-color);
+  border: 0;
+  border-radius: 30px;
+  color: var(--font-color);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 17px 69px 17px 32px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-duration: var(--slow);
+  transition-property: background, color;
+  padding: 0.75em 2em;
+  text-align: center;
+  white-space: nowrap;
+
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--font-color);
+      color: var(--white-color);
+      transition-duration: var(--fast);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .cta-button {
@@ -263,3 +301,11 @@ label[for] {
     opacity: 0.4;
   }
 }
+
+.shopify-challenge__container {
+  form {
+    margin: 1em 0;
+  }
+}
+
+.shopify-challenge__message {}

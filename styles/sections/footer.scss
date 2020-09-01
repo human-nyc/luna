@@ -20,13 +20,13 @@
   margin: 0 auto;
   max-width: 100%;
   padding: 0 var(--gutter) 50px;
-  width: var(--page-width);
+  // width: var(--page-width);
 }
 
 .footer__inner {
   margin: 0 auto;
   max-width: 100%;
-  width: var(--page-width);
+  // width: var(--page-width);
 
   @include tablet-landscape {
     display: flex;

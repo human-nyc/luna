@@ -1,9 +1,3 @@
 {% if shop.customer_accounts_enabled %}
-  {% if customer %}
-    <a class="header-link" href="/account">Account</a>
-    <a class="header-link" href="/account/logout" id="customer_logout_link">Log out</a>
-  {% else %}
-    <a class="header-link" href="/account/login" id="customer_login_link">Log in</a>
-    <a class="header-link" href="/account/register" id="customer_register_link">Register</a>
-  {% endif %}
+  <a class="header-link" href="{{ routes.account_url }}">Account</a>
 {% endif %}
