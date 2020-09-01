@@ -28,6 +28,7 @@
     font-size: var(--font-size-p-lg);
     font-weight: 500;
     line-height: 1.4;
+    margin: 0;
   }
 }
 
@@ -35,7 +36,7 @@
   align-items: center;
   display: none;
   justify-content: center;
-  padding: 90px 0 70px;
+  padding: var(--padding-v) 0;
 
   @include tablet-portrait {
     display: flex;
@@ -79,7 +80,7 @@
   text-align: center;
 
   @include tablet-portrait {
-    height: 46px;
+    height: 40px;
   }
 
   blockquote {
@@ -88,7 +89,7 @@
     font-family: var(--font-serif);
     font-size: 40px;
     font-style: italic;
-    margin: 0;
+    margin: -15px 0 0;
 
     position: absolute;
     left: 0;
