@@ -1,5 +1,5 @@
-<div class="pagination">
-  {% if paginate.pages > 1 %}
+{% if paginate.pages > 1 %}
+  <div class="pagination">
     {{ paginate | default_pagination }}
-  {% endif %}
-</div>
+  </div>
+{% endif %}

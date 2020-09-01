@@ -43,6 +43,10 @@
         {% endif %}
         {% render 'svg-right-arrow' %}
       </span>
+
+      {% if product.compare_at_price %}
+        <span class="on-sale"></span>
+      {% endif %}
     </a>
 
     <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -113,9 +117,5 @@
         <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
       </p>
     </form>
-
-    {% if product.compare_at_price %}
-      <span class="on-sale"></span>
-    {% endif %}
   </div>
 </product-grid-item>
