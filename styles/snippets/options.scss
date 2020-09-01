@@ -211,13 +211,13 @@
       content: '100 lbs body weight';
     }
     &[title='12 lbs']::after {
-      content: '120lbs body weight';
+      content: '120 lbs body weight';
     }
     &[title='15 lbs']::after {
-      content: '150lbs body weight';
+      content: '150 lbs body weight';
     }
     &[title='17 lbs']::after {
-      content: '170lbs body weight';
+      content: '170 lbs body weight';
     }
     &[title='20 lbs']::after {
       content: '200lbs body weight';
@@ -235,6 +235,7 @@
     &::after {
       font-size: 8px;
       margin-left: 1em;
+      text-transform: uppercase;
     }
   }
 }
