@@ -18,15 +18,15 @@
         {% endif %}
       </div>
     </div>
-    {% endif %}
+    {% endif %} 
     <div class="product-steps__content">
       <div class="product-steps__content-inner">
         <h2 class="section-header">{{content.header}}</h2>
         <div class="header-underline"></div>
         <div class="product-steps__choices">
-          <button type="button" @click="selectStep(1)" :class="{'active': step === 1}">01.</button>
-          <button type="button" @click="selectStep(2)" :class="{'active': step === 2}">02.</button>
-          <button type="button" @click="selectStep(3)" :class="{'active': step === 3}">03.</button>
+          <button type="button" @mouseover="selectStep(1)" :class="{'active': step === 1}">01.</button>
+          <button type="button" @mouseover="selectStep(2)" :class="{'active': step === 2}">02.</button>
+          <button type="button" @mouseover="selectStep(3)" :class="{'active': step === 3}">03.</button>
         </div>
         {% if content.step_1 %}
           <div
