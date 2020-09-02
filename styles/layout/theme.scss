@@ -6,6 +6,8 @@
 @import '../sections/footer';
 @import '../snippets/minicart';
 
+@import '../flickity';
+
 * {
   box-sizing: border-box; /* do not remove, override in components if needed */
 }
@@ -282,6 +284,7 @@ label[for] {
   padding: 0;
   position: absolute;
   bottom: 0;
+  top: auto;
 
   svg {
     height: 20px;

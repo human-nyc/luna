@@ -36,16 +36,12 @@
   width: 100%;
 
   @media (min-width: 768px) {
-    width: 33.33%; 
+    width: 33.33%;
   }
 }
 
 .products-slider__item {
   margin: 0 auto;
-
-  @media (min-width: 768px) {
-    width: 400px;
-  }
 }
 
 .products-slider__item-image {
