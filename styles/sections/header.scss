@@ -140,11 +140,11 @@
     font-weight: 500;
     line-height: 1.14;
     text-decoration: none;
-    
+
     transition: background-size 400ms;
     background-size: 0 1.75px;
     background-position: right 100%;
-    
+
     @include tablet-landscape {
       display: inline-block;
       font-size: var(--font-size-p);
@@ -245,8 +245,7 @@ $toggle-icon-size: 24px;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--page-width);
+  max-width: var(--page-width);
 
   .dropdown-item {
     display: block;
@@ -293,7 +292,7 @@ $toggle-icon-size: 24px;
     font-weight: 400;
     font-size: var(--font-size-base);
   }
-  
+
   .parent-link {
     color: inherit;
     font: bold 14px/1 var(--font-sans-serif);
@@ -303,7 +302,7 @@ $toggle-icon-size: 24px;
 
   .child-links {
     margin: .5em 0;
-    
+
     @media (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
