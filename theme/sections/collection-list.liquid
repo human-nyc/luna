@@ -9,10 +9,10 @@
           <div class="item-wrapper">
             <a class="collection-list__item" href="{% if block.settings.product == blank %}/collections/{{ block.settings.collection }}{% else %}/products/{{ block.settings.product }}{% endif %}">
               <div class="fill-image">
-                <img loading="lazy" loading="lazy" src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
+                <img loading="lazy" src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
               </div>
               <div class="fill-image collection-list__hover-image">
-                <img loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" loading="lazy" src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
+                <img loading="lazy"  src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
               </div>
               <button class="cta-button">
                 {{ block.settings.cta_text }}
