@@ -1,12 +1,12 @@
 <div class="cart-item">
   <a :href="item.url" class="cart-item__image">
-    <img
+    <img loading="lazy"
       v-if="item.featured_image && item.featured_image.url"
       :src="getSizedImageUrl(item.featured_image.url, '92x57_crop_center@2x')"
       :alt="item.featured_image.alt"
       loading="lazy"
     >
-    <img
+    <img loading="lazy"
       v-else
       src="https://via.placeholder.com/92x57"
       :alt="item.featured_image.alt"

@@ -1,17 +1,6 @@
 @import './responsive';
 
 :root {
-  // Header height
-  @media (max-width: 767px) {
-    --header-height: 72px;
-    --padding-v: 40px;
-  }
-
-  @media (min-width: 768px) {
-    --header-height: 100px;
-    --padding-v: 80px;
-  }
-
   // Transition durations
   --fast: 400ms;
   --slow: 800ms;
@@ -53,6 +42,18 @@
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
   --banner-height: 40px;
+  --header-height: 72px;
+
+  --padding-v: 24px;
+
+  @include tablet-portrait {
+    --header-height: 100px;
+    --padding-v: 40px;
+  }
+
+  @include tablet-landscape {
+    --padding-v: 80px;
+  }
 
   @include desktop-lg {
     --gutter: 60px;

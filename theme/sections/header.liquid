@@ -2,8 +2,8 @@
 
   <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
     {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
+    {% render 'customer-links' %}
   </div>
-
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
@@ -19,7 +19,7 @@
 
             <div class="dropdown-item" data-type="{{child_link.type}}">
               <a href="{{child_link.url}}" class="dropdown-image">
-                <img src="{{child_link_image | img_url: '80x80', crop: 'center', scale: 2 }}" alt="Collection 1" />
+                <img loading="lazy" src="{{child_link_image | img_url: '80x80', crop: 'center', scale: 2 }}" alt="Collection 1" />
               </a>
               <a href="{{child_link.url}}" class="dropdown-text">{{child_link.title}}</a>
 
@@ -63,21 +63,13 @@
       <div class="header__center">
         <div class="header__logo">
           <a href="/">
-            <img src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
-            <img class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            <img loading="lazy" src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            <img loading="lazy" class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
           </a>
         </div>
       </div>
       <div class="header__right">
-        {% if shop.customer_accounts_enabled %}
-          {% if customer %}
-            <a class="header-link" href="/account">Account</a>
-            {{ 'Log out' | customer_logout_link }}
-          {% else %}
-            {{ 'Log in ' | customer_login_link }}
-            {{ 'Register' | customer_register_link }}
-          {% endif %}
-        {% endif %}
+        {% render 'customer-links' %}
         <a
           @click.prevent='toggleMiniCart'
           class="header-link header-link_cart"

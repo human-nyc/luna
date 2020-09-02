@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import store from '../store';
 import productOptions from '../mixins/productOptions';
 
@@ -37,10 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
         this.product = JSON.parse(this.$el.dataset.product);
         this.currentVariant = JSON.parse(this.$el.dataset.currentVariant);
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
+
+        if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
+        document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
+
+        document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
+          this.toggleActiveSizePopup();
+        });
       },
       mixins: [productOptions],
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+        ...mapActions('popups', ['openSizePopup','openWeightPopup']),
 
         async submit(e) {
           e.preventDefault();
@@ -107,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
           history.replaceState({}, '', url);
         },
       },
-
       filters: {
         formatMoney(price, format) {
           return formatMoney(price, '${{amount}}');
@@ -119,4 +128,33 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
   }
+
+  if(document.querySelector('#size-popup')) {
+    new Vue({
+      name: 'SizePopup',
+      store,
+      el: '#size-popup',
+      methods: {
+        ...mapActions('popups', ['openSizePopup', 'closeSizePopup']),
+      },
+      computed: {
+        ...mapGetters('popups', ['sizePopupIsOpen'])
+      }
+    });
+  }
+
+  if(document.querySelector('#weight-popup')) {
+    new Vue({
+      name: 'WeightPopup',
+      store,
+      el: '#weight-popup',
+      methods: {
+        ...mapActions('popups', ['openWeightPopup', 'closeWeightPopup']),
+      },
+      computed: {
+        ...mapGetters('popups', ['weightPopupIsOpen'])
+      }
+    });
+  }
+
 });

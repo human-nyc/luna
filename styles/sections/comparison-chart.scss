@@ -97,9 +97,8 @@
   animation: 800ms fadeUp;
   display: none;
   margin: 80px auto;
-  max-width: 100%;
   padding: 0 var(--gutter);
-  width: var(--page-width);
+  max-width: var(--page-width);
 
   @include tablet-landscape {
     padding: 0 calc(var(--gutter) * 2);
@@ -123,7 +122,7 @@
     border-collapse: collapse;
     width: 100%;
   }
-
+  thead th,
   td:not(:first-child) {
     text-align: center;
   }

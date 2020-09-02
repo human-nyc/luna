@@ -16,7 +16,7 @@
                 {{ block.settings.size }}
               </span>
               <div class="sizing-chart__icon">
-                <img src="{{block.settings.icon | img_url: '92x92', crop: 'center', scale: 2}}" height="92px" />
+                <img loading="lazy" src="{{block.settings.icon | img_url: '92x92', crop: 'center', scale: 2}}" height="92px" />
               </div>
             </div>
           {% endif %}

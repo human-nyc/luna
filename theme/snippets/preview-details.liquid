@@ -1,6 +1,6 @@
 <div class="preview-details">
   <div class="preview-details__main">
-    <img src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
+    <img loading="lazy" src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
     <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
     <p class="price">{{product.price | money }}</p>
   </div>

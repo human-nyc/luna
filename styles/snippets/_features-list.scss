@@ -5,20 +5,19 @@
 
 .features-list__inner {
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--page-width);
+  max-width: var(--page-width);
 }
 
 .features-list__header {
   margin: 0 auto;
-  max-width: 100%;
+  max-width: var(--page-width);
   padding: 0 var(--gutter);
   text-align: center;
-  width: 960px;
 
   h3 > p {
     font-family: var(--font-sans-serif);
     font-style: normal;
+    line-height: 1.78;
 
     > em {
       font-family: var(--font-serif);
@@ -53,12 +52,10 @@
 .features-list__item {
   box-sizing: border-box;
   padding: 0 var(--gutter);
-  width: 100%;
 
   @include tablet-portrait {
-    flex: 0 0 auto;
+    flex: 1 1 calc(100%/3);
     padding: 0 var(--gutter-half);
-    width: 33.33%;
   }
 
   @include tablet-landscape {

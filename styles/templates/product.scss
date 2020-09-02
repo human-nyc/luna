@@ -7,3 +7,95 @@
 @import '../snippets/checklist-section';
 @import '../snippets/options';
 @import '../snippets/product-steps';
+
+
+// Size page
+@import '../sections/sizing-chart';
+@import '../sections/weight-chart';
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  pointer-events: none;
+  z-index: 9999;
+
+  &.active {
+    pointer-events: auto;
+  }
+}
+
+.popup__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition-property: background-color, filter;
+  transition-duration: var(--slow);
+
+  .popup.active & {
+    background-color: rgba(24, 39, 85, 0.45);
+    transition-duration: var(--fast);
+  }
+}
+
+.popup__inner {
+  align-self: center;
+  background: #f8f7f5;
+  color: var(--deep-blue-color);
+  display: grid;
+  grid-template:
+    ". . close-button" var(--gutter)
+    ". description ." auto
+    / var(--gutter) auto var(--gutter);
+  margin: var(--padding-v) auto;
+  max-width: 768px;
+  opacity: 0;
+  padding: var(--gutter);
+  position: relative;
+  transform: translateY(1em);
+  transition-property: box-shadow, opacity, transform;
+  transition-duration: var(--slow);
+
+  .popup.active & {
+    opacity: 1;
+    transform: none;
+    transition-duration: var(--fast);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.31);
+  }
+}
+
+.popup .shopify-section {
+  grid-area: description;
+}
+
+.popup__close-button {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  grid-area: close-button;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    display: block;
+    margin: auto;
+  }
+}
+
+.popup .section-header {
+  text-align: center;
+}
+
+.popup  .section-subheader {
+  text-align: center;
+}

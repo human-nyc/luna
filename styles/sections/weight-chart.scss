@@ -1,0 +1,67 @@
+// Weight Chart
+
+.weight-chart {
+  margin-top: var(--padding-v-mobile);
+  width: 100%;
+
+  @include tablet-portrait {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--padding-v-desktop);
+  }
+}
+
+.weight-chart__type {
+  font-size: var(--font-size-p);
+  font-weight: 500;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+}
+
+.weight-chart__table {
+  padding: 0 var(--gutter);
+  text-align: center;
+
+  @include tablet-portrait {
+    flex: 0 0 auto;
+    padding: 0 30px;
+    width: 50%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border-bottom: 1px solid var(--primary-brand-color);
+    font-size: var(--font-size-p);
+    line-height: 1.5;
+    padding: 20px 12px;
+    width: 50%;
+
+    @include small-viewport {
+      font-size: 14px;
+    }
+  }
+
+  th {
+    font-size: 24px;
+    font-weight: bold;
+
+    @include small-viewport {
+      font-size: var(--font-size-p);
+    }
+  }
+
+  td:nth-child(2),
+  th:nth-child(2) {
+    background-color: var(--secondary-brand-color);
+  }
+
+  td:nth-child(2) {
+    font-size: var(--font-size-p-lg);
+    font-weight: 500;
+  }
+}

@@ -4,20 +4,23 @@
   </div>
   <div class="products-slider__main" id="productSlider">
     {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'featured_product_disabled' %}
+        {% assign product = all_products[block.settings.product_item] %}
+        {% render 'product-grid-item', product: product %}
+      {% endcase %}
+
       {% if block.type == 'featured_product' %}
         {% assign product = all_products[block.settings.product_item] %}
         <div class="products-slider__slide">
           <div class="products-slider__item product-item" data-product="{{block.settings.product_item}}">
             <div class="products-slider__item-image">
-              <div class="fill-image">
-                <img src="{{product.featured_image | img_url: '600x600', scale: 2 }}" v-bind:src="imageUrl">
-              </div>
-              <div class="add-to-cart-wrapper">
-                <product-overlay product="{{block.settings.product_item}}"></product-overlay>
-              </div>
+              <a href="{{product.url}}" class="fill-image">
+                <img loading="lazy" src="{{product.featured_image | img_url: '600x600', scale: 2 }}" v-bind:src="imageUrl">
+              </a>
             </div>
 
-            {% include 'preview-details' %}
+            {% render 'preview-details', product: product %}
 
           </div>
         </div>

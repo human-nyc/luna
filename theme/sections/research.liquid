@@ -9,13 +9,13 @@
         <div class="research-block__image">
           <div class="research-block__image-wrapper">
             <div class="fill-image">
-              <img src="{{block.settings.image | img_url: '450x360', crop: 'center', scale: 2}}" />
+              <img loading="lazy" src="{{block.settings.image | img_url: '450x360', crop: 'center', scale: 2}}" />
             </div>
           </div>
         </div>
         <div class="research-block__content">
           <div class="research-block__content-wrapper">
-            <img src="{{block.settings.icon | img_url: '64x100', crop: 'center', scale: 2}}" height="64px" />
+            <img loading="lazy" src="{{block.settings.icon | img_url: '64x100', crop: 'center', scale: 2}}" height="64px" />
             <h3>{{ block.settings.header }}</h3>
             {{ block.settings.body }}
           </div>

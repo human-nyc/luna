@@ -26,19 +26,20 @@
 .product-hero__inner {
   display: grid;
   grid-template:
-    "title" auto
-    "image" auto
-    "form" auto
-    "info" auto
-    "star-rating" auto
+    'title' auto
+    'image' auto
+    'form' auto
+    'info' auto
+    'star-rating' auto
     / auto;
   padding: 0 var(--gutter);
 
   @include tablet-portrait {
+    align-items: center;
     grid-template:
-      "title       image form" auto
-      "info        image form" auto
-      "star-rating image form" 1fr
+      'title       image form' auto
+      'info        image form' auto
+      'star-rating image form' auto
       / 1fr 1fr 1fr;
   }
 
@@ -50,7 +51,7 @@
 .product-hero__title {
   font-family: var(--font-serif);
   font-weight: normal;
-  font-size: 40px;
+  font-size: 42px;
   grid-area: title;
   margin: 0;
   text-align: center;
@@ -67,6 +68,20 @@
 
   @include tablet-portrait {
     margin-top: 0;
+    padding-bottom: 0.5em;
+    position: relative;
+
+    &::after {
+      background-color: #1f1f1f;
+      content: '';
+      display: block;
+      height: 1px;
+      opacity: 0.3;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
@@ -99,7 +114,6 @@
 
 // Product Tabs
 .product-tabs {
-
 }
 
 .product-tabs__header {
@@ -111,7 +125,7 @@
     content: '';
     display: block;
     height: 1px;
-    opacity: .3;
+    opacity: 0.3;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -123,10 +137,10 @@
     background: none;
     border: 0;
     cursor: pointer;
-    opacity: .3;
+    opacity: 0.3;
     outline: 0;
     margin-right: 30px;
-    padding: .75em 0;
+    padding: 0.75em 0;
     z-index: 1;
 
     &.selected {
@@ -150,11 +164,18 @@
 .quantity-and-price {
   align-items: center;
   display: flex;
+  display: grid;
+  grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr 1fr;
   justify-content: space-between;
+
+  .quantity-selector-outer {
+    grid-area: quantity-selector;
+  }
 
   .quantity-selector {
     border: 1px solid var(--primary-brand-color);
     border-radius: 30px;
+    display: inline-block;
     font-weight: 500;
     padding: 0 9px;
 
@@ -162,7 +183,7 @@
       appearance: none;
       background: none;
       border: 0;
-      font-size: 12px;
+      font-size: 14px;
       padding: 16px 0;
       text-align: center;
       width: 20px;
@@ -180,23 +201,29 @@
   }
 
   .price {
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 500;
+    grid-area: price;
+    text-align: center;
+  }
 
-    &_compare {
-      color: rgba(0,0,0,0.4);
-      text-decoration: line-through;
-    }
+  .compare-at-price {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 27px;
+    font-weight: 500;
+    grid-area: compare-at-price;
+    text-align: right;
+    text-decoration: line-through;
   }
 }
-#AddToCartForm {
 
+#AddToCartForm {
   .form-button {
     margin-top: 40px;
     width: 100%;
   }
   .form-message {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -207,7 +234,7 @@
     text-transform: uppercase;
 
     &.affirm-as-low-as {
-      margin: var(--gutter);
+      margin: var(--gutter) 0;
     }
   }
 }
@@ -215,17 +242,21 @@
 .yotpo.bottomLine {
   align-self: flex-start;
   grid-area: star-rating;
+  padding: var(--gutter) 0;
+
+  @media (min-width: 1024px) {
+    padding: var(--gutter) 0 165px;
+  }
 
   .yotpo-display-wrapper {
     font-size: 14px;
-    padding: calc(var(--gutter) * 2) 0 var(--gutter);
 
     .yotpo-stars {
-      margin-right: .5em;
+      margin-right: 0.5em;
 
       .yotpo-icon {
-        line-height: .85;
-        margin-right: .1em;
+        line-height: 0.85;
+        margin-right: 0.1em;
 
         &::before {
           font-size: 14px;
@@ -234,7 +265,29 @@
     }
     a {
       font-family: var(--font-serif);
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
+    }
+    .yotpo-regular-box,
+    .sentence-container {
+      padding: 0;
+      margin: 0;
+    }
+    .shoppers-say-title,
+    .review-stars,
+    .display-name,
+    .icon-holder {
+      display: none;
+    }
+    .single-sentence-text-content {
+      margin: 0;
+
+      .sentence {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        font-style: normal !important;
+        line-height: 1.63;
+        padding-right: 1em;
+      }
     }
   }
 }

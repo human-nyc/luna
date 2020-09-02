@@ -18,15 +18,13 @@
 .footer__logo {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 100%;
   padding: 0 var(--gutter) 50px;
-  width: var(--page-width);
+  max-width: var(--page-width);
 }
 
 .footer__inner {
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--page-width);
+  max-width: var(--page-width);
 
   @include tablet-landscape {
     display: flex;
@@ -72,6 +70,7 @@
     }
 
     .child-link  {
+      display: block;
       margin-bottom: 8px;
     }
   }

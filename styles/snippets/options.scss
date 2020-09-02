@@ -1,9 +1,13 @@
 .product__options {
   counter-reset: my-sec-counter;
-  font: 500 10px/1.6 var(--font-sans-serif);
+  font: 500 12px/1.6 var(--font-sans-serif);
   list-style-position: inside;
   list-style-type: decimal;
   margin-bottom: 40px;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .product__option {
@@ -38,7 +42,7 @@
   cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  font: 500 10px/1.6 var(--font-sans-serif);
+  font: 500 12px/1.6 var(--font-sans-serif);
   text-align: left;
   text-transform: uppercase;
 
@@ -78,39 +82,101 @@
 }
 
 .option--size {
+
   input[type='radio'] {
-    display: none;
+    appearance: none;
+    border: 1px solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    color:  #1f1f1f4d;
+    display: inline-block;
+    font-size: 12px;
+    grid-row: 1 / span 1;
+    height: 1em;
+    justify-self: center;
+    width: 1em;
+
+    &:checked {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='10' viewBox='0 0 10 10'%3E%3Cellipse cx='5' cy='5' rx='3' ry='3' fill='%23182755'/%3E%3C/svg%3E");
+      color: inherit;
+    }
+
+    &:focus {
+      outline-style: none;
+    }
+
+    & + label {
+    }
+    &:checked + label {
+      color: inherit;
+    }
+  }
+
+  .values {
+    display: grid;
+    grid-auto-flow: column;
   }
 
   .option-value {
-    border: 1px solid #d8d8d8;
-    border-radius: 10px;
-    color: #00000088;
+    color:  #1f1f1f4d;
     display: inline-block;
+    grid-row: 2 / span 1;
     margin: 0.25em;
     padding: 0.25em 1em;
+    text-align: center;
+
+    span::after {
+      display: block;
+      font: 8px/2 var(--font-sans-serif);
+    }
+
+    &.option--kid   span::after { content: "36 x 48" }
+    &.option--twin  span::after { content: "41 x 60" }
+    &.option--full  span::after { content: "48 x 72" }
+    &.option--queen span::after { content: "60 x 80" }
+    &.option--king  span::after { content: "80 x 87" }
+
+    &::after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: block;
+      height: 46px;
+      margin: 0.50em 0 0;
+      filter: grayscale(1) opacity(0.25);
+    }
   }
   input[type='radio']:checked + .option-value {
     border-color: currentColor;
     color: inherit;
+
+    &::after {
+      filter: none;
+    }
   }
 }
 
 .option--weight {
-  .option-values {
+  .option-values .values {
+    column-gap: 0.25em;
     display: grid;
     grid-template-columns: auto 1fr;
+    row-gap: 0.5em;
   }
 
   input[type='radio'] {
+    align-self: center;
     appearance: none;
-    display: inline-block;
     border: 1px solid;
     border-radius: 50%;
     box-sizing: border-box;
+    color:  #1f1f1f4d;
+    display: inline-block;
     font-size: 12px;
-    width: 1em;
     height: 1em;
+    margin: 0;
+    width: 1em;
 
     &:checked {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='10' viewBox='0 0 10 10'%3E%3Cellipse cx='5' cy='5' rx='3' ry='3' fill='%23182755'/%3E%3C/svg%3E");
@@ -128,6 +194,7 @@
     }
   }
   .option-value {
+    color: #1f1f1f4d;
     text-transform: uppercase;
 
     .quick-add & {
@@ -144,13 +211,13 @@
       content: '100 lbs body weight';
     }
     &[title='12 lbs']::after {
-      content: '120lbs body weight';
+      content: '120 lbs body weight';
     }
     &[title='15 lbs']::after {
-      content: '150lbs body weight';
+      content: '150 lbs body weight';
     }
     &[title='17 lbs']::after {
-      content: '170lbs body weight';
+      content: '170 lbs body weight';
     }
     &[title='20 lbs']::after {
       content: '200lbs body weight';
@@ -168,6 +235,7 @@
     &::after {
       font-size: 8px;
       margin-left: 1em;
+      text-transform: uppercase;
     }
   }
 }

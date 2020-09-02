@@ -1,0 +1,117 @@
+.size-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  pointer-events: none;
+  z-index: 9999;
+
+  &.active {
+    pointer-events: auto;
+  }
+}
+
+.size-popup__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color var(--slow);
+
+  .size-popup.active & {
+    background-color: rgba(24, 39, 85, 0.45);
+    transition-duration: var(--fast);
+  }
+}
+
+.size-popup__inner {
+  align-self: center;
+  background: #f8f7f5;
+  color: var(--deep-blue-color);
+  display: grid;
+  grid-template:
+    ". title close-button" auto
+    ". description close-button" auto
+    ". sizes close-button" auto
+    / var(--gutter) auto var(--gutter);
+  margin: 0 auto;
+  max-width: 768px;
+  opacity: 0;
+  padding: var(--gutter);
+  position: relative;
+  transform: translateY(1em);
+  transition-property: opacity, transform;
+  transition-duration: var(--slow);
+
+  .size-popup.active & {
+    opacity: 1;
+    transform: none;
+    transition-duration: var(--fast);
+  }
+}
+
+.size-popup__close-button {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  grid-area: close-button;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    display: block;
+    margin: auto;
+  }
+}
+
+.size-popup__title {
+  font: normal 40px/1.2 var(--font-serif);
+  grid-area: title;
+  margin: var(--gutter) 0 0;
+  text-align: center;
+}
+
+.size-popup__description {
+  font: normal 20px/1.6 var(--font-serif);
+  grid-area: description;
+  text-align: center;
+}
+
+.size-popup__sizes {
+  display: flex;
+  flex-direction: row;
+  grid-area: sizes;
+  justify-content: center;
+  margin-bottom: var(--gutter);
+}
+
+.size-popup-block {
+  flex-basis: 130px;
+  text-align: center;
+}
+
+.size-popup-block__title {
+  font: 500 16px/1.5 var(--font-sans-serif);
+  letter-spacing: 0.12em;
+  margin: 1em 0 0;
+  text-transform: uppercase;
+}
+
+.size-popup-block__subtitle {
+  font: normal 14px/1.71 var(--font-sans-serif);
+  margin: 0.5em 0 1em;
+}
+
+.size-popup-block__icon {
+  display: block;
+  height: 92px;
+  margin: auto;
+}

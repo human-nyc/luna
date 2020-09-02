@@ -13,15 +13,15 @@ export default {
     inputOptionAttributes() {
       return (product, option, value) => ({
         name: `option${option.position}`,
-        id: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
-        key: `"product${product.id}_option${option.name}_value${value.replace(' ', '-')}`
+        id: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`,
+        key: `"product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`
       })
     },
 
     labelOptionAttributes() {
       return (product, option, value) => ({
-        for: `product${product.id}_option${option.name}_value${value.replace(' ', '-')}`,
-        class: `option-value  option--${value.replace(' ', '-').toLowerCase()}`
+        for: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`,
+        class: `option-value  option--${value.replace(/ /g, '-').toLowerCase()}`
       })
     },
 
