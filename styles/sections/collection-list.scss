@@ -12,7 +12,8 @@
 
 .collection-list__inner {
   margin: 0 auto;
-  max-width: var(--page-width);
+  width: var(--page-width);
+  max-width: 100%;
 }
 
 .collection-list__header {

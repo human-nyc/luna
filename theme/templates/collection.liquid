@@ -2,14 +2,14 @@
 
 <div class="collection three-across" id="collection-page">
   <div class="collection__top">
-    <h1 class="collection__title">{{ collection.title }}</h1>
+    <h1 class="collection__title">Shop {{ collection.title }}</h1>
     <div class="collection__description">{{collection.description}}</div>
   </div>
 
   {% paginate collection.products by 9999 %}
     <div class="collection__product-grid" id="collection">
       {% for product in collection.products %}
-        {% render 'product-grid-item' product: product %}
+        {% render 'product-grid-item' product: product, collection: collection %}
       {% else %}
         <p>no matches</p>
       {% endfor %}

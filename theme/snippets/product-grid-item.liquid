@@ -1,5 +1,11 @@
 {% assign hover_images = product.images | where: "alt", "hover" %}
 
+{% if collection %}
+  {% assign product_url = product.url | within: collection %}
+{% else %}
+  {% assign product_url = product.url %}
+{% endif %}
+
 <product-grid-item
   inline-template
   class="product-grid-item"

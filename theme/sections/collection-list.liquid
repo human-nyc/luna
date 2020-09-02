@@ -1,6 +1,6 @@
 <div class="collection-list__inner">
   <div class="collection-list__header">
-    <h2 class="section-header">{{ section.settings.header }}</h2>
+    <h2 class="section-header">{{ section.settings.title }}</h2>
   </div>
   <div class="collection-list__items">
     {% for block in section.blocks %}
@@ -32,8 +32,9 @@
     "settings": [
       {
         "type": "text",
-        "id": "header",
-        "label": "Header"
+        "id": "title",
+        "label": "Header",
+        "default": "Shop the Luna Blankets"
       }
     ],
     "blocks": [
@@ -42,14 +43,14 @@
         "type": "collection_item",
         "settings": [
           {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"
-          },
-          {
             "type": "product",
             "id": "product",
             "label": "Product"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
           },
           {
             "type": "text",
