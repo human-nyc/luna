@@ -84,15 +84,19 @@
     <div class="product-hero__form">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         {% render 'product-options' %}
- 
+
         <div class="quantity-and-price">
-          <div class="quantity-selector">
-            <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
-            <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
-            <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
+          <div class="quantity-selector-outer">
+            <div class="quantity-selector">
+              <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
+              <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
+              <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
+            </div>
           </div>
+
           <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
-          <span v-cloak class="price price_compare" v-if="selectedVariant">${selectedVariant.compare_at_price | formatMoney}</span>
+
+          <span v-cloak class="compare-at-price" v-if="selectedVariant && selectedVariant.compare_at_price">${selectedVariant.compare_at_price | formatMoney}</span>
         </div>
 
         <template v-if="selectedVariant">
