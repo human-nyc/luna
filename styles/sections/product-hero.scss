@@ -164,11 +164,18 @@
 .quantity-and-price {
   align-items: center;
   display: flex;
+  display: grid;
+  grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr 1fr;
   justify-content: space-between;
+
+  .quantity-selector-outer {
+    grid-area: quantity-selector;
+  }
 
   .quantity-selector {
     border: 1px solid var(--primary-brand-color);
     border-radius: 30px;
+    display: inline-block;
     font-weight: 500;
     padding: 0 9px;
 
@@ -196,13 +203,20 @@
   .price {
     font-size: 27px;
     font-weight: 500;
+    grid-area: price;
+    text-align: center;
+  }
 
-    &_compare {
-      color: rgba(0, 0, 0, 0.4);
-      text-decoration: line-through;
-    }
+  .compare-at-price {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 27px;
+    font-weight: 500;
+    grid-area: compare-at-price;
+    text-align: right;
+    text-decoration: line-through;
   }
 }
+
 #AddToCartForm {
   .form-button {
     margin-top: 40px;
