@@ -87,8 +87,7 @@ const actions = {
     };
     const body = JSON.stringify(productData);
 
-    window
-      .fetch('/cart/change.js', { headers, credentials, method, body })
+    return fetch('/cart/change.js', { body, credentials, headers, method })
       .then(response => response.json())
       .then(cartData => commit('setCartData', cartData))
       .catch((error) => {
