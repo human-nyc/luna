@@ -5,8 +5,7 @@
 
 .features-list__inner {
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--page-width);
+  max-width: var(--page-width);
 }
 
 .features-list__header {
@@ -15,7 +14,7 @@
   padding: 0 var(--gutter);
   text-align: center;
   width: 960px;
- 
+
   h3 > p {
     font-family: var(--font-sans-serif);
     font-style: normal;
