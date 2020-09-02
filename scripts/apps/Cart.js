@@ -48,18 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         getLineLevelDiscountsLength() {
           return this.getLineLevelDiscounts.length;
         },
-
-        getVariantColor(options = []) {
-          const colorOption = [...options].find(option.name === "Color");
-
-          return colorOption ? colorOption.value : '';
-        },
-
-        getVariantSize(options = []) {
-          const sizeOption = [...options].find(option.name === "Size");
-
-          return sizeOption ? sizeOption.value : '';
-        },
       },
       methods: {
         ...mapActions('cart', [
@@ -73,16 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
           return getSizedImageUrl(url, size);
         },
 
-        getVariantColor(options = []) {
-          const colorOption = [...options].find(option => option.name === "Color");
+        getVariantOfType(type = '', options = []) {
+          const optionOfType = [...options].find(option => option.name === type);
 
-          return colorOption ? colorOption.value : '';
-        },
-
-        getVariantSize(options = []) {
-          const sizeOption = [...options].find(option => option.name === "Size");
-
-          return sizeOption ? sizeOption.value : '';
+          return optionOfType ? optionOfType.value : '';
         },
 
         async handleQtyClick(line, quantity) {
