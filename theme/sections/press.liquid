@@ -6,7 +6,7 @@
     {% for block in section.blocks %}
       {% if block.type == 'press_mention' %}
         <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
-          <img src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.name }}"/>
+          <img loading="lazy" src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.name }}"/>
         </div>
       {% endif %}
     {% endfor %}
@@ -15,7 +15,7 @@
     {% for block in section.blocks %}
       {% if block.type == 'press_mention' %}
         <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
-          <img src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.name }}"/>
+          <img loading="lazy" src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.name }}"/>
         </div>
       {% endif %}
     {% endfor %}

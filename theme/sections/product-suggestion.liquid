@@ -8,7 +8,7 @@
             <h2 class="section-header">{{block.settings.title}}</h2>
             <div class="header-underline"></div>
             <p class="section-header">{{block.settings.body}}</p>
-            <img class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
+            <img loading="lazy" class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
             <button type="button" class="product-suggestion__cta" v-on:click="submit">Add to cart</button>
             <div class="product-suggestions__details">
               {% include 'preview-details' %}
@@ -17,7 +17,7 @@
           <div class="product-suggestion__image">
             <div class="image-wrapper">
               <div class="fill-image">
-                <img src="{{block.settings.image | img_url: '1200x900', crop: 'center', scale: 2 }}" />
+                <img loading="lazy" src="{{block.settings.image | img_url: '1200x900', crop: 'center', scale: 2 }}" />
               </div>
             </div>
           </div>

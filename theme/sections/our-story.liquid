@@ -5,7 +5,7 @@
       <div class="our-story__person">
         <div class="our-story__person-image">
           <div class="fill-image">
-            <img src="{{ block.settings.image | img_url: '500x500' }}" alt="{{ block.settings.name }}" />
+            <img loading="lazy" src="{{ block.settings.image | img_url: '500x500' }}" alt="{{ block.settings.name }}" />
           </div>
         </div>
         <h3>{{ block.settings.name }}</h3>

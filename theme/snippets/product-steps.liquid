@@ -4,21 +4,21 @@
     <div class="product-steps__image">
       <div class="image-wrapper">
         <div class="fill-image" :class="{active: activeImage === 1}">
-          <img src="{{content.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+          <img loading="lazy" src="{{content.image | img_url: '720x810', crop: 'center', scale: 2}}" />
         </div>
         {% if content.image_2 != blank %}
           <div class="fill-image" :class="{active: activeImage === 2}">
-            <img src="{{content.image_2 | img_url: '720x810', crop: 'center', scale: 2}}" />
+            <img loading="lazy" src="{{content.image_2 | img_url: '720x810', crop: 'center', scale: 2}}" />
           </div>
         {% endif %}
         {% if content.image_3 != blank %}
           <div class="fill-image" :class="{active: activeImage === 3}">
-            <img src="{{content.image_3 | img_url: '720x810', crop: 'center', scale: 2}}" />
+            <img loading="lazy" src="{{content.image_3 | img_url: '720x810', crop: 'center', scale: 2}}" />
           </div>
         {% endif %}
       </div>
     </div>
-    {% endif %} 
+    {% endif %}
     <div class="product-steps__content">
       <div class="product-steps__content-inner">
         <h2 class="section-header">{{content.header}}</h2>
