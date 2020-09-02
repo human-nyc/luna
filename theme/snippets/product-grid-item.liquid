@@ -18,7 +18,7 @@
           srcset="{{ product.featured_image.src | img_url: '648x388', crop: 'center', scale: 2 }}"
           media="(min-width: 768px)"
         >
-        <img class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
+        <img loading="lazy" class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
       </picture>
 
       {% if hover_images.size > 0 %}
@@ -32,7 +32,7 @@
             media="(min-width: 768px)"
           >
 
-          <img class="product-grid-item__hover-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
+          <img loading="lazy" class="product-grid-item__hover-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
         </picture>
       {% endif %}
       <span class="cta-button cta-button_dark button--shop-now">
@@ -90,7 +90,7 @@
             :srcset="selectedVariant.featured_image.src | getSizedImageUrl('648x388_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
-          <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+          <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
         </picture>
         <picture v-else>
           <source
@@ -101,7 +101,7 @@
             :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
-          <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+          <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
         </picture>
       </div>
 

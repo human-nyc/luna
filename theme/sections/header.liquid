@@ -19,7 +19,7 @@
 
             <div class="dropdown-item" data-type="{{child_link.type}}">
               <a href="{{child_link.url}}" class="dropdown-image">
-                <img src="{{child_link_image | img_url: '80x80', crop: 'center', scale: 2 }}" alt="Collection 1" />
+                <img loading="lazy" src="{{child_link_image | img_url: '80x80', crop: 'center', scale: 2 }}" alt="Collection 1" />
               </a>
               <a href="{{child_link.url}}" class="dropdown-text">{{child_link.title}}</a>
 
@@ -63,8 +63,8 @@
       <div class="header__center">
         <div class="header__logo">
           <a href="/">
-            <img src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
-            <img class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            <img loading="lazy" src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            <img loading="lazy" class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
           </a>
         </div>
       </div>
