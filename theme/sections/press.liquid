@@ -14,7 +14,7 @@
   <div class="press__logos press__logos_mobile" id="pressSlider">
     {% for block in section.blocks %}
       {% if block.type == 'press_mention' %}
-        <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @mouseover="selectItem({{ forloop.index0 }})">
+        <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
           {{ block.settings.logo_html }}
         </div>
       {% endif %}
@@ -59,7 +59,7 @@
             "label": "Quote"
           },
           {
-            "type": "html",
+            "type": "textarea",
             "id": "logo_html",
             "label": "Logo SVG Code"
           }
