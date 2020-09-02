@@ -16,7 +16,7 @@
           <div class="products-slider__item product-item" data-product="{{block.settings.product_item}}">
             <div class="products-slider__item-image">
               <a href="{{product.url}}" class="fill-image">
-                <img src="{{product.featured_image | img_url: '600x600', scale: 2 }}" v-bind:src="imageUrl">
+                <img loading="lazy" src="{{product.featured_image | img_url: '600x600', scale: 2 }}" v-bind:src="imageUrl">
               </a>
             </div>
 

@@ -63,7 +63,7 @@
           media="(min-width: 768px)"
         >
 
-        <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
       </picture>
       <picture v-else>
         <source
@@ -76,7 +76,7 @@
           media="(min-width: 768px)"
         >
 
-        <img class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
       </picture>
 
     </div>
@@ -84,15 +84,19 @@
     <div class="product-hero__form">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         {% render 'product-options' %}
- 
+
         <div class="quantity-and-price">
-          <div class="quantity-selector">
-            <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
-            <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
-            <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
+          <div class="quantity-selector-outer">
+            <div class="quantity-selector">
+              <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
+              <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
+              <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
+            </div>
           </div>
+
           <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
-          <span v-cloak class="price price_compare" v-if="selectedVariant">${selectedVariant.compare_at_price | formatMoney}</span>
+
+          <span v-cloak class="compare-at-price" v-if="selectedVariant && selectedVariant.compare_at_price">${selectedVariant.compare_at_price | formatMoney}</span>
         </div>
 
         <template v-if="selectedVariant">
@@ -112,7 +116,7 @@
     {% render 'yotpo-star-rating' %}
   </div>
 
-  <div class="product-hero__corner"><img width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
+  <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
 </div>
 
 <style>

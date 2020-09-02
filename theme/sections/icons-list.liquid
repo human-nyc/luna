@@ -9,7 +9,7 @@
               {% when 'icon_text' %}
                 <div class="item-wrapper">
                   <div class="icons-block__item">
-                    <img src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
+                    <img loading="lazy" src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
                     <p>
                       {{ block.settings.text }}
                     </p>
