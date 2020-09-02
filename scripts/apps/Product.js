@@ -39,18 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
 
         if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
-        document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
-          this.toggleActiveSizePopup();
-        });
 
-        document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
-          this.toggleActiveSizePopup();
-        });
+        if (document.querySelector('#shopify-section-size-popup')) {
+          document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
+            this.toggleActiveSizePopup();
+          });
+
+          document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
+            this.toggleActiveSizePopup();
+          });
+        }
       },
       mixins: [productOptions],
       methods: {
         ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
-        ...mapActions('popups', ['openSizePopup','openWeightPopup']),
+        ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
 
         async submit(e) {
           e.preventDefault();
@@ -129,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(document.querySelector('#size-popup')) {
+  if (document.querySelector('#size-popup')) {
     new Vue({
       name: 'SizePopup',
       store,
@@ -143,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(document.querySelector('#weight-popup')) {
+  if (document.querySelector('#weight-popup')) {
     new Vue({
       name: 'WeightPopup',
       store,

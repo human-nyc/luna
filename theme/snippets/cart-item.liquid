@@ -18,8 +18,9 @@
     <h3 class="item-title"><a :href="item.url">${item.product_title}</a></h3>
     <span class="item-price">${item.line_price | formatMoney}</span>
     <p class="item-variants">
-      ${getVariantColor(item.options_with_values)}<br>
-      ${getVariantSize(item.options_with_values)}
+      ${getVariantOfType('Color', item.options_with_values)}<br v-if="getVariantOfType('Size', item.options_with_values) !== ''">
+      ${getVariantOfType('Size', item.options_with_values)}<br v-if="getVariantOfType('Weight', item.options_with_values) !== ''">
+      ${getVariantOfType('Weight', item.options_with_values)}
     </p>
 
     <div class="item-qty">
