@@ -9,8 +9,7 @@
 
 .product-suggestion__inner {
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--page-width);
+  max-width: var(--page-width);
 
   @include tablet-portrait {
     padding: 0 var(--gutter);
