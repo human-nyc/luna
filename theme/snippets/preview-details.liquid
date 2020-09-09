@@ -1,7 +1,24 @@
 <div class="preview-details">
   <div class="preview-details__main">
+
+
+
+    {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+      <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+      <span itemprop="itemReviewed">{{ product.title }}</span>
+      has a rating of <span itemprop="ratingValue">{{ product.metafields.yotpo.reviews_average }}</span> stars
+      based on <span itemprop="ratingCount">{{ product.metafields.yotpo.reviews_count }}</span> reviews.
+      </div>
+    {% endif %}
+
+
+
+
+
+
+
     <img loading="lazy" src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
-    <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
+    <h4 class="product-title"><a class="product-url" href="{{product.url}}">{{product.title}}</a></h4>
     <p class="price">{{product.price | money }}</p>
   </div>
   <color-options
