@@ -1,6 +1,18 @@
 @import '../responsive';
 
 .customers {
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    text-align: center;
+
+    @include tablet-portrait {
+      font-size: 52px;
+    }
+  }
+
   input:not([type='submit']) {
     appearance: none;
     background-color: transparent;
@@ -25,11 +37,7 @@
     }
   }
 
-  input[type='email'],
-  input[type='text'] {
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
+  button[type='submit'],
   input[type='submit'] {
     appearance: none;
     background-color: var(--primary-brand-color);

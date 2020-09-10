@@ -5,16 +5,8 @@
   max-width: 500px;
   padding: 0 var(--gutter);
 
-  h1 {
-    font-family: var(--font-serif);
-    font-size: 36px;
-    font-weight: normal;
-    letter-spacing: -1px;
-    text-align: center;
-
-    @include tablet-portrait {
-      font-size: 52px;
-    }
+  input[type='email'] {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -22,7 +14,6 @@
   display: none;
   grid-template-columns: 1fr;
   column-gap: var(--gutter);
-  row-gap: 1em;
 
   .login-page[data-mode='login'] & {
     display: grid;

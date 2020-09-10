@@ -1,23 +1,23 @@
-{% form 'create_customer', class: "create-customer form" %}
+{% form 'create_customer', class: "create-customer customers form" %}
+  <h1>Register</h1>
 
-{{ form.errors | default_errors }}
+  {{ form.errors | default_errors }}
 
-<label for="first_name">First Name</label>
-<input id="first_name" type="text" value="" name="customer[first_name]" />
+  <label for="first_name">First Name</label>
+  <input id="first_name" type="text" value="" name="customer[first_name]" placeholder="First Name" />
 
-<label for="last_name">Last Name</label>
-<input id="last_name" type="text" value="" name="customer[last_name]" />
+  <label for="last_name">Last Name</label>
+  <input id="last_name" type="text" value="" name="customer[last_name]" placeholder="Last Name" />
 
-<label for="email">Email Address</label>
-<input id="email" type="email" value="" name="customer[email]" />
+  <label for="email">Email Address</label>
+  <input id="email" type="email" value="" name="customer[email]" placeholder="Email" />
 
-<label for="password">Password</label>
-<input id="password" type="password" value="" name="customer[password]" />
+  <label for="password">Password</label>
+  <input id="password" type="password" value="" name="customer[password]" placeholder="Password" />
 
-<div class="bottom">
-  <button class="full button" type="submit" value="Create">Register</button>
-  <p>Already have an account? <a href="/account/login">Log in</a>.</p>
-</div>
-
+  <div class="bottom">
+    <button class="full button" type="submit" value="Create">Register</button>
+    <p>Already have an account? <a href="/account/login">Log in</a>.</p>
+  </div>
 
 {% endform %}
