@@ -9,5 +9,6 @@ import '../apps/Cart';
 import '../apps/Main';
 import '../apps/Header';
 import '../apps/Product';
+import '../apps/ShopMore';
 // import '../apps/MiniProduct';
 /* End Vue Imports */

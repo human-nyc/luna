@@ -148,7 +148,7 @@ label[for] {
   text-decoration: none;
   text-transform: uppercase;
   transition-duration: var(--slow);
-  transition-property: background, color;
+  transition-property: background, color, opacity;
   white-space: nowrap;
 
   &:hover {
@@ -165,6 +165,7 @@ label[for] {
 
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
+    border: 2px solid var(--primary-brand-color);
     color: var(--white-color);
 
     &:hover {

@@ -1,0 +1,15 @@
+.shop-more {
+  padding: var(--gutter);
+}
+
+.shop-more__title {
+  text-align: center;
+}
+
+.shop-more__grid {
+  display: flex;
+
+  .product-grid-item {
+    flex: 1 1 auto;
+  }
+}

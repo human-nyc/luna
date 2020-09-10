@@ -84,7 +84,6 @@
   left: 50%;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: opacity var(--slow);
 
   @media (hover: none) {
     display: none;
@@ -94,7 +93,6 @@
   .product-grid-item__featured-image:hover & {
     @media (hover: hover) {
       opacity: 1;
-      transition-duration: var(--fast);
     }
   }
 }
