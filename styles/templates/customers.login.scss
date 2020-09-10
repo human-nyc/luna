@@ -1,7 +1,21 @@
+@import './customers';
+
 .login-page {
-  margin: 6em auto;
+  margin: 2em auto 6em;
   max-width: 500px;
   padding: 0 var(--gutter);
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    text-align: center;
+
+    @include tablet-portrait {
+      font-size: 52px;
+    }
+  }
 }
 
 .customer-login.form {
@@ -10,8 +24,22 @@
   column-gap: var(--gutter);
   row-gap: 1em;
 
-  .login-page[data-mode="login"] & {
+  .login-page[data-mode='login'] & {
     display: grid;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    & + p {
+      margin: 0;
+
+      a {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -21,8 +49,7 @@
   column-gap: var(--gutter);
   row-gap: 1em;
 
-  .login-page[data-mode="recover"] & {
+  .login-page[data-mode='recover'] & {
     display: grid;
   }
-
 }

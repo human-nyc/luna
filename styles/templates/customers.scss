@@ -1,0 +1,60 @@
+@import '../responsive';
+
+.customers {
+  input:not([type='submit']) {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    display: block;
+    font-family: var(--font-sans-serif);
+    font-weight: 500;
+    font-size: var(--font-size-p-lg);
+    line-height: 1.6;
+    outline: 0;
+    padding: 0.75em 0;
+    width: 100%;
+
+    &:focus {
+      border-bottom-color: var(--primary-brand-color);
+    }
+
+    &::placeholder {
+      color: var(--primary-brand-color);
+    }
+  }
+
+  input[type='email'],
+  input[type='text'] {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  input[type='submit'] {
+    appearance: none;
+    background-color: var(--primary-brand-color);
+    border: 0;
+    border-radius: 30px;
+    color: var(--white-color);
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-family: var(--font-sans-serif);
+    line-height: 1;
+    margin: 20px 0;
+    padding: 1.5em 2.5em;
+    text-transform: uppercase;
+    width: 100%;
+
+    @include tablet-portrait {
+      font-size: 10px;
+      margin: 20px 0 0 auto;
+      padding: 1em 2.5em;
+      width: auto;
+    }
+  }
+
+  label {
+    display: none;
+  }
+}
