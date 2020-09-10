@@ -12,10 +12,11 @@
 }
 
 .shopify-section-product-steps {
-  margin: var(--padding-v-desktop) 0;
+  background: var(--light-blue-color);
+  padding: var(--padding-v-desktop) 0;
 
   @include tablet-portrait {
-    margin: var(--padding-v-desktop) 0;
+    padding: var(--padding-v-desktop) 0;
   }
 }
 
