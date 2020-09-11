@@ -1,40 +1,46 @@
-<div class="collection-list__inner">
-  <div class="collection-list__header">
-    <h2 class="section-header">{{ section.settings.title }}</h2>
-  </div>
-  <div class="collection-list__items">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'collection_item' %}
-          <div class="item-wrapper">
-            <a class="collection-list__item" href="{% if block.settings.product == blank %}/collections/{{ block.settings.collection }}{% else %}/products/{{ block.settings.product }}{% endif %}">
-              <div class="fill-image">
-                <img loading="lazy" src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
-              </div>
-              <div class="fill-image collection-list__hover-image">
-                <img loading="lazy"  src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
-              </div>
-              <button class="cta-button">
-                {{ block.settings.cta_text }}
-                {% render 'svg-right-arrow' %}
-              </button>
-            </a>
-          </div>
-      {% endcase %}
-    {% endfor %}
+<div class="collection-list {% if section.settings.blue_background %}blue-background{% endif %}">
+  <div class="collection-list__inner">
+    <div class="collection-list__header">
+      <h2 class="section-header">{{ section.settings.title }}</h2>
+    </div>
+    <div class="collection-list__items">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'collection_item' %}
+            <div class="item-wrapper">
+              <a class="collection-list__item" href="{% if block.settings.product == blank %}/collections/{{ block.settings.collection }}{% else %}/products/{{ block.settings.product }}{% endif %}">
+                <div class="fill-image">
+                  <img loading="lazy" src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
+                </div>
+                <div class="fill-image collection-list__hover-image">
+                  <img loading="lazy"  src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
+                </div>
+                <button class="cta-button">
+                  {{ block.settings.cta_text }}
+                  {% render 'svg-right-arrow' %}
+                </button>
+              </a>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
 {% schema %}
   {
     "name": "Collection List",
-    "class": "collection-list",
     "settings": [
       {
         "type": "text",
         "id": "title",
         "label": "Header",
         "default": "Shop the Luna Blankets"
+      },
+      {
+        "type": "checkbox",
+        "id": "blue_background",
+        "label": "Blue background"
       }
     ],
     "blocks": [

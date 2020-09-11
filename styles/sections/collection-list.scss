@@ -1,9 +1,16 @@
 @import '../responsive';
 
 .collection-list {
-  background-color: var(--offwhite-color);
   overflow: hidden;
   text-align: center;
+
+  &:not(.blue-background) {
+    background-color: var(--offwhite-color);
+  }
+
+  &.blue-background {
+    background: var(--secondary-brand-color);
+  }
 }
 
 .collection-list__inner {
