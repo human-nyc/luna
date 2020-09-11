@@ -1,0 +1,13 @@
+.yotpo-reviews {
+  background: pink;
+  padding: 0 calc(var(--gutter) * 2);
+
+  .section-header {
+    margin: 2em 0;
+    text-align: center;
+  }
+}
+
+:root .yotpo.yotpo-main-widget {
+  width: auto;
+}
