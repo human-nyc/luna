@@ -9,10 +9,9 @@
 
   .page-hero__form {
     margin: 0 auto;
-    max-width: 100%;
     padding: 0 var(--gutter);
     text-align: left;
-    width: 450px;
+    max-width: 450px;
 
     @include tablet-portrait {
       margin: 2em auto;

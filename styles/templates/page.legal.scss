@@ -5,9 +5,8 @@
 
   &__inner {
     margin: 0 auto;
-    max-width: 100%;
     padding: 100px var(--gutter);
-    width: calc(1042px + var(--gutter) * 2);
+    max-width: calc(1042px + var(--gutter) * 2);
 
     @include tablet-portrait {
       padding: 180px var(--gutter);

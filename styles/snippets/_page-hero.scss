@@ -12,27 +12,24 @@
 }
 
 .page-hero__content {
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 130px var(--gutter) var(--padding-v-desktop);
-  width: 680px;
+  margin: 130px auto var(--padding-v);
+  padding: 0 var(--gutter);
+  max-width: 680px;
 
   @include tablet-portrait {
-    padding: 180px var(--gutter) var(--padding-v-desktop);
+    margin-top: 180px;
   }
 
   .page-hero__title {
     font-family: var(--font-serif);
     font-size: 36px;
+    font-size: 32px;
     font-weight: normal;
-    margin: 0 auto 1em;
-    max-width: 100%;
-    line-height: 1.08;
-    width: 500px;
+    margin: 0 0 1em;
+    line-height: 1;
 
     @include tablet-portrait {
       font-size: var(--font-size-h0);
-      margin: 0 auto .8em;
     }
   }
 
