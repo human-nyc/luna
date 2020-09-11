@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         this.isScrolled = window.scrollY > 50;
         this.activeChildLinksIndex = -1;
       },
+      activateChildLinks({ activeChildLinksIndex }) {
+        this.activeChildLinksIndex = activeChildLinksIndex
+      },
       toggleActiveChildLinks({ activeChildLinksIndex }) {
         if(this.activeChildLinksIndex == activeChildLinksIndex) {
           this.activeChildLinksIndex = -1
