@@ -1,18 +1,18 @@
 @import '../responsive';
 
 .collection-list {
-  background-color: var(--secondary-brand-color);
-  padding: var(--padding-v-mobile) 0;
+  background-color: var(--offwhite-color);
+  overflow: hidden;
   text-align: center;
-
-  @include tablet-portrait {
-    padding: var(--padding-v-desktop) 0;
-  }
 }
 
 .collection-list__inner {
-  margin: 0 auto;
+  margin: var(--padding-v-mobile) auto;
   max-width: var(--page-width);
+
+  @include tablet-portrait {
+    margin: var(--padding-v-desktop) auto;
+  }
 }
 
 .collection-list__header {
