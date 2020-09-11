@@ -1,26 +1,11 @@
 @import '../responsive';
 
-@keyframes stepFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .shopify-section-product-steps {
-  margin: var(--padding-v-desktop) 0;
-
-  @include tablet-portrait {
-    margin: var(--padding-v-desktop) 0;
-  }
+  overflow: hidden;
 }
 
 .product-steps {
-
+  margin: var(--padding-v) 0;
 }
 
 .product-steps__inner {
@@ -113,11 +98,30 @@
   }
 }
 
+.product-steps__items {
+  display: grid;
+  grid-template: item-1 item-2 item-3 auto / 1fr 1fr 1fr;
+}
+
 .product-steps__item {
-  animation: stepFadeIn var(--slow);
-  display: none;
+  opacity: 0;
+  transform: translateY(20px);
 
   &.active {
-    display: block;
+    opacity: 1;
+    transform: none;
+    transition-property: opacity, transform;
+    transition-duration: var(--slow);
   }
+
+  &.item_1 {
+    grid-area: item-1;
+  }
+  &.item_2 {
+    grid-area: item-2;
+  }
+  &.item_3 {
+    grid-area: item-3;
+  }
+
 }
