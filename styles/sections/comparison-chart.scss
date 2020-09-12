@@ -13,15 +13,27 @@
 
 .comparison-chart {
 
+  &.comparison-chart-background--blue {
+    background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
+  }
+
+
   .cta-button_comparison {
     transition: background-color var(--slow);
     outline: 0;
 
-    &:hover {
-      background-color: var(--primary-brand-color);
-      color: var(--white-color);
-      transition-duration: var(--fast);
-    }
+  }
+
+  .comparison-chart.comparison-chart_open .cta-button_comparison,
+  .cta-button_comparison:hover {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+    transition-duration: var(--fast);
   }
 
   .cta-button_icon {
@@ -63,7 +75,6 @@
 
 .comparison-chart__top {
   background-color: var(--secondary-brand-color);
-  padding-top: 24px;
   border-bottom: 1px solid var(--primary-brand-color);
   position: relative;
   text-align: center;

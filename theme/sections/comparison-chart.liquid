@@ -1,4 +1,4 @@
-<div class="comparison-chart" :class="{ 'comparison-chart_open': isOpen }" id="comparisonChart">
+<div class="comparison-chart comparison-chart-background--{{section.settings.background_color}}" :class="{ 'comparison-chart_open': isOpen }" id="comparisonChart">
   <div class="comparison-chart__top">
     <button class="cta-button cta-button_comparison" @click="toggleOpen()">
       {{ section.settings.button_text }}
@@ -23,6 +23,21 @@
         "type": "checkbox",
         "id": "blue_background",
         "label": "Blue background"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ]
       }
     ],
     "blocks": [],
