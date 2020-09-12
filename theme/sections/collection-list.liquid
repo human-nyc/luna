@@ -1,4 +1,4 @@
-<div class="collection-list {% if section.settings.blue_background %}blue-background{% endif %}">
+<div class="collection-list {% if section.settings.blue_background %}blue-background{% endif %} collection-list-background--{{section.settings.background_color}}">
   <div class="collection-list__inner">
     <div class="collection-list__header">
       <h2 class="section-header">{{ section.settings.title }}</h2>
@@ -41,6 +41,21 @@
         "type": "checkbox",
         "id": "blue_background",
         "label": "Blue background"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ]
       }
     ],
     "blocks": [

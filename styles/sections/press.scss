@@ -20,6 +20,15 @@
     background-color: var(--primary-brand-color);
     color: var(--white-color);
   }
+
+  &.press-background--blue {
+    background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
+  }
 }
 
 .press__header {

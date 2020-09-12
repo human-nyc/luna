@@ -1,4 +1,4 @@
-<div class="press" id="press" data-count="{{ section.blocks.size }}">
+<div class="press press-background--{{section.settings.background_color}}" id="press" data-count="{{ section.blocks.size }}">
   <div class="press__header">
     <h2>{{ section.settings.header }}</h2>
   </div>
@@ -41,6 +41,22 @@
         "type": "text",
         "id": "header",
         "label": "Header"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ],
+        "default":   "gray"
       }
     ],
     "blocks": [

@@ -4,12 +4,13 @@
   overflow: hidden;
   text-align: center;
 
-  &:not(.blue-background) {
-    background-color: var(--offwhite-color);
-  }
-
-  &.blue-background {
+  &.collection-list-background--blue {
     background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
   }
 }
 
