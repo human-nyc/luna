@@ -1,4 +1,4 @@
-<div class="collection-list {% if section.settings.blue_background %}blue-background{% endif %} collection-list-background--{{section.settings.background_color}}">
+<div class="collection-list collection-list-background--{{section.settings.background_color}}">
   <div class="collection-list__inner">
     <div class="collection-list__header">
       <h2 class="section-header">{{ section.settings.title }}</h2>
@@ -36,11 +36,6 @@
         "id": "title",
         "label": "Header",
         "default": "Shop the Luna Blankets"
-      },
-      {
-        "type": "checkbox",
-        "id": "blue_background",
-        "label": "Blue background"
       },
       {
         "type": "select",
