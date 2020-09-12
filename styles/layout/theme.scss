@@ -274,35 +274,40 @@ label[for] {
   width: 85px;
 }
 
+/*! Flickity v2.2.1
+overrides
+---------------------------------------------- */
+
 .flickity-prev-next-button {
-  appearance: none;
-  background-color: transparent;
-  background-size: 12px 20px;
-  border: 0;
-  cursor: pointer;
-  height: 20px;
-  width: 20px;
-  padding: 0;
-  position: absolute;
   bottom: 0;
   top: auto;
-
-  svg {
-    height: 20px;
-  }
+  width: 33.344px;
+  height: 33.344px;
 
   &.previous {
-    left: 50%;
-    transform: translateX(-200%);
+    left: auto;
+    right: 50%;
   }
 
   &.next {
-    right: 50%;
-    transform: translateX(200%);
+    right: auto;
+    left: 50%;
+  }
+}
+
+.flickity-button {
+  background: transparent;
+  color: inherit;
+  opacity: 0.4;
+
+  &:hover {
+    background: transparent;
+    opacity: 1;
   }
 
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.40;
+    pointer-events: none;
   }
 }
 

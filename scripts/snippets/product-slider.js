@@ -10,7 +10,7 @@ document.querySelectorAll('.products-slider__main').forEach(el => {
     autoPlay: 5000,
     initialIndex: 1,
     pauseAutoPlayOnHover: true,
-    wrapAround: true,
+    wrapAround: false,
     on: {
       ready: () => {
 

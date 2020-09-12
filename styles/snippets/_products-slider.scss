@@ -17,6 +17,16 @@
   @include tablet-portrait {
     padding: var(--padding-v-desktop) 0;
   }
+
+
+  &.products-slider-background--blue {
+    background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
+  }
 }
 
 .products-slider__header {
