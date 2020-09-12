@@ -7,8 +7,14 @@
     padding: var(--padding-v-desktop) 0;
   }
 
+  &.split-block-background--blue,
   &.split-block_background_blue {
     background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      color: var(--offwhite-color);
+      background-color: var(--primary-brand-color);
+    }
 
     .html-page_why_luna & {
       background: none;

@@ -1,4 +1,4 @@
-<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} {% if section.settings.blue_background == true %}split-block_background_blue{% endif %}">
+<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} split-block-background--{{section.settings.background_color}}">
   <div class="split-block__inner">
     <div class="split-block__image">
       <div class="image-wrapper">
@@ -16,10 +16,13 @@
               {% when 'icon_text' %}
                 <div class="item-wrapper">
                   <div class="icons-block__item">
-                    <img loading="lazy" src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
-                    <p>
-                      {{ block.settings.text }}
-                    </p>
+                    {% if block.settings.icon %}
+                      <img loading="lazy" src="{{block.settings.icon | img_url: '40x40', crop: 'center', scale: 2}}" />
+                    {% endif %}
+
+                    {{block.settings.logo_svg}}
+
+                    <p>{{ block.settings.text }}</p>
                   </div>
                 </div>
             {% endcase %}
@@ -52,10 +55,20 @@
         "default": false
       },
       {
-        "type": "checkbox",
-        "id": "blue_background",
-        "label": "Blue background",
-        "default": true
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ],
+        "default":   "gray"
       }
     ],
     "blocks": [
@@ -72,6 +85,11 @@
             "type": "image_picker",
             "id": "icon",
             "label": "Icon"
+          },
+          {
+            "type": "html",
+            "id": "logo_svg",
+            "label": "Icon SVG markup"
           }
         ]
       }
