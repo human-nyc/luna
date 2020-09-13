@@ -116,6 +116,16 @@
 
   .cta-button {
 
+    :root.color-scheme--dark .split-block-background--blue & {
+      background: var(--offwhite-color);
+      border-color: var(--offwhite-color);
+      color: var(--primary-brand-color);
+
+      &:hover {
+        background: var(--primary-brand-color);
+        color: var(--offwhite-color);
+      }
+    }
   }
 
   .icons-block & {

@@ -1,4 +1,4 @@
-<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} {% if section.settings.blue_background == true %}split-block_background_blue{% endif %}">
+<div class="split-block {% if section.settings.image_on_left == true %}split-block_image_left{% endif %} {% if section.settings.blue_background == true %}split-block_background_blue{% endif %} split-block-background--{{section.settings.background_color}}">
   <div class="split-block__inner">
     <div class="split-block__image">
       <div class="image-wrapper">
@@ -9,7 +9,7 @@
     </div>
     <div class="split-block__content">
       <div class="split-block__content-inner">
-        <h2 class="section-header">{{ section.settings.header }}</h2>
+        <h2 class="section-header">{{ section.settings.title }}</h2>
         <h3 class="section-subheader">{{ section.settings.subheader }}</h3>
         <p>
           {{ section.settings.body }}
@@ -28,6 +28,11 @@
     "name": "Details Block",
     "class": "details-block",
     "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Header"
+      },
       {
         "type": "text",
         "id": "header",
@@ -64,6 +69,22 @@
         "type": "checkbox",
         "id": "blue_background",
         "label": "Blue background"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ],
+        "default":   "gray"
       }
     ],
     "presets": [
