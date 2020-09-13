@@ -1,5 +1,14 @@
 .testimonials {
-  padding: 80px 0;
+  padding: var(--padding-v) 0;
+
+  &.testimonials-background--blue {
+    background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      color: var(--offwhite-color);
+      background-color: var(--primary-brand-color);
+    }
+  }
 }
 
 .testimonials__header {
@@ -41,16 +50,16 @@
   background-color: var(--secondary-brand-color);
   border-radius: 90px;
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 36px 45px;
+  margin: 0 auto 15px;
+  padding: 27px 45px 36px;
   position: relative;
   max-width: 424px;
 
   .quote-tail {
     position: absolute;
-    right: 60px;
+    right: 54px;
     width: 19px;
-    bottom: -15px;
+    top: calc(100% - 4px);
   }
 
   h4 {

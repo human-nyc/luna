@@ -1,31 +1,32 @@
-<div class="testimonials__header">
-  <h2 class="section-header">{{ section.settings.header }}</h2>
-</div>
-<div class="testimonials__slider" id="testimonials">
-  {% for block in section.blocks %}
-    {% if block.type == 'testimonial' %}
-      <div class="testimonials__slide">
-        <div class="testimonials__slide-inner">
-          <img loading="lazy" src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
-          <h4>{{block.settings.name}}</h4>
-          <p>{{block.settings.body}}</p>
-          <img loading="lazy" class="quote-tail" src="{{ 'quote-tail@2x.png' | asset_url | image_tag }}" alt="" />
+<div class="testimonials testimonials-background--{{section.settings.background_color}}">
+  <div class="testimonials__header">
+    <h2 class="section-header">{{ section.settings.header }}</h2>
+  </div>
+  <div class="testimonials__slider" id="testimonials">
+    {% for block in section.blocks %}
+      {% if block.type == 'testimonial' %}
+        <div class="testimonials__slide">
+          <div class="testimonials__slide-inner">
+            <img loading="lazy" src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
+            <h4>{{block.settings.name}}</h4>
+            <p>{{block.settings.body}}</p>
+            <img loading="lazy" class="quote-tail" src="{{ 'quote-tail@2x.png' | asset_url | image_tag }}" alt="" />
+          </div>
         </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-<div class="testimonials__cta">
-  <a href="{{ section.settings.cta_link }}" class="cta-button cta-button_dark">
-    {{ section.settings.cta_text }}
-    {% render 'svg-right-arrow' %}
-  </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="testimonials__cta">
+    <a href="{{ section.settings.cta_link }}" class="cta-button cta-button_dark">
+      {{ section.settings.cta_text }}
+      {% render 'svg-right-arrow' %}
+    </a>
+  </div>
 </div>
 
 {% schema %}
   {
     "name": "Testimonials",
-    "class": "testimonials",
     "settings": [
       {
         "type": "text",
@@ -43,6 +44,22 @@
         "type": "url",
         "id": "cta_link",
         "label": "CTA Link"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ],
+        "default":   "gray"
       }
     ],
     "blocks": [
