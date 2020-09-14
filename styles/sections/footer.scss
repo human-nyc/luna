@@ -3,9 +3,14 @@
 @import '../snippets/email-form';
 
 .footer {
-  background-color: var(--primary-brand-color);
-  color: var(--white-color);
+  background-color: var(--secondary-brand-color);
+  color: var(--primary-brand-color);
   padding: 66px 0 48px;
+
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
 
   a {
     color: inherit;
@@ -16,11 +21,35 @@
 
 
 .footer__logo {
+  display: flex;
   box-sizing: border-box;
+  justify-content: space-between;
   margin: 0 auto;
   padding: 0 var(--gutter) 50px;
   max-width: var(--page-width);
 }
+
+
+.footer__light-switch-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    display: block;
+
+    :root.color-scheme--dark & {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
 
 .footer__inner {
   margin: 0 auto;

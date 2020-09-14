@@ -10,5 +10,6 @@ import '../apps/Main';
 import '../apps/Header';
 import '../apps/Product';
 import '../apps/ShopMore';
+import '../sections/footer';
 // import '../apps/MiniProduct';
 /* End Vue Imports */

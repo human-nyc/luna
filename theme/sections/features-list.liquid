@@ -1,9 +1,14 @@
-{% include 'features-list', section: section %}
+{% render 'features-list', section: section %}
 
 {% schema %}
   {
     "name": "Features List",
     "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Header"
+      },
       {
         "type": "text",
         "id": "header",

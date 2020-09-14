@@ -1,10 +1,15 @@
-{% include 'features-list' %}
+{% render 'features-list', section: section %}
 
 {% schema %}
   {
     "name": "Philanthropy List",
     "class": "philanthropy-list",
     "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Header"
+      },
       {
         "type": "text",
         "id": "header",
