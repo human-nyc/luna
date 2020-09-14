@@ -1,6 +1,14 @@
 .features-list {
-  background-color: var(--offwhite-color);
   padding: 80px 0;
+
+  &.features-list-background--blue {
+    background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
+  }
 }
 
 .features-list__inner {
