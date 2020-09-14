@@ -61,11 +61,12 @@
   }
 
   .testimonials-background--blue & {
-
+    background-color: var(--offwhite-color);
   }
 
   :root.color-scheme--dark .testimonials-background--blue & {
-
+    background-color: var(--offwhite-color);
+    color: var(--primary-brand-color);
   }
 
   &::before {
@@ -114,10 +115,11 @@
   }
 
   .testimonials-background--blue & {
-
+    color: var(--offwhite-color);
   }
 
   :root.color-scheme--dark .testimonials-background--blue & {
+    color: var(--offwhite-color);
 
   }
 }
@@ -126,4 +128,21 @@
 .testimonials__cta {
   margin-top: 80px;
   text-align: center;
+
+  .cta-button {
+    background: var(--primary-brand-color);
+    color: var(--offwhite-color);
+
+    :root.color-scheme--dark & {
+      background: transparent;
+      border: 2px solid;
+      color: var(--primary-brand-color);
+    }
+
+    :root.color-scheme--dark .testimonials-background--blue & {
+      background: transparent;
+      border: 2px solid;
+      color: var(--offwhite-color);
+    }
+  }
 }
