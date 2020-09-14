@@ -6,12 +6,11 @@
     {% for block in section.blocks %}
       {% if block.type == 'testimonial' %}
         <div class="testimonials__slide">
-          <div class="testimonials__slide-inner">
-            <img loading="lazy" src="{{ 'five-stars@2x.png' | asset_url | image_tag }}" width="45px" alt="Five stars" />
+          <div class="testimonials__slide-inner" data-star-rating={{block.settings.star_rating}}>
             <h4>{{block.settings.name}}</h4>
             <p>{{block.settings.body}}</p>
-            <img loading="lazy" class="quote-tail" src="{{ 'quote-tail@2x.png' | asset_url | image_tag }}" alt="" />
           </div>
+          {% render 'svg-quote-tail' %}
         </div>
       {% endif %}
     {% endfor %}
@@ -67,6 +66,21 @@
         "name": "Testimonial",
         "type": "testimonial",
         "settings": [
+          {
+            "type":   "range",
+            "id":     "star_rating",
+            "min":       0,
+            "max":       5,
+            "step":      0.5,
+            "unit":      "★",
+            "label":     "Star rating",
+            "default":   5
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name"
+          },
           {
             "type": "text",
             "id": "name",
