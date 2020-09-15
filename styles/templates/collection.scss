@@ -1,6 +1,7 @@
 @import '../sections/collection-menu';
 @import '../snippets/pagination';
 @import '../snippets/product-grid-item';
+@import '../snippets/options';
 
 body {
   background: var(--light-blue-color);
@@ -108,5 +109,103 @@ body {
     // }
 
     &:nth-child(3n + 3) {}
+  }
+
+  .product__options {
+    font-size: 10px;
+  }
+
+  .option-values {
+    text-align: left;
+  }
+
+  .option-values {
+    display: block;
+  }
+
+
+
+  .option--color .option-value {
+    margin: 1px 1em 1px 0;
+  }
+
+  .info-copy {
+    display: none;
+  }
+
+  .option--size input[type=radio],
+  .option--weight input[type=radio] {
+      display: none;
+  }
+
+  .option--size input[type=radio]:checked .option-value,
+  .option--weight input[type=radio]:checked .option-value {
+    background: red;
+  }
+
+  .option-name .svg-down-arrow {
+    display: none;
+  }
+
+  // Size and Weight options
+  .option--size,
+  .option--weight {
+    font-size: 10px;
+
+    input[type='radio'] {
+      display: none;
+    }
+    .option-value {
+      box-shadow: 0 0 0 1.4px currentColor;
+      color: #d8d8d8;
+      border-radius: 10px;
+      display: inline-block;
+      line-height: 1;
+      margin: 0 1.6em 1.6em 0;
+      padding: 0.5em 0.8em;
+      text-transform: uppercase;
+    }
+
+    input[type=radio]:checked + .option-value {
+      color: #182755;
+    }
+  }
+
+  .option--weight {
+    .option-value {
+      &[title='5 lbs']::after {
+        content: ' - 50 lbs';
+      }
+      &[title='7 lbs']::after {
+        content: ' - 70 lbs';
+      }
+      &[title='10 lbs']::after {
+        content: ' - 100 lbs';
+      }
+      &[title='12 lbs']::after {
+        content: ' - 120 lbs';
+      }
+      &[title='15 lbs']::after {
+        content: ' - 150 lbs';
+      }
+      &[title='17 lbs']::after {
+        content: ' - 170 lbs';
+      }
+      &[title='20 lbs']::after {
+        content: ' - 200lbs';
+      }
+      &[title='22 lbs']::after {
+        content: ' - 220lbs';
+      }
+      &[title='25 lbs']::after {
+        content: ' - 250 lbs';
+      }
+      &[title='30 lbs']::after {
+        content: ' - 300 lbs';
+      }
+
+      &::after {
+      }
+    }
   }
 }
