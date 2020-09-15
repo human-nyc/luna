@@ -8,6 +8,7 @@
   text-align: center;
 
   @include tablet-portrait {
+    overflow: hidden;
     position: relative;
   }
 
@@ -138,14 +139,15 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  filter: blur(1em);
+  // filter: blur(1em);
   left: 0;
-  opacity: 0;
+  // opacity: 0;
   padding: 0 var(--gutter);
   pointer-events: none;
   position: fixed;
   right: 0;
   top: calc(var(--header-height) + 1em);
+  transform: translateY(100%);
 
   transition: filter var(--slow), transform var(--slow), opacity var(--slow);
   z-index: 2;
@@ -181,6 +183,10 @@
     font: inherit;
     margin: var(--gutter) 0 0;
     padding: 0;
+
+    &:focus {
+      outline: none;
+    }
 
     svg {
       display: block;
