@@ -39,6 +39,7 @@
   .header__dropdown.active ~ &,
   .header_scrolled & {
     background-color: var(--offwhite-color);
+    color: var(--primary-brand-color);
     transition: background-color var(--fast);
   }
 }
@@ -128,12 +129,18 @@
 }
 
 .header {
+  // color: red;
+  // color: var(--font-color);
+  :root.color-scheme--dark & {
+    color: var(--offwhite-color);
+  }
+
   a.header-link,
   button.header-link {
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
     border: 0;
-    color: var(--font-color);
+    color: inherit;
     cursor: pointer;
     display: block;
     font-size: 14px;
