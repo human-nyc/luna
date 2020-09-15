@@ -151,8 +151,10 @@
   z-index: 2;
 
   @include tablet-portrait {
-    top: 0;
+    bottom: auto;
+    min-height: 100%;
     position: absolute;
+    top: 0;
   }
 
   &.active {
@@ -179,6 +181,12 @@
     font: inherit;
     margin: var(--gutter) 0 0;
     padding: 0;
+
+    svg {
+      display: block;
+      width: 12px;
+      height: 12px;
+    }
   }
 }
 
