@@ -21,6 +21,12 @@
   background-color: var(--secondary-brand-color);
   display: flex;
 
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
+
+
   @include tablet-portrait {
     flex: 0 0 auto;
     justify-content: center;
@@ -68,5 +74,16 @@
     height: auto;
     order: 2;
     width: 50%;
+  }
+
+  :root.color-scheme--dark & .fill-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(24,39,85,0.25);
   }
 }
