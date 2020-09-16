@@ -1,7 +1,6 @@
 .yotpo-reviews {
   background: var(--light-blue-color);
   overflow: hidden;
-  padding: 0 calc(var(--gutter) * 2);
 
   .section-header {
     margin: 2em 0;
@@ -10,6 +9,8 @@
 }
 
 :root .yotpo.yotpo-main-widget {
+  box-sizing: border-box;
   margin-bottom: var(--padding-v);
-  width: auto;
+  width: 90vw;
+  padding: 0 calc(var(--gutter) * 2);
 }

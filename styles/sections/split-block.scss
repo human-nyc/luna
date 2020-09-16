@@ -95,11 +95,7 @@
 }
 
 .split-block__content-inner {
-  max-width: 100%;
-
-  @include tablet-portrait {
-    max-width: 610px;
-  }
+  max-width: 610px;
 
   .split-block_no_image & {
     @include tablet-portrait {

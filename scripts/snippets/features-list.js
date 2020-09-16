@@ -7,6 +7,7 @@ const options = {
   fade: true,
   autoPlay: 5000,
   initialIndex: 0,
+  loop: true,
   pauseAutoPlayOnHover: true,
   watchCSS: true,
   on: {
