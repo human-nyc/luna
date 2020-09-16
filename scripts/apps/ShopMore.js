@@ -2,15 +2,12 @@ import Vue from 'vue';
 import store from '../store';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Collection Page
-  if (document.querySelector('#shop-more')) {
-    const { id } = document.querySelector('#shop-more');
-
+  document.querySelectorAll('.shop-more').forEach(el => {
     new Vue({
       store,
-      el: '#shop-more',
+      el,
       delimiters: ['${', '}'],
       name: 'Shop More',
     });
-  }
+  });
 });

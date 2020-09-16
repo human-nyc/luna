@@ -4,6 +4,7 @@
 
   .section-header {
     margin: 2em 0;
+    padding: 0 var(--gutter);
     text-align: center;
   }
 }
@@ -12,5 +13,5 @@
   box-sizing: border-box;
   margin-bottom: var(--padding-v);
   width: 90vw;
-  padding: 0 calc(var(--gutter) * 2);
+  padding: 0 var(--gutter);
 }
