@@ -36,7 +36,7 @@
 .collection-list__items {
   box-sizing: border-box;
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
   padding: 0 var(--gutter);
   white-space: nowrap;
   width: 100%;
