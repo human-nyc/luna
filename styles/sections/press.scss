@@ -98,6 +98,10 @@
     // right: 0;
     // top: 0;
 
+    @include tablet-portrait {
+     width: 768px;
+    }
+
     &::before {
       content: open-quote;
     }
