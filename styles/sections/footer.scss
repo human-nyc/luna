@@ -27,6 +27,15 @@
   margin: 0 auto;
   padding: 0 var(--gutter) 50px;
   max-width: var(--page-width);
+
+  a {
+    display: inline-block;
+  }
+
+  svg {
+    display: block;
+    height: 28px;
+  }
 }
 
 

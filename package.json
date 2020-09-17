@@ -17,11 +17,15 @@
     "@shopify/theme-addresses": "^3.0.3",
     "@shopify/theme-currency": "^4.0.0",
     "@shopify/theme-images": "^4.0.0",
+    "add": "^2.0.6",
     "autoprefixer": "^9.7.6",
     "babel-core": "6.26.3",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.1.0",
     "cssnano": "^4.1.10",
+    "flickity": "^2.2.1",
+    "flickity-as-nav-for": "^2.0.1",
+    "flickity-fade": "^1.0.0",
     "npm-watch": "^0.6.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^3.0.0",
@@ -33,7 +37,8 @@
     "vue-loader": "^15.9.0",
     "vuex": "^3.1.3",
     "webpack": "^5.0.0-beta.12",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "yarn": "^1.22.5"
   },
   "watch": {
     "styles": {
@@ -43,8 +48,5 @@
       "extensions": "scss",
       "quiet": false
     }
-  },
-  "dependencies": {
-    "flickity": "^2.2.1"
   }
 }
