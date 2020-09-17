@@ -34,6 +34,9 @@
 
   svg {
     display: block;
+  }
+
+  .svg-logo {
     height: 28px;
   }
 }
@@ -44,7 +47,6 @@
   border: none;
   color: inherit;
   cursor: pointer;
-  display: none;
   padding: 0;
 
   &:focus {
