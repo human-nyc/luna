@@ -15,6 +15,7 @@
 }
 
 #shopify-section-header {
+  height: var(--header-height);
   position: sticky;
   z-index: var(--z-navigation);
   top: 0;

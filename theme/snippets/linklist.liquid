@@ -1,4 +1,4 @@
-<nav class="{{class}} linklist">
+<nav class="{{class}} linklist" {% if v_cloak %}v-cloak{% endif %}>
   {%- for parent_link in linklist.links -%}
     <div
       class="parent-link-wrapper"
