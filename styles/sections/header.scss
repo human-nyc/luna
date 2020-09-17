@@ -242,10 +242,9 @@ $toggle-icon-size: 24px;
 
   .dropdown-item {
     display: block;
-    flex: 0 0 auto;
+    flex: 1 1 100%;
     text-align: center;
     padding: 0 var(--gutter);
-    width: 33.33%;
   }
 
   .dropdown-image {
