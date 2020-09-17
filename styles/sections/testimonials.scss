@@ -1,5 +1,7 @@
 .testimonials {
-  padding: var(--padding-v) 0;
+  margin: var(--header-height) 0;
+
+
 
   &.testimonials-background--blue {
     background-color: var(--secondary-brand-color);
@@ -12,7 +14,7 @@
 }
 
 .testimonials__header {
-  margin-bottom: 80px;
+  margin-bottom: var(--padding-v);
   padding: 0 var(--gutter);
   text-align: center;
 }
@@ -126,7 +128,7 @@
 
 
 .testimonials__cta {
-  margin-top: 80px;
+  margin-top: var(--padding-v);
   text-align: center;
 
   .cta-button {
