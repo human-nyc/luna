@@ -4,17 +4,17 @@
   padding-bottom: var(--padding-v-desktop);
   position: relative;
 
-  @include tablet-portrait {
-    padding-bottom: 30px;
+  @include tablet-landscape {
+    padding-bottom: 0;
   }
 }
 
 .product-hero__corner {
-  bottom: 0;
-  left: 0;
-  position: absolute;
+  grid-area: corner-badge;
+  position: relative;
+  left: calc(var(--gutter) * -1);
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     display: none;
   }
 
@@ -34,29 +34,31 @@
     / auto;
   padding: 0 var(--gutter);
 
-  @include tablet-portrait {
-    align-items: center;
+  @include tablet-landscape {
     grid-template:
-      'title       image form' auto
-      'info        image form' auto
-      'star-rating image form' auto
+      'title        title form' 102px
+      'info         image form' auto
+      'star-rating  image form' auto
+      'corner-badge image form' auto
       / 1fr 1fr 1fr;
   }
 
   @include tablet-landscape {
     grid-template-columns: 7fr 11fr 7fr;
+    grid-template-columns: 336fr 672fr 312fr;
   }
 }
 
 .product-hero__title {
+  align-self: center;
   font-family: var(--font-serif);
   font-weight: normal;
   font-size: 42px;
   grid-area: title;
   margin: 0;
-  text-align: center;
+  max-width: 453px;
 
-  @include tablet-portrait {
+  @include tablet-landscape {
     text-align: left;
   }
 }
@@ -66,7 +68,7 @@
   margin-top: var(--padding-v-mobile);
   order: 10;
 
-  @include tablet-portrait {
+  @include tablet-landscape {
     margin-top: 0;
     padding-bottom: 0.5em;
     position: relative;
@@ -91,16 +93,21 @@
 
   img {
     display: block;
+    max-height: 100%;
     mix-blend-mode: multiply;
+    min-height: 100%;
     width: 100%;
   }
 }
 
 .product-hero__form {
+  display: flex;
+  flex-direction: column;
   grid-area: form;
+  margin-top: 0;
 
-  form {
-    margin-top: 0;
+  .product__options {
+    flex-grow: 1;
   }
 
   .option--color {
@@ -244,13 +251,8 @@
 }
 
 .yotpo.bottomLine {
-  align-self: flex-start;
   grid-area: star-rating;
-  padding: var(--gutter) 0;
-
-  @media (min-width: 1024px) {
-    padding: var(--gutter) 0 165px;
-  }
+  margin: var(--padding-v) 0;
 
   .yotpo-display-wrapper {
     font-size: 14px;

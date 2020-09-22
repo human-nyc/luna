@@ -81,42 +81,41 @@
 
     </div>
 
-    <div class="product-hero__form">
-      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-        {% render 'product-options' %}
+    <form class="product-hero__form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      {% render 'product-options' %}
 
-        <div class="quantity-and-price">
-          <div class="quantity-selector-outer">
-            <div class="quantity-selector">
-              <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
-              <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
-              <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
-            </div>
+      <div class="quantity-and-price">
+        <div class="quantity-selector-outer">
+          <div class="quantity-selector">
+            <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
+            <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
+            <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
           </div>
-
-          <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
-
-          <span v-cloak class="compare-at-price" v-if="selectedVariant && selectedVariant.compare_at_price">${selectedVariant.compare_at_price | formatMoney}</span>
         </div>
 
-        <template v-if="selectedVariant">
-          <button v-if="selectedVariant.available" class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
-          <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
-          <p v-if="selectedVariant.available" class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
-          <button v-else class="cta-button centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
-        </template>
+        <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
 
-        <template v-else>
-          <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
-        </template>
+        <span v-cloak class="compare-at-price" v-if="selectedVariant && selectedVariant.compare_at_price">${selectedVariant.compare_at_price | formatMoney}</span>
+      </div>
 
-      </form>
-    </div>
+      <template v-if="selectedVariant">
+        <button v-if="selectedVariant.available" class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
+        <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
+        <p v-if="selectedVariant.available" class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
+        <button v-else class="cta-button centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+      </template>
+
+      <template v-else>
+        <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
+      </template>
+
+    </form>
 
     {% render 'yotpo-star-rating' %}
+
+    <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
   </div>
 
-  <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
 </div>
 
 <style>
