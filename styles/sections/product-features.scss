@@ -3,6 +3,11 @@
 
 .shopify-section-product-features {
   background-color: var(--secondary-brand-color);
+
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
 }
 
 .product-features {
