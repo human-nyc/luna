@@ -42,9 +42,13 @@
   cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  font: 500 12px/1.6 var(--font-sans-serif);
+  font: 500 10px/1.6 var(--font-sans-serif);
   text-align: left;
   text-transform: uppercase;
+
+  @include tablet-portrait {
+    font-size: 12px;
+  }
 
   .svg-down-arrow {
     align-self: center;

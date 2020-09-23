@@ -88,14 +88,13 @@
 }
 
 .product-hero__image {
+  align-self: flex-start;
   background: var(--offwhite-color);
   grid-area: image;
 
   img {
     display: block;
-    max-height: 100%;
     mix-blend-mode: multiply;
-    min-height: 100%;
     width: 100%;
   }
 }
@@ -108,6 +107,7 @@
 
   .product__options {
     flex-grow: 1;
+    margin: 2em 0;
   }
 
   .option--color {
@@ -175,6 +175,11 @@
   grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr 1fr;
   justify-content: space-between;
 
+  @media (min-width: 1024px) and (max-width: 2559px) {
+    grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
+    row-gap: 1em;
+  }
+
   .quantity-selector-outer {
     grid-area: quantity-selector;
   }
@@ -182,20 +187,19 @@
   .quantity-selector {
     border: 1px solid var(--primary-brand-color);
     border-radius: 30px;
-    display: inline-block;
+    display: flex;
     font-weight: 500;
-    padding: 0 9px;
 
     input {
       appearance: none;
       background: none;
       border: 0;
       color: inherit;
+      flex-grow: 1;
       font-size: 14px;
       font-size: smaller;
       padding: 16px 0;
       text-align: center;
-      width: 20px;
     }
 
     button {
@@ -204,10 +208,23 @@
       cursor: pointer;
       border: 0;
       color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 18px;
       font-size: larger;
       outline: 0;
       padding: 5px 8px;
+      width: 60px;
+      border-radius: 0 0 30px 30px;
+
+      &[aria-label="Decrement quantity"] {
+        border-radius: 30px 0 0 30px;
+      }
+
+      &[aria-label="Increment quantity"] {
+        border-radius: 0 30px 30px 0;
+      }
     }
   }
 
@@ -240,19 +257,25 @@
     font-style: normal;
     line-height: 1.6;
     margin: 5px 0;
+    opacity: 0;
     letter-spacing: 1.2px;
     text-align: center;
     text-transform: uppercase;
+    transition: opacity var(--slow);
+
+    &.active {
+      opacity: 1;
+    }
 
     &.affirm-as-low-as {
-      margin: var(--gutter) 0;
+      // margin: var(--gutter) 0;
     }
   }
 }
 
 .yotpo.bottomLine {
   grid-area: star-rating;
-  margin: var(--padding-v) 0;
+  // margin: 2em 0 0;
 
   .yotpo-display-wrapper {
     font-size: 14px;

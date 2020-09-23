@@ -99,10 +99,9 @@
       </div>
 
       <template v-if="selectedVariant">
-        <button v-if="selectedVariant.available" class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit">Add To Cart</button>
-        <p v-if="selectedVariant.available" class="form-message" >Free Shipping over $40</p>
-        <p v-if="selectedVariant.available" class="affirm-as-low-as form-message" data-page-type="product" data-amount="{{current_variant.price}}"></p>
-        <button v-else class="cta-button centered form-button cta-button_dark" type="submit" disabled>Out of Stock</button>
+        <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="selectedVariant.available == false">${selectedVariant.available ? `Add To Cart` : `Out of Stock`}</button>
+        <p :class="['form-message', { active: selectedVariant.available }]">Free Shipping over $40</p>
+        <p :class="['affirm-as-low-as', 'form-message', { active: selectedVariant.available }]" data-page-type="product" data-amount="{{current_variant.price}}"></p>
       </template>
 
       <template v-else>
