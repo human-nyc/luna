@@ -20,7 +20,7 @@
 
   @include tablet-portrait {
     flex-direction: row;
-    padding: 0 var(--gutter);
+    padding: var(--gutter);
   }
 }
 
