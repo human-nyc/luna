@@ -9,7 +9,7 @@
   data-current-variant="{{ current_variant | json | escape }}"
 >
   <div class="product-hero__inner">
-    <h1 class="product-hero__title">{{ product.vendor }} {{ product.title }}</h1>
+    <h1 class="product-hero__title">{{ product.title }}</h1>
 
     <div class="product-hero__info">
       <div class="product-tabs">
@@ -95,7 +95,11 @@
 
         <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
 
-        <span v-cloak class="compare-at-price" v-if="selectedVariant && selectedVariant.compare_at_price">${selectedVariant.compare_at_price | formatMoney}</span>
+        <span v-cloak class="compare-at-price">
+          <template v-if="selectedVariant && selectedVariant.compare_at_price">
+            ${selectedVariant.compare_at_price | formatMoney}
+          </template>
+        </span>
       </div>
 
       <template v-if="selectedVariant">

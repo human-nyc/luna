@@ -25,7 +25,7 @@ body {
   text-align: center;
   color: var(--font-color);
 
-  @media (min-width: 768px) {
+  @include tablet-portrait {
     font-size: 52px;
   }
 }

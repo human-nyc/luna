@@ -1,6 +1,10 @@
 @import '../responsive';
 @import '../snippets/features-list';
 
+.shopify-section-product-features {
+  background-color: var(--secondary-brand-color);
+}
+
 .product-features {
   margin: auto;
   max-width: var(--page-width);

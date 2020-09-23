@@ -295,7 +295,7 @@ $toggle-icon-size: 24px;
   .child-links {
     margin: .5em 0;
 
-    @media (min-width: 768px) {
+    @include tablet-portrait {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
