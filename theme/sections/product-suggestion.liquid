@@ -1,29 +1,55 @@
 {% for block in section.blocks %}
   {% if block.settings.product == product.handle %}
     {% assign product = all_products[block.settings.suggested_product] %}
-    <div class="product-suggestion product-item" data-product="{{block.settings.suggested_product}}">
-      <div class="product-suggestion__inner">
-        <div class="product-suggestion__content">
-          <div class="product-suggestion__info">
-            <h2 class="section-header">{{block.settings.title}}</h2>
-            <div class="header-underline"></div>
-            <p class="section-header">{{block.settings.body}}</p>
-            <img loading="lazy" class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
-            <button type="button" class="product-suggestion__cta" v-on:click="submit">Add to cart</button>
-            <div class="product-suggestions__details">
-              {% include 'preview-details' %}
+
+    <product-grid-item
+      inline-template
+      class="product-suggestion product-item"
+      current-variant-json='{{ current_variant | json | escape }}'
+      options-with-values-json='{{ product.options_with_values | json }}'
+      product-json='{{ product | json }}'
+    >
+      <div>
+      {% comment %} <div class="product-suggestion product-item" data-product="{{block.settings.suggested_product}}"> {% endcomment %}
+        <div class="product-suggestion__inner">
+          <div class="product-suggestion__content">
+            <div class="product-suggestion__info">
+              <h2 class="section-header">{{block.settings.title}}</h2>
+              <div class="header-underline"></div>
+              <p class="section-header">{{block.settings.body}}</p>
+              <img loading="lazy" class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
+
+               <form :class="['product-suggestion__cta', {'active': quickAddIsActive}]" method="post" action="/cart/add" enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" name="utf8" value="✓">
+                <p v-if="selectedVariant">
+                  <button
+                    v-if="selectedVariant.available"
+                    @click.prevent="submit"
+                    class="cta-button cta-button_dark small centered"
+                    type="submit"
+                  >Add To Cart</button>
+                  <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
+                </p>
+              </form>
+
+              <div class="product-suggestions__details">
+                {% include 'preview-details' %}
+              </div>
             </div>
-          </div>
-          <div class="product-suggestion__image">
-            <div class="image-wrapper">
-              <div class="fill-image">
-                <img loading="lazy" src="{{block.settings.image | img_url: '1200x900', crop: 'center', scale: 2 }}" />
+            <div class="product-suggestion__image">
+              <div class="image-wrapper">
+                <div class="fill-image">
+                  <img loading="lazy" src="{{block.settings.image | img_url: '1200x900', crop: 'center', scale: 2 }}" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
-    </div>
+
+    </product-grid-item>
+
   {% endif %}
 {% endfor %}
 
