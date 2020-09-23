@@ -55,7 +55,7 @@
   opacity: .2;
   text-align: center;
   transition: opacity var(--slow);
-  width: 200px;
+  width: 180px;
 
   &.is-selected {
     opacity: 1;
@@ -72,34 +72,28 @@
 }
 
 .press__quotes {
-  // height: 100px;
-  // position: relative;
-  // text-align: center;
-
-  // @include tablet-portrait {
-  //   height: 40px;
-  // }
 
   blockquote {
     box-sizing: border-box;
     display: block;
     // display: none;
     font-family: var(--font-serif);
-    font-size: 40px;
+    font-size: 36px;
     font-style: italic;
     margin: 1em 0;
     padding: 0 var(--gutter);
     text-align: center;
     width: 320px;
-    // margin: -15px 0 0;
-
+    margin: 0;
+    
     // position: absolute;
     // left: 0;
     // right: 0;
     // top: 0;
-
+    
     @include tablet-portrait {
-     width: 768px;
+      width: 768px;
+      font-size: 40px;
     }
 
     &::before {
