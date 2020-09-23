@@ -1,5 +1,5 @@
 .features-list {
-  padding: 80px 0;
+  overflow: hidden;
 
   &.features-list-background--blue {
     background: var(--secondary-brand-color);
@@ -12,7 +12,7 @@
 }
 
 .features-list__inner {
-  margin: 0 auto;
+  margin: var(--padding-v) auto;
   max-width: var(--page-width);
 }
 
