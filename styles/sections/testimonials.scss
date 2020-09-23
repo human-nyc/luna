@@ -137,13 +137,13 @@
 
     :root.color-scheme--dark & {
       background: transparent;
-      border: 2px solid;
+      border: 1px solid;
       color: var(--primary-brand-color);
     }
 
     :root.color-scheme--dark .testimonials-background--blue & {
       background: transparent;
-      border: 2px solid;
+      border: 1px solid;
       color: var(--offwhite-color);
     }
   }
