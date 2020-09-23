@@ -13,9 +13,10 @@
   grid-area: corner-badge;
   position: relative;
   left: calc(var(--gutter) * -1);
+  display: none;
 
-  @media (max-width: 1023px) {
-    display: none;
+  @include tablet-landscape {
+    display: block;
   }
 
   img {
@@ -35,10 +36,11 @@
   padding: 0 var(--gutter);
 
   @include tablet-landscape {
+    // min-height: calc(100vh - var(--header-height) - 46px);
     grid-template:
-      'title        title form' 102px
+      'title        title form' minmax(102px, auto)
       'info         image form' auto
-      'star-rating  image form' auto
+      'star-rating  image form' 1fr
       'corner-badge image form' auto
       / 1fr 1fr 1fr;
   }
@@ -53,12 +55,17 @@
   align-self: center;
   font-family: var(--font-serif);
   font-weight: normal;
-  font-size: 42px;
+  font-size: 36px;
   grid-area: title;
-  margin: 0;
+  line-height: 1.11;
+  margin: 1em 0 0;
   max-width: 453px;
+  position: relative;
+  text-align: center;
 
   @include tablet-landscape {
+    font-size: 42px;
+    margin: 0;
     text-align: left;
   }
 }
@@ -91,6 +98,11 @@
   align-self: flex-start;
   background: var(--offwhite-color);
   grid-area: image;
+  margin:  0 calc(var(--gutter)*-1);
+
+  @include tablet-landscape {
+    margin: 0;
+  }
 
   img {
     display: block;
@@ -103,7 +115,7 @@
   display: flex;
   flex-direction: column;
   grid-area: form;
-  margin-top: 0;
+  margin: 3em 0;
 
   .product__options {
     flex-grow: 1;
@@ -172,10 +184,10 @@
   align-items: center;
   display: flex;
   display: grid;
-  grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr 1fr;
+  grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr auto;
   justify-content: space-between;
 
-  @media (min-width: 1024px) and (max-width: 2559px) {
+  @media (min-width: 992px) and (max-width: 1359px) {
     grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
     row-gap: 1em;
   }
@@ -186,20 +198,22 @@
 
   .quantity-selector {
     border: 1px solid var(--primary-brand-color);
-    border-radius: 30px;
-    display: flex;
+    border-radius: 48px;
+    display: grid;
     font-weight: 500;
+    grid-template-columns: 48px auto 48px;
+    grid-template-rows: 48px;
 
     input {
       appearance: none;
       background: none;
       border: 0;
       color: inherit;
-      flex-grow: 1;
+      flex: 1 1 0px;
       font-size: 14px;
-      font-size: smaller;
-      padding: 16px 0;
+      min-width: 0;
       text-align: center;
+      width: auto;
     }
 
     button {
@@ -214,16 +228,15 @@
       font-size: 18px;
       font-size: larger;
       outline: 0;
-      padding: 5px 8px;
-      width: 60px;
-      border-radius: 0 0 30px 30px;
+      border-radius: 0 0 24px 24px;
+      text-align: center;
 
       &[aria-label="Decrement quantity"] {
-        border-radius: 30px 0 0 30px;
+        border-radius: 24px 0 0 24px;
       }
 
       &[aria-label="Increment quantity"] {
-        border-radius: 0 30px 30px 0;
+        border-radius: 0 24px 24px 0;
       }
     }
   }
