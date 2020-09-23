@@ -1,4 +1,4 @@
-import '../apps/MiniProduct';
+// import '../apps/MiniProduct';
 
 import '../sections/press';
 
