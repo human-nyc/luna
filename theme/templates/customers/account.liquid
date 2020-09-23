@@ -1,4 +1,4 @@
-<div class="account-page">
+<div class="account-page customers">
   <div class="account-page__top">
     <h1>My Account</h1>
     {{ 'Log out' | customer_logout_link }}
@@ -13,10 +13,10 @@
         <table>
           <thead>
             <tr>
-              <th scope="col">order_number</th>
+              <th scope="col">order #</th>
               <th scope="col">date</th>
-              <th scope="col">payment_status</th>
-              <th scope="col">fulfillment_status</th>
+              <th scope="col">payment status</th>
+              <th scope="col">fulfillment status</th>
               <th scope="col">total</th>
             </tr>
           </thead>
@@ -32,6 +32,12 @@
                 <td data-label="total">{{ order.total_price | money }}</td>
               </tr>
             {% endfor %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
 
@@ -53,6 +59,6 @@
 
     {{ customer.default_address | format_address }}
 
-    <p><a href="{{ routes.account_addresses_url }}" class="cta button">View Addresses ({{ customer.addresses_count }}) {% render 'svg-arrow-right' %}</a></p>
+    <p><a href="{{ routes.account_addresses_url }}" class="cta button">View Addresses ({{ customer.addresses_count }})</a></p>
   </div>
 </div>
