@@ -6,9 +6,8 @@
 
 .research-section__inner {
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 1060px;
   padding: var(--padding-v-mobile) 0;
-  width: 1060px;
 
   @include tablet-portrait {
     padding: var(--padding-v-desktop) 0;
@@ -17,10 +16,9 @@
 
 .research-section__intro {
   margin: 0 auto var(--padding-v-mobile);
-  max-width: 100%;
+  max-width: 960px;
   padding: 0 var(--gutter);
   text-align: center;
-  width: 960px;
 
   p {
     line-height: 1.78;
@@ -80,9 +78,8 @@
 }
 
 .research-block__content-wrapper {
-  max-width: 100%;
+  max-width: 300px;
   text-align: center;
-  width: 300px;
 
   h3 {
     font-size: var(--font-size-p-lg);

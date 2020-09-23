@@ -24,7 +24,6 @@
 {% section 'product-suggestion' %}
 {% section 'product-steps' %}
 {% section 'product-detail' %}
-{% section 'product-full-image' %}
+{% render 'product-full-bleed-media', product: product %}
 {% render 'shop-more', collection: collection, product: product %}
-{% section 'product-reviews' %}
 {% render 'yotpo-reviews' product: product %}

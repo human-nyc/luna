@@ -1,9 +1,8 @@
 import Flickity from 'flickity'
 
-var flkty = new Flickity('#testimonials', {
+const options = {
   pageDots: false,
   prevNextButtons: true,
-  fade: true,
   autoPlay: 5000,
   initialIndex: 1,
   pauseAutoPlayOnHover: true,
@@ -21,4 +20,26 @@ var flkty = new Flickity('#testimonials', {
     change: () => {
     },
   }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.shopify-section-testimonials').forEach(initializeTestimonialsSection);
 });
+
+document.addEventListener('shopify:section:load', (event) => {
+  const { detail } = event;
+  const  { sectionId } = detail;
+
+  var sectionEl = document.querySelector(`#shopify-section-${sectionId}`);
+  if(sectionEl.classList.contains('shopify-section-testimonials')) {
+    initializeTestimonialsSection(sectionEl);
+
+  }
+});
+
+
+function initializeTestimonialsSection(el) {
+  const slideshowEl = el.querySelector('.testimonials__slider');
+
+  var flkty = new Flickity(slideshowEl, options);
+}

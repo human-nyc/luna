@@ -9,10 +9,9 @@
 
 .subscribe-callout__inner {
   margin: 0 auto;
-  max-width: 100%;
   padding: var(--padding-v-mobile) var(--gutter);
   text-align: center;
-  width: 480px;
+  max-width: 480px;
 
   .section-header {
     @include tablet-portrait {
@@ -39,6 +38,5 @@
 
 .subscribe-callout__form {
   margin: 30px auto;
-  max-width: 100%;
-  width: 312px;
+  max-width: 312px;
 }

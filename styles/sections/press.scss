@@ -10,7 +10,8 @@
 }
 
 .press {
-  padding: 80px var(--gutter);
+  margin: var(--padding-v) auto;
+  max-width: 758px;
 
   .html-page_why_luna & {
     background-color: var(--secondary-brand-color);
@@ -19,6 +20,15 @@
   .html-page_reviews & {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
+  }
+
+  &.press-background--blue {
+    background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
   }
 }
 
@@ -35,24 +45,8 @@
 
 .press__logos {
   align-items: center;
-  display: none;
   justify-content: center;
   padding: var(--padding-v) 0;
-
-  @include tablet-portrait {
-    display: flex;
-  }
-
-  &_mobile {
-    display: block;
-    overflow-x: hidden;
-    padding: 50px 0 60px;
-    width: 100%;
-
-    @include tablet-portrait {
-      display: none;
-    }
-  }
 }
 
 .press-logo {
@@ -63,10 +57,11 @@
   transition: opacity var(--slow);
   width: 200px;
 
-  &.active {
+  &.is-selected {
     opacity: 1;
     transition-duration: var(--fast);
   }
+
   svg {
     width: 150px;
     height: 40px;
@@ -76,36 +71,54 @@
   }
 }
 
-.press__quote {
-  height: 100px;
-  position: relative;
-  text-align: center;
+.press__quotes {
+  // height: 100px;
+  // position: relative;
+  // text-align: center;
 
-  @include tablet-portrait {
-    height: 40px;
-  }
+  // @include tablet-portrait {
+  //   height: 40px;
+  // }
 
   blockquote {
-    display: none;
+    box-sizing: border-box;
+    display: block;
+    // display: none;
     font-family: var(--font-serif);
     font-size: 40px;
     font-style: italic;
-    margin: -15px 0 0;
+    margin: 1em 0;
+    padding: 0 var(--gutter);
+    text-align: center;
+    width: 320px;
+    // margin: -15px 0 0;
 
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
 
-    &.active {
-      animation: pressFadeIn var(--slow);
-      display: block;
+    @include tablet-portrait {
+     width: 768px;
     }
 
-    &.inactive {
-      display: block;
-      opacity: 0;
-      transition: var(--fast);
+    &::before {
+      content: open-quote;
     }
+
+    &::after {
+      content: close-quote;
+    }
+
+    // &.active {
+    //   animation: pressFadeIn var(--slow);
+    //   display: block;
+    // }
+
+    // &.inactive {
+    //   display: block;
+    //   opacity: 0;
+    //   transition: var(--fast);
+    // }
   }
 }

@@ -17,6 +17,16 @@
   @include tablet-portrait {
     padding: var(--padding-v-desktop) 0;
   }
+
+
+  &.products-slider-background--blue {
+    background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
+  }
 }
 
 .products-slider__header {
@@ -29,6 +39,18 @@
   overflow-y: hidden;
   padding: 0 0 90px 0;
   position: relative;
+
+  // &::after {
+  //   content: "flickity";
+
+  //   @include tablet-landscape {
+  //     content: normal;
+  //   }
+  // }
+
+  // @include tablet-landscape {
+  //   display: flex;
+  // }
 }
 
 .products-slider__slide {
@@ -36,7 +58,7 @@
   width: 100%;
 
   @media (min-width: 768px) {
-    width: 33.33%;
+    width: calc(100vw/3);
   }
 }
 

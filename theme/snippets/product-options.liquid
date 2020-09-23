@@ -3,11 +3,11 @@
     <h4 :class="['option-name', option.name]" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
 
     <div class="option-values">
-      <p v-if="option.name == 'Size'">
+      <p class="size info-copy" v-if="option.name == 'Size'">
         All blankets are meant for individual use except for the King, which is suitable for sharing. Weighted blankets are smaller than traditional comforters because they're meant to cover your body not the bed. <a href="/pages/sizing" target="_blank" @click.prevent="openSizePopup">Sizing Chart</a>
       </p>
 
-      <p v-if="option.name == 'Weight'">
+      <p class="weight info-copy" v-if="option.name == 'Weight'">
         Not sure about what weight to buy? Check out our <a href="/pages/sizing" target="_blank" @click.prevent="openWeightPopup">Weight Chart</a>
       </p>
 

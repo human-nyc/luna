@@ -28,27 +28,29 @@
           <button type="button" @mouseover="selectStep(2)" :class="{'active': step === 2}">02.</button>
           <button type="button" @mouseover="selectStep(3)" :class="{'active': step === 3}">03.</button>
         </div>
-        {% if content.step_1 %}
-          <div
-            class="product-steps__item item_1"
-            :class="{active: step === 1}"
-            v-cloak
-          >{{content.step_1}}</div>
-        {% endif %}
-        {% if content.step_2 %}
-          <div
-            class="product-steps__item item_2"
-            :class="{active: step === 2}"
-            v-cloak
-          >{{content.step_2}}</div>
-        {% endif %}
-        {% if content.step_3 %}
-          <div
-            class="product-steps__item item_3"
-            :class="{active: step === 3}"
-            v-cloak
-          >{{content.step_3}}</div>
-        {% endif %}
+        <div class="product-steps__items">
+          {% if content.step_1 %}
+            <div
+              class="product-steps__item item_1"
+              :class="{active: step === 1}"
+              v-cloak
+            >{{content.step_1}}</div>
+          {% endif %}
+          {% if content.step_2 %}
+            <div
+              class="product-steps__item item_2"
+              :class="{active: step === 2}"
+              v-cloak
+            >{{content.step_2}}</div>
+          {% endif %}
+          {% if content.step_3 %}
+            <div
+              class="product-steps__item item_3"
+              :class="{active: step === 3}"
+              v-cloak
+            >{{content.step_3}}</div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

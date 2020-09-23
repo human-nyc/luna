@@ -24,16 +24,6 @@
   --secondary-brand-color: var(--light-blue-color);
   --font-color: var(--deep-blue-color);
 
-  // Color options
-  // --dark-grey: #8F8E93;
-  // --ivory: #F4F1E9;
-  // --light-blue: #C7DDEF;
-  // --light-grey: #B9B9BB;
-  // --navy: #000080;
-  // --white: #F4F1E9;
-  // --pink: #ffd5cd;
-
-
   // Sizing
   --gutter: 24px;
   --gutter-half: 12px;
@@ -41,12 +31,13 @@
   --page-width-sm: 1060px;
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
-  --banner-height: 40px;
+  --banner-height: 36px;
   --header-height: 72px;
 
   --padding-v: 24px;
 
   @include tablet-portrait {
+    --banner-height: 42px;
     --header-height: 100px;
     --padding-v: 40px;
   }

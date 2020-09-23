@@ -15,6 +15,7 @@
 }
 
 #shopify-section-header {
+  height: var(--header-height);
   position: sticky;
   z-index: var(--z-navigation);
   top: 0;
@@ -39,6 +40,7 @@
   .header__dropdown.active ~ &,
   .header_scrolled & {
     background-color: var(--offwhite-color);
+    color: var(--primary-brand-color);
     transition: background-color var(--fast);
   }
 }
@@ -84,32 +86,17 @@
 
 .header__logo {
   a {
-    display: block;
+    display: inline-block;
     overflow: hidden;
   }
-  img {
+
+  .svg-logo {
     display: block;
     margin: auto;
     width: 64px;
 
-    &.white-logo {
-      display: none;
-    }
-
     @include tablet-landscape {
       width: 88px;
-    }
-  }
-
-  .header_light_content:not(:hover):not(.header_scrolled):not(.header_products_open) & {
-    @include tablet-landscape {
-      img {
-        display: none;
-
-        &.white-logo {
-          display: block;
-        }
-      }
     }
   }
 }
@@ -128,12 +115,18 @@
 }
 
 .header {
+  // color: red;
+  // color: var(--font-color);
+  :root.color-scheme--dark & {
+    color: var(--offwhite-color);
+  }
+
   a.header-link,
   button.header-link {
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
     border: 0;
-    color: var(--font-color);
+    color: inherit;
     cursor: pointer;
     display: block;
     font-size: 14px;
@@ -249,10 +242,9 @@ $toggle-icon-size: 24px;
 
   .dropdown-item {
     display: block;
-    flex: 0 0 auto;
+    flex: 1 1 100%;
     text-align: center;
     padding: 0 var(--gutter);
-    width: 33.33%;
   }
 
   .dropdown-image {

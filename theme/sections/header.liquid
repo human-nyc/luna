@@ -1,13 +1,13 @@
-<div :class="{'header': true, 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent">
+<div :class="{'header': true, 'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent" @mouseleave="toggleActiveChildLinks({activeChildLinksIndex: -1})">
 
-  <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]">
-    {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' %}
+  <div :class="['header__dropdown', 'header__dropdown--mobile' , { active: mobileMenuIsOpen }]" v-cloak>
+    {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' v_cloak: true %}
     {% render 'customer-links' %}
   </div>
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
-      <div :class="['header__dropdown', { active: activeChildLinksIndex == {{forloop.index0}} }]" @mouseleave="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">
+      <div :class="['header__dropdown', { active: activeChildLinksIndex == {{forloop.index0}} }]">
         <div class="header__dropdown-inner">
           {% for child_link in parent_link.links %}
             {% case child_link.type %}
@@ -39,15 +39,10 @@
 
   <div class="header__main">
     <div class="header__main-inner">
-      <div class="header__left">
+      <div class="header__left" v-cloak>
         {% for parent_link in linklists[section.settings.main_nav_left].links %}
 
-          {% if parent_link.links.size > 0 %}
-            <a :class="['header-link', { active: activeChildLinksIndex == {{forloop.index0}} }]" href="{{parent_link.url}}" @mouseover="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
-          {% else %}
-            <a :class="['header-link', { active: activeChildLinksIndex == {{forloop.index0}} }]" href="{{parent_link.url}}">{{parent_link.title}}</a>
-          {% endif %}
-
+          <a :class="['header-link', { active: activeChildLinksIndex == {{forloop.index0}} }]" href="{{parent_link.url}}" @mouseover="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
 
         {% endfor %}
 
@@ -60,15 +55,14 @@
           </div>
         </div>
       </div>
-      <div class="header__center">
+      <div class="header__center" v-cloak>
         <div class="header__logo">
           <a href="/">
-            <img loading="lazy" src="{{ 'logo_luna_header@2x.png' | asset_url | image_tag }}" alt="Luna" />
-            <img loading="lazy" class="white-logo" src="{{ 'logo_luna_header_white@2x.png' | asset_url | image_tag }}" alt="Luna" />
+            {% render 'svg-logo' %}
           </a>
         </div>
       </div>
-      <div class="header__right">
+      <div class="header__right" v-cloak>
         {% render 'customer-links' %}
         <a
           @click.prevent='toggleMiniCart'

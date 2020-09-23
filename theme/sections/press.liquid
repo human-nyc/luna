@@ -1,32 +1,21 @@
-<div class="press" id="press" data-count="{{ section.blocks.size }}">
+<div class="press press-background--{{section.settings.background_color}}">
   <div class="press__header">
     <h2>{{ section.settings.header }}</h2>
   </div>
   <div class="press__logos">
     {% for block in section.blocks %}
       {% if block.type == 'press_mention' %}
-        <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @mouseover="selectItem({{ forloop.index0 }})">
+        <div class="press-logo">
           {{ block.settings.logo_html }}
         </div>
       {% endif %}
     {% endfor %}
   </div>
-  <div class="press__logos press__logos_mobile" id="pressSlider">
-    {% for block in section.blocks %}
-      {% if block.type == 'press_mention' %}
-        <div class="press-logo" :class="{ active: activeItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
-          {{ block.settings.logo_html }}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="press__quote">
+  <div class="press__quotes">
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'press_mention' %}
-          <blockquote :class="{ active: activeItem == {{forloop.index0}}, inactive: inactiveItem == {{forloop.index0}} }" @click="selectItem({{ forloop.index0 }})">
-            &ldquo;{{ block.settings.quote }}&rdquo;
-          </blockquote>
+        <blockquote class="press__quote">{{ block.settings.quote }}</blockquote>
       {% endcase %}
     {% endfor %}
   </div>
@@ -36,11 +25,28 @@
 {% schema %}
   {
     "name": "Press",
+    "class": "shopify-section-press",
     "settings": [
       {
         "type": "text",
         "id": "header",
         "label": "Header"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ],
+        "default":   "gray"
       }
     ],
     "blocks": [
@@ -61,7 +67,7 @@
           {
             "type": "html",
             "id": "logo_html",
-            "label": "Logo SVG Code"
+            "label": "Logo SVG markup"
           }
         ]
       }

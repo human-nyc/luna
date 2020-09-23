@@ -1,0 +1,33 @@
+{% assign full_bleed_media = product.media | where: "alt", "full bleed" %}
+
+<div class="product-full-bleed-media">
+  {% for media in full_bleed_media %}
+
+    {% case media.media_type %}
+      {% when 'image' %}
+        <img
+          loading="lazy"
+          class="product-full-bleed-media--image"
+          srcset="{{ media.src | img_url: '375x', crop: 'center' }} 375w,
+                  {{ media.src | img_url: '480x', crop: 'center' }} 480w,
+                  {{ media.src | img_url: '1280x', crop: 'center' }} 1280w,
+                  {{ media.src | img_url: '1366x', crop: 'center' }} 1366w,
+                  {{ media.src | img_url: '1920x', crop: 'center' }} 1920w"
+          sizes="100vw"
+          src=""
+          alt="{{media.alt}}"
+        />
+
+      {% when 'video' %}
+        <video loading="lazy" class="product-full-bleed-media--video" autoplay loop muted playsinline>
+          {% for source in media.sources %}
+            <source src="{{source.url}}" type="{{source.mime_type}}">
+          {% endfor %}
+        </video>
+
+
+
+    {% endcase %}
+
+  {% endfor %}
+</div>

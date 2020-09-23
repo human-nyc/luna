@@ -2,21 +2,16 @@
 @import '../snippets/features-list';
 
 .product-features {
-  h3.section-subheader {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    width: 920px;
+  margin: auto;
+  max-width: var(--page-width);
 
-    > p {
-      font-family: var(--font-sans-serif);
-      font-size: inherit;
+  .section-subheader {
+    font-family: var(--font-sans-serif);
+    p {
       font-weight: inherit;
-      margin: 0;
-
-      > em {
-        font-family: var(--font-serif);
-      }
+    }
+    em {
+      font-family: var(--font-serif);
     }
   }
 }

@@ -1,8 +1,9 @@
 <div class="footer">
   <div class="footer__logo">
     <a href="/">
-      <img loading="lazy" src="{{ 'logo_luna@2x.png' | asset_url | image_tag }}" alt="Luna" width="72px" />
+      {% render 'svg-logo' %}
     </a>
+    <button class="footer__light-switch-toggle" id="light-switch-toggle">{% render 'svg-light-switch' %}</button>
   </div>
   <div class="footer__inner">
     <div class="footer__main">
@@ -50,24 +51,6 @@
        "id": "social_nav_handle",
        "label": "Social Links"
      }
-    ],
-    "blocks": [
-      {
-        "type": "links_column",
-        "name": "Links Column",
-        "settings": [
-          {
-            "type": "text",
-            "id": "header",
-            "label": "Header"
-          },
-          {
-            "type": "textarea",
-            "id": "richtext",
-            "label": "Text"
-          }
-        ]
-      }
     ]
   }
 {% endschema %}

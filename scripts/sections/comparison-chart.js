@@ -1,14 +1,20 @@
 import Vue from 'vue';
 
-const comparisonChart = new Vue({
-  delimiters: ['${', '}'],
-  el: '#comparisonChart',
-  data: {
-    isOpen: false,
-  },
-  methods: {
-    toggleOpen: function() {
-      this.isOpen = !this.isOpen;
-    },
-  },
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.shopify-section.comparison-chart').forEach(el => {
+
+    new Vue({
+      delimiters: ['${', '}'],
+      el,
+      data: {
+        isOpen: false,
+      },
+      methods: {
+        toggleOpen: function() {
+          this.isOpen = !this.isOpen;
+        },
+      },
+    });
+
+  });
 });

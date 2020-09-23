@@ -41,11 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
           this.activeChildLinksIndex = -1;
         },
         toggleActiveChildLinks({ activeChildLinksIndex }) {
-          if (this.activeChildLinksIndex == activeChildLinksIndex) {
-            this.activeChildLinksIndex = -1
-          } else {
-            this.activeChildLinksIndex = activeChildLinksIndex
-          }
+          this.activeChildLinksIndex = activeChildLinksIndex
         },
         toggleMobileMenu: function () {
           this.mobileMenuIsOpen = !this.mobileMenuIsOpen;

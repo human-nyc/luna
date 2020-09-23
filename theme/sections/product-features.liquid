@@ -4,44 +4,38 @@
       <div class="features-list__inner">
         <div class="features-list__header">
           <h2 class="section-header">{{ block.settings.title }}</h2>
-          <h3 class="section-subheader section-subheader_normal">{{ block.settings.intro }}</h3>
+          <div class="section-subheader section-subheader_normal">{{ block.settings.intro }}</div>
         </div>
-        <div class="features-list__items" id="featuresListSlider">
+        <div class="features-list__items">
           <div class="features-list__item">
-            <div class="item-inner">
-              <div class="features-list__item-image">
-                <div class="fill-image">
-                  <img loading="lazy" src="{{ block.settings.image_1 | img_url: '500x500' }}" />
-                </div>
+            <div class="features-list__item-image">
+              <div class="fill-image">
+                <img loading="lazy" src="{{ block.settings.image_1 | img_url: '500x500' }}" />
               </div>
-              <h4>{{ block.settings.header_1 }}</h4>
-              <h5>{{ block.settings.subheader_1 }}</h5>
-              <p>{{ block.settings.body_1 }}</p>
             </div>
+            <h4>{{ block.settings.header_1 }}</h4>
+            <h5>{{ block.settings.subheader_1 }}</h5>
+            <p>{{ block.settings.body_1 }}</p>
           </div>
           <div class="features-list__item">
-            <div class="item-inner">
-              <div class="features-list__item-image">
-                <div class="fill-image">
-                  <img loading="lazy" src="{{ block.settings.image_2 | img_url: '500x500' }}" />
-                </div>
+            <div class="features-list__item-image">
+              <div class="fill-image">
+                <img loading="lazy" src="{{ block.settings.image_2 | img_url: '500x500' }}" />
               </div>
-              <h4>{{ block.settings.header_2 }}</h4>
-              <h5>{{ block.settings.subheader_2 }}</h5>
-              <p>{{ block.settings.body_2 }}</p>
             </div>
+            <h4>{{ block.settings.header_2 }}</h4>
+            <h5>{{ block.settings.subheader_2 }}</h5>
+            <p>{{ block.settings.body_2 }}</p>
           </div>
           <div class="features-list__item">
-            <div class="item-inner">
-              <div class="features-list__item-image">
-                <div class="fill-image">
-                  <img loading="lazy" src="{{ block.settings.image_3 | img_url: '500x500' }}" />
-                </div>
+            <div class="features-list__item-image">
+              <div class="fill-image">
+                <img loading="lazy" src="{{ block.settings.image_3 | img_url: '500x500' }}" />
               </div>
-              <h4>{{ block.settings.header_3 }}</h4>
-              <h5>{{ block.settings.subheader_3 }}</h5>
-              <p>{{ block.settings.body_3 }}</p>
             </div>
+            <h4>{{ block.settings.header_3 }}</h4>
+            <h5>{{ block.settings.subheader_3 }}</h5>
+            <p>{{ block.settings.body_3 }}</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,17 @@
+.yotpo-reviews {
+  background: var(--light-blue-color);
+  overflow: hidden;
+
+  .section-header {
+    margin: 2em 0;
+    padding: 0 var(--gutter);
+    text-align: center;
+  }
+}
+
+:root .yotpo.yotpo-main-widget {
+  box-sizing: border-box;
+  margin-bottom: var(--padding-v);
+  width: 90vw;
+  padding: 0 var(--gutter);
+}

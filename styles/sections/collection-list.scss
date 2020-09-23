@@ -1,18 +1,27 @@
 @import '../responsive';
 
 .collection-list {
-  background-color: var(--secondary-brand-color);
-  padding: var(--padding-v-mobile) 0;
+  overflow: hidden;
   text-align: center;
 
-  @include tablet-portrait {
-    padding: var(--padding-v-desktop) 0;
+  &.collection-list-background--blue {
+    background: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: var(--white-color);
+    }
   }
 }
 
 .collection-list__inner {
-  margin: 0 auto;
+  margin: var(--padding-v-mobile) auto;
   max-width: var(--page-width);
+  overflow: hidden;
+
+  @include tablet-portrait {
+    margin: var(--padding-v-desktop) auto;
+  }
 }
 
 .collection-list__header {
@@ -26,6 +35,7 @@
 
 .collection-list__items {
   box-sizing: border-box;
+  display: flex;
   overflow-x: auto;
   padding: 0 var(--gutter);
   white-space: nowrap;
@@ -34,7 +44,7 @@
   .item-wrapper {
     display: inline-block;
     padding: 0 8px;
-    width: 320px;
+    flex: 0 0 320px;
 
     @include tablet-landscape {
       display: block;

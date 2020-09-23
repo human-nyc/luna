@@ -3,9 +3,14 @@
 @import '../snippets/email-form';
 
 .footer {
-  background-color: var(--primary-brand-color);
-  color: var(--white-color);
-  padding: 66px 0 48px;
+  background-color: var(--secondary-brand-color);
+  color: var(--primary-brand-color);
+  overflow: hidden;
+
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
 
   a {
     color: inherit;
@@ -16,11 +21,48 @@
 
 
 .footer__logo {
+  display: flex;
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0 var(--gutter) 50px;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0 var(--gutter);
   max-width: var(--page-width);
+
+  a {
+    display: inline-block;
+    margin: 50px 0;
+  }
+
+  svg {
+    display: block;
+  }
+
+  .svg-logo {
+    height: 28px;
+  }
 }
+
+
+.footer__light-switch-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    display: block;
+
+    :root.color-scheme--dark & {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
 
 .footer__inner {
   margin: 0 auto;
@@ -64,6 +106,7 @@
     }
 
     .child-links {
+      line-height: 1;
       list-style: none;
       margin: 20px 0 0 0;
       padding: 0;
@@ -71,7 +114,7 @@
 
     .child-link  {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 1em;
     }
   }
 }
@@ -103,7 +146,7 @@
 .footer__social {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  margin: 50px 0;
 
   a {
     text-decoration: none;
