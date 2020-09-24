@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   // Product Suggestion Section
-  if (document.querySelector('.product-item')) {
-    document.querySelectorAll('.product-item').forEach((el) => {
-      new Vue({
-        el,
-        delimiters: ['${', '}'],
-        store,
-        name: 'Product item',
-      })
-    });
-  }
+  // if (document.querySelector('.product-item')) {
+  //   document.querySelectorAll('.product-item').forEach((el) => {
+  //     new Vue({
+  //       el,
+  //       delimiters: ['${', '}'],
+  //       store,
+  //       name: 'Product item',
+  //     })
+  //   });
+  // }
 });
