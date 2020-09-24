@@ -1,8 +1,8 @@
 @import '../responsive';
 
 .shopify-section-product-steps {
-  overflow: hidden;
-  background: var(--light-blue-color);
+  // overflow: hidden;
+  // background: var(--light-blue-color);
 }
 
 .product-steps {
@@ -19,13 +19,11 @@
   @include tablet-portrait {
     align-items: flex-start;
     flex-direction: row;
-    padding: var(--gutter-half);
   }
 }
 
 .product-steps__image {
   flex: 0 0 auto;
-  padding: 0 var(--gutter);
 
   .image-wrapper {
     padding-bottom: 120%;
@@ -42,9 +40,7 @@
   }
 
   @include tablet-portrait {
-    flex: 0 0 auto;
-    padding: 0 var(--gutter-half);
-    width: 50%;
+    flex: 0 0 50%;
   }
 }
 

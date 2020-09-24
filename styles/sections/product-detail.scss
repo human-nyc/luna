@@ -19,13 +19,11 @@
 
   @include tablet-portrait {
     flex-direction: row;
-    padding: var(--gutter-half);
   }
 }
 
 .product-detail__image {
   flex: 0 0 auto;
-  padding: 0 var(--gutter);
 
   .image-wrapper {
     padding-bottom: 120%;
@@ -33,10 +31,8 @@
   }
 
   @include tablet-portrait {
-    flex: 0 0 auto;
+    flex: 0 0 50%;
     order: 2;
-    padding: 0 var(--gutter-half);
-    width: 50%;
   }
 }
 

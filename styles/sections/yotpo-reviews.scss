@@ -2,11 +2,45 @@
   background: var(--light-blue-color);
   overflow: hidden;
 
+  background: orange;
+  color: magenta;
+
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
+
   .section-header {
     margin: 2em 0;
     padding: 0 var(--gutter);
     text-align: center;
   }
+
+  .yotpo div,
+  .yotpo span,
+  .yotpo p,
+  .yotpo a,
+  .yotpo img,
+  .yotpo i,
+  .yotpo strong,
+  .yotpo sup,
+  .yotpo ul,
+  .yotpo li,
+  .yotpo form,
+  .yotpo label {
+    color: inherit;
+  }
+
+  .yotpo a {
+    color: inherit !important;
+
+  }
+
+  .yotpo .yotpo-label-container {
+    border-color: currentColor;
+  }
+
+
 }
 
 :root .yotpo.yotpo-main-widget {
@@ -15,3 +49,23 @@
   width: 90vw;
   padding: 0 var(--gutter);
 }
+
+// :root .yotpo div {
+//   color: inherit;
+// }
+
+// :root.color-scheme--dark .yotpo .promoted-products-box .yotpo-main-title {
+//   color: inherit;
+// }
+
+// :root.color-scheme--dark  .yotpo .promoted-products-box .promoted-products .yotpo-promoted-product .yotpo-product-name {
+//   color: inherit;
+// }
+
+// :root .yotpo a {
+//   color: inherit !important;
+
+//   &:hover {
+//     text-decoration: underline !important;
+//   }
+// }
