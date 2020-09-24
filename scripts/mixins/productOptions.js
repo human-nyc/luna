@@ -21,7 +21,7 @@ export default {
     labelOptionAttributes() {
       return (product, option, value) => ({
         for: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`,
-        class: `option-value  option--${value.replace(/ /g, '-').toLowerCase()}`
+        class: `option-value  option--${value.replace(/ - /g, '-').replace(/ /g, '-').toLowerCase()}`
       })
     },
 
