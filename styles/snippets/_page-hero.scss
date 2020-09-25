@@ -50,8 +50,8 @@
   width: 100%;
 
   @include tablet-portrait {
-    padding-bottom: 12vw;
-    margin-top: calc(10vw + var(--padding-v-desktop));
+    padding-bottom: 16vw;
+    margin-top: calc(12vw + var(--padding-v-desktop));
   }
 }
 
