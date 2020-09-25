@@ -3,13 +3,13 @@
 @import '../snippets/email-form';
 
 .footer {
-  background-color: var(--secondary-brand-color);
-  color: var(--primary-brand-color);
+  background-color: var(--primary-brand-color);
+  color: var(--secondary-brand-color);
   overflow: hidden;
 
   :root.color-scheme--dark & {
-    background-color: var(--primary-brand-color);
-    color: var(--white-color);
+    background-color: var(--white-color);
+    color: var(--primary-brand-color);
   }
 
   a {
@@ -76,6 +76,11 @@
 
 .footer__main {
   padding: 0 var(--gutter);
+  font-size: 14px;
+  
+  @include tablet-portrait {
+    font-size: 16px;
+  }
 }
 
 .footer__aside {
@@ -83,6 +88,10 @@
 }
 
 .footer__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 1em;
+
   @include tablet-portrait {
     display: flex;
   }
@@ -90,6 +99,10 @@
   .parent-link-wrapper {
     margin-bottom: 40px;
     width: 100%;
+
+    // &:first-child {
+    //   grid-column: 1/3;
+    // }
 
     @include tablet-portrait {
       margin-bottom: 0;
@@ -114,7 +127,8 @@
 
     .child-link  {
       display: block;
-      margin-bottom: 1em;
+      line-height: 1.3;
+      margin-bottom: .8em;
     }
   }
 }
