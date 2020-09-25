@@ -3,11 +3,12 @@
 
 .product-suggestion {
   @include tablet-portrait {
-    margin: var(--padding-v-desktop) 0;
+    margin: var(--padding-v) 0;
   }
 }
 
 .product-suggestion__inner {
+  box-sizing: content-box;
   margin: 0 auto;
   max-width: var(--page-width);
 

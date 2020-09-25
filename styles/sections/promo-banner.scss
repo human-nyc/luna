@@ -10,7 +10,7 @@
   text-align: center;
 
 
-  @include tablet-portrait {
+  @include tablet-landscape {
     font-size: 14px;
   }
 
@@ -20,7 +20,7 @@
   }
 
   p {
-    line-height: 1;
+    line-height: normal;
   }
 
   a {

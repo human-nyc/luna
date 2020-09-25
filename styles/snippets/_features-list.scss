@@ -1,5 +1,5 @@
 .features-list {
-  padding: 80px 0;
+  overflow: hidden;
 
   &.features-list-background--blue {
     background: var(--secondary-brand-color);
@@ -12,13 +12,13 @@
 }
 
 .features-list__inner {
-  margin: 0 auto;
+  margin: var(--padding-v) auto;
   max-width: var(--page-width);
 }
 
 .features-list__header {
   margin: 0 auto;
-  max-width: var(--page-width);
+  max-width: 920px;
   padding: 0 var(--gutter);
   text-align: center;
 
@@ -62,7 +62,7 @@
   padding: 0 var(--gutter);
   padding: 0 12px;
   text-align: center;
-  width: 312px;
+  flex: 0 1 312px;
 
   @include tablet-portrait {
     padding: 0 var(--gutter-half);

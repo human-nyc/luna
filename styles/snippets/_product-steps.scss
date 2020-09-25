@@ -1,8 +1,8 @@
 @import '../responsive';
 
 .shopify-section-product-steps {
-  overflow: hidden;
-  background: var(--light-blue-color);
+  // overflow: hidden;
+  // background: var(--light-blue-color);
 }
 
 .product-steps {
@@ -10,22 +10,22 @@
 }
 
 .product-steps__inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  box-sizing: content-box;
+  display: grid;
+  grid-template: "image" auto "content" auto / auto;
+  row-gap: var(--padding-v);
   margin: 0 auto;
   max-width: var(--page-width);
+  padding: 0 var(--gutter);
 
   @include tablet-portrait {
-    align-items: flex-start;
-    flex-direction: row;
-    padding: var(--gutter-half);
+    grid-template: "image content" auto / 1fr 1fr;
   }
 }
 
 .product-steps__image {
   flex: 0 0 auto;
-  padding: 0 var(--gutter);
+  grid-area: image;
 
   .image-wrapper {
     padding-bottom: 120%;
@@ -42,25 +42,16 @@
   }
 
   @include tablet-portrait {
-    flex: 0 0 auto;
-    padding: 0 var(--gutter-half);
-    width: 50%;
+    flex: 0 0 50%;
   }
 }
 
 .product-steps__content {
-  padding: var(--padding-v-mobile) var(--gutter) 0;
+  align-self: center;
+  grid-area: content;
 
   @include tablet-portrait {
-    flex: 0 0 auto;
     padding: 0 var(--gutter);
-    width: 50%;
-  }
-
-  .product-steps_has_image & {
-    @include tablet-portrait {
-      padding-top: 15%;
-    }
   }
 }
 

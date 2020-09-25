@@ -164,14 +164,13 @@ $toggle-icon-size: 24px;
 
 .header__toggler {
   cursor: pointer;
+  display: inline-block;
   height: $toggle-icon-size + 10px;
-  width: $toggle-icon-size + 10px;
-  display: none;
   position: relative;
+  width: $toggle-icon-size + 10px;
 
-  @include small-viewport {
-    display: inline-block;
-    pointer-events: auto;
+  @include tablet-landscape {
+    display: none;
   }
 }
 
@@ -295,7 +294,7 @@ $toggle-icon-size: 24px;
   .child-links {
     margin: .5em 0;
 
-    @media (min-width: 768px) {
+    @include tablet-portrait {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }

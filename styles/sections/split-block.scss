@@ -1,6 +1,8 @@
 @import '../responsive';
 
 .split-block {
+  --gutter: 20px;
+
   &.split-block-background--blue,
   &.split-block_background_blue {
     background-color: var(--secondary-brand-color);
@@ -37,7 +39,8 @@
 
   .image-wrapper {
     background-color: var(--primary-brand-color);
-    margin: 0 0 0 auto;
+    // margin: 0 0 0 auto;
+    margin: 0 auto;
     padding-bottom: 100%;
     position: relative;
     width: 100%;
@@ -56,9 +59,9 @@
   }
 
   .split-block_image_left & {
-    .image-wrapper {
-      margin: 0 auto 0 0;
-    }
+    // .image-wrapper {
+    //   margin: 0 auto 0 0;
+    // }
 
     @include tablet-portrait {
       order: -1;
@@ -69,7 +72,7 @@
 .split-block__content {
   align-items: center;
   box-sizing: border-box;
-  margin: var(--padding-v-mobile) 0 0;
+  margin: var(--gutter) 0;
   padding: 0 var(--gutter);
   text-align: center;
 

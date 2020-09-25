@@ -1,3 +1,10 @@
+// :root {
+//   padding-bottom: 0 !important;
+// }
+// #preview-bar-iframe {
+//   display: none;
+// }
+
 @import '../variables';
 @import '../responsive';
 
@@ -166,7 +173,7 @@ label[for] {
 
   &.cta-button_dark {
     background-color: var(--primary-brand-color);
-    border: 2px solid var(--primary-brand-color);
+    border: 1px solid var(--primary-brand-color);
     color: var(--white-color);
 
     &:hover {
