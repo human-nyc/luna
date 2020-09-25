@@ -164,14 +164,13 @@ $toggle-icon-size: 24px;
 
 .header__toggler {
   cursor: pointer;
+  display: inline-block;
   height: $toggle-icon-size + 10px;
-  width: $toggle-icon-size + 10px;
-  display: none;
   position: relative;
+  width: $toggle-icon-size + 10px;
 
-  @include small-viewport {
-    display: inline-block;
-    pointer-events: auto;
+  @include tablet-landscape {
+    display: none;
   }
 }
 
