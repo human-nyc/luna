@@ -36,7 +36,7 @@
   padding: 0 var(--gutter);
 
   @include tablet-landscape {
-    // min-height: calc(100vh - var(--header-height) - 46px);
+    min-height: calc(100vh - var(--header-height) - var(--banner-height));
     grid-template:
       'title        title form' minmax(102px, auto)
       'info         image form' auto
@@ -47,7 +47,8 @@
 
   @include tablet-landscape {
     grid-template-columns: 7fr 11fr 7fr;
-    grid-template-columns: 336fr 672fr 312fr;
+    // grid-template-columns: 336fr 672fr 312fr;
+    grid-template-columns: 336px auto 312px;
   }
 }
 
@@ -58,7 +59,7 @@
   font-size: 36px;
   grid-area: title;
   line-height: 1.11;
-  margin: 1em 0 0;
+  margin: 1em auto 0;
   max-width: 453px;
   position: relative;
   text-align: center;
@@ -187,10 +188,10 @@
   grid-template: "quantity-selector price compare-at-price" auto / 1fr 1fr auto;
   justify-content: space-between;
 
-  @media (min-width: 992px) and (max-width: 1359px) {
-    grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
-    row-gap: 1em;
-  }
+  // @media (min-width: 992px) and (max-width: 1359px) {
+  //   grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
+  //   row-gap: 1em;
+  // }
 
   .quantity-selector-outer {
     grid-area: quantity-selector;
@@ -241,16 +242,20 @@
     }
   }
 
-  .price {
-    font-size: 27px;
+  .price,
+  .compare-at-price {
+    font-size: 24px;
     font-weight: 500;
+  }
+
+  .price {
     grid-area: price;
     text-align: center;
   }
 
   .compare-at-price {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 27px;
+    color: #1f1f1f4d;
+    font-size: 24px;
     font-weight: 500;
     grid-area: compare-at-price;
     text-align: right;
