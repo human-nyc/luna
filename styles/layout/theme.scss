@@ -16,6 +16,11 @@
 @import '../flickity';
 @import '../flickity-fade';
 
+@import '../policies';
+@import '../sections/faq-hero';
+@import '../sections/faq-sidebar';
+
+
 * {
   box-sizing: border-box; /* do not remove, override in components if needed */
 }

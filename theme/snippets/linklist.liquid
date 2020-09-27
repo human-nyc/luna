@@ -10,7 +10,7 @@
           v-cloak
           @click.prevent="toggleMiniCart"
         {% endif %}
-        class="parent-link {% if parent_link.active or parent_link.child_active %}active{% endif %}"
+        class="parent-link {% if parent_link.active %}active{% endif %} {% if parent_link.child_active %}child-active{% endif %}"
         href="{{parent_link.url}}"
         data-type="{{parent_link.type}}"
       >{{parent_link.title}}{% if parent_link.url == '/cart' %} ${getCartCount}{% endif %}</a>
@@ -19,7 +19,7 @@
           {%- for child_link in parent_link.links -%}
             <div class="child-link-wrapper">
               <a
-                class="child-link {% if child_link.active or child_link.child_active %}active{% endif %}"
+                class="child-link {% if child_link.active %}active{% endif %} {% if child_link.child_active %}child-active{% endif %}"
                 href="{{child_link.url}}"
                 data-levels={{child_link.levels}}
                 data-type="{{child_link.type}}"

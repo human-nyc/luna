@@ -14,3 +14,5 @@ import '../apps/ShopMore';
 /* End Vue Imports */
 
 // import '../sections/footer';
+
+import '../policies';

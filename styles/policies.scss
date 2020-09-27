@@ -1,0 +1,46 @@
+#refund-policy {
+
+  .shopify-policy__container {
+    box-sizing: content-box;
+    display: grid;
+    margin: var(--padding-v) auto;
+    max-width: var(--page-width);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+
+    @include tablet-portrait {
+      grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
+    }
+
+    @include tablet-landscape {
+      grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+    }
+  }
+
+  .shopify-policy__title {
+    grid-area: title;
+    text-align: left;
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: normal;
+      margin-top: 0;
+    }
+  }
+
+  .shopify-policy__body {
+    grid-area: body;
+  }
+
+  .shopify-section.faq-sidebar {
+    align-self: flex-start;
+    grid-area: sidebar;
+
+    @include tablet-portrait {
+      position: sticky;
+      top: var(--header-height);
+    }
+  }
+}
