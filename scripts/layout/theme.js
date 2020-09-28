@@ -16,3 +16,8 @@ import '../apps/ShopMore';
 // import '../sections/footer';
 
 import '../policies';
+
+
+addEventListener('load', () => {
+  document.documentElement.classList.remove('loading');
+});
