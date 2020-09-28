@@ -7,10 +7,10 @@ const ColorOptions = Vue.component('color-options', {
   template: `<div class="color-options">
     <button
       class="color-option"
+      :class="{'active': selectedColor === color}"
       type="button"
       v-for="color in colors"
       @click="selectColor(color)"
-      :class="{'active': selectedColor === color}"
       v-bind:data-color="color"
     ></button>
   </div>

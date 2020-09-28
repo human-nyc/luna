@@ -19,7 +19,7 @@
               <p class="section-header">{{block.settings.body}}</p>
               <img loading="lazy" class="product-image" src="{{product.featured_image | img_url: '200x200', scale: 2 }}" v-bind:src="imageUrl">
 
-               <form :class="['product-suggestion__cta', {'active': quickAddIsActive}]" method="post" action="/cart/add" enctype="multipart/form-data">
+               <form class="product-suggestion__cta" :class="{'active': quickAddIsActive}" method="post" action="/cart/add" enctype="multipart/form-data">
                 <input type="hidden" name="form_type" value="product">
                 <input type="hidden" name="utf8" value="✓">
                 <p v-if="selectedVariant">
@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
 
     </product-grid-item>

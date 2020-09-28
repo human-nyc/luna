@@ -1,6 +1,6 @@
 <div class="product__options" v-if="optionsWithValues.length > 1">
   <div v-bind="optionAttributes(option, optionIdx)" v-for="(option, optionIdx) in optionsWithValues">
-    <h4 :class="['option-name', option.name]" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
+    <h4 class="option-name option.name" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
 
     <div class="option-values">
       <p class="size info-copy" v-if="option.name == 'Size'">

@@ -1,7 +1,7 @@
 {% section 'product-hero' %}
 {% section 'swatches' %}
 
-<div id="size-popup" :class="['popup', { active: sizePopupIsOpen }]">
+<div id="size-popup" class="popup" :class="{ active: sizePopupIsOpen }">
   <div class="popup__background" @click="closeSizePopup"></div>
   <div class="popup__inner">
     <button id="popup__close-button" class="popup__close-button" @click="closeSizePopup">{% render 'svg-close' %}</button>
@@ -11,7 +11,7 @@
 
 {% section 'size-options' %}
 
-<div id="weight-popup" :class="['popup', { active: weightPopupIsOpen }]">
+<div id="weight-popup" class="popup" :class="{ active: weightPopupIsOpen }">
   <div class="popup__background" @click="closeWeightPopup"></div>
   <div class="popup__inner">
     <button id="popup__close-button" class="popup__close-button" @click="closeWeightPopup">{% render 'svg-close' %}</button>
