@@ -219,17 +219,29 @@ $toggle-icon-size: 24px;
 
 .header__dropdown {
   background-color: var(--white-color);
-  display: none;
+  color: var(--primary-brand-color);
   padding: 40px 0;
+  pointer-events: none;
   position: absolute;
   top: 100%;
   width: 100%;
+  transition-property: box-shadow, opacity, transform;
+  transition-duration: var(--slow);
+
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(-20px);
 
   &.active,
   .header_products_open & {
-    display: block;
-    animation: fadeDown var(--fast);
+    // animation: fadeDown var(--fast);
+
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+
+    transition-duration: var(--fast);
   }
 }
 
@@ -260,6 +272,8 @@ $toggle-icon-size: 24px;
   }
   .dropdown-text {
     color: inherit;
+    font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
   }
 

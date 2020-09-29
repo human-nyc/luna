@@ -18,6 +18,9 @@ import '../sections/footer';
 import '../policies';
 
 
-addEventListener('load', () => {
+addEventListener('load', fadeInContent);
+setTimeout(fadeInContent, 3000);
+
+function fadeInContent() {
   document.documentElement.classList.remove('loading');
-});
+}
