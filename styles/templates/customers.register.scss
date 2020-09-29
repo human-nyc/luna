@@ -1,9 +1,18 @@
+@import './customers';
+
 .create-customer.form {
   display: grid;
+  column-gap: var(--gutter);
   grid-template-columns: 1fr;
-  margin: 6em auto;
+  margin: 2em auto 6em;
   max-width: 500px;
   padding: 0 var(--gutter);
-  column-gap: var(--gutter);
-  row-gap: 1em;
+
+  input[name='customer[first_name]'] {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+    :root.color-scheme--dark & {
+      border-top-color: rgba(255, 255, 255, 0.3);
+    }
+  }
 }

@@ -15,7 +15,7 @@ function renderPage() {
   console.log('renderPage');
   const loginPageEl = document.querySelector('.login-page');
 
-  if(window.location.hash === '#recover') {
+  if (window.location.hash === '#recover') {
     loginPageEl.setAttribute('data-mode', 'recover');
   } else {
     loginPageEl.setAttribute('data-mode', 'login');

@@ -1,15 +1,17 @@
-{% form 'activate_customer_password' %}
-  {{ form.errors | default_errors }}
+<div class="activate-account customers">
+  {% form 'activate_customer_password' %}
+    {{ form.errors | default_errors }}
 
-    <label for="password">Password</label>
-    <input type="password" name="customer[password]" />
+      <label for="password">Password</label>
+      <input type="password" name="customer[password]" placeholder="Password" />
 
-    <label for="password_confirmation">Password Confirmation</label>
-    <input type="password" name="customer[password_confirmation]" />
+      <label for="password_confirmation">Password Confirmation</label>
+      <input type="password" name="customer[password_confirmation]" placeholder="Confirm Password" />
 
-    <input type="submit" value="Activate Account" />
-    <span> or </span>
-    <input type="submit" name="decline" value="Decline Invitation" />
-  </div>
+      <input type="submit" value="Activate Account" />
+      <span> or </span>
+      <input type="submit" name="decline" value="Decline Invitation" />
+    </div>
 
-{% endform %}
+  {% endform %}
+</div>

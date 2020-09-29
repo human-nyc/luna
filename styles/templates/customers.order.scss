@@ -1,0 +1,33 @@
+@import './customers';
+
+.order-page {
+  margin: 0 auto var(--header-height);
+  padding: 0 var(--gutter);
+
+  h1 {
+    margin-bottom: 0.25em;
+
+    & + a {
+      text-decoration: underline;
+    }
+  }
+
+  &__top {
+    grid-area: top;
+    text-align: center;
+  }
+
+  &__info {
+    text-align: center;
+  }
+
+  &__table-wrapper {
+    tfoot {
+      border-top: 1px solid var(--primary-brand-color);
+
+      :root.color-scheme--dark & {
+        border-top-color: var(--white-color);
+      }
+    }
+  }
+}

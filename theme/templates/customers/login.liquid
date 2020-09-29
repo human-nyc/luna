@@ -1,4 +1,4 @@
-<div class="login-page">
+<div class="customers login-page">
   {% form 'recover_customer_password' %}
     {% if form.posted_successfully? %}
       <p class="status success">We've sent you an email with a link to update your password.</p>
@@ -14,17 +14,17 @@
     <h1>Login</h1>
 
     <label for="email">Email Address</label>
-    <input id="email" type="email" name="customer[email]" />
+    <input id="email" type="email" name="customer[email]" placeholder="Email" />
 
     <label for="password">Password</label>
-    <input id="password" type="password" name="customer[password]" />
+    <input id="password" type="password" name="customer[password]" placeholder="Password" />
 
     <div class="bottom">
       <a href="#recover">Forgot your password?</a>
-      <button class="cta-button cta-button_dark centered" type="submit" value="Sign In">Log In</button>
+      <input type="submit" value="Log In" />
+    </div>
 
     <p>Don't have an account? <a href="/account/register">Register</a>.</p>
-    </div>
 
     {% endform %}
 
@@ -39,9 +39,9 @@
 
 
     <label for="recover-customer-password--email">Email Address</label>
-    <input id="recover-customer-password--email" type="email" name="email" />
+    <input id="recover-customer-password--email" type="email" name="email" placeholder="Email" />
 
-    <input class="cta-button cta-button_dark centered" type="submit" value="Submit" />
+    <input type="submit" value="Submit" />
     <a href="/customer/login" id="customer_cancel_recover_customer_password">Cancel</a>
   {% endform %}
 </div>

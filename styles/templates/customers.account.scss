@@ -1,9 +1,26 @@
+@import './customers';
+
 .account-page {
-  display: grid;
-  grid-template: "top top" auto "order-history account-details" auto / 2fr 1fr;
   margin: 0 auto var(--header-height);
-  max-width: 1280px;
   padding: 0 var(--gutter);
+
+  @include tablet-portrait {
+    display: grid;
+    gap: var(--gutter);
+    grid-template:
+      'top top' auto
+      'order-history account-details' auto
+      / 2fr 1fr;
+    max-width: 1280px;
+  }
+
+  h1 {
+    margin-bottom: 0.25em;
+
+    & + a {
+      text-decoration: underline;
+    }
+  }
 }
 
 .account-page__top {
