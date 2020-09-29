@@ -3,13 +3,13 @@
 @import '../snippets/email-form';
 
 .footer {
-  background-color: var(--primary-brand-color);
-  color: var(--secondary-brand-color);
+  background-color: var(--secondary-brand-color);
+  color: var(--primary-brand-color);
   overflow: hidden;
 
   :root.color-scheme--dark & {
-    background-color: var(--white-color);
-    color: var(--primary-brand-color);
+    background-color: var(--primary-brand-color);
+    color: var(--secondary-brand-color);
   }
 
   a {
@@ -77,7 +77,7 @@
 .footer__main {
   padding: 0 var(--gutter);
   font-size: 14px;
-  
+
   @include tablet-portrait {
     font-size: 16px;
   }
