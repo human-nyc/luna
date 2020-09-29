@@ -55,6 +55,8 @@
       {% endif %}
     </a>
 
+    {% render 'yotpo-star-rating', product: product %}
+
     <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
 
     <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
