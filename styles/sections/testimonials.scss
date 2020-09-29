@@ -34,10 +34,6 @@
   transition: opacity var(--slow);
   width: calc(100vw - var(--gutter)*2);
 
-  // @include tablet-portrait {
-  //   padding: 0 12px;
-  // }
-
   @include tablet-landscape {
     padding: 0 24px;
     width: 424px;
@@ -133,12 +129,23 @@
 
   .cta-button {
     background: var(--primary-brand-color);
+    border: 1px solid var(--primary-brand-color);
     color: var(--offwhite-color);
+
+    &:hover {
+      background: transparent;
+      color: var(--primary-brand-color);
+    }
 
     :root.color-scheme--dark & {
       background: transparent;
       border: 1px solid;
       color: var(--primary-brand-color);
+
+      &:hover {
+        color: var(--offwhite-color);
+        background: var(--primary-brand-color);
+      }
     }
 
     :root.color-scheme--dark .testimonials-background--blue & {
