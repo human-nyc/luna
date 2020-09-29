@@ -13,4 +13,11 @@ import '../apps/ShopMore';
 // import '../apps/MiniProduct';
 /* End Vue Imports */
 
-// import '../sections/footer';
+import '../sections/footer';
+
+import '../policies';
+
+
+addEventListener('load', () => {
+  document.documentElement.classList.remove('loading');
+});

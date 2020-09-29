@@ -1,0 +1,67 @@
+{% assign linklist = linklists[section.settings.menu] %}
+
+{% if section.settings.should_show_menu_title %}
+  <h4>{{linklist.title}}</h4>
+{% endif %}
+
+{% render 'linklist' linklist: linklist, class: "faq__navigation" %}
+
+{% schema %}
+  {
+    "name": "FAQ Sidebar",
+    "class": "faq-sidebar",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "footer",
+        "label": "Faq  menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "should_show_menu_title",
+        "default": true,
+        "label": "Show menu title"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Category",
+        "type": "category",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "identifier",
+            "label": "Category ID (exact match)"
+          }
+        ]
+      },
+      {
+        "name": "Question",
+        "type": "question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body"
+          },
+          {
+            "type": "text",
+            "id": "category_id",
+            "label": "Category ID (exact match)"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

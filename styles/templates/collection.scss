@@ -13,6 +13,12 @@ body {
 .collection__top {
   margin: var(--padding-v) 0;
   text-align: center;
+  transition: opacity var(--slow), transform var(--slow);
+
+  :root.loading & {
+    opacity: 0;
+    transform: translateY(1em);
+  }
 }
 
 .collection__title {

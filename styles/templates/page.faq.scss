@@ -1,47 +1,71 @@
 @import '../responsive';
 @import '../snippets/page-hero';
-@import '../sections/faq';
+@import '../sections/faq-hero';
+@import '../sections/faq-sidebar';
 
-.page-hero.page-hero_faq {
-  background-color: var(--secondary-brand-color);
-}
 
-.page-hero_faq {
-  ul {
-    margin: 40px auto 0;
-    padding: 0 var(--gutter);
-    max-width: 400px;
+.page__container {
+  box-sizing: content-box;
+  display: grid;
+  margin: var(--padding-v) auto;
+  max-width: var(--page-width);
+  padding: 0 var(--gutter);
+
+  grid-template: "sidebar" auto "title" auto "body" auto / auto;
+
+  @include tablet-portrait {
+    grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
   }
 
-  li {
-    list-style: none;
-    padding: 0;
+  @include tablet-landscape {
+    grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+  }
 
-    > a {
-      border-top: 1px solid darken(#dae8f0, 15);
-      color: var(--primary-brand-color);
-      display: block;
-      font-size: var(--font-size-p-lg);
-      font-weight: 500;
-      padding: .6em 0;
-      position: relative;
-      text-align: left;
-      text-decoration: none;
+}
 
-      &:after {
-        content: '';
-        display: block;
-        height: 16px;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        width: 10px;
-        position: absolute;
-      }
+.page__title {
+  font-family: var(--font-serif);
+  font-size: 2em;
+  font-weight: normal;
+  grid-area: title;
+  margin-top: 0;
+
+  @include tablet-portrait {
+    font-size: 52px;
+  }
+}
+
+.page__body {
+  grid-area: body;
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+
+    @include tablet-portrait {
+      font-size: 40px;
     }
+  }
 
-    &:last-child > a {
-      border-bottom: 1px solid darken(#dae8f0, 15);
-    }
+  hr {
+    margin: 2em 0;
+  }
+
+  hr + h2 {
+    margin-top: 0;
+  }
+}
+
+.shopify-section.faq-sidebar {
+  align-self: flex-start;
+  grid-area: sidebar;
+
+  @include tablet-portrait {
+    position: sticky;
+    top: var(--header-height);
   }
 }

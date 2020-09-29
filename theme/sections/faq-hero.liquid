@@ -1,0 +1,28 @@
+{% assign linklist = linklists[section.settings.menu] %}
+
+<h1 class="faq-hero__title title">{{linklist.title}}</h2>
+
+<div class="faq-hero__description">{{section.settings.description}}</div>
+
+{% render 'linklist' linklist: linklist, class: "faq-hero__linklist" %}
+
+{% schema %}
+  {
+    "name": "FAQ Hero",
+    "class": "faq-hero",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "description",
+        "default": "<p>If you don’t see what you’re looking for, reach out below.</p>",
+        "label": "description"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "FAQ Hero Menu"
+      }
+    ]
+  }
+{% endschema %}

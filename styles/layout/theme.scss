@@ -16,6 +16,11 @@
 @import '../flickity';
 @import '../flickity-fade';
 
+@import '../policies';
+@import '../sections/faq-hero';
+@import '../sections/faq-sidebar';
+
+
 * {
   box-sizing: border-box; /* do not remove, override in components if needed */
 }
@@ -276,7 +281,7 @@ label[for] {
 }
 
 .header-underline {
-  background-color: var(--primary-brand-color);
+  background-color: currentColor;
   height: 2px;
   margin: 20px auto;
   width: 85px;

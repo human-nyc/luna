@@ -1,14 +1,13 @@
-<div class="page-hero page-hero_faq">
-  <div class="page-hero__content">
-    <h1 class="page-hero__title">{{ page.title }}</h1>
-    <div class="page-hero__body">{{ page.content }}</div>
-  </div>
+{% section 'faq-hero' %}
+
+<div class="page__container">
+  <h1 class="page__title">{{ page.title }}</h1>
+  <div class="page__body">{{ page.content }}</div>
+  {% section 'faq-sidebar' %}
 </div>
 
 <style>
-  .page-hero_faq li > a::after {
+  .parent-link-wrapper > a:after {
     background-image: url({{ 'icon_arrow.svg' | asset_url | image_tag }});
   }
 </style>
-
-{% section 'faq' %}

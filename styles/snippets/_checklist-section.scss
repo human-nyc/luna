@@ -20,7 +20,7 @@
 
   @include tablet-portrait {
     flex-direction: row;
-    padding: var(--gutter);
+    padding: 0 var(--gutter);
   }
 }
 
@@ -67,6 +67,7 @@
 
   li {
     font-size: var(--font-size-p-lg);
+    font-weight: 500;
     line-height: 1.6;
     list-style: none;
     padding: .6em 0 .6em 1.5em;

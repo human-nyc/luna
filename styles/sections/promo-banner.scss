@@ -9,11 +9,6 @@
   padding: 0 var(--gutter);
   text-align: center;
 
-
-  @include tablet-landscape {
-    font-size: 14px;
-  }
-
   :root.color-scheme--dark & {
     background-color: var(--offwhite-color);
     color: var(--primary-brand-color);

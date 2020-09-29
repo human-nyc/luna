@@ -78,7 +78,7 @@
     {% endif %}
     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
-    <form :class="['quick-add', {'active': quickAddIsActive}]" method="post" action="/cart/add" enctype="multipart/form-data">
+    <form class="quick-add" :class="{'active': quickAddIsActive}" method="post" action="/cart/add" enctype="multipart/form-data">
       <div class="quick-add__top">
         <button class="close" @click.prevent="deactivateQuickAdd">{% render 'svg-close' %}</button>
       </div>
