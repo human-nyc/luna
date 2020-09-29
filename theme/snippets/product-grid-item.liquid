@@ -6,9 +6,17 @@
   {% assign product_url = product.url %}
 {% endif %}
 
+{% if layout == 'square' %}
+  {% assign image_size_mobile = '160x160' %}
+  {% assign image_size = '500x500' %}
+{% else %}
+  {% assign image_size_mobile = '160x96' %}
+  {% assign image_size = '648x388' %}
+{% endif %}
+
 <product-grid-item
   inline-template
-  class="product-grid-item"
+  class="product-grid-item{% if layout == 'square' %} square{% endif %}"
   current-variant-json='{{ current_variant | json | escape }}'
   options-with-values-json='{{ product.options_with_values | json }}'
   product-json='{{ product | json }}'
@@ -17,11 +25,11 @@
     <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
       <picture>
         <source
-          srcset="{{ product.featured_image.src | img_url: '160x96', crop: 'center', scale: 2 }}"
+          srcset="{{ product.featured_image.src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
           media="(max-width: 767px)"
         >
         <source
-          srcset="{{ product.featured_image.src | img_url: '648x388', crop: 'center', scale: 2 }}"
+          srcset="{{ product.featured_image.src | img_url: image_size, crop: 'center', scale: 2 }}"
           media="(min-width: 768px)"
         >
         <img loading="lazy" class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
@@ -30,11 +38,11 @@
       {% if hover_images.size > 0 %}
         <picture>
           <source
-            srcset="{{ hover_images[0].src | img_url: '160x96', crop: 'center', scale: 2 }}"
+            srcset="{{ hover_images[0].src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
             media="(max-width: 767px)"
           >
           <source
-            srcset="{{ hover_images[0].src | img_url: '648x388', crop: 'center', scale: 2 }}"
+            srcset="{{ hover_images[0].src | img_url: image_size, crop: 'center', scale: 2 }}"
             media="(min-width: 768px)"
           >
 

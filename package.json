@@ -48,5 +48,8 @@
       "extensions": "scss",
       "quiet": false
     }
+  },
+  "dependencies": {
+    "flickity-imagesloaded": "^2.0.0"
   }
 }
