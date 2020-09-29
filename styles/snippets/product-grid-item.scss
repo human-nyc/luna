@@ -17,7 +17,7 @@
     font-weight: 500;
     line-height: 1.6;
     line-height: 1.4;
-    letter-spacing: .12em;
+    letter-spacing: 0.12em;
 
     overflow: hidden;
     pointer-events: none;
@@ -44,6 +44,53 @@
       transform: translate(50%, -50%) rotate(45deg) translateY(6.4em);
       word-spacing: 1em;
       z-index: 1;
+    }
+  }
+
+  .yotpo.bottomLine {
+    .yotpo-display-wrapper {
+      font-size: 10px;
+      margin: 1em 0 0;
+      text-align: center;
+
+      .yotpo-stars {
+        margin-right: 0.5em;
+
+        .yotpo-icon {
+          line-height: 0.85;
+          margin-right: 0.1em;
+
+          &::before {
+            font-size: 14px;
+          }
+        }
+      }
+      a {
+        font-family: var(--font-serif);
+        letter-spacing: -0.02em;
+      }
+      .yotpo-regular-box,
+      .sentence-container {
+        padding: 0;
+        margin: 0;
+      }
+      .shoppers-say-title,
+      .review-stars,
+      .display-name,
+      .icon-holder {
+        display: none;
+      }
+      .single-sentence-text-content {
+        margin: 0;
+
+        .sentence {
+          font-family: var(--font-serif);
+          font-size: 16px;
+          font-style: normal !important;
+          line-height: 1.63;
+          padding-right: 1em;
+        }
+      }
     }
   }
 }
@@ -90,7 +137,6 @@
     display: none;
   }
 
-
   .product-grid-item__featured-image:hover & {
     @media (hover: hover) {
       opacity: 1;
@@ -103,12 +149,12 @@
   color: inherit;
   flex-grow: 1;
   font: 500 12px/1.4 var(--font-sans-serif);
-  margin: 1em 2em 0;
+  margin: 0.5em 2em 0;
   text-decoration: none;
 
   @include tablet-portrait {
     font-size: 20px;
-    margin: 1em 0 0;
+    // margin: 1em 0 0;
   }
 
   &:hover {
