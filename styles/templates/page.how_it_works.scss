@@ -4,3 +4,17 @@
 @import '../sections/research';
 @import '../snippets/product-steps';
 @import '../sections/collection-list';
+
+.shopify-section-product-steps {
+  background-color: var(--secondary-brand-color);
+  overflow: hidden;
+
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: white;
+  }
+}
+
+.product-steps__inner {
+  display: block;
+}
