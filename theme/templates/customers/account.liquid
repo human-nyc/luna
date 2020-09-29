@@ -26,7 +26,7 @@
                 <th data-label="order_number" scope="row">
                   <a href="{{ order.customer_url }}" class="button" aria-label="order_number_link">{{ order.name }}</a>
                 </th>
-                <td data-label="date">{{ order.created_at | time_tag: format: 'date' }}</td>
+                <td data-label="date">{{ order.created_at | time_tag: '%b %d, %Y' }}</td>
                 <td data-label="payment_status">{{ order.financial_status_label }}</td>
                 <td data-label="fulfillment_status">{{ order.fulfillment_status_label }}</td>
                 <td data-label="total">{{ order.total_price | money }}</td>

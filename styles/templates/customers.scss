@@ -1,6 +1,16 @@
 @import '../responsive';
 
+:root.color-scheme--dark body {
+  background-color: var(--primary-brand-color);
+  color: var(--white-color);
+}
+
 .customers {
+  :root.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--white-color);
+  }
+
   h1 {
     font-family: var(--font-serif);
     font-size: 36px;
@@ -13,7 +23,7 @@
     }
   }
 
-  input:not([type='submit']) {
+  input:not([type='submit']):not([type='checkbox']) {
     appearance: none;
     background-color: transparent;
     border: 0;
@@ -28,15 +38,29 @@
     padding: 0.75em 0;
     width: 100%;
 
+    :root.color-scheme--dark & {
+      color: var(--white-color);
+      border-bottom-color: rgba(255, 255, 255, 0.3);
+    }
+
     &:focus {
       border-bottom-color: var(--primary-brand-color);
+
+      :root.color-scheme--dark & {
+        border-bottom-color: var(--white-color);
+      }
     }
 
     &::placeholder {
       color: var(--primary-brand-color);
+
+      :root.color-scheme--dark & {
+        color: var(--white-color);
+      }
     }
   }
 
+  button[type='button'],
   button[type='submit'],
   input[type='submit'] {
     appearance: none;
@@ -60,9 +84,98 @@
       padding: 1em 2.5em;
       width: auto;
     }
+
+    :root.color-scheme--dark & {
+      background-color: var(--white-color);
+      color: var(--primary-brand-color);
+    }
   }
 
   label {
     display: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  thead {
+    text-transform: capitalize;
+  }
+
+  thead th,
+  td:not(:first-child) {
+    text-align: center;
+  }
+
+  td,
+  th {
+    border-bottom: 1px solid var(--primary-brand-color);
+    font-size: var(--font-size-p);
+    line-height: 1.5;
+    padding: 16px 6px;
+
+    :root.color-scheme--dark & {
+      border-bottom-color: var(--white-color);
+    }
+
+    @include small-viewport {
+      font-size: 14px;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  th {
+    font-weight: bold;
+
+    @include small-viewport {
+      font-size: var(--font-size-p);
+    }
+  }
+
+  td:nth-child(2),
+  th:nth-child(2) {
+    background-color: var(--primary-brand-color);
+    border-bottom: 1px solid var(--white-color);
+    color: var(--white-color);
+    width: 180px;
+
+    :root.color-scheme--dark & {
+      background-color: var(--white-color);
+      border-bottom-color: var(--primary-brand-color);
+      color: var(--primary-brand-color);
+    }
+
+    @include small-viewport {
+      font-size: var(--font-size-p);
+    }
+  }
+
+  td:nth-child(2) {
+    font-weight: 500;
+    line-height: 1.2;
+
+    @include small-viewport {
+      font-size: var(--font-size-p);
+    }
+  }
+
+  td:nth-child(1),
+  th:nth-child(1) {
+    font-weight: 500;
+    width: 130px;
+
+    @include small-viewport {
+      font-size: 12px;
+    }
+  }
+
+  td:nth-child(4),
+  th:nth-child(4) {
+    width: 160px;
   }
 }

@@ -20,7 +20,6 @@
 @import '../sections/faq-hero';
 @import '../sections/faq-sidebar';
 
-
 * {
   box-sizing: border-box; /* do not remove, override in components if needed */
 }
@@ -36,7 +35,11 @@ body {
   grid-template-rows: auto auto 1fr auto;
 }
 
-body, input, textarea, select, button {
+body,
+input,
+textarea,
+select,
+button {
   font-synthesis: none;
   -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
@@ -109,7 +112,6 @@ a {
 label[for] {
   cursor: pointer;
 }
-
 
 .btn {
   appearance: none;
@@ -319,7 +321,7 @@ overrides
   }
 
   &:disabled {
-    opacity: 0.40;
+    opacity: 0.4;
     pointer-events: none;
   }
 }
@@ -330,4 +332,5 @@ overrides
   }
 }
 
-.shopify-challenge__message {}
+.shopify-challenge__message {
+}
