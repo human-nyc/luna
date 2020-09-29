@@ -1,13 +1,13 @@
-<div class="header" :class="{'header_scrolled': isScrolled, 'header_open': mobileMenuIsOpen, 'header_light_content': lightContent }" id="headerComponent" @mouseleave="toggleActiveChildLinks({activeChildLinksIndex: -1})">
+<div class="header" :class="{'header_scrolled': isScrolled, 'header_open': mobileMenuIsActive, 'header_light_content': lightContent }" id="headerComponent" @mouseleave="toggleActiveChildLinks({activeChildLinksIndex: -1})">
 
-  <div class="header__dropdown header__dropdown--mobile" :class="{ active: mobileMenuIsOpen }" v-cloak>
+  <div class="header__dropdown header__dropdown--mobile" :class="{ active: mobileMenuIsActive }" v-cloak>
     {% render 'linklist', linklist: linklists[section.settings.main_nav_mobile], class: 'header__dropdown-inner' v_cloak: true %}
     {% render 'customer-links' %}
   </div>
 
   {% for parent_link in linklists[section.settings.main_nav_left].links %}
     {% if parent_link.links.size > 0 %}
-      <div class="header__dropdown" :class="{ active: activeChildLinksIndex == {{forloop.index0}} }">
+      <div class="header__dropdown header__dropdown--desktop" :class="{ active: activeChildLinksIndex == {{forloop.index0}} }">
         <div class="header__dropdown-inner">
           {% for child_link in parent_link.links %}
             {% case child_link.type %}
@@ -47,13 +47,13 @@
         {% endfor %}
 
 
-        <div class="header__toggler" @click="toggleMobileMenu">
-          <div class="toggle-icon">
+        <button class="header__toggler menu-button" @click="toggleMobileMenu">
+          <div class="menu-button__icon">
             <div class="toggle-icon_bar-one"></div>
             <div class="toggle-icon_bar-two"></div>
             <div class="toggle-icon_bar-three"></div>
           </div>
-        </div>
+        </button>
       </div>
       <div class="header__center" v-cloak>
         <div class="header__logo">
