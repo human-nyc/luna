@@ -17,7 +17,7 @@
 
       {% for collection_product in shop_more_collection.products limit: 5 %}
         {% unless collection_product.handle == product.handle %}
-          {% render 'product-grid-item' product: collection_product, collection: collection %}
+          {% render 'product-grid-item' product: collection_product, collection: collection, layout: 'square' %}
           {% assign iterator = iterator | plus: 1 %}
         {% endunless %}
 
