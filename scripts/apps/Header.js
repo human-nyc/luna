@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Header",
       data: {
         message: 'Hello Vue!',
-        mobileMenuIsOpen: false,
+        mobileMenuIsActive: false,
         isScrolled: false,
         activeChildLinksIndex: -1,
         lightContent: false,
@@ -43,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleActiveChildLinks({ activeChildLinksIndex }) {
           this.activeChildLinksIndex = activeChildLinksIndex
         },
-        toggleMobileMenu: function () {
-          this.mobileMenuIsOpen = !this.mobileMenuIsOpen;
+        toggleMobileMenu() {
+          this.mobileMenuIsActive = !this.mobileMenuIsActive;
+          document.documentElement.classList.toggle('mobile-menu--active', this.mobileMenuIsActive);
         },
       },
     });

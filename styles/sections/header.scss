@@ -162,19 +162,28 @@
 
 $toggle-icon-size: 24px;
 
-.header__toggler {
+.menu-button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
   cursor: pointer;
   display: inline-block;
   height: $toggle-icon-size + 10px;
+  padding: 0;
   position: relative;
   width: $toggle-icon-size + 10px;
+
+  &:focus {
+    outline: none;
+  }
 
   @include tablet-landscape {
     display: none;
   }
 }
 
-.toggle-icon {
+.menu-button__icon {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -187,8 +196,8 @@ $toggle-icon-size: 24px;
     top: $toggle-icon-size / -2 + 5px;
     height: 2px;
     width: $toggle-icon-size;
-    background-color: var(--font-color);
-    transition: 0.18s ease-in-out;
+    background-color: currentColor;
+    transition: var(--fast) ease;
   }
 
   .toggle-icon_bar-two {
@@ -220,16 +229,17 @@ $toggle-icon-size: 24px;
 .header__dropdown {
   background-color: var(--white-color);
   color: var(--primary-brand-color);
+  opacity: 0;
   padding: 40px 0;
   pointer-events: none;
   position: absolute;
   top: 100%;
   width: 100%;
   transition-property: box-shadow, opacity, transform;
-  transition-duration: var(--slow);
+  transition-duration: var(--fast);
 
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
-  opacity: 0;
+  // opacity: 0;
   transform: translateY(-20px);
 
   &.active,
@@ -244,6 +254,19 @@ $toggle-icon-size: 24px;
     transition-duration: var(--fast);
   }
 }
+
+.header__dropdown--mobile {
+  @include tablet-landscape {
+    display: none;
+  }
+}
+
+.header__dropdown--desktop {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
 
 .header__dropdown-inner {
   display: flex;
@@ -319,5 +342,16 @@ $toggle-icon-size: 24px;
     display: block;
     margin: .5em 0;
     text-decoration: none;
+  }
+}
+
+.main {
+  transition-property: filter, transform;
+  transition-duration: var(--fast);
+  transform-origin: top center;
+
+  :root.mobile-menu--active  & {
+    filter: blur(10px) grayscale(1);
+    // transform: perspective(20px) translateZ(-20px);
   }
 }
