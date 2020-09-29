@@ -3,7 +3,7 @@
   <h3 class="section-subheader">{{ section.settings.body }}</h3>
 
   <div class="subscribe-callout__form">
-    {% include 'email-form' %}
+    {{ section.settings.klaviyo_embed_code }}
   </div>
 </div>
 
@@ -19,10 +19,15 @@
         "default": "Don't sleep on this."
       },
       {
-        "type": "textarea",
+        "type": "richtext",
         "id": "body",
         "label": "Body",
-        "default": "Sign up and save 5% plus additional updates, giveaways and so much more."
+        "default": "<p>Sign up and save 5% plus additional updates, giveaways and so much more.</p>"
+      },
+      {
+        "type": "textarea",
+        "id": "klaviyo_embed_code",
+        "label": "Klaviyo Embed Code"
       }
     ]
   }
