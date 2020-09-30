@@ -3,11 +3,16 @@
 <head>
   <title>{{ page_title }}</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  {{ content_for_header }} <!-- Header hook for plugins -->
+
+
+
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {%- endif -%}
 
   <!-- STYLE TAGS -->
   {{ 'theme.css' | asset_url | stylesheet_tag }}
@@ -43,6 +48,8 @@
 
   <!-- Klaviyo -->
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=M3ym2A"></script>
+
+  {{ content_for_header }}
 </head>
 <body id="{{ page_title | handle }}" data-template="{{template}}" data-template-directory="{{template.directory}}" data-template-name="{{template.name}}" data-template-suffix="{{template.suffix}}">
   <!-- Google Tag Manager (noscript) -->
