@@ -67,10 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
           return optionOfType ? optionOfType.value : '';
         },
 
-        async handleQtyClick(line, quantity) {
+        async handleQtyClick(line, quantity, isPlus = false) {
           const itemData = { line, quantity };
+          const oldQty = isPlus ? quantity - 1 : null;
 
           await this.changeCartItem(itemData);
+
+          const item = this.cartItems[line - 1];
+
+          if (oldQty === item.quantity) alert(`You have the last of ${item.product_title} in ${item.variant_title.replaceAll(' /', ',')} in your cart.`);
         },
       },
       filters: {

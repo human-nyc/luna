@@ -26,6 +26,7 @@
     "flickity": "^2.2.1",
     "flickity-as-nav-for": "^2.0.1",
     "flickity-fade": "^1.0.0",
+    "flickity-imagesloaded": "^2.0.0",
     "npm-watch": "^0.6.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^3.0.0",
@@ -49,7 +50,5 @@
       "quiet": false
     }
   },
-  "dependencies": {
-    "flickity-imagesloaded": "^2.0.0"
-  }
+  "dependencies": {}
 }
