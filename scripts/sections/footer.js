@@ -12,13 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const lightSwitchButtonEl = document.querySelector('#shopify-section-footer #light-switch-toggle');
+  const soundOn = document.querySelector('#light-switch-sound-on');
+  const soundOff = document.querySelector('#light-switch-sound-off');
 
   lightSwitchButtonEl.addEventListener('click', () => {
     colorSchemeIsDark = !colorSchemeIsDark;
-
     document.documentElement.classList.toggle('color-scheme--dark', colorSchemeIsDark);
-
     sessionStorage.colorSchemeIsDark = colorSchemeIsDark;
+    const sound = colorSchemeIsDark ? soundOff : soundOn;
+    sound.play();
   });
 });
 
@@ -33,3 +35,4 @@ function darkModeTest({matches}) {
     document.documentElement.classList.remove('color-scheme--dark');
   }
 }
+
