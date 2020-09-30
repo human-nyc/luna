@@ -29,11 +29,12 @@
 }
 
 .press {
-  margin: var(--padding-v) auto;
+  margin: 60px auto;
   max-width: 758px;
 }
 
 .press__header {
+  padding: 0 calc(var(--gutter) * 2);
   text-align: center;
 
   h2 {
@@ -47,7 +48,7 @@
 .press__logos {
   align-items: center;
   justify-content: center;
-  padding: var(--padding-v) 0;
+  padding: calc(var(--gutter) * 3) 0;
 }
 
 .press-logo {
@@ -77,43 +78,25 @@
   blockquote {
     box-sizing: border-box;
     display: block;
-    // display: none;
     font-family: var(--font-serif);
     font-size: 36px;
     font-style: italic;
     margin: 1em 0;
-    padding: 0 var(--gutter);
     text-align: center;
-    width: 320px;
+    width: 355px;
     margin: 0;
     
-    // position: absolute;
-    // left: 0;
-    // right: 0;
-    // top: 0;
-    
     @include tablet-portrait {
-      width: 768px;
       font-size: 40px;
+      padding: 0 var(--gutter);
+      width: 768px;
     }
 
     &::before {
       content: open-quote;
     }
-
     &::after {
       content: close-quote;
     }
-
-    // &.active {
-    //   animation: pressFadeIn var(--slow);
-    //   display: block;
-    // }
-
-    // &.inactive {
-    //   display: block;
-    //   opacity: 0;
-    //   transition: var(--fast);
-    // }
   }
 }

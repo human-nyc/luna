@@ -10,10 +10,14 @@
   background-color: var(--offwhite-color);
 
   .page-hero__content {
-    width: 1180px;
+    max-width: 1180px;
   } 
   .page-hero__body {
-    background-color: #dae8f0;
+    
+    @include tablet-portrait {
+      background-color: #dae8f0;
+      padding: var(--gutter);
+    }
   }
   .yotpo-label {
     display: none;
