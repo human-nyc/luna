@@ -193,7 +193,7 @@
   pointer-events: none;
   position: fixed;
   right: 0;
-  top: calc(var(--header-height) + 1em);
+  top: calc(var(--header-height) - 2px);
   transform: translateY(100%);
 
   transition: filter var(--slow), transform var(--slow), opacity var(--slow);
@@ -204,6 +204,10 @@
     min-height: 100%;
     position: absolute;
     top: 0;
+  }
+
+  @include desktop-xl {
+    padding: 0 calc(var(--gutter) * 0.75);
   }
 
   &.active {
@@ -219,6 +223,17 @@
   }
 }
 
+@include small-viewport {
+  :root.quick-add-active {
+    height: 100vh;
+    overflow: hidden;
+
+    .promo-banner {
+      display: none;
+    }
+  }
+}
+
 .quick-add__top {
   text-align: right;
 
@@ -230,6 +245,10 @@
     font: inherit;
     margin: var(--gutter) 0 0;
     padding: 0;
+
+    @include tablet-portrait {
+      margin: 24px 0 0;
+    }
 
     &:focus {
       outline: none;

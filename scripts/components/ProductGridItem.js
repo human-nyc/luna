@@ -56,6 +56,7 @@ Vue.component('product-grid-item', {
     },
 
     activateQuickAdd() {
+      document.documentElement.classList.add('quick-add-active');
       this.quickAddIsActive = true;
     },
 
@@ -64,6 +65,7 @@ Vue.component('product-grid-item', {
     },
 
     deactivateQuickAdd() {
+      document.documentElement.classList.remove('quick-add-active');
       this.quickAddIsActive = false;
     },
   },
