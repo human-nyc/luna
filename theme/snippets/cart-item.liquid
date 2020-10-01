@@ -26,7 +26,7 @@
     <div class="item-qty">
       <button @click="handleQtyClick(index + 1, item.quantity - 1)" class="qty__control minus">{% render 'svg-minus' %}</button>
       <span>${item.quantity}</span>
-      <button @click="handleQtyClick(index + 1, item.quantity + 1)" class="qty__control plus">{% render 'svg-plus' %}</button>
+      <button @click="handleQtyClick(index + 1, item.quantity + 1, true)" class="qty__control plus">{% render 'svg-plus' %}</button>
     </div>
 
     <button @click="removeCartItem(index + 1)" class="item-remove">{% render 'svg-remove' %}</button>
