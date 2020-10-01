@@ -9,6 +9,41 @@
   data-current-variant="{{ current_variant | json | escape }}"
 >
   <div class="product-hero__inner">
+    <div class="product-hero__image">
+      <picture v-if="selectedVariant && selectedVariant.featured_image">
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('325x195_crop_center@2x.progressive')"
+          media="(max-width: 767px)"
+        >
+
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('768x768_crop_center@2x.progressive')"
+          media="(min-width: 768px)"
+        >
+
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('992x@2x.progressive')"
+          media="(min-width: 992px)"
+        >
+
+        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
+      <picture v-else>
+        <source
+          :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
+          media="(max-width: 767px)"
+        >
+
+        <source
+          :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
+          media="(min-width: 768px)"
+        >
+
+        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+      </picture>
+
+    </div>
+
     <h1 class="product-hero__title">{{ product.title }}</h1>
 
     <div class="product-hero__info">
@@ -48,36 +83,6 @@
           {% endif %}
         {% endfor %}
       </div>
-
-    </div>
-
-    <div class="product-hero__image">
-      <picture v-if="selectedVariant && selectedVariant.featured_image">
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('325x195_crop_center@2x.progressive')"
-          media="(max-width: 767px)"
-        >
-
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('648x388_crop_center@2x.progressive')"
-          media="(min-width: 768px)"
-        >
-
-        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
-      </picture>
-      <picture v-else>
-        <source
-          :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
-          media="(max-width: 767px)"
-        >
-
-        <source
-          :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
-          media="(min-width: 768px)"
-        >
-
-        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
-      </picture>
 
     </div>
 

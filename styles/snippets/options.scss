@@ -48,13 +48,13 @@
   grid-template-columns: auto 1fr auto;
   font: 500 10px/1.6 var(--font-sans-serif);
   letter-spacing: 1.2px;
-  padding: 1em 0;
+  padding: 0.75em 0;
   text-align: left;
   text-transform: uppercase;
 
-  @include tablet-portrait {
-    font-size: 12px;
-  }
+  // @include tablet-portrait {
+  //   font-size: 12px;
+  // }
 
   .svg-down-arrow {
     align-self: center;
