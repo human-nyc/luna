@@ -115,9 +115,8 @@
 }
 
 .header {
-  // color: red;
-  // color: var(--font-color);
-  :root.color-scheme--dark & {
+  
+  :root.color-scheme--dark body:not([data-template='product']) & {
     color: var(--offwhite-color);
   }
 
