@@ -5,6 +5,10 @@
   list-style-type: decimal;
   margin-bottom: 40px;
 
+  .product-grid-item & {
+    margin-bottom: 0;
+  }
+
   a {
     text-decoration: underline;
   }
@@ -44,17 +48,23 @@
   grid-template-columns: auto 1fr auto;
   font: 500 10px/1.6 var(--font-sans-serif);
   letter-spacing: 1.2px;
-  padding: 1em 0;
+  padding: 0.75em 0;
   text-align: left;
   text-transform: uppercase;
 
-  @include tablet-portrait {
-    font-size: 12px;
-  }
+  // @include tablet-portrait {
+  //   font-size: 12px;
+  // }
 
   .svg-down-arrow {
     align-self: center;
     transform: rotate(180deg);
+
+    .collection__product-grid & {
+      @include small-viewport {
+        display: none;
+      }
+    }
   }
 
   .product_option.active & .svg-down-arrow {
@@ -89,6 +99,12 @@
 
 .option-values {
   display: none;
+
+  .collection__product-grid & {
+    @include small-viewport {
+      display: block;
+    }
+  }
 }
 .product_option.active .option-values {
   display: block;
