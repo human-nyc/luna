@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', initPolicyPageSidebar);
 async function initPolicyPageHero() {
   const mainEl = document.querySelector('.main');
 
-  if(document.body.id == 'refund-policy') {
+  if(document.body.id == 'refund-policy' || document.body.id == 'shipping-policy' || document.body.id == 'terms-of-service' || document.body.id == 'privacy-policy') {
     var sectionResp = await fetch('/?section_id=faq-hero');
     console.log({sectionResp});
     var responseFragment = await sectionResp.text();
