@@ -1,26 +1,29 @@
+@import '../responsive';
+@import '../snippets/product-grid-item.scss';
+
 .shop-more {
   margin: var(--padding-v) 0;
-  
+
   &__title {
     font: normal 40px/1.2 var(--font-serif);
     text-align: center;
   }
-  
+
   &__grid {
     margin: var(--padding-v) 0;
-    
+
     .product-grid-item {
-      
+
       &.square {
         background: none;
         padding: var(--gutter);
         text-align: left;
         width: 100%;
-        
+
         @include tablet-portrait {
           width: calc(100vw / 3);
         }
-        
+
         .button--shop-now {
           display: none;
         }
@@ -32,7 +35,7 @@
           right: 0;
           top: calc(100vw - var(--gutter) * 2);
           transform: translate(-18px, -12px);
-          
+
           @include tablet-portrait {
             top: calc(100vw / 3 - var(--gutter) * 2);
           }
@@ -46,4 +49,3 @@
     }
   }
 }
-  

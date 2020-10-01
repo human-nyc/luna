@@ -1,2 +1,15 @@
-<h1>{{ 'general.404.title' | t }}</h1>
-<p>{{ 'general.404.subtext_html' | t }}</p>
+<div class="wrapper">
+  <div class="page-header">
+    <h1 class="module-title">{{ 'general.404.title' | t }}</h1>
+  </div>
+
+  <div class="page-content">
+    {% capture link %}
+      <a href="/collections/all">{{ 'general.404.link' | t }}</a>
+    {% endcapture %}
+
+    {{ 'general.404.subtext_html' | t: link: link }}
+  </div>
+</div>
+
+{% render 'shop-more' %}
