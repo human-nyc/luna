@@ -17,6 +17,7 @@
 
   @include tablet-landscape {
     display: block;
+    position: relative;
   }
 
   img {
@@ -34,6 +35,7 @@
     'star-rating' auto
     / auto;
   padding: 0 var(--gutter);
+  position: relative;
 
   @include tablet-landscape {
     min-height: calc(100vh - var(--header-height) - var(--banner-height));
@@ -46,9 +48,14 @@
   }
 
   @include tablet-landscape {
-    grid-template-columns: 7fr 11fr 7fr;
-    // grid-template-columns: 336fr 672fr 312fr;
-    grid-template-columns: 336px auto 312px;
+    // grid-template-columns: 7fr 11fr 7fr;
+    grid-template-columns: 336fr 672fr 312fr;
+    // grid-template-columns: 336px auto 312px;
+  }
+
+  @include desktop-xl {
+    grid-template-columns: 336fr 672fr 312fr;
+
   }
 }
 
@@ -69,6 +76,7 @@
     letter-spacing: -1px;
     line-height: 1.2;
     margin: 0;
+    position: relative;
     text-align: left;
   }
 }
@@ -101,16 +109,26 @@
   align-self: flex-start;
   background: var(--offwhite-color);
   grid-area: image;
-  margin: 0 calc(var(--gutter) * -1);
 
   @include tablet-landscape {
-    margin: 0;
+    grid-area: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 
   img {
     display: block;
     mix-blend-mode: multiply;
+    position: relative;
     width: 100%;
+
+    @include tablet-landscape {
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 
@@ -118,7 +136,8 @@
   display: flex;
   flex-direction: column;
   grid-area: form;
-  margin: 3em 0;
+  // margin: 3em 0;
+  position: relative;
 
   .product__options {
     flex-grow: 1;
@@ -295,7 +314,7 @@
 
 .yotpo.bottomLine {
   grid-area: star-rating;
-  // margin: 2em 0 0;
+  position: relative;
 
   .yotpo-display-wrapper {
     font-size: 14px;
