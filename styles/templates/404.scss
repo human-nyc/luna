@@ -1,0 +1,17 @@
+@import '../snippets/shop-more';
+
+.wrapper {
+  margin: auto;
+  max-width: var(--page-width);
+  padding: 0 var(--gutter);
+}
+
+.page-content {
+  a {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: left 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1.75px;
+    display: inline-block;
+  }
+}
