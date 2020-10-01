@@ -3,14 +3,18 @@
 
 .shop-more {
   margin: var(--padding-v) 0;
-
+  
+  @include desktop-lg {
+    --gutter: 24px;
+  }
+  
   &__title {
     font: normal 40px/1.2 var(--font-serif);
     text-align: center;
   }
 
   &__grid {
-    margin: var(--padding-v) 0;
+    margin: var(--gutter) 0;
 
     .product-grid-item {
 
@@ -23,19 +27,23 @@
         @include tablet-portrait {
           width: calc(100vw / 3);
         }
-
+        @include desktop {
+          padding: calc(var(--gutter) * 2);
+        }
+        picture {
+          display: block;
+        }
         .button--shop-now {
           display: none;
         }
-        .cta-button {
+        .quick-add-button {
           background: none;
           border: none;
           color: var(--font-color);
           position: absolute;
           right: 0;
           top: calc(100vw - var(--gutter) * 2);
-          transform: translate(-18px, -12px);
-
+          transform: translate(calc(var(--gutter) * -2), calc(var(--gutter) * -1.8));
           @include tablet-portrait {
             top: calc(100vw / 3 - var(--gutter) * 2);
           }
