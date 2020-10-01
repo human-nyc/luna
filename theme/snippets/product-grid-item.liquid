@@ -76,11 +76,11 @@
 
     {% if product.available %}
       <p>
-        <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark small centered">Quick Add</button>
+        <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark quick-add-button small centered">Quick Add</button>
         <button
           v-else
           @click.prevent="submit"
-          class="cta-button cta-button_dark small centered"
+          class="cta-button cta-button_dark quick-add-button small centered"
           type="submit"
         >Add To Cart</button>
 
