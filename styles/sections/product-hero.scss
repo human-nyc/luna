@@ -48,9 +48,14 @@
   }
 
   @include tablet-landscape {
-    grid-template-columns: 7fr 11fr 7fr;
-    // grid-template-columns: 336fr 672fr 312fr;
-    grid-template-columns: 336px auto 312px;
+    // grid-template-columns: 7fr 11fr 7fr;
+    grid-template-columns: 336fr 672fr 312fr;
+    // grid-template-columns: 336px auto 312px;
+  }
+
+  @include desktop-xl {
+    grid-template-columns: 336fr 672fr 312fr;
+
   }
 }
 
@@ -104,11 +109,9 @@
   align-self: flex-start;
   background: var(--offwhite-color);
   grid-area: image;
-  margin: 0 calc(var(--gutter) * -1);
 
   @include tablet-landscape {
     grid-area: auto;
-    outline: 1px dashed red;
     position: absolute;
     top: 0;
     right: 0;
@@ -133,7 +136,7 @@
   display: flex;
   flex-direction: column;
   grid-area: form;
-  margin: 3em 0;
+  // margin: 3em 0;
   position: relative;
 
   .product__options {

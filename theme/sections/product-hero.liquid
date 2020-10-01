@@ -26,6 +26,16 @@
           media="(min-width: 992px)"
         >
 
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('1200x@2x.progressive')"
+          media="(min-width: 1200px)"
+        >
+
+        <source
+          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('1440x@2x.progressive')"
+          media="(min-width: 1440px)"
+        >
+
         <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
       </picture>
       <picture v-else>
