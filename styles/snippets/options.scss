@@ -5,6 +5,10 @@
   list-style-type: decimal;
   margin-bottom: 40px;
 
+  .product-grid-item & {
+    margin-bottom: 0;
+  }
+
   a {
     text-decoration: underline;
   }
@@ -55,6 +59,12 @@
   .svg-down-arrow {
     align-self: center;
     transform: rotate(180deg);
+
+    .collection__product-grid & {
+      @include small-viewport {
+        display: none;
+      }
+    }
   }
 
   .product_option.active & .svg-down-arrow {
@@ -89,6 +99,12 @@
 
 .option-values {
   display: none;
+
+  .collection__product-grid & {
+    @include small-viewport {
+      display: block;
+    }
+  }
 }
 .product_option.active .option-values {
   display: block;
