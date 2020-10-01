@@ -3,7 +3,7 @@ $break-tablet-portrait: 768px;
 $break-tablet-landscape: 992px;
 $break-desktop: 1200px;
 $break-desktop-lg: 1360px;
-$break-desktop-xlg: 1440px;
+$break-desktop-xl: 1440px;
 
 @mixin small-viewport {
   @media only screen and (max-width: $break-small-viewport) {
@@ -35,8 +35,8 @@ $break-desktop-xlg: 1440px;
   }
 }
 
-@mixin desktop-xlg {
-  @media only screen and (min-width: $break-desktop-xlg) {
+@mixin desktop-xl {
+  @media only screen and (min-width: $break-desktop-xl) {
     @content;
   }
 }

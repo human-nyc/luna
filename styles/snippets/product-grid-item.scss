@@ -206,7 +206,7 @@
     top: 0;
   }
 
-  @include desktop-xlg {
+  @include desktop-xl {
     padding: 0 calc(var(--gutter) * 0.75);
   }
 
