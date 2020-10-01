@@ -2,10 +2,10 @@
   background: var(--light-blue-color);
   overflow: hidden;
 
-  :root.color-scheme--dark & {
-    background-color: var(--primary-brand-color);
-    color: var(--white-color);
-  }
+  // :root.color-scheme--dark & {
+  //   background-color: var(--primary-brand-color);
+  //   color: var(--white-color);
+  // }
 
   .section-header {
     margin: 2em 0;

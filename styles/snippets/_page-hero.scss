@@ -19,9 +19,9 @@
 .page-hero__content {
   box-sizing: content-box;
   margin: 130px auto var(--padding-v);
-  padding: 0 var(--gutter);
   max-width: 656px;
-
+  padding: 0 var(--gutter);
+  
   @include tablet-portrait {
     margin-top: 180px;
   }

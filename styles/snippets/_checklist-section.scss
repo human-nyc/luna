@@ -26,9 +26,11 @@
 
 .checklist-section__image {
   flex: 0 0 auto;
+  padding: 0 var(--gutter);
 
   @include tablet-portrait {
     flex-basis: 50%;
+    padding-right: 0;
   }
 
   .image-wrapper {

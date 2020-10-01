@@ -147,8 +147,9 @@
       }
 
       .split-block_no_image & {
+
         @include tablet-portrait {
-          width: 33.33%;
+          flex: 0 0 33.33%;
         }
       }
     }
