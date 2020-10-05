@@ -39,13 +39,10 @@
 
   <div class="header__main">
     <div class="header__main-inner">
-      <div class="header__left" v-cloak>
+      <div class="header__left">
         {% for parent_link in linklists[section.settings.main_nav_left].links %}
-
           <a class="header-link" :class="{ active: activeChildLinksIndex == {{forloop.index0}} }" href="{{parent_link.url}}" @mouseover="toggleActiveChildLinks({activeChildLinksIndex: {{forloop.index0}}})">{{parent_link.title}}</a>
-
         {% endfor %}
-
 
         <button class="header__toggler menu-button" @click="toggleMobileMenu">
           <div class="menu-button__icon">
@@ -55,14 +52,14 @@
           </div>
         </button>
       </div>
-      <div class="header__center" v-cloak>
+      <div class="header__center">
         <div class="header__logo">
           <a href="/">
             {% render 'svg-logo' %}
           </a>
         </div>
       </div>
-      <div class="header__right" v-cloak>
+      <div class="header__right">
         {% render 'customer-links' %}
         <a
           @click.prevent='toggleMiniCart'
@@ -72,6 +69,8 @@
     </div>
   </div>
 </div>
+
+
 
 {% comment %}
 {% render 'linklist' linklist: linklists.main-menu %}
