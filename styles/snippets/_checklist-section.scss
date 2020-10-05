@@ -1,6 +1,7 @@
 @import '../responsive';
 
 .shopify-section-checklist {
+  overflow: hidden;
 
   .html-page_sizing & {
     background-color: var(--secondary-brand-color);
@@ -63,7 +64,7 @@
   }
 
   ul {
-    margin: 1.5em 0;
+    margin: 1.5em 0 0;
     padding: 0;
   }
 
