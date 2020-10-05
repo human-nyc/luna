@@ -9,7 +9,7 @@
   data-current-variant="{{ current_variant | json | escape }}"
 >
   <div class="product-hero__inner">
-    <div class="product-hero__image">
+    <div class="product-hero__image" v-cloak>
       <picture v-if="selectedVariant && selectedVariant.featured_image">
         <source
           :srcset="selectedVariant.featured_image.src | getSizedImageUrl('325x195_crop_center@2x.progressive')"
@@ -77,15 +77,15 @@
               <div class="product-tabs__content">
 
                 {% if block.settings.benefits != blank %}
-                  <div class="product-tabs__content" v-if="tab === 1">
-                    <div>{{ block.settings.benefits }}</div>
-                  </div>
+                  <template v-if="tab === 1">
+                    {{ block.settings.benefits }}
+                  </template>
                 {% endif %}
 
                 {% if block.settings.details != blank %}
-                  <div class="product-tabs__content" v-if="tab === 2">
-                    <div>{{ block.settings.details }}</div>
-                  </div>
+                  <template v-if="tab === 2">
+                    {{ block.settings.details }}
+                  </template>
                 {% endif %}
 
               </div>

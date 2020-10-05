@@ -5,6 +5,7 @@
   position: relative;
 
   @include tablet-landscape {
+    margin-top: calc(var(--header-height) * -1);
     padding-bottom: 0;
   }
 }
@@ -16,6 +17,7 @@
   display: none;
 
   @include tablet-landscape {
+    align-self: flex-end;
     display: block;
     position: relative;
   }
@@ -38,11 +40,12 @@
   position: relative;
 
   @include tablet-landscape {
-    min-height: calc(100vh - var(--header-height) - var(--banner-height));
+    min-height: calc(100vh - var(--banner-height));
     grid-template:
+      '. . .' var(--header-height)
       'title        title form' minmax(102px, auto)
       'info         image form' auto
-      'star-rating  image form' 1fr
+      'star-rating  image form' auto
       'corner-badge image form' auto
       / 1fr 1fr 1fr;
   }
@@ -88,20 +91,7 @@
 
   @include tablet-landscape {
     margin-top: 0;
-    padding-bottom: 0.5em;
     position: relative;
-
-    &::after {
-      background-color: #1f1f1f;
-      content: '';
-      display: block;
-      height: 1px;
-      opacity: 0.3;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
   }
 }
 
@@ -123,11 +113,20 @@
     display: block;
     mix-blend-mode: multiply;
     position: relative;
+    transition: opacity var(--slow);
     width: 100%;
 
     @include tablet-landscape {
       height: 100%;
       object-fit: contain;
+    }
+  }
+
+  &[v-cloak] {
+    display: block;
+
+    img {
+      opacity: 0;
     }
   }
 }
@@ -139,8 +138,16 @@
   // margin: 3em 0;
   position: relative;
 
+  @include tablet-landscape {
+    align-self: center;
+  }
+
   .product__options {
     margin: 2em 0;
+
+    @include tablet-landscape {
+      min-height: 400px;
+    }
   }
 
   .option--color {
@@ -196,6 +203,10 @@
 
     strong {
       font-size: 12px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -312,8 +323,15 @@
 }
 
 .yotpo.bottomLine {
+  border-top: 1px solid #1f1f1f4d;
   grid-area: star-rating;
+  margin: 20px 0;
+  padding: 20px var(--gutter);
   position: relative;
+
+  @include tablet-landscape {
+    padding: 20px 0;
+  }
 
   .yotpo-display-wrapper {
     font-size: 14px;
