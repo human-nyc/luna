@@ -15,12 +15,18 @@
 
   &__grid {
     margin: var(--gutter) 0;
+    outline: 0;
+    overflow-y: hidden;
+    padding: 0 0 90px 0;
+    position: relative;
 
+    
     .product-grid-item {
 
       &.square {
         background: none;
         padding: var(--gutter);
+        padding: 0 var(--gutter);
         text-align: left;
         width: 100%;
 
