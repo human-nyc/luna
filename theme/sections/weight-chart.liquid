@@ -10,7 +10,7 @@
           {% if block.type == 'weight-table' %}
             <div class="weight-chart__table">
               <h4 class="weight-chart__type">
-                {{block.settings.type}}
+                {{block.settings.title}}
               </h4>
               {{block.settings.table}}
             </div>
@@ -44,6 +44,11 @@
         "type": "weight-table",
         "name": "Weight Table",
         "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Type"
+          },
           {
             "id": "type",
             "type": "text",
