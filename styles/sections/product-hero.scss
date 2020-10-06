@@ -107,6 +107,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: -1;
   }
 
   img {
@@ -322,16 +323,23 @@
   }
 }
 
-.yotpo.bottomLine {
+.featured-review {
   border-top: 1px solid #1f1f1f4d;
   grid-area: star-rating;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  line-height: 1.63;
   margin: 20px 0;
-  padding: 20px var(--gutter);
-  position: relative;
-
+  padding: var(--gutter) 0;
+  
   @include tablet-landscape {
-    padding: 20px 0;
+    padding: 50px 0;
   }
+}
+
+.yotpo.bottomLine {
+  position: relative;
 
   .yotpo-display-wrapper {
     font-size: 14px;
@@ -344,9 +352,12 @@
         margin-right: 0.1em;
 
         &::before {
-          font-size: 14px;
+          font-size: 13px;
         }
       }
+    }
+    .write-review-btn-hidden {
+      display: none;
     }
     a {
       font-family: var(--font-serif);
