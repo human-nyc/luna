@@ -5,12 +5,43 @@
   </div>
   <div class="page-hero__form">
     {% form 'contact' %}
-      {% if form.posted_successfully? %} Thank you for your contact {% endif %}
-      {{ form.errors | default_errors }}
-      <input type="text" id="ContactFormName" name="contact[name]" placeholder="Name" aria-label="Name">
-      <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email" aria-label="Email">
-      <textarea rows="4" id="ContactFormMessage" name="contact[body]" placeholder="Message" aria-label="Message"></textarea>
+      <div class="form__errors">
+        {{ form.errors | default_errors }}
+      </div>
+
+      <input
+        type="text"
+        id="ContactFormName"
+        name="contact[name]"
+        placeholder="Name"
+        aria-label="Name"
+        class="{% if form.errors contains 'author' %}error{% endif %}"
+      >
+
+      <input
+        type="email"
+        id="ContactFormEmail"
+        name="contact[email]"
+        placeholder="Email"
+        aria-label="Email"
+        class="{% if form.errors contains 'email' %}error{% endif %}"
+      >
+
+      <textarea
+        rows="4"
+        id="ContactFormMessage"
+        name="contact[body]"
+        placeholder="Message"
+        aria-label="Message"
+        class="{% if form.errors contains 'body' %}error{% endif %}"
+      ></textarea>
+
       <input type="submit" value="submit">
+
+      {% if form.posted_successfully? %}
+        <p class="form--posted-successfully">Thank you for contacting us.</p>
+      {% endif %}
+
     {% endform %}
   </div>
 </div>
