@@ -1,30 +1,45 @@
 <style type="text/css">
   {% for block in section.blocks %}
     .option--{{block.settings.title | handleize }}::after {
-      {% if block.settings.image %}
+      {% if block.settings.filename %}
         background-image: url('{{block.settings.image | img_url: 'x46', scale: 2 }}');
+        background-image: url('{{block.settings.filename | file_url }}');
       {% endif %}
+    }
+    .option--{{block.settings.title | handleize }} span::after {
+      content: "{{block.settings.size_info}}";
     }
   {% endfor %}
 </style>
 
 {% schema %}
   {
-    "name": "Size options",
+    "name": "Size Options",
     "blocks": [
       {
         "name": "Size option",
         "type": "size_option",
         "settings": [
           {
+            "label": "Name",
             "type": "text",
-            "id": "title",
-            "label": "Size name"
+            "id": "title"
           },
           {
+            "label": "Info",
+            "type": "text",
+            "id": "size_info"
+          },
+          {
+            "label": "SVG Icon Filename",
+            "info": "upload in Settings > Files",
+            "type": "text",
+            "id": "filename"
+          },
+          {
+            "label": "Size Image",
             "type": "image_picker",
-            "id": "image",
-            "label": "Size Image"
+            "id": "image"
           }
         ]
       }

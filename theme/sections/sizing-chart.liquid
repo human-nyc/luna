@@ -10,13 +10,13 @@
           {% if block.type == 'size-option' %}
             <div class="sizing-chart__option">
               <h4 class="sizing-chart__name">
-                {{ block.settings.name }}
+                {{ block.settings.title }}
               </h4>
               <span class="sizing-chart__size">
                 {{ block.settings.size }}
               </span>
               <div class="sizing-chart__icon">
-                <img loading="lazy" src="{{block.settings.icon | img_url: '92x92', crop: 'center', scale: 2}}" height="92px" />
+                <img loading="lazy" src="{{block.settings.filename | file_url }}" height="92px" />
               </div>
             </div>
           {% endif %}
@@ -50,14 +50,25 @@
         "name": "Size Option",
         "settings": [
           {
-            "id": "name",
+            "id": "title",
             "type": "text",
             "label": "Name"
           },
           {
+            "id": "name",
+            "type": "text",
+            "label": "Name (deprecated)"
+          },
+          {
             "id": "size",
             "type": "text",
-            "label": "Size"
+            "label": "Info"
+          },
+          {
+            "label": "SVG Icon Filename",
+            "info": "upload in Settings > Files",
+            "type": "text",
+            "id": "filename"
           },
           {
             "id": "icon",
