@@ -50,6 +50,10 @@
       border-top: 1px solid rgba(0,0,0,0.3);
     }
 
+    textarea {
+      resize: none;
+    }
+
     input[type="submit"] {
       appearance: none;
       background-color: var(--primary-brand-color);
@@ -74,4 +78,15 @@
       }
     }
   }
+}
+
+.form__errors {
+  color: #e13333;
+  font-style: italic;
+}
+
+.form--posted-successfully {
+  color: hsl(120, 50%, 50%);
+  font-style: italic;
+  text-align: center;
 }
