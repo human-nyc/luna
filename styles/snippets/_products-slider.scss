@@ -36,21 +36,12 @@
 
 .products-slider__main {
   outline: 0;
-  overflow-y: hidden;
-  padding: 0 0 90px 0;
+  // overflow-y: hidden;
+  padding: 0 0 70px 0;
   position: relative;
-
-  // &::after {
-  //   content: "flickity";
-
-  //   @include tablet-landscape {
-  //     content: normal;
-  //   }
-  // }
-
-  // @include tablet-landscape {
-  //   display: flex;
-  // }
+}
+.flickity-viewport {
+  overflow: auto;
 }
 
 .products-slider__slide {
@@ -72,7 +63,7 @@
 }
 
 .products-slider__cta {
-  margin-top: 80px;
+  margin-top: 30px;
   text-align: center;
 }
 
