@@ -1,62 +1,10 @@
+@import '../responsive';
+
 @import '../sections/collection-menu';
+@import '../snippets/options';
 @import '../snippets/pagination';
 @import '../snippets/product-grid-item';
-@import '../snippets/options';
-
-
-.collection__top {
-  background-color: var(--secondary-brand-color);
-  margin-top: calc(var(--header-height) * -1);
-  padding: calc(var(--header-height) + var(--padding-v) - 30px) 0 var(--padding-v);
-  text-align: center;
-  
-  @include tablet-portrait {
-    padding: calc(var(--header-height) + var(--padding-v) - 50px) 0 var(--padding-v);
-  }
-
-  :root.color-scheme--dark & {
-    background-color: var(--primary-brand-color);
-    color: var(--white-color);
-  }
-}
-
-.collection__title {
-  font-family: var(--font-serif);
-  font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.08;
-  letter-spacing: -1px;
-  text-align: center;
-
-  @include tablet-portrait {
-    font-size: 52px;
-  }
-
-  transition: opacity var(--slow), transform var(--slow);
-
-  :root.loading & {
-    opacity: 0;
-    transform: translateY(1em);
-  }
-}
-
-.collection__description {
-  font-size: 16px;
-  margin: auto;
-  max-width: 36em;
-  padding: 0 var(--gutter);
-
-  @include tablet-portrait {
-    font-size: 18px;
-  }
-
-  transition: opacity var(--slow) var(--fast), transform var(--slow) var(--fast);
-  :root.loading & {
-    opacity: 0;
-    transform: translateY(1em);
-  }
-}
+@import '../snippets/page-hero';
 
 .collection__product-grid {
   background: var(--offwhite-color);
@@ -199,7 +147,7 @@
   @include tablet-portrait {
     margin: calc(var(--gutter) * 2) 0;
   }
-  
+
   .collection.two-across &,
   .collection.three-across & {
 

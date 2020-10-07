@@ -1,11 +1,12 @@
 {% section 'swatches' %}
 
-<div class="collection three-across" id="collection-page">
-  <div class="collection__top">
-    <h1 class="collection__title">Shop {{ collection.title }}</h1>
-    <div class="collection__description">{{collection.description}}</div>
-  </div>
 
+<div class="page-hero">
+  {% assign header = 'Shop ' | append: collection.title %}
+  {% render 'page-hero', header: header, body: collection.description, background_color: 'blue' %}
+</div>
+
+<div class="collection three-across" id="collection-page">
   {% paginate collection.products by 9999 %}
     <div class="collection__product-grid" id="collection">
       {% for product in collection.products %}

@@ -3,18 +3,18 @@
 @import '../snippets/page-hero';
 @import '../sections/subscribe-callout';
 
-.page-hero_contact {
+.page-contact {
   background-color: var(--offwhite-color);
   padding-bottom: 30px;
 
-  .page-hero__form {
+  .page-contact__form {
     margin: 0 auto;
     padding: 0 var(--gutter);
     text-align: left;
     max-width: 450px;
 
     @include tablet-portrait {
-      margin: 2em auto;
+      margin-bottom:  2em;
     }
 
     form {

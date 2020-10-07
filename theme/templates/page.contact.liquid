@@ -1,9 +1,9 @@
-<div class="page-hero page-hero_contact">
-  <div class="page-hero__content">
-    <h1 class="page-hero__title">{{ page.title }}</h1>
-    <div class="page-hero__body">{{ page.content }}</div>
-  </div>
-  <div class="page-hero__form">
+<div class="page-hero">
+  {% render 'page-hero', header: page.title, body: page.content %}
+</div>
+
+<div class="page-contact">
+  <div class="page-contact__form">
     {% form 'contact' %}
       <div class="form__errors">
         {{ form.errors | default_errors }}
