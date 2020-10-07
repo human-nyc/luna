@@ -1,18 +1,19 @@
 <div class="page-hero__content">
-  <h1 class="page-hero__title">{{ section.settings.header }}</h1>
-  <div class="page-hero__body">
-    {{ section.settings.body }}
+  <div class="page-hero__content-inner">
+    <h1 class="page-hero__title">{{ section.settings.header }}</h1>
+    <div class="page-hero__body">
+      {{ section.settings.body }}
+    </div>
   </div>
 </div>
+
 {% if section.blocks.size > 0 %}
   <div class="page-hero__images-container">
     <div class="page-hero__images">
       {% for block in section.blocks %}
         <div class="page-hero__image-wrapper">
           <div class="page-hero__image">
-            <div class="fill-image">
-              <img loading="lazy" src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.alt_text }}" />
-            </div>
+            <img loading="lazy" src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.alt_text }}" />
           </div>
         </div>
       {% endfor %}

@@ -14,6 +14,12 @@
   .html-page_why_luna & {
     background-color: var(--secondary-brand-color);
   }
+
+  .html-page_why_luna.color-scheme--dark & {
+    color: var(--offwhite-color);
+    background-color: var(--primary-brand-color);
+  }
+
   .html-page_reviews & {
     background-color: var(--primary-brand-color);
     color: var(--white-color);
@@ -23,13 +29,13 @@
 
     :root.color-scheme--dark & {
       background-color: var(--primary-brand-color);
-      color: var(--white-color);
+      color: var(--offwhite-color);
     }
   }
 }
 
 .press {
-  margin: 60px auto;
+  margin: var(--padding-v) auto;
   max-width: 758px;
 }
 
@@ -48,7 +54,7 @@
 .press__logos {
   align-items: center;
   justify-content: center;
-  padding: calc(var(--gutter) * 3) 0;
+  margin: var(--padding-v) 0;
 }
 
 .press-logo {
@@ -85,7 +91,7 @@
     text-align: center;
     width: 355px;
     margin: 0;
-    
+
     @include tablet-portrait {
       font-size: 40px;
       padding: 0 var(--gutter);

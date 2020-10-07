@@ -69,7 +69,8 @@
 }
 
 .comparison-chart__intro {
-  padding: var(--padding-v-desktop) var(--gutter) 0;
+  margin: var(--padding-v-desktop) 0 0;
+  padding: 0 var(--gutter) 0;
   text-align: center;
 }
 
@@ -95,19 +96,17 @@
   .comparison-chart_open & {
     border-bottom: 1px solid var(--primary-brand-color);
     height: auto;
-    padding-top: 24px;
   }
 
   .comparison-chart_page & {
     height: auto;
-    padding-top: 24px;
   }
 }
 
 .comparison-chart__wrapper {
   animation: 800ms fadeUp;
   display: none;
-  margin: 80px auto;
+  margin: var(--padding-v) auto;
   padding: 0 var(--gutter);
   max-width: var(--page-width);
 
