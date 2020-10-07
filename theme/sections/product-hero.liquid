@@ -130,14 +130,14 @@
     </form>
 
 
-    {% for block in section.blocks %}
-      {% if block.settings.product == product.handle %}
-        <div class="featured-review">
-          {% render 'yotpo-star-rating', product: product %}
+    <div class="featured-review">
+      {% render 'yotpo-star-rating', product: product %}
+      {% for block in section.blocks %}
+        {% if block.settings.product == product.handle %}
           {{ block.settings.featured_review }}
-        </div>
-      {% endif %}
-    {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
 
     <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
   </div>
