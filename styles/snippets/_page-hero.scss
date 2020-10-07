@@ -6,14 +6,18 @@
 }
 
 .page-hero__content {
-  background-color: var(--secondary-brand-color);
   overflow: hidden;
   padding: 0 var(--gutter);
 
-  :root.color-scheme--dark & {
-    background-color: var(--primary-brand-color);
-    color: white;
+  &.background--blue {
+    background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      color: white;
+    }
   }
+
 
   .page-hero__title {
     font-family: var(--font-serif);
@@ -44,7 +48,6 @@
 }
 
 .page-hero__images-container {
-  background-image: linear-gradient(var(--secondary-brand-color), var(--secondary-brand-color));
   background-size: auto 50%;
   background-repeat: no-repeat;
 
@@ -55,9 +58,12 @@
     padding: 0 var(--gutter);
   }
 
-  :root.color-scheme--dark & {
-    background-image: linear-gradient(var(--primary-brand-color), var(--primary-brand-color));
+  &.background--blue {
+    background-image: linear-gradient(var(--secondary-brand-color), var(--secondary-brand-color));
 
+    :root.color-scheme--dark & {
+      background-image: linear-gradient(var(--primary-brand-color), var(--primary-brand-color));
+    }
   }
 }
 

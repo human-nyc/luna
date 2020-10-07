@@ -1,0 +1,17 @@
+<div class="reviews-embed">
+  {{section.settings.reviews_embed}}
+</div>
+
+{% schema %}
+  {
+    "name": "Reviews Page",
+    "class": "page-reviews",
+    "settings": [
+      {
+        "type": "html",
+        "id": "reviews_embed",
+        "label": "Reviews Embed Code"
+      }
+    ]
+  }
+{% endschema %}

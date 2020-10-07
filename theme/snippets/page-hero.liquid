@@ -1,16 +1,16 @@
-<div class="page-hero__content">
+<div class="page-hero__content background--{{background_color}}">
   <div class="page-hero__content-inner">
-    <h1 class="page-hero__title">{{ section.settings.header }}</h1>
+    <h1 class="page-hero__title">{{ header }}</h1>
     <div class="page-hero__body">
-      {{ section.settings.body }}
+      {{ body }}
     </div>
   </div>
 </div>
 
-{% if section.blocks.size > 0 %}
-  <div class="page-hero__images-container">
+{% if blocks.size > 0 %}
+  <div class="page-hero__images-container background--{{background_color}}">
     <div class="page-hero__images">
-      {% for block in section.blocks %}
+      {% for block in blocks %}
         <div class="page-hero__image-wrapper">
           <div class="page-hero__image">
             <img loading="lazy" src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.alt_text }}" />
