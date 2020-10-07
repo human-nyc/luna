@@ -1,23 +1,23 @@
 <div class="product-steps" id="ProductSteps">
-  <div class="product-steps__inner">
+  <div class="product-steps__inner {% if content.image != blank %}product-steps__inner--has-image{% endif %}">
     {% if content.image != blank %}
-    <div class="product-steps__image">
-      <div class="image-wrapper">
-        <div class="fill-image" :class="{active: activeImage === 1}">
-          <img loading="lazy" src="{{content.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+      <div class="product-steps__image">
+        <div class="image-wrapper">
+          <div class="fill-image" :class="{active: activeImage === 1}">
+            <img loading="lazy" src="{{content.image | img_url: '720x810', crop: 'center', scale: 2}}" />
+          </div>
+          {% if content.image_2 != blank %}
+            <div class="fill-image" :class="{active: activeImage === 2}">
+              <img loading="lazy" src="{{content.image_2 | img_url: '720x810', crop: 'center', scale: 2}}" />
+            </div>
+          {% endif %}
+          {% if content.image_3 != blank %}
+            <div class="fill-image" :class="{active: activeImage === 3}">
+              <img loading="lazy" src="{{content.image_3 | img_url: '720x810', crop: 'center', scale: 2}}" />
+            </div>
+          {% endif %}
         </div>
-        {% if content.image_2 != blank %}
-          <div class="fill-image" :class="{active: activeImage === 2}">
-            <img loading="lazy" src="{{content.image_2 | img_url: '720x810', crop: 'center', scale: 2}}" />
-          </div>
-        {% endif %}
-        {% if content.image_3 != blank %}
-          <div class="fill-image" :class="{active: activeImage === 3}">
-            <img loading="lazy" src="{{content.image_3 | img_url: '720x810', crop: 'center', scale: 2}}" />
-          </div>
-        {% endif %}
       </div>
-    </div>
     {% endif %}
     <div class="product-steps__content">
       <div class="product-steps__content-inner">

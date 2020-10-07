@@ -11,15 +11,18 @@
 
 .product-steps__inner {
   box-sizing: content-box;
-  display: grid;
-  grid-template: "image" auto "content" auto / auto;
   row-gap: var(--padding-v);
   margin: 0 auto;
   max-width: var(--page-width);
   padding: 0 var(--gutter);
 
-  @include tablet-portrait {
-    grid-template: "image content" auto / 1fr 1fr;
+  &.product-steps__inner--has-image {
+    display: grid;
+    grid-template: "image" auto "content" auto / auto;
+
+    @include tablet-portrait {
+      grid-template: "image content" auto / 1fr 1fr;
+    }
   }
 }
 
