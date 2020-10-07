@@ -6,20 +6,27 @@
 @import '../snippets/products-slider';
 @import '../sections/subscribe-callout';
 
-.page-hero.page-hero_reviews {
-  background-color: var(--offwhite-color);
+// .page-hero.page-hero_reviews {
+//   background-color: var(--offwhite-color);
 
-  .page-hero__content {
-    max-width: 1180px;
-  } 
-  .page-hero__body {
-    
-    @include tablet-portrait {
-      background-color: #dae8f0;
-      padding: var(--gutter);
-    }
-  }
-  .yotpo-label {
-    display: none;
-  }
+//   .page-hero__content {
+//     max-width: 1180px;
+//   }
+//   .page-hero__body {
+
+//     @include tablet-portrait {
+//       background-color: #dae8f0;
+//       padding: var(--gutter);
+//     }
+//   }
+//   .yotpo-label {
+//     display: none;
+//   }
+// }
+
+.reviews-embed {
+  box-sizing: content-box;
+  margin: auto;
+  max-width: var(--page-width);
+  padding: 0 var(--gutter);
 }

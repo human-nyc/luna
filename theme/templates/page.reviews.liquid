@@ -1,12 +1,10 @@
-<div class="page-hero page-hero_reviews">
-  <div class="page-hero__content">
-    <h1 class="page-hero__title">{{ page.title }}</h1>
-    <div class="page-hero__body">{{ page.content }}</div>
-  </div>
+<div class="page-hero">
+  {% render 'page-hero', header: page.title, body: page.content, background_color: 'blue' %}
 </div>
+
+{% section 'page-reviews' %}
 
 {% section 'press' %}
 {% section 'icons-list' %}
 {% section 'products-slider' %}
 {% section 'subscribe-callout' %}
-

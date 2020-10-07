@@ -1,3 +1,11 @@
+{% if background_color == 'blue' %}
+  <style>
+    :root.color-scheme--dark .header {
+      color: var(--offwhite-color);
+    }
+  </style>
+{% endif %}
+
 <div class="page-hero__content background--{{background_color}}">
   <div class="page-hero__content-inner">
     <h1 class="page-hero__title">{{ header }}</h1>
