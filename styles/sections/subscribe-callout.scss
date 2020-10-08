@@ -5,6 +5,11 @@
 .subscribe-callout {
   background-color: var(--secondary-brand-color);
   text-align: center;
+
+  :root.html-page_reviews.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--offwhite-color);
+  }
 }
 
 .subscribe-callout__inner {

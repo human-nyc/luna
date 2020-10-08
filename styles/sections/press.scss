@@ -21,9 +21,19 @@
   }
 
   .html-page_reviews & {
-    background-color: var(--primary-brand-color);
-    color: var(--white-color);
+    background-color: var(--secondary-brand-color);
+    // color: var(--white-color);
   }
+
+  :root.html-page_reviews.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--offwhite-color);
+  }
+
+
+
+
+
   &.press-background--blue {
     background-color: var(--secondary-brand-color);
 
