@@ -162,13 +162,17 @@
 
   td:nth-child(2),
   th:nth-child(2) {
-    background-color: var(--primary-brand-color);
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color);
+    background-color: var(--secondary-brand-color);
     width: 180px;
 
     @include small-viewport {
       font-size: var(--font-size-p);
+    }
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      border-bottom-color: var(--offwhite-color);
+      color: var(--white-color);
     }
   }
 

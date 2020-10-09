@@ -3,20 +3,22 @@
 @import '../snippets/email-form';
 
 .subscribe-callout {
-  background-color: var(--secondary-brand-color);
+  background-color: white;
+  color: var(--primary-brand-color);
+  overflow: hidden;
   text-align: center;
 
-  :root.html-page_reviews.color-scheme--dark & {
-    background-color: var(--primary-brand-color);
-    color: var(--offwhite-color);
+  :root.color-scheme--dark & {
+    background-color: var(--secondary-brand-color);
   }
 }
 
 .subscribe-callout__inner {
-  margin: 0 auto;
-  padding: var(--padding-v-mobile) var(--gutter);
+  box-sizing: content-box;
+  margin: var(--padding-v) auto;
+  padding: 0 var(--gutter);
   text-align: center;
-  max-width: 480px;
+  max-width: 500px;
 
   .section-header {
     @include tablet-portrait {

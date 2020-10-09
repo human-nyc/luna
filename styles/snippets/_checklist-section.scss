@@ -6,6 +6,12 @@
   .html-page_sizing & {
     background-color: var(--secondary-brand-color);
   }
+
+  :root.html-page_sizing.color-scheme--dark & {
+    background-color: var(--primary-brand-color);
+    color: var(--offwhite-color);
+  }
+
 }
 
 .checklist-section {

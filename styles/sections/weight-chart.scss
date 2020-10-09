@@ -58,6 +58,12 @@
   td:nth-child(2),
   th:nth-child(2) {
     background-color: var(--secondary-brand-color);
+
+    :root.color-scheme--dark & {
+      background-color: var(--primary-brand-color);
+      border-bottom-color: var(--offwhite-color);
+      color: var(--white-color);
+    }
   }
 
   td:nth-child(2) {
