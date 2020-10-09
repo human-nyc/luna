@@ -7,7 +7,7 @@
       {% if block.type == 'testimonial' %}
         <div class="testimonials__slide">
           <div class="testimonials__slide-inner" data-star-rating={{block.settings.star_rating}}>
-            <h4>{{block.settings.name}}</h4>
+            <h4>{{block.settings.title}}</h4>
             <p>{{block.settings.body}}</p>
           </div>
           {% render 'svg-quote-tail' %}
@@ -85,7 +85,7 @@
           {
             "type": "text",
             "id": "name",
-            "label": "Name"
+            "label": "Name (deprecated)"
           },
           {
             "type": "textarea",

@@ -1,24 +1,30 @@
 <div class="press press-background--{{section.settings.background_color}}">
-  <div class="press__header">
-    <h2>{{ section.settings.header }}</h2>
+
+  <div class="press__inner">
+    <div class="press__header">
+      <h2>{{ section.settings.header }}</h2>
+    </div>
+
+    <div class="press__logos">
+      {% for block in section.blocks %}
+        {% if block.type == 'press_mention' %}
+          <div class="press-logo">
+            {{ block.settings.logo_html }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="press__quotes">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'press_mention' %}
+          <blockquote class="press__quote">{{ block.settings.quote }}</blockquote>
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
-  <div class="press__logos">
-    {% for block in section.blocks %}
-      {% if block.type == 'press_mention' %}
-        <div class="press-logo">
-          {{ block.settings.logo_html }}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="press__quotes">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'press_mention' %}
-        <blockquote class="press__quote">{{ block.settings.quote }}</blockquote>
-      {% endcase %}
-    {% endfor %}
-  </div>
+
 </div>
 
 
