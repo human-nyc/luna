@@ -1,9 +1,9 @@
 <div class="comparison-chart">
   <div class="comparison-chart__intro">
     <h2 class="section-header">{{ section.settings.header }}</h2>
-    <h3 class="section-subheader">{{ section.settings.subheader }}</h3>
+    <div class="section-subheader">{{ section.settings.subheader }}</div>
   </div>
-  {% include 'comparison-chart' %}
+  {% render 'comparison-chart', html_markup: table_html_markup %}
 </div>
 
 {% schema %}
@@ -22,6 +22,26 @@
         "id": "subheader",
         "label": "Subheader",
         "default": "<p>What makes us different?</p>"
+      },
+      {
+        "type": "html",
+        "id": "table_html_markup",
+        "label": "Comparison Chart HTML"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background color",
+        "options": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "gray",
+            "label": "Gray"
+          }
+        ]
       }
     ]
   }

@@ -5,7 +5,7 @@
       <span  class="cta-button_icon"></span>
     </button>
   </div>
-  {% include 'comparison-chart' %}
+  {% render 'comparison-chart', html_markup: section.settings.table_html_markup %}
 </div>
 
 {% schema %}
@@ -20,9 +20,9 @@
         "default": "How we measure up"
       },
       {
-        "type": "checkbox",
-        "id": "blue_background",
-        "label": "Blue background"
+        "type": "html",
+        "id": "table_html_markup",
+        "label": "Comparison Chart HTML"
       },
       {
         "type": "select",
