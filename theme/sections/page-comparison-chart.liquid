@@ -3,7 +3,7 @@
     <h2 class="section-header">{{ section.settings.header }}</h2>
     <div class="section-subheader">{{ section.settings.subheader }}</div>
   </div>
-  {% render 'comparison-chart', html_markup: table_html_markup %}
+  {% render 'comparison-chart', html_markup: section.settings.table_html_markup %}
 </div>
 
 {% schema %}
