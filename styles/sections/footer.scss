@@ -22,7 +22,7 @@
 
 .footer__logo {
   display: flex;
-  box-sizing: border-box;
+  box-sizing: content-box;
   justify-content: space-between;
   margin: auto;
   padding: 0 var(--gutter);

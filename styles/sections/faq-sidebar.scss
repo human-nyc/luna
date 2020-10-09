@@ -11,10 +11,21 @@
   }
 }
 
-@keyframes fadeInDown {
+@keyframes fadeInBottom {
   from {
     opacity: 0;
     transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -39,14 +50,16 @@
 }
 
 .faq__navigation {
-  // animation: fadeInDown var(--fast);
+  // animation: fadeInBottom var(--fast);
   background-color: var(--offwhite-color);
   color: #1827554d;
   font-size: var(--font-size-p);
   font-weight: 500;
 
-  position: sticky;
-  top: var(--header-height);
+  @include tablet-portrait {
+    position: sticky;
+    top: var(--header-height);
+  }
 
   .parent-link-wrapper {
     margin: 1em 0;
@@ -66,13 +79,23 @@
 }
 
 .page__title {
-  animation: fadeInLeft var(--slow);
+  animation: fadeInTop var(--slow);
+
+  @include tablet-portrait {
+    animation: fadeInLeft var(--slow);
+  }
 }
 
 .page__body {
-  animation: fadeInLeft var(--slow);
   margin-bottom: 30px;
   padding-bottom: 30px;
+
+  animation: fadeInTop var(--slow);
+
+  @include tablet-portrait {
+    animation: fadeInLeft var(--slow);
+  }
+
 
   p {
     @include tablet-portrait {

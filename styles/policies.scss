@@ -7,7 +7,7 @@
     max-width: var(--page-width);
     padding-left: var(--gutter);
     padding-right: var(--gutter);
-    grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+    grid-template: "sidebar" auto "title" auto "body" auto / auto;
 
     @include tablet-portrait {
       grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
@@ -24,9 +24,12 @@
 
     h1 {
       font-family: var(--font-serif);
-      font-size: 52px;
       font-weight: normal;
       margin-top: 0;
+
+      @include tablet-portrait {
+        font-size: 52px;
+      }
     }
   }
 

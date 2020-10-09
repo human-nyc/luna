@@ -12,8 +12,12 @@
     <div class="page-hero__body">
       {{ body }}
     </div>
+    {% if linklist %}
+      {% render 'linklist' linklist: linklist, class: "page-hero__linklist" %}
+    {% endif %}
   </div>
 </div>
+
 
 {% if blocks.size > 0 %}
   <div class="page-hero__images-container background--{{background_color}}">

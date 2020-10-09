@@ -1,10 +1,6 @@
-{% assign linklist = linklists[section.settings.menu] %}
-
-<h1 class="faq-hero__title title">{{linklist.title}}</h2>
-
-<div class="faq-hero__description">{{section.settings.description}}</div>
-
-{% render 'linklist' linklist: linklist, class: "faq-hero__linklist" %}
+<div class="page-hero">
+  {% render 'page-hero', header: linklists[section.settings.menu].title, body: section.settings.description, background_color: 'blue', linklist: linklists[section.settings.menu] %}
+</div>
 
 {% schema %}
   {
