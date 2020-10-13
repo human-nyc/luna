@@ -37,7 +37,7 @@
 .features-list__items {
   outline: 0;
   overflow-y: hidden;
-  margin-top: 80px;
+  margin-top: var(--padding-v);
   padding: 0 0 50px 0;
   position: relative;
 
@@ -58,15 +58,16 @@
 }
 
 .features-list__item {
-  box-sizing: content-box;
+  box-sizing: border-box;
   padding: 0 var(--gutter);
   padding: 0 12px;
   text-align: center;
-  width: 312px;
+  width: 100%;
 
   @include tablet-portrait {
-    flex: 0 0 312px;
+    flex: 0 0 calc(100%/3);
     padding: 0 var(--gutter-half);
+    width: auto;
   }
 
   @include tablet-landscape {
@@ -117,7 +118,7 @@
 
   .fill-image {
     background-color: transparent;
-    border-radius: 200px;
+    border-radius: 50%;
     overflow: hidden;
   }
 }

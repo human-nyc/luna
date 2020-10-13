@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pressLogosEl = sectionEl.querySelector('.press__logos');
     const pressQuotesEl = sectionEl.querySelector('.press__quotes');
-    
+
     new Flickity(pressLogosEl, {
       contain: true,
       pageDots: false,
@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
       asNavFor: pressQuotesEl
     });
 
-    new Flickity(pressQuotesEl, {
-      fade: true,
-      pageDots: false,
-      prevNextButtons: false,
-      asNavFor: pressLogosEl,
-      wrapAround: true
-    });
+    // new Flickity(pressQuotesEl, {
+    //   fade: true,
+    //   pageDots: false,
+    //   prevNextButtons: false,
+    //   asNavFor: pressLogosEl,
+    //   wrapAround: true
+    // });
   });
 });
