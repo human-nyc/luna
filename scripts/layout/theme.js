@@ -7,10 +7,10 @@
 import '../components/ProductGridItem';
 import '../apps/Cart';
 import '../apps/Main';
+import '../apps/ProductSuggestion';
 import '../apps/Header';
 import '../apps/Product';
 import '../apps/ShopMore';
-// import '../apps/MiniProduct';
 /* End Vue Imports */
 
 import '../sections/footer';

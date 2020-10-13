@@ -20,19 +20,18 @@
               </a>
             </div>
 
-            {% render 'preview-details', product: product %}
-
           </div>
         </div>
       {% endif %}
     {% endfor %}
   </div>
+
   {% unless section.settings.cta_text == "" or section.settings.cta_text == nil %}
-  <div class="products-slider__cta">
-    <a class="cta-button" href="{{ section.settings.cta_url }}">
-      {{ section.settings.cta_text }}
-      {% render 'svg-right-arrow' %}
-    </a>
-  </div>
+    <div class="products-slider__cta">
+      <a class="cta-button" href="{{ section.settings.cta_url }}">
+        {{ section.settings.cta_text }}
+        {% render 'svg-right-arrow' %}
+      </a>
+    </div>
   {% endunless %}
 </div>

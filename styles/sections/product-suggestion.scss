@@ -28,7 +28,9 @@
 }
 
 .product-suggestion__info {
+  overflow: hidden;
   padding: 35px var(--gutter);
+  position: relative;
   text-align: center;
 
   .product-image {
@@ -43,6 +45,10 @@
 
   @include tablet-landscape {
     width: 33.33%;
+  }
+
+  .product-grid-item {
+    position: static;
   }
 }
 
