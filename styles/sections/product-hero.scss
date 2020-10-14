@@ -141,16 +141,9 @@
   // margin: 3em 0;
   position: relative;
 
-  @include tablet-landscape {
-    align-self: center;
-  }
-
   .product__options {
+    flex-grow: 1;
     margin: 2em 0;
-
-    @include tablet-landscape {
-      min-height: 400px;
-    }
 
     &:empty {
       display: none;
@@ -205,16 +198,15 @@
 }
 
 .product-tabs__content {
-  p {
-    font-size: 10px;
+  font-size: 12px;
 
-    strong {
-      font-size: 12px;
-    }
+  h4 {
+    margin: 1em 0;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  strong {
+    font-size: 1.2em;
+    font-weight: 500;
   }
 }
 
@@ -336,12 +328,12 @@
   font-size: 16px;
   letter-spacing: -0.01em;
   line-height: 1.63;
-  margin: 20px 0;
-  padding: var(--gutter) 0;
+  // margin: 20px 0 0;
+  // padding: var(--gutter) 0 0;
 
-  @include tablet-landscape {
-    padding: 50px 0;
-  }
+  // @include tablet-landscape {
+  //   padding: 50px 0 0;
+  // }
 }
 
 .yotpo.bottomLine {
