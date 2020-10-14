@@ -59,9 +59,7 @@
     <div class="product-hero__info">
       <div class="product-tabs">
         <div class="product-tabs__header">
-          {% if product.metafields.global.benefits %}
-            <button type="button" @click="selectTab('benefits')" class="caps-header" :class="{'selected': tab === 'benefits'}">Benefits</button>
-          {% endif %}
+          <button type="button" @click="selectTab('benefits')" class="caps-header" :class="{'selected': tab === 'benefits'}">Benefits</button>
 
           {% if product.metafields.global.details %}
             <button type="button" @click="selectTab('details')" class="caps-header" :class="{'selected': tab === 'details'}">Details &amp; Care</button>
@@ -85,11 +83,9 @@
           <div class="product-tabs__content">
 
 
-            {% if product.metafields.global.benefits %}
-              <template v-if="tab === 'benefits'">
-                {{ product.metafields.global.benefits }}
-              </template>
-            {% endif %}
+            <template v-if="tab === 'benefits'">
+              {{ product.description }}
+            </template>
 
             {% if product.metafields.global.details %}
               <template v-if="tab === 'details'">
@@ -159,6 +155,7 @@
 
     <div class="featured-review">
       {% render 'yotpo-star-rating', product: product %}
+      {{ product.metafields.global.featured_review }}
       {% for block in section.blocks %}
         {% if block.settings.product == product.handle %}
           {{ block.settings.featured_review }}
