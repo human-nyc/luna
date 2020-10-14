@@ -48,9 +48,13 @@
 .header__main-inner {
   column-gap: var(--gutter);
   display: grid;
-  grid-template: 'left center right' var(--header-height) / 1fr 100px 1fr;
+  grid-template: 'left center right' var(--header-height) / 1fr 64px 1fr;
   justify-content: space-between;
   padding: 0 var(--gutter);
+
+  @include tablet-landscape {
+    grid-template-columns: 1fr 88px 1fr;
+  }
 }
 
 .header__left,
@@ -85,19 +89,12 @@
 }
 
 .header__logo {
-  a {
-    display: inline-block;
-    overflow: hidden;
-  }
+  display: block;
 
   .svg-logo {
     display: block;
     margin: auto;
-    width: 64px;
-
-    @include tablet-landscape {
-      width: 88px;
-    }
+    width: 100%;
   }
 }
 
