@@ -59,6 +59,16 @@
     <div class="product-hero__info">
       <div class="product-tabs">
         <div class="product-tabs__header">
+          {% if product.metafields.global.benefits %}
+            <button type="button" @click="selectTab('benefits')" class="caps-header" :class="{'selected': tab === 'benefits'}">Benefits</button>
+          {% endif %}
+
+          {% if product.metafields.global.details %}
+            <button type="button" @click="selectTab('details')" class="caps-header" :class="{'selected': tab === 'details'}">Details</button>
+          {% endif %}
+
+
+
           {% for block in section.blocks %}
             {% if block.settings.product == product.handle %}
               {% if block.settings.benefits != blank %}
@@ -71,10 +81,26 @@
           {% endfor %}
         </div>
 
-        {% for block in section.blocks %}
-          {% if block.settings.product == product.handle %}
-            <div class="product-tabs__main">
-              <div class="product-tabs__content">
+        <div class="product-tabs__main">
+          <div class="product-tabs__content">
+
+
+            {% if product.metafields.global.benefits %}
+              <template v-if="tab === 'benefits'">
+                {{ product.metafields.global.benefits }}
+              </template>
+            {% endif %}
+
+            {% if product.metafields.global.details %}
+              <template v-if="tab === 'details'">
+                {{ product.metafields.global.details }}
+              </template>
+            {% endif %}
+
+
+
+            {% for block in section.blocks %}
+              {% if block.settings.product == product.handle %}
 
                 {% if block.settings.benefits != blank %}
                   <template v-if="tab === 1">
@@ -88,10 +114,11 @@
                   </template>
                 {% endif %}
 
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+              {% endif %}
+            {% endfor %}
+
+          </div>
+        </div>
       </div>
 
     </div>

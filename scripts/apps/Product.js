@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedWeight: '',
         selecting: 'color',
         sizes: [],
-        tab: 1,
+        tab: 'benefits',
         weights: [],
       },
       mounted() {
