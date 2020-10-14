@@ -1,5 +1,4 @@
 import 'flickity-as-nav-for';
-import 'flickity-fade';
 import Flickity from 'flickity';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,20 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressLogosEl = sectionEl.querySelector('.press__logos');
     const pressQuotesEl = sectionEl.querySelector('.press__quotes');
 
-    new Flickity(pressLogosEl, {
+    const mainFlickity = new Flickity(pressLogosEl, {
       contain: true,
       pageDots: false,
       prevNextButtons: false,
       autoPlay: true,
-      asNavFor: pressQuotesEl
+      asNavFor: pressQuotesEl,
+      wrapAround: true,
     });
 
-    // new Flickity(pressQuotesEl, {
-    //   fade: true,
-    //   pageDots: false,
-    //   prevNextButtons: false,
-    //   asNavFor: pressLogosEl,
-    //   wrapAround: true
-    // });
+    const navFlickity = new Flickity(pressQuotesEl, {
+      pageDots: false,
+      prevNextButtons: false,
+      asNavFor: pressLogosEl,
+      wrapAround: true,
+    });
   });
 });
