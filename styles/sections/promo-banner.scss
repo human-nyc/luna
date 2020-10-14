@@ -3,7 +3,7 @@
   background-color: var(--primary-brand-color);
   color: var(--white-color);
   display: grid;
-  font-size: 12px;
+  font-size: 14px;
   min-height: var(--banner-height);
   overflow: hidden;
   padding: 0 var(--gutter);
@@ -14,11 +14,19 @@
     color: var(--primary-brand-color);
   }
 
+  strong {
+    font-weight: 500;
+  }
+
   p {
     line-height: normal;
   }
 
   a {
     color: inherit;
+    background-image: linear-gradient(to right, currentColor, currentColor);
+    background-repeat: repeat-x;
+    background-size: 100% 1.75px;
+    background-position: bottom;
   }
 }
