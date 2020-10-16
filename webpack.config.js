@@ -8,6 +8,7 @@ let config = {
     "blog": "./scripts/templates/blog.js",
     "cart": "./scripts/templates/cart.js",
     "collection": "./scripts/templates/collection.js",
+    "collection.two-across": "./scripts/templates/collection.two-across.js",
     "customers.account": "./scripts/templates/customers/account.js",
     "customers.activate_account": "./scripts/templates/customers/activate_account.js",
     "customers.addresses": "./scripts/templates/customers/addresses.js",

@@ -18,8 +18,9 @@
   inline-template
   class="product-grid-item{% if layout == 'square' %} square{% endif %}"
   current-variant-json='{{ current_variant | json | escape }}'
-  options-with-values-json='{{ product.options_with_values | json }}'
-  product-json='{{ product | json }}'
+  options-with-values-json='{{ product.options_with_values | json | escape }}'
+  product-json='{{ product | json | escape }}'
+
 >
   <div>
     <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">

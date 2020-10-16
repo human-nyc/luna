@@ -20,25 +20,25 @@
         "@type": "WebPage",
         "@id": "{{ shop.url }}{{ article.url }}"
       },
-      "headline": {{ article.title | json }},
+      "headline": {{ article.title | json | escape }},
       {% if article.image %}
         "image": {
           "@type": "ImageObject",
-          "url": {{ article.image | img_url: '800x800' | prepend: 'https:' | json }},
+          "url": {{ article.image | img_url: '800x800' | prepend: 'https:' | json | escape }},
           "height": 800,
           "width": 800
         },
       {% endif %}
-      "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' | json}},
+      "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' | json | escape }},
       "author": {
         "@type": "Person",
-        "name": {{ article.author | json }}
+        "name": {{ article.author | json | escape }}
       },
       "publisher": {
         "@type": "Organization",
-        "name": {{ shop.name | json }}
+        "name": {{ shop.name | json | escape }}
       },
-      "description": {{ article_description | json }}
+      "description": {{ article_description | json | escape }}
     }
   </script>
 {% endif %}
@@ -76,7 +76,7 @@
             "position": 1,
             "item": {
               "@id": "{{ shop.url }}/collections",
-              "name": {{ 'structured_data.breadcrumbs.collections' | t | json }}
+              "name": {{ 'structured_data.breadcrumbs.collections' | t | json | escape }}
             }
           },
           {
@@ -84,7 +84,7 @@
             "position": 2,
             "item": {
               "@id": "{{ shop.url }}/collections/{{ product.collections.first.handle }}",
-              "name": {{ product.collections.first.title | json }}
+              "name": {{ product.collections.first.title | json | escape }}
             }
           },
         {% else %}
@@ -93,7 +93,7 @@
             "position": 1,
             "item": {
               "@id": "{{ shop.url }}/products",
-              "name": {{ 'structured_data.breadcrumbs.products' | t | json }}
+              "name": {{ 'structured_data.breadcrumbs.products' | t | json | escape }}
             }
           },
         {% endif %}
@@ -102,7 +102,7 @@
           "position": {% if product.collections.size >= 1 %}3{% else %}2{% endif %},
           "item": {
             "@id": "{{ shop.url }}{{ product.url | within: collection }}",
-            "name": {{ product.title | json }}
+            "name": {{ product.title | json | escape }}
           }
         }
       {% elsif template contains 'list-collections' %}
@@ -111,7 +111,7 @@
           "position": 1,
           "item": {
             "@id": "{{ shop.url }}/collections",
-            "name": {{ 'structured_data.breadcrumbs.collections' | t | json }}
+            "name": {{ 'structured_data.breadcrumbs.collections' | t | json | escape }}
           }
         }
         {% if current_page != 1 %}
@@ -121,7 +121,7 @@
             "position": 2,
             "item": {
               "@id": "{{ shop.url }}/collections",
-              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json }}
+              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json | escape }}
             }
           }
         {% endif %}
@@ -131,7 +131,7 @@
           "position": 1,
           "item": {
             "@id": "{{ shop.url }}/collections",
-            "name": {{ 'structured_data.breadcrumbs.collections' | t | json }}
+            "name": {{ 'structured_data.breadcrumbs.collections' | t | json | escape }}
           }
         },
         {
@@ -139,7 +139,7 @@
           "position": 2,
           "item": {
             "@id": "{{ shop.url }}{{ collection_url }}",
-            "name": {{ collection.title | json }}
+            "name": {{ collection.title | json | escape }}
           }
         }
         {% if current_tags %}
@@ -149,7 +149,7 @@
             "position": 3,
             "item": {
               "@id": "{{ shop.url }}{{ collection_url }}/{{- tag_handles | split: '|' | join: '+' -}}",
-              "name": {{ 'structured_data.breadcrumbs.tags_html' | t: tags: tag_names | json }}
+              "name": {{ 'structured_data.breadcrumbs.tags_html' | t: tags: tag_names | json | escape }}
             }
           }
         {% endif %}
@@ -165,7 +165,7 @@
             "position": {{ position }},
             "item": {
               "@id": "{{ shop.url }}/collections?page={{ current_page }}",
-              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json }}
+              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json | escape }}
             }
           }
         {% endif %}
@@ -175,7 +175,7 @@
           "position": 1,
           "item": {
             "@id": "{{ shop.url }}{{ blog.url }}",
-            "name": {{ blog.title | json }}
+            "name": {{ blog.title | json | escape }}
           }
         }
         {% if template contains 'article' %}
@@ -185,7 +185,7 @@
             "position": 2,
             "item": {
               "@id": "{{ shop.url }}{{ article.url }}",
-              "name": {{ article.title | json }}
+              "name": {{ article.title | json | escape }}
             }
           }
         {% elsif current_tags %}
@@ -195,7 +195,7 @@
             "position": 2,
             "item": {
               "@id": "{{ shop.url }}{{ blog.url }}/tagged/{{- tag_handles | split: '|' | join: '+' -}}",
-              "name": {{ 'structured_data.breadcrumbs.tags_html' | t: tags: tag_names | json }}
+              "name": {{ 'structured_data.breadcrumbs.tags_html' | t: tags: tag_names | json | escape }}
             }
           }
         {% endif %}
@@ -217,7 +217,7 @@
             "position": {{ position }},
             "item": {
               "@id": "{{ url }}",
-              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json }}
+              "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json | escape }}
             }
           }
         {% endif %}
@@ -227,7 +227,7 @@
           "position": 1,
           "item": {
             "@id": "{{ shop.url }}/search",
-            "name": {{ 'structured_data.breadcrumbs.search' | t | json }}
+            "name": {{ 'structured_data.breadcrumbs.search' | t | json | escape }}
           }
         }
         {% if search.performed %}
@@ -236,7 +236,7 @@
             "position": 2,
             "item": {
               "@id": "{{ shop.url }}/search?q={{ search.terms }}",
-              "name": {{ search.terms | json }}
+              "name": {{ search.terms | json | escape }}
             }
           }
           {% if current_page != 1 %}
@@ -245,7 +245,7 @@
               "position": 3,
               "item": {
                 "@id": "{{ shop.url }}/search?page={{ current_page }}&q={{ search.terms }}",
-                "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json }}
+                "name": {{ 'structured_data.breadcrumbs.page' | t: page: current_page | json | escape }}
               }
             }
           {% endif %}
@@ -256,7 +256,7 @@
           "position": 1,
           "item": {
             "@id": "{{ shop.url }}/cart",
-            "name": {{ 'structured_data.breadcrumbs.cart' | t | json }}
+            "name": {{ 'structured_data.breadcrumbs.cart' | t | json | escape }}
           }
         }
       {% elsif template contains 'page' %}
@@ -265,7 +265,7 @@
           "position": 1,
           "item": {
             "@id": "{{ page.url }}",
-            "name": {{ page.title | json }}
+            "name": {{ page.title | json | escape }}
           }
         }
       {% endif %}
@@ -292,19 +292,19 @@
   {
     "@context": "http://schema.org/",
     "@type": "Product",
-    "name": {{ product_name | strip_newlines | json }},
-    "image": {{ product_image | img_url: '1024x1024' | prepend: 'https:' | json }},
+    "name": {{ product_name | strip_newlines | json | escape }},
+    "image": {{ product_image | img_url: '1024x1024' | prepend: 'https:' | json | escape }},
     {% if product.description != blank %}
-      "description": {{ product.description | json }},
+      "description": {{ product.description | json | escape }},
     {% endif %}
     {% if product.vendor %}
       "brand": {
         "@type": "Thing",
-        "name": {{ product.vendor | json }}
+        "name": {{ product.vendor | json | escape }}
       },
     {% endif %}
     {% if selected_variant.sku != blank %}
-      "sku": {{ selected_variant.sku | json }},
+      "sku": {{ selected_variant.sku | json | escape }},
     {% endif %}
     {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
     "aggregateRating": {
@@ -315,12 +315,12 @@
     {% endif %}
     "offers": {
       "@type": "Offer",
-      "priceCurrency": {{ shop.currency | json }},
-      "price": {{ selected_variant.price | divided_by: 100.0 | json }},
+      "priceCurrency": {{ shop.currency | json | escape }},
+      "price": {{ selected_variant.price | divided_by: 100.0 | json | escape }},
       "availability": "http://schema.org/{% if selected_variant.available %}InStock{% else %}OutOfStock{% endif %}",
       "seller": {
         "@type": "Organization",
-        "name": {{ shop.name | json }}
+        "name": {{ shop.name | json | escape }}
       }
     }
   }
