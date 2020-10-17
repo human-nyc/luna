@@ -38,16 +38,40 @@
     / auto;
   padding: 0 var(--gutter);
   position: relative;
+  row-gap: 1em;
 
   @include tablet-landscape {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:
+      var(--header-height)
+      minmax(102px, auto)
+      auto
+      1fr
+      auto;
     min-height: calc(100vh - var(--banner-height));
-    grid-template:
-      '. . .' var(--header-height)
-      'title        title form' minmax(102px, auto)
-      'info         image form' auto
-      'star-rating  image form' auto
-      'corner-badge image form' auto
-      / 1fr 1fr 1fr;
+  }
+
+  &:not(.has-variants) {
+    @include tablet-landscape {
+      align-self: center;
+      grid-template-areas:
+        '.            .     form'
+        'title        title form'
+        'info         image form'
+        'star-rating  image form'
+        'corner-badge image form';
+    }
+  }
+
+  &.has-variants {
+    @include tablet-landscape {
+      grid-template-areas:
+        '.            .     .   '
+        'title        title form'
+        'info         image form'
+        'star-rating  image form'
+        'corner-badge image form';
+    }
   }
 
   @include tablet-landscape {
@@ -134,16 +158,29 @@
   }
 }
 
+.product-hero .product__options {
+  flex-grow: 1;
+  grid-area: options;
+}
+
 .product-hero__form {
+  align-self: center;
   display: flex;
   flex-direction: column;
   grid-area: form;
   // margin: 3em 0;
   position: relative;
 
+  .has-variants & {
+    @include tablet-landscape {
+      align-self: stretch;
+      margin: 52px 0;
+    }
+  }
+
   .product__options {
-    flex-grow: 1;
-    margin: 2em 0;
+    // flex-grow: 1;
+    // margin: 2em 0;
 
     &:empty {
       display: none;
@@ -330,7 +367,6 @@
   font-size: 16px;
   letter-spacing: -0.01em;
   line-height: 1.63;
-  padding-top: 1em;
 }
 
 .yotpo.bottomLine {

@@ -8,7 +8,7 @@
   data-options-with-values="{{product.options_with_values | json | escape}}"
   data-current-variant="{{ current_variant | json | escape }}"
 >
-  <div class="product-hero__inner">
+  <div class="product-hero__inner" :class="{'has-variants': optionsWithValues.length > 1}">
     <div class="product-hero__image" v-cloak>
       <picture v-if="selectedVariant && selectedVariant.featured_image">
         <source

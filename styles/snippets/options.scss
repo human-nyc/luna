@@ -3,11 +3,6 @@
   font: 500 12px/1.6 var(--font-sans-serif);
   list-style-position: inside;
   list-style-type: decimal;
-  margin-bottom: 40px;
-
-  .product-grid-item & {
-    margin-bottom: 0;
-  }
 
   a {
     text-decoration: underline;
