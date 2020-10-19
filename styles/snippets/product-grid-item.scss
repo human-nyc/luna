@@ -94,6 +94,9 @@
     }
   }
 }
+.product-grid-item__featured-image-wrapper {
+  position: relative;
+}
 
 .product-grid-item__featured-image {
   background: var(--offwhite-color);
@@ -104,6 +107,11 @@
     display: block;
     width: 100%;
   }
+}
+
+.filler-image {
+  display: block;
+  width: 100%;
 }
 
 .product-grid-item__featured-image-el {
@@ -281,4 +289,8 @@
 
 .product-grid-item .cta-button {
   align-self: center;
+}
+
+
+.quick-add-button-wrapper {
 }
