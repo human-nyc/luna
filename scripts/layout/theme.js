@@ -15,7 +15,7 @@ import '../apps/ShopMore';
 
 import '../sections/footer';
 
-import '../policies';
+// import '../policies';
 
 
 addEventListener('load', fadeInContent);

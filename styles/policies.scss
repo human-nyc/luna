@@ -1,49 +1,63 @@
-#refund-policy {
+body#privacy-policy .main {
+  background-image: linear-gradient(#dae8f0, #f8f7f5);
+  margin-top: calc(var(--header-height) * -1);
+  padding-top: var(--header-height);
+}
 
-  .shopify-policy__container {
-    box-sizing: content-box;
-    display: grid;
-    margin: var(--padding-v) auto;
-    max-width: var(--page-width);
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
-    grid-template: "sidebar" auto "title" auto "body" auto / auto;
+:root .shopify-policy__container {
+  box-sizing: content-box;
+  // display: grid;
+  margin: var(--padding-v) auto;
+  max-width: 1042px;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  // grid-template: "sidebar" auto "title" auto "body" auto / auto;
+
+
+  @include tablet-portrait {
+    font-size: 32px;
+  }
+
+
+  // @include tablet-portrait {
+  //   grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
+  // }
+
+  // @include tablet-landscape {
+  //   grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+  // }
+}
+
+.shopify-policy__title {
+  grid-area: title;
+  text-align: left;
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: normal;
 
     @include tablet-portrait {
-      grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
-    }
-
-    @include tablet-landscape {
-      grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
+      font-size: 52px;
     }
   }
+}
 
-  .shopify-policy__title {
-    grid-area: title;
-    text-align: left;
+.shopify-policy__body {
+  font-family: var(--font-serif);
+  grid-area: body;
+  line-height: 2;
 
-    h1 {
-      font-family: var(--font-serif);
-      font-weight: normal;
-      margin-top: 0;
-
-      @include tablet-portrait {
-        font-size: 52px;
-      }
-    }
+  p {
+    margin: 2em 0;
   }
+}
 
-  .shopify-policy__body {
-    grid-area: body;
-  }
+.shopify-section.faq-sidebar {
+  align-self: flex-start;
+  grid-area: sidebar;
 
-  .shopify-section.faq-sidebar {
-    align-self: flex-start;
-    grid-area: sidebar;
-
-    @include tablet-portrait {
-      position: sticky;
-      top: var(--header-height);
-    }
+  @include tablet-portrait {
+    position: sticky;
+    top: var(--header-height);
   }
 }
