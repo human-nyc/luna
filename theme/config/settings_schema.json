@@ -7,7 +7,6 @@
     "theme_documentation_url": "https://github.com/Shopify/themekit",
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
-
   {
     "name": "Favicon",
     "settings": [
@@ -43,42 +42,6 @@
         "id": "social_twitter_url",
         "label": "Twitter",
         "info": "http:\/\/twitter.com\/pixelunion"
-      },
-      {
-        "type": "text",
-        "id": "social_google_url",
-        "label": "Google+",
-        "info": "https:\/\/plus.google.com\/+shopify"
-      },
-      {
-        "type": "text",
-        "id": "social_pinterest_url",
-        "label": "Pinterest",
-        "info": "https:\/\/www.pinterest.com\/pixelunion\/"
-      },
-      {
-        "type": "text",
-        "id": "social_instagram_url",
-        "label": "Instagram",
-        "info": "https:\/\/instagram.com\/pixelunion"
-      },
-      {
-        "type": "text",
-        "id": "social_vimeo_url",
-        "label": "Vimeo",
-        "info": "https:\/\/vimeo.com\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "social_youtube_url",
-        "label": "YouTube",
-        "info": "https:\/\/www.youtube.com\/user\/PixelUnionThemes"
-      },
-      {
-        "type": "text",
-        "id": "social_rss_url",
-        "label": "RSS",
-        "info": "http:\/\/your-store.myshopify.com\/blogs\/news.atom (Your shop's blog's RSS is already available from the blog page)"
       }
     ]
   }
