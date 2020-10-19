@@ -43,6 +43,10 @@
   {{ 'layout.theme.js' | asset_url | script_tag }}
   {% render 'script-tags' %}
 
+  <!-- Social Meta Tags -->
+  {% assign twitter_handle = settings.social_twitter_url | split: 'twitter.com/' | last %}
+  {% render 'social-meta-tags', twitter_handle: twitter_handle %}
+
   <!-- Yotpo -->
   <script async src="//staticw2.yotpo.com/ta049e3s2xUt8JXlD2LjJMV4pSJzFqoCR9Om6ytZ/widget.js"></script>
 
