@@ -11,8 +11,10 @@
   {% assign image_size = '500x500' %}
 {% else %}
   {% assign image_size_mobile = '160x96' %}
-  {% assign image_size = '648x388' %}
+  {% assign image_size = '600x360' %}
 {% endif %}
+
+{% assign svg_dimensions = image_size | split: "x" %}
 
 <product-grid-item
   inline-template
@@ -23,46 +25,65 @@
 
 >
   <div>
-    <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
-      <picture>
-        <source
-          srcset="{{ product.featured_image.src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
-          media="(max-width: 767px)"
-        >
-        <source
-          srcset="{{ product.featured_image.src | img_url: image_size, crop: 'center', scale: 2 }}"
-          media="(min-width: 768px)"
-        >
-        <img loading="lazy" class="product-grid-item__featured-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
-      </picture>
-
-      {% if hover_images.size > 0 %}
+    <div class="product-grid-item__featured-image">
+      <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+        <svg class="filler-image" viewBox="0 0 {{svg_dimensions[0]}} {{svg_dimensions[1]}}" xml:space="preserve"></svg>
         <picture>
           <source
-            srcset="{{ hover_images[0].src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
+            srcset="{{ product.featured_image.src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
             media="(max-width: 767px)"
           >
           <source
-            srcset="{{ hover_images[0].src | img_url: image_size, crop: 'center', scale: 2 }}"
+            srcset="{{ product.featured_image.src | img_url: image_size, crop: 'center', scale: 2 }}"
             media="(min-width: 768px)"
           >
-
-          <img loading="lazy" class="product-grid-item__hover-image-el" src="" alt="{{ product.featured_image.alt | escape }}">
+          <img loading="lazy" class="product-grid-item__featured-image-el fill-image" src="" alt="{{ product.featured_image.alt | escape }}">
         </picture>
-      {% endif %}
-      <span class="cta-button cta-button_dark button--shop-now">
-        {% if product.metafields.global.shop_cta %}
-          {{product.metafields.global.shop_cta}}
-        {% else %}
-          Shop {{ product.title }}
-        {% endif %}
-        {% render 'svg-right-arrow' %}
-      </span>
 
-      {% if product.compare_at_price %}
-        <span class="on-sale"></span>
+        {% if hover_images.size > 0 %}
+          <picture>
+            <source
+              srcset="{{ hover_images[0].src | img_url: image_size_mobile, crop: 'center', scale: 2 }}"
+              media="(max-width: 767px)"
+            >
+            <source
+              srcset="{{ hover_images[0].src | img_url: image_size, crop: 'center', scale: 2 }}"
+              media="(min-width: 768px)"
+            >
+
+            <img loading="lazy" class="product-grid-item__hover-image-el fill-image" src="" alt="{{ product.featured_image.alt | escape }}">
+          </picture>
+        {% endif %}
+        <span class="cta-button cta-button_dark button--shop-now">
+          {% if product.metafields.global.shop_cta %}
+            {{product.metafields.global.shop_cta}}
+          {% else %}
+            Shop {{ product.title }}
+          {% endif %}
+          {% render 'svg-right-arrow' %}
+        </span>
+
+        {% if product.compare_at_price %}
+          <span class="on-sale"></span>
+        {% endif %}
+      </a>
+
+      {% if layout == 'square' %}
+        <p class="quick-add-button-wrapper">
+          {% if product.available %}
+            <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark quick-add-button small centered">Quick Add</button>
+            <button
+              v-else
+              @click.prevent="submit"
+              class="cta-button cta-button_dark quick-add-button small centered"
+              type="submit"
+            >Add To Cart</button>
+          {% else %}
+            <strong>sold out</strong>
+          {% endif %}
+        </p>
       {% endif %}
-    </a>
+    </div>
 
     {% render 'yotpo-star-rating', product: product %}
 
@@ -75,18 +96,23 @@
       {% endif %}
     </span>
 
-    {% if product.available %}
-      <p>
-        <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark quick-add-button small centered">Quick Add</button>
-        <button
-          v-else
-          @click.prevent="submit"
-          class="cta-button cta-button_dark quick-add-button small centered"
-          type="submit"
-        >Add To Cart</button>
-
+    {% if layout != 'square' %}
+      <p class="quick-add-button-wrapper">
+        {% if product.available %}
+          <button v-if="product.variants.length > 1" @click.prevent="activateQuickAdd" class="cta-button cta-button_dark quick-add-button small centered">Quick Add</button>
+          <button
+            v-else
+            @click.prevent="submit"
+            class="cta-button cta-button_dark quick-add-button small centered"
+            type="submit"
+          >Add To Cart</button>
+        {% else %}
+          <strong>sold out</strong>
+        {% endif %}
       </p>
     {% endif %}
+
+
     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
 
     <form class="quick-add" :class="{'active': quickAddIsActive}" method="post" action="/cart/add" enctype="multipart/form-data">
@@ -104,7 +130,7 @@
             media="(max-width: 767px)"
           >
           <source
-            :srcset="selectedVariant.featured_image.src | getSizedImageUrl('648x388_crop_center@2x.progressive')"
+            :srcset="selectedVariant.featured_image.src | getSizedImageUrl('600x360_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
           <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
@@ -115,7 +141,7 @@
             media="(max-width: 767px)"
           >
           <source
-            :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
+            :srcset="product.featured_image | getSizedImageUrl('600x360_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
           <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
