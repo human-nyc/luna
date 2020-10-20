@@ -6,15 +6,19 @@ const state = {
 const mutations = {
   openSizePopup(state) {
     state.sizePopupIsOpen = true;
+    document.documentElement.classList.add('popup--active');
   },
   closeSizePopup(state) {
     state.sizePopupIsOpen = false;
+    document.documentElement.classList.remove('popup--active');
   },
   openWeightPopup(state) {
     state.weightPopupIsOpen = true;
+    document.documentElement.classList.add('popup--active');
   },
   closeWeightPopup(state) {
     state.weightPopupIsOpen = false;
+    document.documentElement.classList.remove('popup--active');
   }
 }
 
