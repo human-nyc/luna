@@ -15,6 +15,11 @@
 @import '../sections/sizing-chart';
 @import '../sections/weight-chart';
 
+
+:root.popup--active {
+  overflow: hidden;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -55,8 +60,10 @@
     ". description ." auto
     / var(--gutter) auto var(--gutter);
   margin: var(--padding-v) auto;
+  max-height: calc(100vh - (var(--padding-v) * 2));
   max-width: 768px;
   opacity: 0;
+  overflow: auto;
   padding: var(--gutter);
   position: relative;
   transform: translateY(1em);
