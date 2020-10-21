@@ -1,6 +1,6 @@
 {% for block in section.blocks %}
   {% if block.settings.product == product.handle %}
-    {% assign product = all_products[block.settings.suggested_product] %}
+    {% assign suggested_product = all_products[block.settings.suggested_product] %}
 
     <div
       class="product-suggestion"
@@ -12,7 +12,7 @@
             <div class="header-underline"></div>
             <p class="section-header">{{block.settings.body}}</p>
 
-            {% render 'product-grid-item' product: product %}
+            {% render 'product-grid-item' product: suggested_product %}
           </div>
 
           <div class="product-suggestion__image">
