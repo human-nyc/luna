@@ -142,6 +142,9 @@
 
       <template v-if="selectedVariant">
         <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="selectedVariant.available == false">${selectedVariant.available ? `Add To Cart` : `Out of Stock`}</button>
+        <p class="form-message bis-trigger" :class="{ active: selectedVariant.available == false }">
+          <a href="#" id="BIS_trigger">Notify me when available</a>
+        </p>
         <p class="form-message" :class="{ active: selectedVariant.available }">Free Shipping over $40</p>
         <p class="affirm-as-low-as form-message" :class="{ active: selectedVariant.available }" data-page-type="product" data-amount="{{current_variant.price}}"></p>
       </template>
