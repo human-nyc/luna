@@ -376,16 +376,6 @@
   a#BIS_trigger {
     text-decoration: underline;
   }
-
-  .fade-enter,
-  .fade-leave {
-    opacity: 0;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity var(--slow);
-  }
 }
 
 .featured-review {
