@@ -10,62 +10,21 @@
 >
   <div class="product-hero__inner" :class="{'has-variants': optionsWithValues.length > 1}">
     <div class="product-hero__image" v-cloak>
-      <picture v-if="selectedVariant && selectedVariant.featured_image">
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('325x195_crop_center@2x.progressive')"
-          media="(max-width: 767px)"
-        >
-
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('768x768_crop_center@2x.progressive')"
-          media="(min-width: 768px)"
-        >
-
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('992x992_crop_center@2x.progressive')"
-          media="(min-width: 992px)"
-        >
-
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('1200x1200_crop_center@2x.progressive')"
-          media="(min-width: 1200px)"
-        >
-
-        <source
-          :srcset="selectedVariant.featured_image.src | getSizedImageUrl('1440x1440_crop_center@2x.progressive')"
-          media="(min-width: 1440px)"
-        >
-
-        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
-      </picture>
-      <picture v-else>
-        <source
-          :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
-          media="(max-width: 767px)"
-        >
-
-        <source
-          :srcset="product.featured_image | getSizedImageUrl('648x388_crop_center@2x.progressive')"
-          media="(min-width: 768px)"
-        >
-
-        <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
-      </picture>
-
+      <img v-if="selectedVariant && selectedVariant.featured_image" loading="lazy" class="quick-add__selected-variant-image" :src="selectedVariant.featured_image.src | getSizedImageUrl('840x840_crop_center@2x.progressive')" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+      <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="product.featured_image | getSizedImageUrl('840x840_crop_center@2x.progressive')" alt="{{ product.featured_image.alt | escape }}" v-cloak>
     </div>
 
     <h1 class="product-hero__title">{{ product.title }}</h1>
 
     <div class="product-hero__info">
       <div class="product-tabs">
+      
         <div class="product-tabs__header">
           <button type="button" @click="selectTab('benefits')" class="caps-header" :class="{'selected': tab === 'benefits'}">Benefits</button>
 
           {% if product.metafields.global.details %}
             <button type="button" @click="selectTab('details')" class="caps-header" :class="{'selected': tab === 'details'}">Details &amp; Care</button>
           {% endif %}
-
-
 
           {% for block in section.blocks %}
             {% if block.settings.product == product.handle %}
