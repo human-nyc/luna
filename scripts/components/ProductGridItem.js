@@ -39,7 +39,7 @@ Vue.component('product-grid-item', {
 
   methods: {
     ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
-
+    ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
     async submit(e) {
       const { id } = this.selectedVariant;
       const properties = {};
