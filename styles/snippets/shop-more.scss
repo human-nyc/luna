@@ -29,7 +29,7 @@
         width: 100%;
 
         @include tablet-portrait {
-          width: calc(100vw / 3);
+          width: calc(100vw / 3 - (var(--gutter) * 5));
         }
         @include desktop {
           margin: calc(var(--gutter) * 2);
