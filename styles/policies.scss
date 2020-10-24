@@ -1,31 +1,20 @@
-body#privacy-policy .main {
-  background-image: linear-gradient(#dae8f0, #f8f7f5);
-  margin-top: calc(var(--header-height) * -1);
-  padding-top: var(--header-height);
+body#privacy-policy,
+body#refund-policy,
+body#shipping-policy,
+body#terms-of-service {
+  .main {
+    margin-top: calc(var(--header-height) * -1);
+    padding-top: var(--header-height);
+    background-image: linear-gradient(#dae8f0, #f8f7f5);
+  }
 }
 
+
+
 :root .shopify-policy__container {
-  box-sizing: content-box;
-  // display: grid;
-  margin: var(--padding-v) auto;
-  max-width: 1042px;
+  margin-bottom: var(--padding-v);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
-  // grid-template: "sidebar" auto "title" auto "body" auto / auto;
-
-
-  @include tablet-portrait {
-    font-size: 32px;
-  }
-
-
-  // @include tablet-portrait {
-  //   grid-template: "sidebar title" auto "sidebar body" 1fr / 1fr 2fr;
-  // }
-
-  // @include tablet-landscape {
-  //   grid-template: "sidebar title" auto "sidebar body" 1fr / 320px auto;
-  // }
 }
 
 .shopify-policy__title {
@@ -44,20 +33,4 @@ body#privacy-policy .main {
 
 .shopify-policy__body {
   font-family: var(--font-serif);
-  grid-area: body;
-  line-height: 2;
-
-  p {
-    margin: 2em 0;
-  }
-}
-
-.shopify-section.faq-sidebar {
-  align-self: flex-start;
-  grid-area: sidebar;
-
-  @include tablet-portrait {
-    position: sticky;
-    top: var(--header-height);
-  }
 }
