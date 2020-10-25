@@ -9,7 +9,7 @@
     </div>
     <div class="split-block__content">
       <div class="split-block__content-inner">
-        <h2 class="section-header">{{ section.settings.header }}</h2>
+        <h2 class="section-header">{{ section.settings.title }}</h2>
         <div class="icons-block__items">
           {% for block in section.blocks %}
             {% case block.type %}
@@ -22,7 +22,7 @@
 
                     {{block.settings.logo_svg}}
 
-                    <p>{{ block.settings.text }}</p>
+                    <p>{{ block.settings.title }}</p>
                   </div>
                 </div>
             {% endcase %}
@@ -40,7 +40,7 @@
     "settings": [
       {
         "type": "text",
-        "id": "header",
+        "id": "title",
         "label": "Header"
       },
       {
@@ -78,8 +78,13 @@
         "settings": [
           {
             "type": "text",
-            "id": "text",
+            "id": "title",
             "label": "Text"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text (deprecated)"
           },
           {
             "type": "image_picker",
