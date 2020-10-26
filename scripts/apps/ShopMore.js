@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const shopMore = this.$el.querySelector('.shop-more__grid');
 
         new Flickity(shopMore, {
+          cellAlign: 'left',
           autoPlay: 5000,
           imagesLoaded: true,
           pageDots: false,
