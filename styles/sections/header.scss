@@ -36,9 +36,15 @@
   position: relative;
   transition: background-color var(--slow);
 
+  :root.color-scheme--dark & {
+    color: var(--offwhite-color);
+  }
+
   &:hover,
+  :root.color-scheme--dark &:hover,
   .header__dropdown.active ~ &,
-  .header_scrolled & {
+  .header_scrolled &,
+  :root.color-scheme--dark .header_scrolled & {
     background-color: var(--offwhite-color);
     color: var(--primary-brand-color);
     transition: background-color var(--fast);
