@@ -125,6 +125,7 @@
     height: 1em;
     justify-self: center;
     width: 1em;
+    display: none;
 
     &:checked {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='10' viewBox='0 0 10 10'%3E%3Cellipse cx='5' cy='5' rx='3' ry='3' fill='%23182755'/%3E%3C/svg%3E");
@@ -143,9 +144,9 @@
   }
 
   .values {
-    display: inline-grid;
-    grid-auto-flow: column;
-    row-gap: 0.25em;
+    // display: inline-grid;
+    // grid-auto-flow: column;
+    // row-gap: 0.25em;
   }
 
   .option-value {
@@ -227,6 +228,7 @@
   }
   .option-value {
     color: #1f1f1f4d;
+    margin-right: auto;
     text-transform: uppercase;
 
     .quick-add & {

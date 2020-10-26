@@ -170,9 +170,16 @@
   // margin: 3em 0;
   position: relative;
 
+  @include tablet-landscape {
+    position: sticky;
+    top: var(--header-height);
+    // bottom: 0;
+  }
+
   .has-variants & {
     @include tablet-landscape {
       align-self: stretch;
+      align-self: flex-start;
       margin: 52px 0;
     }
   }
@@ -257,6 +264,7 @@
   display: grid;
   grid-template: 'quantity-selector price compare-at-price' auto / 1fr 1fr auto;
   justify-content: space-between;
+  margin: 40px 0;
 
   // @media (min-width: 992px) and (max-width: 1359px) {
   //   grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
@@ -335,6 +343,7 @@
 
 #AddToCartForm {
   .form-button {
+    display: block;
     margin-top: 40px;
     width: 100%;
   }
@@ -385,6 +394,7 @@
   font-size: 16px;
   letter-spacing: -0.01em;
   line-height: 1.63;
+  padding-top: 1em;
 }
 
 .yotpo.bottomLine {
