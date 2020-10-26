@@ -96,7 +96,7 @@ export default {
             });
           });
 
-          if (result.length > 0) {
+          if (result.length > 0 && this.$el.closest('[data-template-name="product"]')) {
             let getVars = querystring.parse(location.search.substr(1));
             getVars['variant'] = result[0].id;
 
