@@ -291,8 +291,9 @@
       flex: 1 1 0px;
       font-size: 14px;
       min-width: 0;
+      padding: 0;
       text-align: center;
-      width: auto;
+      width: 2em;
     }
 
     button {
@@ -324,6 +325,10 @@
   .compare-at-price {
     font-size: 24px;
     font-weight: 500;
+
+    @media (min-width: 992px) and (max-width: 1359px) {
+      font-size: 16px;
+    }
   }
 
   .price {
@@ -338,6 +343,10 @@
     grid-area: compare-at-price;
     text-align: right;
     text-decoration: line-through;
+
+    @media (min-width: 992px) and (max-width: 1359px) {
+      font-size: 16px;
+    }
   }
 }
 
