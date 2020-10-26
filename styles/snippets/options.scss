@@ -101,6 +101,11 @@
     }
   }
 }
-.product_option.active .option-values {
-  display: block;
+.product_option.active {
+  &:last-of-type {
+    padding-bottom: 12px;
+  }
+  .option-values {
+    display: block;
+  }
 }
