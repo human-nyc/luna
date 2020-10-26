@@ -106,7 +106,7 @@
 .comparison-chart__wrapper {
   animation: 800ms fadeUp;
   display: none;
-  margin: var(--padding-v) auto;
+  margin: calc(var(--padding-v) + 27px) auto;
   padding: 0 var(--gutter);
   max-width: var(--page-width);
 
