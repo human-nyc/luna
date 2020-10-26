@@ -42,15 +42,11 @@
 
     &::after {
       align-self: center;
-      border-color: currentColor;
-      border-style: solid;
-      border-width: 3px 3px 0 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 0 10 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1.884L1.906 0 10 8l-8.094 8L0 14.116 6.187 8z' fill='%23182755' fill-rule='nonzero'/%3E%3C/svg%3E");
       content: "";
       font-size: 9px;
-      height: 1em;
-      transform: rotate(45deg);
-      width: 1em;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 0 10 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1.884L1.906 0 10 8l-8.094 8L0 14.116 6.187 8z' fill='%23182755' fill-rule='nonzero'/%3E%3C/svg%3E");
+      height: 16px;
+      width: 10px;
     }
   }
   .child-links {

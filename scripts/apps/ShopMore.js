@@ -14,12 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
       mounted() {
         const shopMore = this.$el.querySelector('.shop-more__grid');
 
+        shopMore.setAttribute('data-child-element-count', shopMore.childElementCount);
+
         new Flickity(shopMore, {
           cellAlign: 'left',
           autoPlay: 5000,
           imagesLoaded: true,
           pageDots: false,
           prevNextButtons: true,
+          watchCSS: true,
           wrapAround: true,
         });
       },
