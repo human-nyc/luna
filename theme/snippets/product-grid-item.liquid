@@ -126,7 +126,7 @@
       <div class="product__selected-variant-featured-image">
         <picture v-if="selectedVariant && selectedVariant.featured_image">
           <source
-            :srcset="selectedVariant.featured_image.src | getSizedImageUrl('160x96_crop_center@2x.progressive')"
+            :srcset="selectedVariant.featured_image.src | getSizedImageUrl('600x360_crop_center@2x.progressive')"
             media="(max-width: 767px)"
           >
           <source
