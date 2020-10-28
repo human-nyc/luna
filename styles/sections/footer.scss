@@ -26,7 +26,6 @@
   justify-content: space-between;
   margin: auto;
   padding: 0 var(--gutter);
-  max-width: var(--page-width);
 
   a {
     display: inline-block;
@@ -66,7 +65,6 @@
 
 .footer__inner {
   margin: 0 auto;
-  max-width: var(--page-width);
 
   @include tablet-landscape {
     display: flex;
