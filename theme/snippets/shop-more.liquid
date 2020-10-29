@@ -7,27 +7,28 @@
 {% assign background_color = background_color | default: "gray" %}
 
 {% unless shop_more_collection.all_products_count < 2 %}
-<div class="shop-more__container shop-more__container--{{background_color}}">
-  <div class="shop-more">
-    {% if shop_more_collection.title == 'Products' %}
-      <h1 class="shop-more__title">Shop More {{shop.name}} Products</h1>
-    {% else %}
-      <h1 class="shop-more__title">Shop More {{shop_more_collection.title}}</h1>
-    {% endif %}
+  <div class="shop-more__container shop-more__container--{{background_color}}">
+    <div class="shop-more">
+      {% if shop_more_collection.title == 'Products' %}
+        <h1 class="shop-more__title">Shop More {{shop.name}} Products</h1>
+      {% else %}
+        <h1 class="shop-more__title">Shop More {{shop_more_collection.title}}</h1>
+      {% endif %}
 
-    <div id="shop-more" class="shop-more__grid">
-      {% assign iterator = 0 %}
+      <div id="shop-more" class="shop-more__grid">
+        {% assign iterator = 0 %}
 
-      {% for collection_product in shop_more_collection.products limit: 5 %}
-        {% unless collection_product.handle == product.handle %}
-          {% render 'product-grid-item' product: collection_product, collection: collection, layout: 'square' %}
-          {% assign iterator = iterator | plus: 1 %}
-        {% endunless %}
+        {% for collection_product in shop_more_collection.products limit: 5 %}
+          {% unless collection_product.handle == product.handle %}
+            {% render 'product-grid-item' product: collection_product, collection: collection, layout: 'square' %}
+            {% assign iterator = iterator | plus: 1 %}
+          {% endunless %}
 
-        {% if iterator == 4 %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
+          {% if iterator == 4 %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endunless %}

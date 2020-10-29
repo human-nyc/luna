@@ -1,3 +1,8 @@
+:root.color-scheme--dark .header__main {
+  color: var(--offwhite-color);
+}
+
+
 @import '../sections/collection-list';
 @import '../sections/comparison-chart';
 @import '../sections/hero';

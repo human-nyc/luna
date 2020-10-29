@@ -9,7 +9,7 @@
 
   :root.color-scheme--dark & {
     background-color: var(--primary-brand-color);
-    color: var(--secondary-brand-color);
+    color: var(--white-color);
   }
 
   a {
@@ -43,6 +43,7 @@
 
 
 .footer__light-switch-toggle {
+  align-self: center;
   background: transparent;
   border: none;
   color: inherit;
