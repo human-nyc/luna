@@ -35,28 +35,29 @@
 
 .collection-list__items {
   box-sizing: border-box;
-  display: flex;
   overflow-x: auto;
   padding: 0 var(--gutter);
   white-space: nowrap;
-  width: 100%;
-
-  .item-wrapper {
-    display: inline-block;
-    padding: 0 8px;
-    flex: 0 0 320px;
-
-    @include tablet-landscape {
-      display: block;
-      flex: 0 0 auto;
-      padding: 0 var(--gutter-half);
-      width: 25%;
-    }
-  }
+  outline: 0;
+  position: relative;
 
   @include tablet-landscape {
     display: flex;
     padding: 0 var(--gutter-half);
+  }
+
+  .item-wrapper {
+    display: inline-block;
+    padding: 0 8px;
+    width: 100%;
+    
+    @include tablet-landscape {
+      display: block;
+      flex: 0 0 auto;
+      padding: 0 var(--gutter-half);
+      flex: 0 0 320px;
+      width: 25%;
+    }
   }
 }
 
