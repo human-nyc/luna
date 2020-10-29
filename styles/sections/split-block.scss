@@ -52,6 +52,7 @@
   }
 
   @include tablet-portrait {
+    align-self: center;
     box-sizing: border-box;
     flex: 0 0 50%;
     order: 2;
@@ -107,7 +108,6 @@
   }
 
   .cta-button {
-
     :root.color-scheme--dark .split-block-background--blue & {
       background: var(--offwhite-color);
       border-color: var(--offwhite-color);
@@ -147,7 +147,6 @@
       }
 
       .split-block_no_image & {
-
         @include tablet-portrait {
           flex: 0 0 33.33%;
         }
