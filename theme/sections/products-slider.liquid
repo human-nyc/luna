@@ -1,4 +1,6 @@
-{% assign collection = collections[section.settings.featured_collection_handle] %}
+{% assign featured_collection_handle = section.settings.featured_collection_handle | default: 'all' %}
+
+{% assign collection = collections[featured_collection_handle] %}
 
 {% render 'shop-more', collection: collection, background_color: section.settings.background_color %}
 

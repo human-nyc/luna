@@ -3,26 +3,8 @@
 @import '../snippets/page-hero';
 @import '../sections/press';
 @import '../sections/split-block';
-@import '../snippets/products-slider';
+// @import '../snippets/shop-more';
 @import '../sections/subscribe-callout';
-
-// .page-hero.page-hero_reviews {
-//   background-color: var(--offwhite-color);
-
-//   .page-hero__content {
-//     max-width: 1180px;
-//   }
-//   .page-hero__body {
-
-//     @include tablet-portrait {
-//       background-color: #dae8f0;
-//       padding: var(--gutter);
-//     }
-//   }
-//   .yotpo-label {
-//     display: none;
-//   }
-// }
 
 .reviews-embed {
   box-sizing: content-box;
