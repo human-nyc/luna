@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
           contain: true,
           imagesLoaded: true,
           pageDots: false,
-          prevNextButtons: false,
+          prevNextButtons: true,
           autoPlay: true,
           wrapAround: true,
         });
