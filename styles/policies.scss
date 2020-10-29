@@ -33,4 +33,8 @@ body#terms-of-service {
 
 .shopify-policy__body {
   font-family: var(--font-serif);
+
+  a {
+    text-decoration: underline;
+  }
 }
