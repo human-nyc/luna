@@ -4,7 +4,10 @@
   {% assign shop_more_collection = collections.all %}
 {% endif %}
 
+{% assign background_color = background_color | default: "gray" %}
+
 {% unless shop_more_collection.all_products_count < 2 %}
+<div class="shop-more__container shop-more__container--{{background_color}}">
   <div class="shop-more">
     {% if shop_more_collection.title == 'Products' %}
       <h1 class="shop-more__title">Shop More {{shop.name}} Products</h1>
