@@ -1,18 +1,11 @@
 .promo-banner {
   align-items: center;
-  background-color: var(--primary-brand-color);
-  color: var(--white-color);
   display: grid;
   font-size: 14px;
   min-height: var(--banner-height);
   overflow: hidden;
   padding: 0 var(--gutter);
   text-align: center;
-
-  :root.color-scheme--dark & {
-    background-color: var(--offwhite-color);
-    color: var(--primary-brand-color);
-  }
 
   strong {
     font-weight: 500;

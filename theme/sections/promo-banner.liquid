@@ -2,6 +2,18 @@
   {{ section.settings.promo_text }}
 </div>
 
+<style type="text/css">
+  .promo-banner {
+    color: {{section.settings.text_color}};
+    background-color: {{section.settings.background_color}};
+  }
+
+  :root.color-scheme--dark .promo-banner {
+    color: {{section.settings.background_color}};
+    background-color: {{section.settings.text_color}};
+  }
+</style>
+
 {% schema %}
   {
     "name": "Promo Banner",
@@ -11,6 +23,18 @@
         "id": "promo_text",
         "label": "Text",
         "default": "<p>Promo Here</p>"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#182755"
       }
     ]
   }
