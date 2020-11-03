@@ -204,7 +204,7 @@
 .product-grid-item__price {
   display: block;
   font: normal 10px/1.5 var(--font-sans-serif);
-  margin: 1em 0;
+  margin: 0.5em 0 0;
   padding: 0 12px;
 
   @include tablet-portrait {
