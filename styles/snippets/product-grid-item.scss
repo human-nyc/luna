@@ -73,14 +73,30 @@
           margin-right: 0.1em;
 
           &::before {
-            font-size: 14px;
+            font-size: 6px;
+
+            @include tablet-portrait {
+              font-size: 14px;
+            }
           }
         }
       }
+
       a {
         font-family: var(--font-serif);
         letter-spacing: -0.02em;
       }
+
+      .text-m {
+        @include small-viewport {
+          display: none;
+        }
+      }
+
+      .single-sentence-text-content {
+        display: none;
+      }
+
       .yotpo-regular-box,
       .sentence-container {
         padding: 0;
@@ -165,11 +181,12 @@
 }
 
 .product-grid-item__title {
-  align-self: center;
   color: inherit;
+  display: block;
   flex-grow: 1;
   font: 500 12px/1.4 var(--font-sans-serif);
-  margin: 0.5em 2em 0;
+  margin: 0.5em 0 0;
+  padding: 0 12px;
   text-decoration: none;
 
   @include tablet-portrait {
@@ -185,7 +202,10 @@
 }
 
 .product-grid-item__price {
-  font: normal 14px/1.5 var(--font-sans-serif);
+  display: block;
+  font: normal 10px/1.5 var(--font-sans-serif);
+  margin: 1em 0;
+  padding: 0 12px;
 
   @include tablet-portrait {
     font-size: 16px;
@@ -199,6 +219,10 @@
 .product-grid-item__compare_at_price {
   color: #1f1f1f66;
   text-decoration: line-through;
+}
+
+.quick-add-button-wrapper {
+  padding: 0 12px;
 }
 
 .quick-add {
@@ -301,7 +325,4 @@
 
 .product-grid-item .cta-button {
   align-self: center;
-}
-
-.quick-add-button-wrapper {
 }
