@@ -49,6 +49,7 @@
     @include tablet-portrait {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      row-gap: calc(var(--gutter) * 2);
     }
 
     @include desktop-xl {
@@ -107,7 +108,7 @@
     &__title {
       align-self: auto;
       font-size: 16px;
-      margin: 1em 0 0;
+      // margin: 1em 0 0;
     }
   }
 }

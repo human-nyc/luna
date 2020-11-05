@@ -34,7 +34,6 @@
     'image' auto
     'form' auto
     'info' auto
-    'star-rating' auto
     / auto;
   padding: 0 var(--gutter);
   position: relative;
@@ -58,7 +57,6 @@
         '.            .     form'
         'title        title form'
         'info         image form'
-        'star-rating  image form'
         'corner-badge image form';
     }
   }
@@ -207,7 +205,6 @@
 }
 
 .product-tabs__header {
-  margin-bottom: 20px;
   position: relative;
 
   &:before {
@@ -398,9 +395,8 @@
 
 .featured-review {
   border-top: 1px solid #1f1f1f4d;
-  grid-area: star-rating;
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: -0.01em;
   line-height: 1.63;
   padding-top: 1em;

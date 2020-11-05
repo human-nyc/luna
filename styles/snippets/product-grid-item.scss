@@ -51,24 +51,25 @@
     .yotpo-display-wrapper {
       font-size: 10px;
       margin: 1em 0 0;
-      text-align: center;
 
       .shoppers-say-display-wrapper {
         display: none;
       }
 
       .standalone-bottomline {
-        display: flex;
 
         .yotpo-bottomline.pull-left {
-          margin: auto;
+          display: block;
+          float: none;
+          text-align: inherit;
         }
       }
 
       .yotpo-stars {
         margin-right: 0.5em;
 
-        .yotpo-icon {
+        .yotpo-icon.pull-left {
+          float: none;
           line-height: 0.85;
           margin-right: 0.1em;
 
@@ -186,7 +187,7 @@
   flex-grow: 1;
   font: 500 12px/1.4 var(--font-sans-serif);
   margin: 0.5em 0 0;
-  padding: 0 12px;
+  // padding: 0 12px;
   text-decoration: none;
 
   @include tablet-portrait {
@@ -205,7 +206,7 @@
   display: block;
   font: normal 10px/1.5 var(--font-sans-serif);
   margin: 0.5em 0 0;
-  padding: 0 12px;
+  // padding: 0 12px;
 
   @include tablet-portrait {
     font-size: 16px;
