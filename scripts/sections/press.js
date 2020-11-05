@@ -8,8 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressLogosEl = sectionEl.querySelector('.press__logos');
     const pressQuotesEl = sectionEl.querySelector('.press__quotes');
 
-    const mainFlickity = new Flickity(pressLogosEl, {
+    const mainFlickity = new Flickity(pressQuotesEl, {
+      pageDots: false,
+      prevNextButtons: false,
+      wrapAround: true,
+    });
+
+    const navFlickity = new Flickity(pressLogosEl, {
       contain: true,
+      draggable: false,
       pageDots: false,
       prevNextButtons: false,
       autoPlay: true,
@@ -17,11 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapAround: true,
     });
 
-    const navFlickity = new Flickity(pressQuotesEl, {
-      pageDots: false,
-      prevNextButtons: false,
-      asNavFor: pressLogosEl,
-      wrapAround: true,
-    });
   });
 });

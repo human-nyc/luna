@@ -42,6 +42,13 @@
   scroll-snap-type: x mandatory;
   white-space: nowrap;
 
+  &::after {
+    @media (min-width: 768px) {
+      content: 'flickity';
+      display: none;
+    }
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
