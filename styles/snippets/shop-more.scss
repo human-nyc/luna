@@ -86,7 +86,10 @@
       }
 
       .quick-add {
-        margin: 0 var(--gutter);
+
+        @include tablet-portrait {
+          margin: 0 var(--gutter);
+        }
       }
 
       .quick-add-button-wrapper {

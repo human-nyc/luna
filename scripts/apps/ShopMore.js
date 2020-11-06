@@ -16,15 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         shopMore.setAttribute('data-child-element-count', shopMore.childElementCount);
 
-        new Flickity(shopMore, {
-          cellAlign: 'left',
-          autoPlay: 5000,
-          imagesLoaded: true,
-          pageDots: false,
-          prevNextButtons: true,
-          watchCSS: true,
-          wrapAround: true,
-        });
+        // new Flickity(shopMore, {
+        //   cellAlign: 'left',
+        //   autoPlay: 5000,
+        //   imagesLoaded: true,
+        //   pageDots: false,
+        //   prevNextButtons: true,
+        //   watchCSS: true,
+        //   wrapAround: true,
+        // });
       },
     });
   });

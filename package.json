@@ -7,8 +7,8 @@
     "watch_styles": "npm-watch styles",
     "scripts": "webpack --mode=development --watch",
     "start": "concurrently 'theme watch' 'yarn scripts' 'yarn watch_styles' 'theme open'",
-    "deploy": "yarn webpack --mode=production && yarn sass styles/layout/:theme/assets/ styles/templates/:theme/assets/ --no-source-map && theme deploy -e staging --allow-live",
-    "release": "yarn webpack --mode=production && yarn sass styles/layout/:theme/assets/ styles/templates/:theme/assets/ --no-source-map && theme deploy -e qa --allow-live"
+    "deploy": "yarn webpack --mode=production && yarn sass styles/layout/:theme/assets/ styles/templates/:theme/assets/ --no-source-map && theme deploy -e staging",
+    "release": "yarn webpack --mode=production && yarn sass styles/layout/:theme/assets/ styles/templates/:theme/assets/ --no-source-map && theme deploy -e qa"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
