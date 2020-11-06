@@ -55,6 +55,7 @@
     display: grid;
     align-content: flex-start;
     grid-template-rows: max-content;
+    overflow: auto;
   }
 
   .cart-bottom {

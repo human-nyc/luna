@@ -3,6 +3,8 @@
 
 .shop-more {
   margin: var(--padding-v) 0;
+  overflow: hidden;
+  width: 100vw;
 
   @include desktop-lg {
     --gutter: 24px;
@@ -29,18 +31,30 @@
   padding: 0 0 70px 0;
   position: relative;
 
+  @include small-viewport {
+
+    box-sizing: border-box;
+    outline: 0;
+    overflow-x: auto;
+    padding: 0 var(--gutter) 70px;
+    position: relative;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+
+
+  }
+
   &:not([data-child-element-count="1"]):not([data-child-element-count="2"]):not([data-child-element-count="3"])::after {
-    content: 'flickity';
-    display: none;
+    @include tablet-portrait {
+      content: 'flickity';
+      display: none;
+    }
   }
 
   &[data-child-element-count="1"],
   &[data-child-element-count="2"],
   &[data-child-element-count="3"] {
     &::after {
-      content: 'flickity';
-      display: none;
-
       @include tablet-portrait {
         content: normal;
       }
@@ -58,14 +72,17 @@
   }
 
   .product-grid-item {
+    display: inline-flex;
 
     &.square {
       background: none;
-      padding: 0 var(--gutter);
+      padding: 0 8px;
       text-align: left;
-      width: 100vw;
+      width: calc(100vw - (var(--gutter)*2));
+      scroll-snap-align: center;
 
       @include tablet-portrait {
+        padding: 0 var(--gutter);
         width: calc(100vw / 2);
       }
 

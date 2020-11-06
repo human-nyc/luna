@@ -94,6 +94,7 @@
 
 .option-values {
   display: none;
+  overflow: auto;
 
   .collection__product-grid & {
     @include small-viewport {
