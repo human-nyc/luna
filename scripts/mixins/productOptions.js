@@ -13,15 +13,15 @@ export default {
     inputOptionAttributes() {
       return (product, option, value) => ({
         name: `option${option.position}`,
-        id: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`,
-        key: `"product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`
+        id: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-').replace(/ - /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        key: `"product${product.id}_option${option.name}_value${value.replace(/ /g, '-').replace(/ - /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
 
     labelOptionAttributes() {
       return (product, option, value) => ({
-        for: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-')}`,
-        class: `option-value  option--${value.replace(/ - /g, '-').replace(/ /g, '-').toLowerCase()}`
+        for: `product${product.id}_option${option.name}_value${value.replace(/ /g, '-').replace(/ - /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        class: `option-value  option--${value.replace(/ /g, '-').replace(/ - /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
 
