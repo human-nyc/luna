@@ -1,0 +1,117 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+<div
+  class="product-hero"
+  id="ProductHero"
+  data-product="{{ product | json | escape }}"
+  data-options-with-values="{{product.options_with_values | json | escape}}"
+  data-current-variant="{{ current_variant | json | escape }}"
+>
+  <div class="product-hero__inner" :class="{'has-variants': optionsWithValues.length > 1}">
+    <div class="product-hero__image" v-cloak>
+      <img v-if="selectedVariant && selectedVariant.featured_image" loading="lazy" class="quick-add__selected-variant-image" :src="selectedVariant.featured_image.src | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+      <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="product.featured_image | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+    </div>
+
+    <h1 class="product-hero__title">{{ product.title }}</h1>
+
+    <div class="product-hero__info">
+      <div class="product-tabs">
+
+        <div class="product-tabs__header">
+          <button type="button" @click="selectTab('benefits')" class="caps-header" :class="{'selected': tab === 'benefits'}">Benefits</button>
+
+          {% if product.metafields.global.details %}
+            <button type="button" @click="selectTab('details')" class="caps-header" :class="{'selected': tab === 'details'}">Details &amp; Care</button>
+          {% endif %}
+
+          {% for block in section.blocks %}
+            {% if block.settings.product == product.handle %}
+              {% if block.settings.benefits != blank %}
+                <button type="button" @click="selectTab(1)" class="caps-header" :class="{'selected': tab === 1}">Benefits</button>
+              {% endif %}
+              {% if block.settings.details != blank %}
+                <button type="button" @click="selectTab(2)" class="caps-header" :class="{'selected': tab === 2}">Details + Care</button>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="product-tabs__main">
+          <div class="product-tabs__content">
+            <template v-if="tab === 'benefits'">
+              {{ product.description }}
+            </template>
+
+            {% if product.metafields.global.details %}
+              <template v-if="tab === 'details'">
+                {{ product.metafields.global.details }}
+              </template>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-review">
+        {% render 'yotpo-star-rating', product: product %}
+        {{ product.metafields.global.featured_review }}
+      </div>
+    </div>
+
+    <form class="product-hero__form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      {% render 'product-options' %}
+
+      <div class="quantity-and-price">
+        <div class="quantity-selector-outer">
+          <div class="quantity-selector">
+            <button @click="adjustQuantity(-1)" type="button" aria-label="Decrement quantity">-</button>
+            <input id="Quantity" name="quantity" v-model="quantity" min="1" disabled>
+            <button @click="adjustQuantity(1)" type="button" aria-label="Increment quantity">+</button>
+          </div>
+        </div>
+
+        <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
+
+        <span v-cloak class="compare-at-price">
+          <template v-if="selectedVariant && selectedVariant.compare_at_price">
+            ${selectedVariant.compare_at_price | formatMoney}
+          </template>
+        </span>
+      </div>
+
+      <template v-if="selectedVariant">
+        <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="selectedVariant.available == false">${selectedVariant.available ? `Add To Cart` : `Out of Stock`}</button>
+        <p class="form-message bis-trigger" :class="{ active: selectedVariant.available == false }">
+          <a href="#" id="BIS_trigger">Notify me when available</a>
+        </p>
+        <p class="form-message" :class="{ active: selectedVariant.available }">Free Shipping over $40</p>
+        <p class="affirm-as-low-as form-message" :class="{ active: selectedVariant.available }" data-page-type="product" data-amount="{{current_variant.price}}"></p>
+      </template>
+
+      <template v-else>
+        <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Unavailable</button>
+      </template>
+    </form>
+
+
+
+    <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
+  </div>
+
+</div>
+
+<style>
+  .size-icon_twin {
+    background-image: url("{{ 'size-twin.svg' | asset_url }}");
+  }
+  .size-icon_full {
+    background-image: url("{{ 'size-full.svg' | asset_url }}");
+  }
+  .size-icon_queen {
+    background-image: url("{{ 'size-queen.svg' | asset_url }}");
+  }
+  .size-icon_king {
+    background-image: url("{{ 'size-king.svg' | asset_url }}");
+  }
+</style>
