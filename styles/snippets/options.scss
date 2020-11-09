@@ -78,7 +78,7 @@
     border-radius: 50%;
     box-sizing: content-box;
     display: inline-block;
-    margin: 1px 0.5em 1px 0;
+    margin: 2px;
     height: calc(2em - 4px);
     width: calc(2em - 4px);
 
@@ -89,6 +89,20 @@
 
   input[type='radio']:checked + .option-value {
     box-shadow: 0 0 0 1.4px black;
+  }
+}
+
+.option--size {
+  .value {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.option--weight {
+  .value {
+    display: block;
   }
 }
 

@@ -12,7 +12,7 @@
       </p>
 
       <div class="values">
-        <template v-for="(value, valIdx) in availableOptionValues(optionIdx)">
+        <span class="value" v-for="(value, valIdx) in availableOptionValues(optionIdx)">
           <input
             v-model="options[optionIdx]"
             type="radio"
@@ -21,7 +21,7 @@
             @change="handleOptionChange({optionIdx})"
           >
           <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
-        </template>
+        </span>
       </div>
 
     </div>
