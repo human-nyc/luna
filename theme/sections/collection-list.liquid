@@ -10,10 +10,26 @@
             <div class="item-wrapper">
               <a class="collection-list__item" href="{% if block.settings.product == blank %}/collections/{{ block.settings.collection }}{% else %}/products/{{ block.settings.product }}{% endif %}">
                 <div class="fill-image">
-                  <img loading="lazy" src="{{ block.settings.image | img_url: '300x300', scale: 2 }}" />
+                  <img
+                    loading="lazy"
+                    src="{{ block.settings.image | img_url: '300x300', scale: 2 }}"
+                    srcset="{{ block.settings.image | img_url: '300x300', scale: 2 }} 600w,
+                            {{ block.settings.image | img_url: '600x600', scale: 2 }} 1200w,
+                            {{ block.settings.image | img_url: '900x900', scale: 2 }} 1800w"
+                    sizes="(max-width: 767px) 100vw,
+                           (min-width: 992px) 296px,
+                           (min-width: 768px) "
+                  >
                 </div>
                 <div class="fill-image collection-list__hover-image">
-                  <img loading="lazy"  src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}" />
+                  <img
+                    loading="lazy"
+                    src="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }}"
+                    srcset="{{ block.settings.hover_image | img_url: '300x300', scale: 2 }} 600w,
+                            {{ block.settings.hover_image | img_url: '600x600', scale: 2 }} 1200w,
+                            {{ block.settings.hover_image | img_url: '900x900', scale: 2 }} 1800w"
+                    sizes="(min-width: 992px) 296px, 100vw"
+                  >
                 </div>
                 <button class="cta-button">
                   {{ block.settings.cta_text }}
