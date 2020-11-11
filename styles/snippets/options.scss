@@ -109,6 +109,7 @@
 .option-values {
   display: none;
   overflow: auto;
+  text-align: left;
 
   .collection__product-grid & {
     @include small-viewport {
@@ -229,6 +230,8 @@
     input[type='radio'] {
       align-self: center;
       appearance: none;
+      background-position: center;
+      background-size: contain;
       border: 1px solid;
       border-radius: 50%;
       box-sizing: border-box;
