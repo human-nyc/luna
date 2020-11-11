@@ -1,11 +1,5 @@
 {% assign hover_images = product.images | where: "alt", "hover" %}
 
-{% if collection %}
-  {% assign product_url = product.url | within: collection %}
-{% else %}
-  {% assign product_url = product.url %}
-{% endif %}
-
 {% if layout == 'square' %}
   {% assign image_size_mobile = '160x160' %}
   {% assign image_size = '500x500' %}
@@ -26,7 +20,7 @@
 >
   <div>
     <div class="product-grid-item__featured-image">
-      <a class="product-grid-item__featured-image" href="{{ product.url | within: collection }}">
+      <a class="product-grid-item__featured-image" href="{{ product.url }}">
         <svg class="filler-image" viewBox="0 0 {{svg_dimensions[0]}} {{svg_dimensions[1]}}" xml:space="preserve"></svg>
         <picture>
           <source
@@ -87,7 +81,7 @@
 
     {% render 'yotpo-star-rating', product: product %}
 
-    <a class="product-grid-item__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    <a class="product-grid-item__title" href="{{ product.url }}">{{ product.title }}</a>
 
     <span class="product-grid-item__price {% if product.price_varies %}varies{% endif %}">
       {{ product.price | money }}
