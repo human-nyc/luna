@@ -14,9 +14,9 @@
       <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="product.featured_image | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ product.featured_image.alt | escape }}" v-cloak>
     </div>
 
-    <h1 class="product-hero__title">{{ product.title }}</h1>
+    <h1 class="product-hero__title" v-cloak>{{ product.title }}</h1>
 
-    <div class="product-hero__info">
+    <div class="product-hero__info" v-cloak>
       <div class="product-tabs">
 
         <div class="product-tabs__header">
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <form class="product-hero__form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    <form class="product-hero__form" v-cloak action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       {% render 'product-options' %}
 
       <div class="quantity-and-price">
@@ -94,9 +94,7 @@
       </template>
     </form>
 
-
-
-    <div class="product-hero__corner"><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
+    <div class="product-hero__corner" v-cloak><img loading="lazy" width="223px" src="{{ 'warranty-banner.png' | asset_url | image_tag }}" alt="Luna Lifetime Warranty"/></div>
   </div>
 
 </div>

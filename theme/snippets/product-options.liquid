@@ -20,7 +20,11 @@
             :value="value"
             @change="handleOptionChange({optionIdx})"
           >
-          <label v-bind="labelOptionAttributes(product, option, value)" :title="value"><span>${value}</span></label>
+          <label v-bind="labelOptionAttributes(product, option, value)" :title="value">
+            <span class="option-value__value">${value}</span>
+            <span class="option-value__info"></span>
+            <span class="option-value__image"></span>
+          </label>
         </span>
       </div>
 

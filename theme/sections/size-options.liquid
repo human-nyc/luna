@@ -1,12 +1,12 @@
 <style type="text/css">
   {% for block in section.blocks %}
-    .option--{{block.settings.title | handleize }}::after {
+    .option--{{block.settings.title | handleize }} .option-value__image::after {
       {% if block.settings.filename %}
         background-image: url('{{block.settings.image | img_url: 'x46', scale: 2 }}');
         background-image: url('{{block.settings.filename | file_url }}');
       {% endif %}
     }
-    .option--{{block.settings.title | handleize }} span::after {
+    .option--{{block.settings.title | handleize }} .option-value__info::after {
       content: "{{block.settings.size_info}}";
     }
   {% endfor %}

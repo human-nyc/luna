@@ -22,6 +22,10 @@
     position: relative;
   }
 
+  &[v-cloak] {
+    display: none;
+  }
+
   img {
     display: block;
   }
@@ -45,8 +49,7 @@
       var(--header-height)
       minmax(102px, auto)
       auto
-      1fr
-      auto;
+      1fr;
     min-height: calc(100vh - var(--banner-height));
   }
 
@@ -174,6 +177,10 @@
     // bottom: 0;
   }
 
+  &[v-cloak] {
+    display: none;
+  }
+
   .has-variants & {
     @include tablet-landscape {
       align-self: stretch;
@@ -285,12 +292,11 @@
       background: none;
       border: 0;
       color: inherit;
-      flex: 1 1 0px;
       font-size: 14px;
       min-width: 0;
       padding: 0;
       text-align: center;
-      width: 2em;
+      width: auto;
     }
 
     button {
@@ -396,7 +402,8 @@
 .featured-review {
   border-top: 1px solid #1f1f1f4d;
   font-family: var(--font-serif);
-  font-size: 12px;
+  font-size: 16px;
+  font-style: normal;
   letter-spacing: -0.01em;
   line-height: 1.63;
   padding-top: 1em;
