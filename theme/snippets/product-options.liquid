@@ -14,9 +14,10 @@
       <div class="values">
         <span class="value" v-for="(value, valIdx) in availableOptionValues(optionIdx)">
           <input
-            v-model="options[optionIdx]"
-            type="radio"
             v-bind="inputOptionAttributes(product, option, value)"
+            v-model="options[optionIdx]"
+            :disabled="isInputDisabled(optionIdx, value)"
+            type="radio"
             :value="value"
             @change="handleOptionChange({optionIdx})"
           >

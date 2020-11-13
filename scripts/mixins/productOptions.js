@@ -7,9 +7,43 @@ export default {
         return idx <= optionIdx
       });
     },
+
+    isInputDisabled(optionIdx, value) {
+      const availableVariants = this.product.variants.filter(variant => variant.available);
+
+      switch (optionIdx) {
+        case 0:
+          return false;
+
+        case 1: {
+          const variants = availableVariants.filter(variant => {
+            return variant.options[0] === this.options[0]
+              && variant.options[1] === value;
+          });
+
+          return variants.length === 0;
+        }
+
+        case 2: {
+          const variants = availableVariants.filter(variant => {
+            return variant.options[0] === this.options[0]
+              && variant.options[1] === this.options[1]
+              && variant.options[2] === value;
+          });
+
+          return variants.length === 0;
+        }
+      }
+
+      return false;
+    },
   },
 
   computed: {
+    availableVariants() {
+      return this.product.variants.filter(variant => variant.available);
+    },
+
     inputOptionAttributes() {
       return (product, option, value) => ({
         name: `option${option.position}`,
@@ -38,7 +72,7 @@ export default {
     potentialVariants() {
       if (this.product.variants) {
         let result = this.product.variants.filter(variant => {
-          return this.opttions.every((option, index) => {
+          return this.options.every((option, index) => {
             return option === variant.options[index];
           });
         });
@@ -70,6 +104,7 @@ export default {
           return acc
         }, []));
       }
+      console.log('potential');
 
       return new Set(this.potentialVariants.map(variant => variant.options[2]));
     },
