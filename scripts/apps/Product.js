@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         this.currentVariant = JSON.parse(this.$el.dataset.currentVariant);
         this.optionsWithValues = JSON.parse(this.$el.dataset.optionsWithValues);
 
-        if (this.currentVariant && this.currentVariant.options) this.options = this.currentVariant.options;
+        if (this.currentVariant && this.currentVariant.options) {
+          this.options = this.currentVariant.options;
+        }
 
         if (document.querySelector('#shopify-section-size-popup')) {
           document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
@@ -89,17 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         focusOption: function (option) {
           this.selecting = option;
-        },
-
-        updateVariant: function () {
-          const variant = this.product.variants
-            .filter(p => p.options[COLOR_INDEX] === this.selectedColor)
-            .filter(p => p.options[SIZE_INDEX] === this.selectedSize)[0];
-
-          if (variant) {
-            this.currentVariant = variant;
-            this.replaceHistoryState();
-          }
         },
 
         sizeName: function (size) {

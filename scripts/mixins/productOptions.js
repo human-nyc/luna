@@ -96,17 +96,30 @@ export default {
       get() {
         if (this.product.variants) {
           let result = this.product.variants.filter(variant => {
-            return this.options.every((option, index) => {
+
+            const matchesEverySelectedOption = this.options.every((option, index) => {
               return variant.options[index] === option;
             });
+
+            return matchesEverySelectedOption;
           });
 
+
+          // if a result is found and we are on the Product page
           if (result.length > 0 && this.$el.closest('[data-template-name="product"]')) {
             let getVars = querystring.parse(location.search.substr(1));
             getVars['variant'] = result[0].id;
 
             const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
             history.replaceState({}, '', url);
+          }
+          console.log({result});
+          if(result.length > 1) {
+            const availableVariants = result.filter(variant => variant.available);
+
+            return availableVariants[0];
+          } else {
+            return result[0] || null;
           }
 
           return result[0] || null;

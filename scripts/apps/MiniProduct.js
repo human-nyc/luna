@@ -88,21 +88,6 @@ const MiniProduct = new Vue({
       await this.hydrateCartItems();
       this.toggleMiniCart();
     },
-    onChangeColor(color) {
-      this.selectedColor = color;
-      this.updateVariant();
-    },
-    updateVariant() {
-      const variant = this.productData.variants
-        .filter(p => {
-          return p[`option${COLOR_INDEX + 1}`] === this.selectedColor;
-        })[0];
-
-      if (variant) {
-        this.currentVariant = variant;
-        this.updateImage()
-      }
-    },
     updateImage() {
       if (!this.productData) {
         return;
