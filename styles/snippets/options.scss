@@ -116,10 +116,6 @@
       display: block;
     }
   }
-
-  input[disabled] + label {
-    text-decoration: line-through;
-  }
 }
 .product_option.active {
   &:last-of-type {
@@ -138,7 +134,6 @@
     border: 1px solid;
     border-radius: 50%;
     box-sizing: border-box;
-    color: #1f1f1f4d;
     display: inline-block;
     font-size: 12px;
     grid-row: 1 / span 1;
@@ -170,10 +165,11 @@
   }
 
   .option-value {
-    color: #1f1f1f4d;
     display: inline-block;
     grid-row: 2 / span 1;
     text-align: center;
+    border-color: currentColor;
+
 
     span::after {
       display: block;
@@ -182,8 +178,6 @@
   }
 
   input[type='radio']:checked + .option-value {
-    border-color: currentColor;
-    color: inherit;
 
     &::after {
       filter: none;
@@ -209,7 +203,6 @@
     background-size: contain;
     content: '';
     display: block;
-    filter: grayscale(1) opacity(0.25);
 
     height: 30px;
     width: 43px;
@@ -220,9 +213,6 @@
     }
   }
 
-  input[type='radio']:checked + .option-value .option-value__image::after {
-    filter: none;
-  }
 }
 
 // Weight options
@@ -236,11 +226,11 @@
     border: 1px solid;
     border-radius: 50%;
     box-sizing: border-box;
-    color: #1f1f1f4d;
     display: inline-block;
     font-size: 12px;
     height: 1em;
     margin: 0;
+    vertical-align: middle;
     width: 1em;
 
     &:checked {
@@ -252,51 +242,50 @@
       outline-style: none;
     }
 
-    & + label {
-    }
     &:checked + label {
       color: inherit;
     }
   }
+
   .option-value {
-    color: #1f1f1f4d;
     margin-right: auto;
     text-transform: uppercase;
+    vertical-align: middle;
 
     .quick-add & {
       justify-self: flex-start;
     }
 
-    // &[title='5 lbs']::after {
-    //   content: '50 lbs body weight';
-    // }
-    // &[title='7 lbs']::after {
-    //   content: '70 lbs body weight';
-    // }
-    // &[title='10 lbs']::after {
-    //   content: '100 lbs body weight';
-    // }
-    // &[title='12 lbs']::after {
-    //   content: '120 lbs body weight';
-    // }
-    // &[title='15 lbs']::after {
-    //   content: '150 lbs body weight';
-    // }
-    // &[title='17 lbs']::after {
-    //   content: '170 lbs body weight';
-    // }
-    // &[title='20 lbs']::after {
-    //   content: '200 lbs body weight';
-    // }
-    // &[title='22 lbs']::after {
-    //   content: '220 lbs body weight';
-    // }
-    // &[title='25 lbs']::after {
-    //   content: '250 lbs body weight';
-    // }
-    // &[title='30 lbs']::after {
-    //   content: '300 lbs body weight';
-    // }
+    &[title='5 lbs']::after {
+      content: '50 lbs body weight';
+    }
+    &[title='7 lbs']::after {
+      content: '70 lbs body weight';
+    }
+    &[title='10 lbs']::after {
+      content: '100 lbs body weight';
+    }
+    &[title='12 lbs']::after {
+      content: '120 lbs body weight';
+    }
+    &[title='15 lbs']::after {
+      content: '150 lbs body weight';
+    }
+    &[title='17 lbs']::after {
+      content: '170 lbs body weight';
+    }
+    &[title='20 lbs']::after {
+      content: '200 lbs body weight';
+    }
+    &[title='22 lbs']::after {
+      content: '220 lbs body weight';
+    }
+    &[title='25 lbs']::after {
+      content: '250 lbs body weight';
+    }
+    &[title='30 lbs']::after {
+      content: '300 lbs body weight';
+    }
 
     &::after {
       font-size: 10px;
