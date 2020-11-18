@@ -7,36 +7,6 @@ export default {
         return idx <= optionIdx
       });
     },
-
-    isInputDisabled(optionIdx, value) {
-      const availableVariants = this.product.variants.filter(variant => variant.available);
-
-      switch (optionIdx) {
-        case 0:
-          return false;
-
-        case 1: {
-          const variants = availableVariants.filter(variant => {
-            return variant.options[0] === this.options[0]
-              && variant.options[1] === value;
-          });
-
-          return variants.length === 0;
-        }
-
-        case 2: {
-          const variants = availableVariants.filter(variant => {
-            return variant.options[0] === this.options[0]
-              && variant.options[1] === this.options[1]
-              && variant.options[2] === value;
-          });
-
-          return variants.length === 0;
-        }
-      }
-
-      return false;
-    },
   },
 
   computed: {

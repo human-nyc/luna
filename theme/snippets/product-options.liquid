@@ -16,7 +16,6 @@
           <input
             v-bind="inputOptionAttributes(product, option, value)"
             v-model="options[optionIdx]"
-            :disabled="isInputDisabled(optionIdx, value)"
             type="radio"
             :value="value"
             @change="handleOptionChange({optionIdx})"
