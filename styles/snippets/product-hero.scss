@@ -19,15 +19,41 @@
   @include tablet-landscape {
     align-self: flex-end;
     display: block;
+    padding-top: 180px;
     position: relative;
+    overflow: hidden;
   }
 
   &[v-cloak] {
     display: none;
   }
 
-  img {
-    display: block;
+  .stamp {
+    align-items: center;
+    border: 1px solid;
+    display: flex;
+    font-size: 10px;
+    justify-content: center;
+    height: 50px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    transform: rotate(45deg) translateX(-100px);
+    width: 330px;
+
+    span {
+      animation: marquee 6s linear infinite;
+      padding: 0 0.5em;
+      user-select: none;
+      white-space: nowrap;
+    }
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(-100%);
   }
 }
 
