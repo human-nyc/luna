@@ -79,7 +79,17 @@
       {% endif %}
     </div>
 
+    <div style="text-align: center">
+      <div class="yotpo bottomLine" style="display:inline-block"
+         data-product-id="{{ product.id }}">
+      </div>
+    </div>
+<!--
     {% render 'yotpo-star-rating', product: product %}
+
+    <div class="featured-review">
+      {{ product.metafields.global.featured_review }}
+    </div> -->
 
     <a class="product-grid-item__title" href="{{ product.url }}">{{ product.title }}</a>
 
