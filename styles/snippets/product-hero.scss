@@ -46,6 +46,9 @@
       user-select: none;
       white-space: nowrap;
     }
+    &:hover span {
+      animation-play-state: paused;
+    }
   }
 }
 @keyframes marquee {
