@@ -67,6 +67,8 @@
   }
 }
 
+
+
 .option--color {
   input[type='radio'] {
     display: none;
@@ -293,4 +295,9 @@
       text-transform: uppercase;
     }
   }
+}
+
+
+input[type="radio"].out-of-stock + .option-value {
+  text-decoration: line-through;
 }
