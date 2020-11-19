@@ -7,8 +7,39 @@ export default {
         return idx <= optionIdx
       });
     },
-  },
 
+
+    isInputOutOfStock({option, value}) {
+      const availableVariants = this.product.variants.filter(variant => variant.available);
+      const { position } = option;
+      switch (position) {
+        case 1:
+          return false;
+
+        case 2: {
+          const variants = availableVariants.filter(variant => {
+            return variant.options[0] === this.options[0]
+              && variant.options[1] === value;
+          });
+
+          return variants.length === 0;
+        }
+
+        case 3: {
+          const variants = availableVariants.filter(variant => {
+            return variant.options[0] === this.options[0]
+              && variant.options[1] === this.options[1]
+              && variant.options[2] === value;
+          });
+
+          return variants.length === 0;
+        }
+      }
+
+      return false;
+    },
+
+  },
   computed: {
     availableVariants() {
       return this.product.variants.filter(variant => variant.available);
@@ -16,6 +47,7 @@ export default {
 
     inputOptionAttributes() {
       return (product, option, value) => ({
+        class: {"out-of-stock": this.isInputOutOfStock({option, value}) },
         name: `option${option.position}`,
         id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
