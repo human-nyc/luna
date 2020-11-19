@@ -1,10 +1,10 @@
 {% assign hover_images = product.images | where: "alt", "hover" %}
 
 {% if layout == 'square' %}
-  {% assign image_size_mobile = '160x160' %}
+  {% assign image_size_mobile = '366x366' %}
   {% assign image_size = '500x500' %}
 {% else %}
-  {% assign image_size_mobile = '160x96' %}
+  {% assign image_size_mobile = '366x220' %}
   {% assign image_size = '600x360' %}
 {% endif %}
 

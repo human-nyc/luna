@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         crop() {
           if (this.selectedVariant && this.selectedVariant.featured_image) {
             if (window.matchMedia('(max-width: 767px)').matches) {
-              return '160x96';
+              return '420x252';
             }
 
             return '840x840'

@@ -56,7 +56,12 @@
     align-content: flex-start;
     grid-template-rows: max-content;
     overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
+
 
   .cart-bottom {
     align-self: flex-end;
