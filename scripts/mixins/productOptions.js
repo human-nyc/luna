@@ -6,10 +6,34 @@ export default {
       this.activeOptionIdx = optionIdx;
     },
 
+    availableOptionValues(optionIdx) {
+      return this.potentialOptions[optionIdx];
+    },
+
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
       });
+    },
+
+    isUpsellInCart({ handle }) {
+      return this.cartItems.find(item => item.handle === handle);
+    },
+
+    setUpsellBlock() {
+      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+
+      if (!this.hasUpsell) return;
+
+      const data = window.upsells[this.itemsWithUpsell[0].handle];
+      const upsell = JSON.parse(data.upsellJson);
+
+      if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
+        this.setUpsell(upsell);
+        this.optionsWithValues = JSON.parse(data.optionsWithValuesJson)
+      } else {
+        this.setHasUpsell(false)
+      }
     },
   },
 

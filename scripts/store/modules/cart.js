@@ -13,7 +13,9 @@ const method = 'POST';
 
 const state = {
   cartData: {},
+  hasUpsell: false,
   miniCartIsOpen: false,
+  upsell: {},
 };
 
 /**
@@ -27,6 +29,12 @@ const state = {
 const mutations = {
   setCartData(state, newCartData) {
     state.cartData = newCartData;
+  },
+  setHasUpsell(state, hasUpsell) {
+    state.hasUpsell = hasUpsell;
+  },
+  setUpsell(state, newProduct) {
+    state.upsell = newProduct;
   },
   toggleMiniCart(state) {
     state.miniCartIsOpen = !state.miniCartIsOpen;
@@ -95,6 +103,14 @@ const actions = {
       });
   },
 
+  setHasUpsell({ commit }, hasUpsell) {
+    commit('setHasUpsell', hasUpsell)
+  },
+
+  setUpsell({ commit }, newProduct) {
+    commit('setUpsell', newProduct)
+  },
+
   toggleMiniCart({ commit }) {
     commit('toggleMiniCart');
   },
@@ -132,8 +148,20 @@ const getters = {
     return state.cartData.total_discount;
   },
 
+  hasUpsell(state) {
+    return state.hasUpsell;
+  },
+
+  itemsWithUpsell(state) {
+    return state.cartData.items.filter(({ handle }) => window.upsells[handle]);
+  },
+
   miniCartIsOpen(state) {
     return state.miniCartIsOpen;
+  },
+
+  upsell(state) {
+    return state.upsell;
   },
 };
 
