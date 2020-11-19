@@ -1,0 +1,38 @@
+{% if section.blocks.size > 0 %}
+  <script>
+    window.upsells = {
+      {% for block in section.blocks %}
+        {% assign upsell = all_products[block.settings.upsell] %}
+
+        '{{ block.settings.cart_item }}': {
+          'upsellJson': '{{ upsell | json }}',
+          'optionsWithValuesJson': '{{ upsell.options_with_values | json }}'
+        },
+      {% endfor %}
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Cart Upsells",
+    "blocks": [
+      {
+        "name": "Upsell Pair",
+        "type": "upsell",
+        "settings": [
+          {
+            "type": "product",
+            "id": "cart_item",
+            "label": "Cart Item"
+          },
+          {
+            "type": "product",
+            "id": "upsell",
+            "label": "Upsell Product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

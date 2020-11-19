@@ -8,10 +8,18 @@
     border-bottom: 0;
   }
 
+  .product-upsell & {
+    padding: 24px 0;
+
+    &:last-child {
+      border-bottom: 1px solid rgba(24, 39, 85, 0.3);
+    }
+  }
+
   &__image {
     img {
       mix-blend-mode: multiply;
-      max-width: 92px;
+      max-width: 138px;
     }
   }
 
@@ -74,6 +82,12 @@
       letter-spacing: 1.2px;
       grid-area: cVariants;
       margin: 8px 0;
+
+      .upsell__form & {
+        span {
+          display: block;
+        }
+      }
     }
   }
 }
