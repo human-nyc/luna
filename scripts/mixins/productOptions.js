@@ -2,6 +2,10 @@ import querystring from 'querystring';
 
 export default {
   methods: {
+    activateOption(optionIdx) {
+      this.activeOptionIdx = optionIdx;
+    },
+
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
@@ -113,8 +117,8 @@ export default {
             const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
             history.replaceState({}, '', url);
           }
-          console.log({result});
-          if(result.length > 1) {
+
+          if (result.length > 1) {
             const availableVariants = result.filter(variant => variant.available);
 
             return availableVariants[0];

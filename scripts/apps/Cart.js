@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import store from '../store';
 import { mapActions, mapGetters } from 'vuex';
+import productOptions from '../mixins/productOptions';
 import { formatMoney } from '@shopify/theme-currency';
 import { getSizedImageUrl } from "@shopify/theme-images";
 
@@ -16,9 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
       delimiters: ['${', '}'],
       el: selectors.cartEl,
       name: 'Cart',
+      data: {
+        activeOptionIdx: null,
+        currentVariant: null,
+        hasUpsell: false,
+        isUpsellActive: false,
+        options: [],
+        optionsWithValues: [],
+        quantity: 1,
+        tab: 1,
+        upsell: {},
+      },
       mounted: async function () {
         await this.hydrateCartItems();
+
+        if (this.cartCount == 0) return;
+
+        const itemsWithUpsell = this.cartItems.filter(({ handle }) => window.upsells[handle]);
+
+        this.setUpsellBlock(itemsWithUpsell);
       },
+      mixins: [productOptions],
       computed: {
         ...mapGetters('cart', [
           'cartCount',
@@ -48,17 +67,39 @@ document.addEventListener('DOMContentLoaded', () => {
         getLineLevelDiscountsLength() {
           return this.getLineLevelDiscounts.length;
         },
+
+        product() {
+          return this.upsell;
+        },
+
+        upsellUrl() {
+          return this.upsell.handle ? `/products/${this.upsell.handle}` : '';
+        },
       },
       methods: {
         ...mapActions('cart', [
+          'addToCart',
           'changeCartItem',
           'closeMiniCart',
           'hydrateCartItems',
           'removeCartItem',
         ]),
 
+        activateOption(optionIdx) {
+          this.activeOptionIdx = optionIdx;
+        },
+
+        availableOptionValues(optionIdx) {
+          return this.potentialOptions[optionIdx];
+        },
+
         getSizedImageUrl(url, size) {
           return getSizedImageUrl(url, size);
+        },
+
+        getUpsell(itemsWithUpsell) {
+          console.log(itemsWithUpsell);
+          return itemsWithUpsell[0];
         },
 
         getVariantOfType(type = '', options = []) {
@@ -76,6 +117,38 @@ document.addEventListener('DOMContentLoaded', () => {
           const item = this.cartItems[line - 1];
 
           if (oldQty === item.quantity) alert(`You have the last of ${item.product_title} in ${item.variant_title.replaceAll(' /', ',')} in your cart.`);
+        },
+
+        setUpsellBlock(itemsWithUpsell) {
+          this.hasUpsell = itemsWithUpsell.length > 0;
+
+          if (!this.hasUpsell) return;
+
+          const data = window.upsells[itemsWithUpsell[0].handle];
+
+          if (itemsWithUpsell.length === 1) {
+            this.upsell = JSON.parse(data.upsellJson);
+            this.optionsWithValues = JSON.parse(data.optionsWithValuesJson)
+          }
+
+          /* this.upsell = itemsWithUpsell.length === 1
+            ? JSON.parse(window.upsells[itemsWithUpsell[0].handle].upsellJson)
+            : this.getUpsell(itemsWithUpsell); */
+        },
+
+        async submit(e) {
+          const { id } = this.selectedVariant;
+          const properties = {};
+          const quantity = this.quantity;
+          const cartData = { id, properties, quantity };
+
+          await this.addToCart(cartData);
+          await this.hydrateCartItems();
+          this.toggleUpsellForm();
+        },
+
+        toggleUpsellForm() {
+          this.isUpsellActive = !this.isUpsellActive;
         },
       },
       filters: {

@@ -1,4 +1,5 @@
 @import './cart-item';
+@import './product-upsell';
 
 .minicart {
   display: flex;
@@ -85,12 +86,21 @@
     }
   }
 
-  .cart-closer {
+  .cart-closer,
+  .upsell-return {
     all: unset;
     border: 0;
     border-radius: 0;
     cursor: pointer;
+  }
+
+  .cart-closer {
     justify-self: flex-end;
+  }
+
+  .upsell-return {
+    align-self: center;
+    margin-right: 50px;
   }
 
   .cart-header {
@@ -112,6 +122,20 @@
       &.section-subheader {
         margin-left: 0.75em;
       }
+    }
+  }
+
+  &--upsell {
+    .minicart__inner {
+      grid-template-rows: auto 1fr;
+    }
+
+    .cart-bottom {
+      display: none;
+    }
+
+    .cart-header {
+      justify-content: unset;
     }
   }
 }
