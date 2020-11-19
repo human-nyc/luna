@@ -20,22 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
       data: {
         activeOptionIdx: null,
         currentVariant: null,
-        hasUpsell: false,
         isUpsellActive: false,
         options: [],
         optionsWithValues: [],
         quantity: 1,
         tab: 1,
-        upsell: {},
       },
       mounted: async function () {
         await this.hydrateCartItems();
 
         if (this.cartCount == 0) return;
 
-        const itemsWithUpsell = this.cartItems.filter(({ handle }) => window.upsells[handle]);
-
-        this.setUpsellBlock(itemsWithUpsell);
+        this.setUpsellBlock();
       },
       mixins: [productOptions],
       computed: {
@@ -43,7 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
           'cartCount',
           'cartItems',
           'cartSubtotal',
+          'hasUpsell',
+          'itemsWithUpsell',
           'miniCartIsOpen',
+          'upsell',
         ]),
 
         getCartLevelDiscountsLength() {
@@ -83,23 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
           'closeMiniCart',
           'hydrateCartItems',
           'removeCartItem',
+          'setHasUpsell',
+          'setUpsell',
         ]),
-
-        activateOption(optionIdx) {
-          this.activeOptionIdx = optionIdx;
-        },
-
-        availableOptionValues(optionIdx) {
-          return this.potentialOptions[optionIdx];
-        },
 
         getSizedImageUrl(url, size) {
           return getSizedImageUrl(url, size);
-        },
-
-        getUpsell(itemsWithUpsell) {
-          console.log(itemsWithUpsell);
-          return itemsWithUpsell[0];
         },
 
         getVariantOfType(type = '', options = []) {
@@ -119,21 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (oldQty === item.quantity) alert(`You have the last of ${item.product_title} in ${item.variant_title.replaceAll(' /', ',')} in your cart.`);
         },
 
-        setUpsellBlock(itemsWithUpsell) {
-          this.hasUpsell = itemsWithUpsell.length > 0;
-
-          if (!this.hasUpsell) return;
-
-          const data = window.upsells[itemsWithUpsell[0].handle];
-
-          if (itemsWithUpsell.length === 1) {
-            this.upsell = JSON.parse(data.upsellJson);
-            this.optionsWithValues = JSON.parse(data.optionsWithValuesJson)
-          }
-
-          /* this.upsell = itemsWithUpsell.length === 1
-            ? JSON.parse(window.upsells[itemsWithUpsell[0].handle].upsellJson)
-            : this.getUpsell(itemsWithUpsell); */
+        async removeItem(line) {
+          await this.removeCartItem(line);
+          this.setUpsellBlock();
         },
 
         async submit(e) {
@@ -144,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           await this.addToCart(cartData);
           await this.hydrateCartItems();
+          this.setUpsellBlock();
           this.toggleUpsellForm();
         },
 

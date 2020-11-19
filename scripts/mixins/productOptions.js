@@ -6,14 +6,17 @@ export default {
       this.activeOptionIdx = optionIdx;
     },
 
+    availableOptionValues(optionIdx) {
+      return this.potentialOptions[optionIdx];
+    },
+
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
       });
     },
 
-
-    isInputOutOfStock({option, value}) {
+    isInputOutOfStock({ option, value }) {
       const availableVariants = this.product.variants.filter(variant => variant.available);
       const { position } = option;
       switch (position) {
@@ -51,7 +54,7 @@ export default {
 
     inputOptionAttributes() {
       return (product, option, value) => ({
-        class: {"out-of-stock": this.isInputOutOfStock({option, value}) },
+        class: { "out-of-stock": this.isInputOutOfStock({ option, value }) },
         name: `option${option.position}`,
         id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
