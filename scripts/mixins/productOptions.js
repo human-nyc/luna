@@ -38,9 +38,9 @@ export default {
 
         if (!this.hasUpsell) return;
 
-        data = window.upsells[upsellsNotInCart[0]];
+        data = window.upsells[upsellsNotInCart.slice(-1)];
         upsell = JSON.parse(data.upsellJson);
-        this.setHasUpsell(upsell);
+        this.setUpsell(upsell);
         return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
       }
     },
