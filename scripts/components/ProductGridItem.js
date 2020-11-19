@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import productOptions from '../mixins/productOptions';
 
 import { getSizedImageUrl } from "@shopify/theme-images";

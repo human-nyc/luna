@@ -46,7 +46,36 @@ export default {
       return false;
     },
 
+    isUpsellInCart({ handle }) {
+      return this.cartItems.find(item => item.handle === handle);
+    },
+
+    setUpsellBlock() {
+      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+
+      if (!this.hasUpsell) return;
+
+      let data = window.upsells[this.itemsWithUpsell[0]];
+      let upsell = JSON.parse(data.upsellJson);
+
+      if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
+        this.setUpsell(upsell);
+        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+      } else {
+        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellJson)));
+
+        this.setHasUpsell(upsellsNotInCart.length > 0);
+
+        if (!this.hasUpsell) return;
+
+        data = window.upsells[upsellsNotInCart[0]];
+        upsell = JSON.parse(data.upsellJson);
+        this.setHasUpsell(upsell);
+        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+      }
+    },
   },
+
   computed: {
     availableVariants() {
       return this.product.variants.filter(variant => variant.available);
