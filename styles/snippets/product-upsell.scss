@@ -2,6 +2,10 @@
   padding: 0 0 40px;
   position: relative;
 
+  .cart & {
+    grid-column: 2;
+  }
+
   h3.section-subheader {
     font-size: 14px;
     margin: 10px 0 12px;
@@ -41,8 +45,12 @@
 
     &__image {
       img {
-        max-width: 138px;
+        max-width: 92px;
         mix-blend-mode: multiply;
+
+        @media (min-width: 768px) {
+          max-width: 138px;
+        }
       }
     }
 

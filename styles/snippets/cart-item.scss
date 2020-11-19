@@ -19,7 +19,11 @@
   &__image {
     img {
       mix-blend-mode: multiply;
-      max-width: 138px;
+      max-width: 92px;
+
+      @media (min-width: 768px) {
+        max-width: 138px;
+      }
     }
   }
 
@@ -82,12 +86,6 @@
       letter-spacing: 1.2px;
       grid-area: cVariants;
       margin: 8px 0;
-
-      .upsell__form & {
-        span {
-          display: block;
-        }
-      }
     }
   }
 }
