@@ -153,7 +153,11 @@ const getters = {
   },
 
   itemsWithUpsell(state) {
-    return state.cartData.items.filter(({ handle }) => window.upsells[handle]);
+    return state.cartData.items.reduce((acc, { handle }) => {
+      if (window.upsells[handle]) acc.push(handle);
+
+      return acc;
+    }, []);
   },
 
   miniCartIsOpen(state) {
