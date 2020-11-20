@@ -113,11 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       computed: {
         crop() {
-          if (this.selectedVariant && this.selectedVariant.featured_image) {
-            if (window.matchMedia('(max-width: 767px)').matches) {
-              return '420x252';
-            }
-
+          if (window.matchMedia('(max-width: 767px)').matches) {
+            return '420x252';
+          } else {
             return '840x840'
           }
         },

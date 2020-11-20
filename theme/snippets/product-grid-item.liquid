@@ -148,7 +148,7 @@
 
       {% render 'product-options', product: product %}
 
-      <p v-if="selectedVariant">
+      <template v-if="selectedVariant">
         <button
           v-if="selectedVariant.available"
           @click.prevent="submit"
@@ -156,7 +156,11 @@
           type="submit"
         >Add To Cart</button>
         <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
-      </p>
+      </template>
+      <template v-else>
+        <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Make a Selection</button>
+      </template>
+
     </form>
   </div>
 </product-grid-item>
