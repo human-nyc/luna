@@ -14,7 +14,7 @@
         <p>
           {{ section.settings.body }}
         </p>
-        <a class="cta-button cta-button_dark" href="">
+        <a class="cta-button cta-button_dark" href="{{section.settings.cta_url}}">
           {{ section.settings.cta_text }}
           {% render 'svg-right-arrow' %}
         </a>
@@ -53,6 +53,11 @@
         "id": "cta_text",
         "label": "CTA Text",
         "default": "Shop"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA Link"
       },
       {
         "type": "image_picker",
