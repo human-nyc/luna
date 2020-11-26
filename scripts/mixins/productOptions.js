@@ -82,17 +82,21 @@ export default {
     },
 
     inputOptionAttributes() {
+      const upsell = this.isUpsellActive ? '_upsell' : '';
+
       return (product, option, value) => ({
         class: { "out-of-stock": this.isInputOutOfStock({ option, value }) },
         name: `option${option.position}`,
-        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
 
     labelOptionAttributes() {
+      const upsell = this.isUpsellActive ? '_upsell' : '';
+
       return (product, option, value) => ({
-        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
         class: `option-value  option--${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
