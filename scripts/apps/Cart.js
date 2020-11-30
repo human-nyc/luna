@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import store from '../store';
 import { mapActions, mapGetters } from 'vuex';
+import productOptions from '../mixins/productOptions';
 import { formatMoney } from '@shopify/theme-currency';
 import { getSizedImageUrl } from "@shopify/theme-images";
 
@@ -16,15 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
       delimiters: ['${', '}'],
       el: selectors.cartEl,
       name: 'Cart',
+      data: {
+        activeOptionIdx: null,
+        currentVariant: null,
+        isUpsellActive: false,
+        options: [],
+        optionsWithValues: [],
+        quantity: 1,
+        tab: 1,
+      },
       mounted: async function () {
         await this.hydrateCartItems();
+
+        if (this.cartCount == 0) return;
+
+        this.setUpsellBlock();
       },
+      mixins: [productOptions],
       computed: {
         ...mapGetters('cart', [
           'cartCount',
           'cartItems',
           'cartSubtotal',
+          'hasUpsell',
+          'itemsWithUpsell',
           'miniCartIsOpen',
+          'upsell',
         ]),
 
         getCartLevelDiscountsLength() {
@@ -48,13 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
         getLineLevelDiscountsLength() {
           return this.getLineLevelDiscounts.length;
         },
+
+        product() {
+          return this.upsell;
+        },
+
+        upsellUrl() {
+          return this.upsell.handle ? `/products/${this.upsell.handle}` : '';
+        },
       },
       methods: {
         ...mapActions('cart', [
+          'addToCart',
           'changeCartItem',
           'closeMiniCart',
           'hydrateCartItems',
           'removeCartItem',
+          'setHasUpsell',
+          'setUpsell',
         ]),
 
         getSizedImageUrl(url, size) {
@@ -76,6 +105,27 @@ document.addEventListener('DOMContentLoaded', () => {
           const item = this.cartItems[line - 1];
 
           if (oldQty === item.quantity) alert(`You have the last of ${item.product_title} in ${item.variant_title.replaceAll(' /', ',')} in your cart.`);
+        },
+
+        async removeItem(line) {
+          await this.removeCartItem(line);
+          this.setUpsellBlock();
+        },
+
+        async submit(e) {
+          const { id } = this.selectedVariant;
+          const properties = {};
+          const quantity = this.quantity;
+          const cartData = { id, properties, quantity };
+
+          await this.addToCart(cartData);
+          await this.hydrateCartItems();
+          this.setUpsellBlock();
+          this.toggleUpsellForm();
+        },
+
+        toggleUpsellForm() {
+          this.isUpsellActive = !this.isUpsellActive;
         },
       },
       filters: {

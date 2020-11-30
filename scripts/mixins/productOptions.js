@@ -2,14 +2,21 @@ import querystring from 'querystring';
 
 export default {
   methods: {
+    activateOption(optionIdx) {
+      this.activeOptionIdx = optionIdx;
+    },
+
+    availableOptionValues(optionIdx) {
+      return this.potentialOptions[optionIdx];
+    },
+
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
       });
     },
 
-
-    isInputOutOfStock({option, value}) {
+    isInputOutOfStock({ option, value }) {
       const availableVariants = this.product.variants.filter(variant => variant.available);
       const { position } = option;
       switch (position) {
@@ -39,24 +46,57 @@ export default {
       return false;
     },
 
+    isUpsellInCart({ handle }) {
+      return this.cartItems.find(item => item.handle === handle);
+    },
+
+    setUpsellBlock() {
+      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+
+      if (!this.hasUpsell) return;
+
+      let data = window.upsells[this.itemsWithUpsell[0]];
+      let upsell = JSON.parse(data.upsellJson);
+
+      if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
+        this.setUpsell(upsell);
+        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+      } else {
+        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellJson)));
+
+        this.setHasUpsell(upsellsNotInCart.length > 0);
+
+        if (!this.hasUpsell) return;
+
+        data = window.upsells[upsellsNotInCart.slice(-1)];
+        upsell = JSON.parse(data.upsellJson);
+        this.setUpsell(upsell);
+        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+      }
+    },
   },
+
   computed: {
     availableVariants() {
       return this.product.variants.filter(variant => variant.available);
     },
 
     inputOptionAttributes() {
+      const upsell = this.isUpsellActive ? '_upsell' : '';
+
       return (product, option, value) => ({
-        class: {"out-of-stock": this.isInputOutOfStock({option, value}) },
+        class: { "out-of-stock": this.isInputOutOfStock({ option, value }) },
         name: `option${option.position}`,
-        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
 
     labelOptionAttributes() {
+      const upsell = this.isUpsellActive ? '_upsell' : '';
+
       return (product, option, value) => ({
-        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`,
+        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
         class: `option-value  option--${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
@@ -145,8 +185,8 @@ export default {
             const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
             history.replaceState({}, '', url);
           }
-          console.log({result});
-          if(result.length > 1) {
+
+          if (result.length > 1) {
             const availableVariants = result.filter(variant => variant.available);
 
             return availableVariants[0];

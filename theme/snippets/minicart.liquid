@@ -1,17 +1,19 @@
-<div id="vuecart" class="minicart" :class="{'is-open': miniCartIsOpen}">
+<div id="vuecart" class="minicart" :class="{'is-open': miniCartIsOpen, 'minicart--upsell': isUpsellActive}">
   <div @click="closeMiniCart" class="minicart__background"></div>
 
   <div class="minicart__inner">
     <div class="cart-header">
+      <button v-if="isUpsellActive" @click="toggleUpsellForm" class="upsell-return">{% render 'svg-remove' %}</button>
+
       <div>
         <h2 class="section-header">Your Cart</h2>
         <h3 class="section-subheader">${getItems}</h3>
       </div>
 
-      <button @click="closeMiniCart" class="cart-closer">{% render 'svg-close' %}</button>
+      <button v-if="!isUpsellActive" @click="closeMiniCart" class="cart-closer">{% render 'svg-close' %}</button>
     </div>
 
-    <div class="cart-body">
+    <div v-if="!isUpsellActive" class="cart-body">
       <template v-for="(item, index) in cartItems">
         {% render 'cart-item' %}
       </template>

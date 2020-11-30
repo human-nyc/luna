@@ -54,7 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       mixins: [productOptions],
       methods: {
-        ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+        ...mapActions('cart', [
+          'addToCart',
+          'hydrateCartItems',
+          'setHasUpsell',
+          'setUpsell',
+          'toggleMiniCart',
+        ]),
         ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
 
         async submit(e) {
@@ -66,16 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           await this.addToCart(cartData);
           await this.hydrateCartItems();
+          this.setUpsellBlock();
           this.toggleMiniCart();
-        },
-
-        activateOption(optionIdx) {
-          // this.options = this.options.slice(0, optionIdx);
-          this.activeOptionIdx = optionIdx;
-        },
-
-        availableOptionValues(optionIdx) {
-          return this.potentialOptions[optionIdx];
         },
 
         selectTab: function (tab) {
@@ -112,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
       computed: {
+        ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell']),
         crop() {
           if (window.matchMedia('(max-width: 767px)').matches) {
             return '420x252';

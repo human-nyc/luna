@@ -1,0 +1,67 @@
+<div v-if="hasUpsell" class="product-upsell">
+  <template v-if="!isUpsellActive">
+    <h3 class="section-subheader">Goes well with:</h3>
+    <div class="upsell">
+      <a :href="upsellUrl" class="upsell__image">
+        <img
+          :src="getSizedImageUrl(upsell.featured_image, '92x57_crop_center@2x')"
+          :alt="upsell.title"
+        >
+      </a>
+
+      <div class="upsell__info">
+        <h4 class="upsell-title">${upsell.title}</h4>
+        <span class="upsell-price">${upsell.price | formatMoney}</span>
+        <a :href="upsellUrl" class="upsell-more"><h4>View Details</h4></a>
+      </div>
+
+      <div class="upsell__add">
+        <button @click="toggleUpsellForm" class="centered cta-button cta-button_dark">Add</button>
+      </div>
+    </div>
+  </template>
+
+  <div v-else class="upsell__form-wrapper">
+    <div class="cart-item">
+      <a :href="upsellUrl" class="cart-item__image">
+        <img
+          v-if="selectedVariant && selectedVariant.featured_image"
+          loading="lazy"
+          :src="getSizedImageUrl(selectedVariant.featured_image.src, '92x57_crop_center@2x')"
+          :alt="upsell.featured_image.alt"
+        >
+        <img
+          v-else
+          loading="lazy"
+          :src="getSizedImageUrl(upsell.featured_image, '92x57_crop_center@2x')"
+          :alt="upsell.featured_image.alt"
+        >
+      </a>
+
+      <div class="cart-item__info">
+        <h3 class="item-title"><a :href="upsellUrl">${upsell.title}</a></h3>
+        <span class="item-price">${upsell.price | formatMoney}</span>
+        <p v-if="selectedVariant" class="item-variants">
+          <span v-for="option in selectedVariant.options">${option}</span>
+        </p>
+      </div>
+    </div>
+
+    <form class="upsell__form" method="post" action="/cart/add" enctype="multipart/form-data">
+      <input type="hidden" name="form_type" value="product">
+      <input type="hidden" name="utf8" value="✓">
+
+      {% render 'product-options', product: product %}
+
+      <p v-if="selectedVariant">
+        <button
+          v-if="selectedVariant.available"
+          @click.prevent="submit"
+          class="cta-button cta-button_dark small centered"
+          type="submit"
+        >Add To Cart</button>
+        <button v-else class="cta-button cta-button_dark small centered" type="submit" disabled>Out of Stock</button>
+      </p>
+    </form>
+  </div>
+</div>

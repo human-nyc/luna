@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import productOptions from '../mixins/productOptions';
 
 import { getSizedImageUrl } from "@shopify/theme-images";
@@ -38,7 +38,13 @@ Vue.component('product-grid-item', {
   mixins: [productOptions],
 
   methods: {
-    ...mapActions('cart', ['addToCart', 'hydrateCartItems', 'toggleMiniCart']),
+    ...mapActions('cart', [
+      'addToCart',
+      'hydrateCartItems',
+      'setHasUpsell',
+      'setUpsell',
+      'toggleMiniCart',
+    ]),
     ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
     async submit(e) {
       const { id } = this.selectedVariant;
@@ -48,11 +54,8 @@ Vue.component('product-grid-item', {
 
       await this.addToCart(cartData);
       await this.hydrateCartItems();
+      this.setUpsellBlock();
       this.toggleMiniCart();
-    },
-
-    activateOption(optionIdx) {
-      this.activeOptionIdx = optionIdx;
     },
 
     activateQuickAdd() {
@@ -60,14 +63,14 @@ Vue.component('product-grid-item', {
       this.quickAddIsActive = true;
     },
 
-    availableOptionValues(optionIdx) {
-      return this.potentialOptions[optionIdx];
-    },
-
     deactivateQuickAdd() {
       document.documentElement.classList.remove('quick-add-active');
       this.quickAddIsActive = false;
     },
+  },
+
+  computed: {
+    ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell']),
   },
 
   filters: {
