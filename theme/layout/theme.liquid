@@ -13,7 +13,10 @@
     <meta name="description" content="{{ page_description | escape }}" />
   {% endif %}
 
-  {% include 'favicon' %}
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {%- endif -%}
+
 
   {% if template contains 'collection' and current_tags %}
     <meta name="robots" content="noindex" />
