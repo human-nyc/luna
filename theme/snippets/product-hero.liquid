@@ -11,7 +11,7 @@
   <div class="product-hero__inner" :class="{'has-variants': optionsWithValues.length > 1}">
     <div class="product-hero__image" v-cloak>
       <img v-if="selectedVariant && selectedVariant.featured_image" loading="lazy" class="quick-add__selected-variant-image" :src="selectedVariant.featured_image.src | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ product.featured_image.alt | escape }}" v-cloak>
-      <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="product.featured_image | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+      <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="getProductImage() | getSizedImageUrl(`${crop}_crop_center@2x.progressive`)" alt="{{ options[0] | escape }}" v-cloak>
     </div>
 
     <h1 class="product-hero__title" v-cloak>{{ product.title }}</h1>

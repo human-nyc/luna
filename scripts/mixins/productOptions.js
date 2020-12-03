@@ -10,6 +10,16 @@ export default {
       return this.potentialOptions[optionIdx];
     },
 
+    getProductImage: function () {
+      if (this.options[0]) {
+        let variant = this.product.variants.find(({ option1 }) => option1 === this.options[0]);
+
+        if (variant) return variant.featured_image.src;
+      }
+
+      return this.product.featured_image
+    },
+
     handleOptionChange({ optionIdx }) {
       this.options = this.options.filter((option, idx) => {
         return idx <= optionIdx
