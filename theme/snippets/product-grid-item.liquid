@@ -135,14 +135,14 @@
         </picture>
         <picture v-else>
           <source
-            :srcset="product.featured_image | getSizedImageUrl('325x195_crop_center@2x.progressive')"
+            :srcset="getProductImage() | getSizedImageUrl('325x195_crop_center@2x.progressive')"
             media="(max-width: 767px)"
           >
           <source
-            :srcset="product.featured_image | getSizedImageUrl('600x360_crop_center@2x.progressive')"
+            :srcset="getProductImage() | getSizedImageUrl('600x360_crop_center@2x.progressive')"
             media="(min-width: 768px)"
           >
-          <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ product.featured_image.alt | escape }}">
+          <img loading="lazy" class="quick-add__selected-variant-image" src="" alt="{{ options[0] | escape }}">
         </picture>
       </div>
 
