@@ -8,12 +8,6 @@ import { getSizedImageUrl } from "@shopify/theme-images";
 import querystring from 'querystring';
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  const selectors = {
-    productHero: '#ProductHero',
-    stickyAddToCart: '#stickyAddToCart',
-  }
-
   if (document.querySelector('#ProductHero')) {
     new Vue({
       name: "ProductHero",

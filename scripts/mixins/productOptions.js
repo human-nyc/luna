@@ -5,12 +5,19 @@ export default {
     activateOption(optionIdx) {
       this.activeOptionIdx = optionIdx;
     },
-    deactivateOption(optionIdx) {
-      this.activeOptionIdx = null;
-    },
 
     availableOptionValues(optionIdx) {
       return this.potentialOptions[optionIdx];
+    },
+
+    getProductImage: function () {
+      if (this.options[0]) {
+        let variant = this.product.variants.find(({ option1 }) => option1 === this.options[0]);
+
+        if (variant) return variant.featured_image.src;
+      }
+
+      return this.product.featured_image
     },
 
     handleOptionChange({ optionIdx }) {
@@ -54,7 +61,7 @@ export default {
     },
 
     setUpsellBlock() {
-      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+      this.setHasUpsell(this.itemsWithUpsell.length > 0);
 
       if (!this.hasUpsell) return;
 
