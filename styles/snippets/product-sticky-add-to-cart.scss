@@ -111,8 +111,16 @@
               font-size: 9px;
               margin-left: 0;
             }
+            &__image::after {
+    
+              @include desktop-xl {
+                height: 30px;
+                width: 43px;
+              }
+            }
           }
         }
+
         &.option--color .option-values {
           padding: 5px 3px 0px;
         }

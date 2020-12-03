@@ -27,7 +27,7 @@
             @change="handleOptionChange({optionIdx})"
             @click="activateOption(null)"
           >
-          <label v-bind="labelOptionAttributes(product, option, value)" :title="value">
+          <label v-bind="labelOptionAttributes(product, option, value)" @click="activateOption(null)" :title="value">
             <span class="option-value__value">${value}</span>
             <span class="option-value__info"></span>
             <span class="option-value__image"></span>
