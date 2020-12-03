@@ -61,7 +61,7 @@ export default {
     },
 
     setUpsellBlock() {
-      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+      this.setHasUpsell(this.itemsWithUpsell.length > 0);
 
       if (!this.hasUpsell) return;
 
