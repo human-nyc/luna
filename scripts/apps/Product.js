@@ -8,6 +8,12 @@ import { getSizedImageUrl } from "@shopify/theme-images";
 import querystring from 'querystring';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const selectors = {
+    productHero: '#ProductHero',
+    stickyAddToCart: '#stickyAddToCart',
+  }
+
   if (document.querySelector('#ProductHero')) {
     new Vue({
       name: "ProductHero",
@@ -130,6 +136,138 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
   }
+
+
+
+  if (document.querySelector('#stickyAddToCart')) {
+    new Vue({
+      name: "stickyAddToCart",
+      store,
+      delimiters: ['${', '}'],
+      el: '#stickyAddToCart',
+      data: {
+        activeOptionIdx: null,
+        colors: [],
+        currentVariant: null,
+        options: [],
+        optionsWithValues: [],
+        product: {
+          featured_image: "",
+          variants: [],
+        },
+        quantity: 1,
+        selectedColor: '',
+        selectedSize: '',
+        selectedWeight: '',
+        selecting: 'color',
+        sizes: [],
+        tab: 'benefits',
+        weights: [],
+      },
+      mounted() {
+
+
+        this.product = JSON.parse(document.querySelector('#ProductHero').dataset.product);
+
+
+        this.currentVariant = JSON.parse(document.querySelector('#ProductHero').dataset.currentVariant);
+        this.optionsWithValues = JSON.parse(document.querySelector('#ProductHero').dataset.optionsWithValues);
+
+        if (this.currentVariant && this.currentVariant.options) {
+          this.options = this.currentVariant.options;
+        }
+
+        if (document.querySelector('#shopify-section-size-popup')) {
+          document.querySelector('#shopify-section-size-popup .size-popup__background').addEventListener('click', event => {
+            this.toggleActiveSizePopup();
+          });
+
+          document.querySelector('#shopify-section-size-popup #size-popup__close-button').addEventListener('click', event => {
+            this.toggleActiveSizePopup();
+          });
+        }
+      },
+      mixins: [productOptions],
+      methods: {
+        ...mapActions('cart', [
+          'addToCart',
+          'hydrateCartItems',
+          'setHasUpsell',
+          'setUpsell',
+          'toggleMiniCart',
+        ]),
+        ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
+
+        async submit(e) {
+          e.preventDefault();
+          const { id } = this.selectedVariant;
+          const properties = {};
+          const quantity = this.quantity;
+          const cartData = { id, properties, quantity };
+
+          await this.addToCart(cartData);
+          await this.hydrateCartItems();
+          this.setUpsellBlock();
+          this.toggleMiniCart();
+        },
+
+        selectTab: function (tab) {
+          this.tab = tab;
+        },
+
+        adjustQuantity: function (increment) {
+          this.quantity += increment;
+          if (this.quantity < 1) {
+            this.quantity = 1;
+          }
+        },
+
+        focusOption: function (option) {
+          this.selecting = option;
+        },
+
+        sizeName: function (size) {
+          return size.split(' ')[0].toLowerCase();
+        },
+
+        sizeDimensions: function (size) {
+          return size.match(/\((.+?)\)/)[1];
+        },
+
+        replaceHistoryState() {
+          if (!this.currentVariant) {
+            return;
+          }
+          let getVars = querystring.parse(location.search.substring(1));
+          getVars.variant = this.currentVariant.id;
+          const url = `${window.location.pathname}?${querystring.stringify(getVars)}`;
+          history.replaceState({}, '', url);
+        },
+      },
+      computed: {
+        ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell']),
+        crop() {
+          if (window.matchMedia('(max-width: 767px)').matches) {
+            return '420x252';
+          } else {
+            return '840x840'
+          }
+        },
+      },
+      filters: {
+        formatMoney(price, format) {
+          return formatMoney(price, '${{amount}}');
+        },
+
+        getSizedImageUrl(url, size) {
+          return getSizedImageUrl(url, size);
+        },
+      },
+    });
+  }
+
+
+
 
   if (document.querySelector('#size-popup')) {
     new Vue({

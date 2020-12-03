@@ -5,6 +5,9 @@ export default {
     activateOption(optionIdx) {
       this.activeOptionIdx = optionIdx;
     },
+    deactivateOption(optionIdx) {
+      this.activeOptionIdx = null;
+    },
 
     availableOptionValues(optionIdx) {
       return this.potentialOptions[optionIdx];
@@ -194,7 +197,6 @@ export default {
             return result[0] || null;
           }
 
-          return result[0] || null;
         } else {
           return { id: null, price: 0, compare_at_price: 0, featured_image: { src: '' } };
         }

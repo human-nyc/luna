@@ -1,0 +1,45 @@
+<div class="product__options" v-if="optionsWithValues.length > 1">
+  <div v-bind="optionAttributes(option, optionIdx)" v-for="(option, optionIdx) in optionsWithValues">
+    
+    <div class="option-name">
+      ${option.name}
+    </div>
+
+    <div class="option-selected-value" @click="activateOption(optionIdx)">
+      <template v-if="options[optionIdx]">
+        ${options[optionIdx]}
+      </template>
+      <template v-else>
+        Select ${option.name}
+      </template>
+      {% render 'svg-down-arrow' %}
+    </div>
+
+    <div class="option-values">
+
+      <div class="values">
+        <span class="value" v-for="(value, valIdx) in availableOptionValues(optionIdx)">
+          <input
+            v-bind="inputOptionAttributes(product, option, value)"
+            v-model="options[optionIdx]"
+            type="radio"
+            :value="value"
+            @change="handleOptionChange({optionIdx})"
+            @click="activateOption(null)"
+          >
+          <label v-bind="labelOptionAttributes(product, option, value)" :title="value">
+            <span class="option-value__value">${value}</span>
+            <span class="option-value__info"></span>
+            <span class="option-value__image"></span>
+          </label>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <select name="id" v-model="selectedVariant.id" class="variants" v-if="selectedVariant">
+    <option v-for="variant in product.variants" v-bind:value="variant.id">${variant.title} - ${variant.id}</option>
+  </select>
+
+</div>
