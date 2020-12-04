@@ -61,7 +61,7 @@ export default {
     },
 
     setUpsellBlock() {
-      this.setHasUpsell(this.itemsWithUpsell.length > 0 && this.cartCount > 0);
+      this.setHasUpsell(this.itemsWithUpsell.length > 0);
 
       if (!this.hasUpsell) return;
 
@@ -204,7 +204,6 @@ export default {
             return result[0] || null;
           }
 
-          return result[0] || null;
         } else {
           return { id: null, price: 0, compare_at_price: 0, featured_image: { src: '' } };
         }
