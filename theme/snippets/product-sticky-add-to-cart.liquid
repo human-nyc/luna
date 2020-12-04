@@ -1,0 +1,42 @@
+<div class="stickyAddToCart" id="stickyAddToCart">
+
+  <a class="stickyAddToCart__logo" href="/">
+    {% render 'svg-logo' %}
+  </a>
+
+  <div class="stickyAddToCart__image" v-cloak>
+    <img v-if="selectedVariant && selectedVariant.featured_image" loading="lazy" class="quick-add__selected-variant-image" :src="selectedVariant.featured_image.src | getSizedImageUrl('200x200_crop_center@2x.progressive')" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+    <img v-else loading="lazy" class="quick-add__selected-variant-image" :src="product.featured_image | getSizedImageUrl('200x200_crop_center@2x.progressive')" alt="{{ product.featured_image.alt | escape }}" v-cloak>
+  </div>
+
+
+  <div class="stickyAddToCart__title">
+    <h5 class="product-title">{{ product.title }}</h5>
+    <div class="product-price">
+      <span v-cloak class="price" v-if="selectedVariant">${selectedVariant.price | formatMoney }</span>
+      <span v-cloak class="compare-at-price">
+        <template v-if="selectedVariant && selectedVariant.compare_at_price">
+          ${selectedVariant.compare_at_price | formatMoney}
+        </template>
+      </span>
+    </div>
+  </div>
+
+
+  <form class="stickyAddToCart__form" v-cloak action="/cart/add" method="post" enctype="multipart/form-data" id="stickyAddToCartForm">
+    
+    {% render 'product-options-sticky-add-to-cart' %}
+
+    <template v-if="selectedVariant">
+      <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="selectedVariant.available == false">${selectedVariant.available ? `Add To Cart` : `Out of Stock`}</button>
+    </template>
+
+    <template v-else>
+      <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Make a Selection</button>
+    </template>
+
+  </form>
+
+
+
+</div>
