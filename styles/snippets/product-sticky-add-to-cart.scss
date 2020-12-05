@@ -9,21 +9,19 @@
   display: none;
   grid-template-columns: 150px 100px auto 1fr;
   height: var(--header-height);
-  margin-top: calc(var(--header-height) * -1);
+  left: 0;
   opacity: 0;
   padding: 0 var(--gutter);
   pointer-events: none;
-  position: -webkit-sticky;
-  position: sticky;
-  left: 0;
+  position: fixed;
   right: 0;
   top: 0;
+  transition: opacity var(--fast);
   z-index: 21;
-
-  &.active {
+  
+  .active & {
     opacity: 1;
     pointer-events: auto;
-    transition: opacity var(--fast);
   }
 
   &__logo {
@@ -73,7 +71,9 @@
     justify-content: flex-end;
 
     .product__options {
+      align-items: center;
       display: flex;
+      justify-content: flex-end;
 
       .product_option {
         min-width: 120px;
@@ -144,6 +144,7 @@
     }
     .form-button {
       align-self: center;
+      width: 160px;
     }
   }
 }

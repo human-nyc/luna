@@ -1,29 +1,25 @@
 class ProductStickyAddToCart {
   constructor() {
-    this.rootElement = document.querySelector('#stickyAddToCart');
+    this.stickyAddToCart = document.querySelector('#stickyAddToCart');
 
     window.addEventListener('scroll', () => {
       this.checkScrollPosition();
     });
-
-    const headerHeight = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    const options = {
-      rootMargin: `-50% 0% -50% 0%`
-    };
-
   }
 
   checkScrollPosition() {
-    if(scrollY >= this.rootElement.offsetTop) {
+    if(scrollY >= this.stickyAddToCart.offsetTop) {
       requestAnimationFrame(() => {
-        this.rootElement.classList.add('active');
+        stickyAddToCartIsActive = true
+        this.stickyAddToCart.classList.add('active');
       });
     } else {
       requestAnimationFrame(() => {
-        this.rootElement.classList.remove('active');
+        stickyAddToCartIsActive = false
+        this.stickyAddToCart.classList.remove('active');
       });
     }
-  }
+  } 
 
 }
 
