@@ -94,7 +94,7 @@
   }
 
   input[type='radio']:checked + .option-value {
-    box-shadow: 0 0 0 1.4px black;
+    box-shadow: 0 0 0 1px currentColor;
   }
 
   .option-value__value {
