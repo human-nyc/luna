@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]),
 
         getUpsellImage: function () {
+          console.log('getUpsellImage');
           if (this.options[0]) {
             let variant = this.upsell.variants.find(({ option1 }) => option1 === this.options[0]);
 
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         getSizedImageUrl(url, size) {
+          console.log('getSizedImageUrl', url, size);
           return getSizedImageUrl(url, size);
         },
 
