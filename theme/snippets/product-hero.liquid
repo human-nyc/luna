@@ -87,14 +87,6 @@
         </p>
         <p class="form-message" :class="{ active: selectedVariant.available }">FREE SHIPPING ON ALL ORDERS</p>
         <p class="affirm-as-low-as form-message" :class="{ active: selectedVariant.available }" data-page-type="product" data-amount="{{current_variant.price}}"></p>
-
-
-        {% if additional_checkout_buttons %}
-          <div class="additional-checkout-buttons">
-            {{ content_for_additional_checkout_buttons }}
-          </div>
-        {% endif %}
-
       </template>
 
       <template v-else>
