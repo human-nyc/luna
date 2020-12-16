@@ -66,11 +66,11 @@ export default {
       if (!this.hasUpsell) return;
 
       let data = window.upsells[this.itemsWithUpsell[0]];
-      let upsell = JSON.parse(data.upsellJson);
+      let upsell = data.upsellObject;
 
       if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
         this.setUpsell(upsell);
-        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+        return this.optionsWithValues = data.optionsWithValuesArr;
       } else {
         const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellJson)));
 
@@ -79,9 +79,9 @@ export default {
         if (!this.hasUpsell) return;
 
         data = window.upsells[upsellsNotInCart.slice(-1)];
-        upsell = JSON.parse(data.upsellJson);
+        upsell = data.upsellObject;
         this.setUpsell(upsell);
-        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+        return this.optionsWithValues = data.optionsWithValuesArr;
       }
     },
   },

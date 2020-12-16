@@ -5,8 +5,8 @@
         {% assign upsell = all_products[block.settings.upsell] %}
 
         '{{ block.settings.cart_item }}': {
-          'upsellJson': '{{ upsell | json }}',
-          'optionsWithValuesJson': '{{ upsell.options_with_values | json }}'
+          'upsellObject': {{ upsell | json }},
+          'optionsWithValuesArr': {{ upsell.options_with_values | json }}
         },
       {% endfor %}
     }
