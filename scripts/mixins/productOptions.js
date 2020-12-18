@@ -72,7 +72,7 @@ export default {
         this.setUpsell(upsell);
         return this.optionsWithValues = data.optionsWithValuesArr;
       } else {
-        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellJson)));
+        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellObject)));
 
         this.setHasUpsell(upsellsNotInCart.length > 0);
 
