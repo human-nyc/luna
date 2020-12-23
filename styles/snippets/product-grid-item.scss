@@ -61,7 +61,6 @@
       }
 
       .standalone-bottomline {
-
         .yotpo-bottomline.pull-left {
           display: block;
           float: none;
@@ -241,7 +240,7 @@
   display: flex;
   flex-direction: column;
   left: 0;
-  padding: 0 var(--gutter);
+  padding: 0 var(--gutter) 1em;
   pointer-events: none;
   position: fixed;
   right: 0;
@@ -257,7 +256,7 @@
   }
 
   @include desktop-xl {
-    padding: 0 calc(var(--gutter) * 0.75);
+    padding: 0 calc(var(--gutter) * 0.75) 1em;
   }
 
   &.active {
