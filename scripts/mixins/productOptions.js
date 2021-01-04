@@ -66,22 +66,22 @@ export default {
       if (!this.hasUpsell) return;
 
       let data = window.upsells[this.itemsWithUpsell[0]];
-      let upsell = JSON.parse(data.upsellJson);
+      let upsell = data.upsellObject;
 
       if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
         this.setUpsell(upsell);
-        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+        return this.optionsWithValues = data.optionsWithValuesArr;
       } else {
-        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(JSON.parse(window.upsells[handle].upsellJson)));
+        const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(window.upsells[handle].upsellObject));
 
         this.setHasUpsell(upsellsNotInCart.length > 0);
 
         if (!this.hasUpsell) return;
 
         data = window.upsells[upsellsNotInCart.slice(-1)];
-        upsell = JSON.parse(data.upsellJson);
+        upsell = data.upsellObject;
         this.setUpsell(upsell);
-        return this.optionsWithValues = JSON.parse(data.optionsWithValuesJson);
+        return this.optionsWithValues = data.optionsWithValuesArr;
       }
     },
   },
@@ -92,21 +92,25 @@ export default {
     },
 
     inputOptionAttributes() {
+      const shopMore = this.$el.closest('.shop-more') ? '_shopmore' : '';
+      const suggestion = this.$el.closest('.product-suggestion') ? '_suggest' : '';
       const upsell = this.isUpsellActive ? '_upsell' : '';
 
       return (product, option, value) => ({
         class: { "out-of-stock": this.isInputOutOfStock({ option, value }) },
         name: `option${option.position}`,
-        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
+        id: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}${shopMore}${suggestion}`,
         key: `"product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },
 
     labelOptionAttributes() {
+      const shopMore = this.$el.closest('.shop-more') ? '_shopmore' : '';
+      const suggestion = this.$el.closest('.product-suggestion') ? '_suggest' : '';
       const upsell = this.isUpsellActive ? '_upsell' : '';
 
       return (product, option, value) => ({
-        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}`,
+        for: `product${product.id}_option${option.name}_value${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}${upsell}${shopMore}${suggestion}`,
         class: `option-value  option--${value.replace(/ - /g, '-').replace(/ /g, '-').replace(/\//g, '-').toLowerCase()}`
       })
     },

@@ -24,6 +24,18 @@
   <div v-else class="upsell__form-wrapper">
     <div class="cart-item">
       <a :href="upsellUrl" class="cart-item__image">
+        <img
+          v-if="selectedVariant && selectedVariant.featured_image"
+          loading="lazy"
+          :src="getSizedImageUrl(selectedVariant.featured_image.src, '92x57_crop_center@2x')"
+          :alt="upsell.featured_image.alt"
+        >
+        <img
+          v-else
+          loading="lazy"
+          :src="getSizedImageUrl(getUpsellImage(), '92x57_crop_center@2x')"
+          :alt="this.option[0]"
+        >
       </a>
 
       <div class="cart-item__info">
