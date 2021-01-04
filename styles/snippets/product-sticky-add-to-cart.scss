@@ -6,7 +6,6 @@
   background-color: var(--light-pink);
   box-sizing: border-box;
   display: grid;
-  display: none;
   grid-template-columns: 150px 100px auto 1fr;
   height: var(--header-height);
   left: 0;
@@ -18,7 +17,7 @@
   top: 0;
   transition: opacity var(--fast);
   z-index: 21;
-  
+
   .active & {
     opacity: 1;
     pointer-events: auto;
