@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <form class="product-hero__form" v-cloak action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    <form class="product-hero__form" v-cloak v-if="!stickyAddToCartIsActive" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       {% render 'product-options' %}
 
       <div class="quantity-and-price">
@@ -104,6 +104,8 @@
     </div>
   </div>
 
+  {% render 'product-sticky-add-to-cart' product: product %}
+  
 </div>
 
 <style>
