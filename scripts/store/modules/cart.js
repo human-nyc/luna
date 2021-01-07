@@ -16,6 +16,7 @@ const state = {
   hasUpsell: false,
   miniCartIsOpen: false,
   upsell: {},
+  upsellOptionsWithValues: [],
 };
 
 /**
@@ -35,6 +36,9 @@ const mutations = {
   },
   setUpsell(state, newProduct) {
     state.upsell = newProduct;
+  },
+  setUpsellOptionsWithValues(state, newOptionsWithValues) {
+    state.upsellOptionsWithValues = newOptionsWithValues;
   },
   toggleMiniCart(state) {
     state.miniCartIsOpen = !state.miniCartIsOpen;
@@ -111,6 +115,10 @@ const actions = {
     commit('setUpsell', newProduct)
   },
 
+  setUpsellOptionsWithValues({ commit }, newOptionsWithValues) {
+    commit('setUpsellOptionsWithValues', newOptionsWithValues);
+  },
+
   toggleMiniCart({ commit }) {
     commit('toggleMiniCart');
   },
@@ -166,6 +174,10 @@ const getters = {
 
   upsell(state) {
     return state.upsell;
+  },
+
+  upsellOptionsWithValues(state) {
+    return state.upsellOptionsWithValues;
   },
 };
 

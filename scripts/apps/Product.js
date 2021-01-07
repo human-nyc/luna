@@ -52,25 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
             this.toggleActiveSizePopup();
           });
         }
-        
+
         const stickyAddToCart = document.querySelector('#stickyAddToCart');
         const stickyAddToCartOffsetTop = stickyAddToCart.offsetTop;
 
         const checkScrollPosition = () => {
-          
-          if ( !this.stickyAddToCartIsActive && scrollY >= stickyAddToCartOffsetTop ) {
+
+          if (!this.stickyAddToCartIsActive && scrollY >= stickyAddToCartOffsetTop) {
             requestAnimationFrame(() => {
               this.stickyAddToCartIsActive = true
               stickyAddToCart.classList.add('active');
             });
           }
-          if ( this.stickyAddToCartIsActive && scrollY < stickyAddToCartOffsetTop ) {
+          if (this.stickyAddToCartIsActive && scrollY < stickyAddToCartOffsetTop) {
             requestAnimationFrame(() => {
               this.stickyAddToCartIsActive = false
               stickyAddToCart.classList.remove('active');
             });
           }
-        } 
+        }
 
         window.addEventListener('scroll', () => {
           checkScrollPosition();
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'hydrateCartItems',
           'setHasUpsell',
           'setUpsell',
+          'setUpsellOptionsWithValues',
           'toggleMiniCart',
           'toggleStickyAddToCart',
         ]),
@@ -136,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
       computed: {
-        ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell']),
+        ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell', 'upsellOptionsWithValues']),
         crop() {
           if (window.matchMedia('(max-width: 767px)').matches) {
             return '420x252';
