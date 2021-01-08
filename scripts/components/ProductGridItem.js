@@ -43,6 +43,7 @@ Vue.component('product-grid-item', {
       'hydrateCartItems',
       'setHasUpsell',
       'setUpsell',
+      'setUpsellOptionsWithValues',
       'toggleMiniCart',
     ]),
     ...mapActions('popups', ['openSizePopup', 'openWeightPopup']),
@@ -70,7 +71,7 @@ Vue.component('product-grid-item', {
   },
 
   computed: {
-    ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell']),
+    ...mapGetters('cart', ['cartItems', 'hasUpsell', 'itemsWithUpsell', 'upsell', 'upsellOptionsWithValues']),
   },
 
   filters: {

@@ -70,7 +70,7 @@ export default {
 
       if (this.itemsWithUpsell.length === 1 && !this.isUpsellInCart(upsell)) {
         this.setUpsell(upsell);
-        return this.optionsWithValues = data.optionsWithValuesArr;
+        this.setUpsellOptionsWithValues(data.optionsWithValuesArr);
       } else {
         const upsellsNotInCart = this.itemsWithUpsell.filter(handle => !this.isUpsellInCart(window.upsells[handle].upsellObject));
 
@@ -81,7 +81,7 @@ export default {
         data = window.upsells[upsellsNotInCart.slice(-1)];
         upsell = data.upsellObject;
         this.setUpsell(upsell);
-        return this.optionsWithValues = data.optionsWithValuesArr;
+        this.setUpsellOptionsWithValues(data.optionsWithValuesArr);
       }
     },
   },

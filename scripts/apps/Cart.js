@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentVariant: null,
         isUpsellActive: false,
         options: [],
-        optionsWithValues: [],
         quantity: 1,
         tab: 1,
       },
@@ -43,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'itemsWithUpsell',
           'miniCartIsOpen',
           'upsell',
+          'upsellOptionsWithValues',
         ]),
 
         getCartLevelDiscountsLength() {
@@ -67,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
           return this.getLineLevelDiscounts.length;
         },
 
+        optionsWithValues() {
+          return this.upsellOptionsWithValues;
+        },
+
         product() {
           return this.upsell;
         },
@@ -84,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'removeCartItem',
           'setHasUpsell',
           'setUpsell',
+          'setUpsellOptionsWithValues',
         ]),
 
         getUpsellImage: function () {
