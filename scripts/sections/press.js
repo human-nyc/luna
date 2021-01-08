@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pageDots: false,
       prevNextButtons: false,
       wrapAround: true,
+      autoPlay: true
     });
 
     const navFlickity = new Flickity(pressLogosEl, {
