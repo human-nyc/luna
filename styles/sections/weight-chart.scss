@@ -1,14 +1,12 @@
 // Weight Chart
 
 .weight-chart {
-  margin-top: var(--padding-v-mobile);
   width: 100%;
 
   @include tablet-portrait {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: var(--padding-v-desktop);
   }
 }
 
@@ -36,9 +34,9 @@
 
   td, th {
     border-bottom: 1px solid var(--primary-brand-color);
-    font-size: var(--font-size-p);
+    // font-size: var(--font-size-p);
     line-height: 1.5;
-    padding: 20px 12px;
+    padding: 17px 10px;
     width: 50%;
 
     @include small-viewport {
@@ -47,7 +45,6 @@
   }
 
   th {
-    font-size: 24px;
     font-weight: bold;
 
     @include small-viewport {
@@ -67,7 +64,7 @@
   }
 
   td:nth-child(2) {
-    font-size: var(--font-size-p-lg);
+    font-size: 18px;
     font-weight: 500;
   }
 }
