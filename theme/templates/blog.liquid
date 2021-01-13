@@ -1,22 +1,30 @@
-{% paginate blog.articles by 5 %}
+<div class="blogs">
+  {% paginate blog.articles by 5 %}
 
-<h1>{{ blog.title }}</h1>
-{% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-      {% endif %}
+  <h1 class="blogs__title">{{ blog.title }}</h1>
+  {% for article in blog.articles %}
+    <div class="blogs__blog">
+      <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+      <h4 class="caps-header">{{ article.created_at | date: '%b %d, %Y' }} &bull; {{ article.author }}</h4>
+
+      <div>
+        {% if article.excerpt.size > 0 %}
+          {{ article.excerpt }}
+        {% else %}
+          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+        {% endif %}
+      </div>
+
+      <a href="{{ article.url }}" class="cta-button cta-button_dark">Read more {% render 'svg-right-arrow' %}</a>
     </div>
-  </div>
-{% endfor %}
+  {% endfor %}
 
-{% if paginate.pages > 1 %}
-  {{ paginate | default_pagination }}
-{% endif %}
+  {% if paginate.pages > 1 %}
+    <div class="blogs__paginate">
+      {{ paginate | default_pagination }}
+    </div>
+  {% endif %}
 
-{% endpaginate %}
+  {% endpaginate %}
+
+</div>

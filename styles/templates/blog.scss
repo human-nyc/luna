@@ -1,0 +1,46 @@
+.blogs {
+  margin: 0 auto;
+  max-width: 900px;
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0.5em 0 1em;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: var(--font-size-h0);
+    }
+  }
+
+  &__blog {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 4em;
+    max-width: 650px;
+
+    & > h2 {
+      margin-bottom: 0.1em;
+    }
+
+    & > h4 {
+      margin: 0 0 1em;
+    }
+
+    .cta-button {
+      margin: 0 0 0 auto;
+    }
+  }
+
+  &__paginate {
+    padding: 0 var(--gutter) 2em;
+    text-align: center;
+
+    .current {
+      text-decoration: underline;
+    }
+  }
+}
