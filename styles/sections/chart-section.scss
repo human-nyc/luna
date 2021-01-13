@@ -3,24 +3,19 @@
 .chart-section {
   padding: var(--padding-v) 0;
 
-
   h3.section-subheader {
     font-size: 13px;
-    
+
     @include tablet-portrait {
       font-size: 20px;
     }
   }
 }
 
-
 .chart-section__intro {
+  box-sizing: content-box;
   margin: auto;
   padding: 0 calc(var(--gutter) * 2);
   text-align: center;
   max-width: 650px;
-}
-
-.chart-section__content {
-
 }
