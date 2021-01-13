@@ -1,6 +1,8 @@
 .blogs {
+  box-sizing: content-box;
   margin: 0 auto;
   max-width: 900px;
+  padding: 0 var(--gutter) 4em;
 
   &__title {
     font-family: var(--font-serif);
@@ -36,7 +38,6 @@
   }
 
   &__paginate {
-    padding: 0 var(--gutter) 2em;
     text-align: center;
 
     .current {

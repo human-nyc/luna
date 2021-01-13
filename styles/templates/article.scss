@@ -1,0 +1,30 @@
+.article {
+  box-sizing: content-box;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 var(--gutter) 4em;
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0.5em 0 0;
+
+    @media (min-width: 768px) {
+      font-size: var(--font-size-h0);
+    }
+  }
+
+  h4.caps-header {
+    margin: 0 0 1em;
+  }
+
+  &__content {
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+}
