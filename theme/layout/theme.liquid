@@ -90,9 +90,9 @@
 
   {{ content_for_header }}
 
-  {% section 'cart-upsells' %}
 </head>
 <body id="{{ page_title | handle }}" data-template="{{template}}" data-template-directory="{{template.directory}}" data-template-name="{{template.name}}" data-template-suffix="{{template.suffix}}">
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-578Z655"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -112,5 +112,7 @@
   {% section 'footer'%}
 
   {% include 'structured-data' %}
+  {% section 'cart-upsells' %}
+
 </body>
 </html>

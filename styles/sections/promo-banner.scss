@@ -1,11 +1,14 @@
 .promo-banner {
   align-items: center;
   display: grid;
-  font-size: 14px;
-  min-height: var(--banner-height);
+  font-size: 12px;
   overflow: hidden;
   padding: 0 var(--gutter);
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 
   strong {
     font-weight: 500;
@@ -13,6 +16,11 @@
 
   p {
     line-height: normal;
+    margin: 0.8344em 0;
+
+    @media (min-width: 768px) {
+      margin: 0.608em 0;
+    }
   }
 
   a {
