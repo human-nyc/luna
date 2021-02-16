@@ -36,7 +36,7 @@ body {
   font-size: var(--font-size-base);
   margin: 0;
   min-height: 100vh;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: var(--banner-height) var(--header-height) 1fr auto;
 }
 
 body,
