@@ -170,7 +170,7 @@ export default {
         let potentialOptions = [this.optionsWithValues[0].values];
 
         if (this.options[0]) potentialOptions.push([...this.potentialOptions1])
-        if (this.options[1]) potentialOptions.push([...this.potentialOptions2].sort());
+        if (this.options[1]) potentialOptions.push([...this.potentialOptions2]);
 
         return potentialOptions;
       } else {
@@ -189,7 +189,6 @@ export default {
 
             return matchesEverySelectedOption;
           });
-
 
           // if a result is found and we are on the Product page
           if (result.length > 0 && this.$el.closest('[data-template-name="product"]')) {
