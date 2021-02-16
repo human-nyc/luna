@@ -1,4 +1,4 @@
-<div class="stickyAddToCart__container" id="stickyAddToCart">
+<div class="stickyAddToCart__container" :class="{ 'active': stickyAddToCartIsActive }" id="stickyAddToCart">
   <div class="stickyAddToCart">
 
     <a class="stickyAddToCart__logo" href="/">
@@ -25,7 +25,7 @@
 
 
     <form class="stickyAddToCart__form" v-if="stickyAddToCartIsActive" v-cloak action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-      
+
       {% render 'product-options-sticky-add-to-cart' %}
 
       <template v-if="selectedVariant">
