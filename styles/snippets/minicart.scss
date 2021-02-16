@@ -57,20 +57,24 @@
     align-content: flex-start;
     grid-template-rows: max-content;
     overflow: auto;
+    mix-blend-mode: multiply;
 
     &::-webkit-scrollbar {
       display: none;
     }
   }
 
-
   .cart-bottom {
     align-self: flex-end;
     background: inherit;
-    padding: var(--gutter-half) 0 40px;
+    padding: var(--gutter-half) 0 20px;
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;
+
+    @media (min-width: 768px) {
+      padding-bottom: 40px;
+    }
 
     &-row {
       display: flex;
