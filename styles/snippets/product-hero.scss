@@ -35,7 +35,7 @@
     font-size: 10px;
     justify-content: center;
     height: 50px;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transform: rotate(45deg) translateX(-100px);
     width: 330px;
@@ -80,6 +80,7 @@
       auto
       1fr;
     min-height: calc(100vh - var(--banner-height));
+    max-height: 100vh;
   }
 
   &:not(.has-variants) {
