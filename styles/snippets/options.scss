@@ -160,10 +160,12 @@
   }
 
   .values {
-    // display: inline-grid;
-    // grid-auto-flow: column;
-    // row-gap: 0.25em;
-    // background: red;
+    
+    @media (max-width: 767px) {
+      display: flex;
+      justify-content: space-around;
+      padding: 1em 1em 0 0;
+    }
   }
 
   .option-value {
@@ -206,8 +208,8 @@
     content: '';
     display: block;
 
-    height: 30px;
-    width: 43px;
+    height: 55px;
+    width: 78px;
 
     @include desktop-xl {
       height: 75px;
