@@ -56,11 +56,21 @@
         {% render 'svg-logo' %}
       </a>
       <div class="header__right">
-        {% render 'customer-links' %}
-        <a
-          @click.prevent='toggleMiniCart'
-          class="header-link header-link_cart"
-          href="/cart">Cart<span v-cloak> (${cartCount})</span></a>
+
+        {% for parent_link in linklists[section.settings.main_nav_right].links %}
+
+          {% if parent_link.url == '/cart' %}
+            <a
+              @click.prevent='toggleMiniCart'
+              class="header-link header-link_cart"
+              href="/cart">Cart<span v-cloak> (${cartCount})</span></a>
+
+          {% else %}
+
+            <a class="header-link" href="{{parent_link.url}}">{{parent_link.title}}</a>
+          {% endif %}
+
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -80,6 +90,12 @@
         "type": "link_list",
         "id": "main_nav_left",
         "label": "Main Navigation Desktop Left",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_nav_right",
+        "label": "Secondary Navigation Desktop Right",
         "default": "main-menu"
       },
       {
