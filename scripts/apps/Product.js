@@ -154,6 +154,29 @@ document.addEventListener('DOMContentLoaded', () => {
             return '840x840'
           }
         },
+
+        selectionMade() {
+          if (
+            this.activeOptionIdx
+            && this.options.length === this.optionsWithValues.length
+          ) return true;
+
+          return false;
+        },
+
+        submitDisabled() {
+          if (this.selectedVariant.available === false) return true;
+
+          return !(this.optionsWithValues.length === 1 || this.selectionMade);
+        },
+
+        submitText() {
+          if (this.selectedVariant.available === false) return 'Out of Stock';
+
+          return this.optionsWithValues.length === 1 || this.selectionMade
+            ? 'Add To Cart'
+            : 'Make a Selection';
+        },
       },
       filters: {
         formatMoney(price, format) {

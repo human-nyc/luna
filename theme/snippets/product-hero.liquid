@@ -81,16 +81,12 @@
       </div>
 
       <template v-if="selectedVariant">
-        <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="selectedVariant.available == false">${selectedVariant.available ? `Add To Cart` : `Out of Stock`}</button>
+        <button class="cta-button cta-button_dark centered form-button" type="submit" @click.prevent="submit" :disabled="submitDisabled">${submitText}</button>
         <p class="form-message bis-trigger" :class="{ active: selectedVariant.available == false }">
           <a href="#" id="BIS_trigger">Notify me when available</a>
         </p>
         <p class="form-message" :class="{ active: selectedVariant.available }">FREE SHIPPING ON ALL ORDERS</p>
         <p class="affirm-as-low-as form-message" :class="{ active: selectedVariant.available }" data-page-type="product" data-amount="{{current_variant.price}}"></p>
-      </template>
-
-      <template v-else>
-        <button class="cta-button centered form-button cta-button_dark" type="submit" disabled>Make a Selection</button>
       </template>
     </form>
 
@@ -105,7 +101,7 @@
   </div>
 
   {% render 'product-sticky-add-to-cart' product: product %}
-  
+
 </div>
 
 <style>
