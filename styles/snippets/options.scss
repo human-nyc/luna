@@ -254,6 +254,11 @@
     text-transform: uppercase;
     vertical-align: middle;
 
+    &__value {
+      display: inline-block;
+      min-width: 40px;
+    }
+
     .quick-add & {
       justify-self: flex-start;
     }
@@ -291,7 +296,7 @@
 
     &::after {
       font-size: 10px;
-      margin-left: 1em;
+      margin-left: 0.5em;
       text-transform: uppercase;
     }
   }
@@ -299,5 +304,7 @@
 
 
 input[type="radio"].out-of-stock + .option-value {
-  text-decoration: line-through;
+  span, &::after {
+    text-decoration: line-through;
+  }
 }
