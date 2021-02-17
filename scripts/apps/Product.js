@@ -64,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        window.addEventListener('scroll', checkScrollPosition);
+        window.addEventListener('scroll', () => {
+          requestAnimationFrame(checkScrollPosition);
+        });
       },
       mixins: [productOptions],
       methods: {
