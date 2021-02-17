@@ -8,6 +8,7 @@
 @import '../variables';
 @import '../responsive';
 
+@import '../sections/cart-upsells';
 @import '../sections/promo-banner';
 @import '../sections/header';
 @import '../sections/footer';
@@ -68,7 +69,6 @@ h5,
 h6 {
   font-family: var(--font-sans-serif);
 }
-
 
 h2.section-header {
   font-family: var(--font-serif);
