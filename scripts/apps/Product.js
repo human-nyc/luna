@@ -57,27 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const stickyAddToCartOffsetTop = stickyAddToCart.offsetTop;
 
         const checkScrollPosition = () => {
-
-          if (
-            !this.stickyAddToCartIsActive
-            && !this.miniCartIsOpen
-            && scrollY >= stickyAddToCartOffsetTop
-          ) {
-            requestAnimationFrame(() => {
-              this.stickyAddToCartIsActive = true
-            });
-          }
-          if (this.stickyAddToCartIsActive && scrollY < stickyAddToCartOffsetTop) {
-            requestAnimationFrame(() => {
-              this.stickyAddToCartIsActive = false
-            });
+          if (scrollY >= stickyAddToCartOffsetTop) {
+            this.stickyAddToCartIsActive = true
+          } else {
+            this.stickyAddToCartIsActive = false
           }
         }
 
-        window.addEventListener('scroll', () => {
-          checkScrollPosition();
-        });
-
+        window.addEventListener('scroll', checkScrollPosition);
       },
       mixins: [productOptions],
       methods: {
@@ -101,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
           await this.addToCart(cartData);
           await this.hydrateCartItems();
           this.setUpsellBlock();
-          this.stickyAddToCartIsActive = false;
           this.toggleMiniCart();
         },
 
