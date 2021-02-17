@@ -42,9 +42,11 @@ const mutations = {
   },
   toggleMiniCart(state) {
     state.miniCartIsOpen = !state.miniCartIsOpen;
+    document.documentElement.classList.toggle('mini-cart--open', state.miniCartIsOpen);
   },
   closeMiniCart(state) {
     state.miniCartIsOpen = false;
+    document.documentElement.classList.toggle('mini-cart--open', state.miniCartIsOpen);
   }
 };
 
