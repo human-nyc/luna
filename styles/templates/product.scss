@@ -57,7 +57,7 @@
 .popup__inner {
   align-self: center;
   background: #f8f7f5;
-  box-sizing: content-box;
+  box-sizing: border-box;
   color: var(--deep-blue-color);
   display: grid;
   grid-template:
@@ -66,7 +66,7 @@
     / var(--gutter) auto var(--gutter);
   margin: var(--padding-v) auto;
   max-height: calc(100vh - (var(--padding-v) * 2));
-  max-width: 750px;
+  max-width: 940px;
   opacity: 0;
   overflow: auto;
   padding: var(--gutter);
@@ -85,6 +85,11 @@
 
 .popup .shopify-section {
   grid-area: description;
+  margin-bottom: calc(var(--gutter) * 2);
+
+  @media (min-width: 1024px) {
+    margin-bottom: calc(var(--gutter) * 3);
+  }
 }
 
 .popup__close-button {
@@ -107,9 +112,25 @@
 }
 
 .popup .section-header {
+  font-size: 45px;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
 }
 
-.popup  .section-subheader {
+.popup .section-subheader {
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: 1.85;
+  letter-spacing: normal;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    padding: 0 var(--gutter);
+  }
 }

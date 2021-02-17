@@ -23,12 +23,13 @@
           <label v-bind="labelOptionAttributes(product, option, value)" :title="value">
             <span class="option-value__value">${value}</span>
             <span class="option-value__info"></span>
-            <span class="option-value__image"></span>
+            <svg class="option-value__image" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 173 120"></svg>
           </label>
         </span>
       </div>
 
     </div>
+
   </div>
 
   <select name="id" v-model="selectedVariant.id" class="variants" v-if="selectedVariant">

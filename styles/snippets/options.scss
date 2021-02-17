@@ -199,19 +199,31 @@
   .option-value__info {
   }
 
-  .option-value__image::after {
+  .option-value__image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    content: '';
     display: block;
 
-    height: 30px;
-    width: 43px;
+    height: 36px;
 
-    @include desktop-xl {
-      height: 75px;
-      width: 86px;
+    @media (min-width: 375px) {
+      height: 44px;
+    }
+    @media (min-width: 414px) {
+      height: 50px;
+    }
+    @media (min-width: 768px) {
+      height: 99px;
+    }
+    @media (min-width: 1024px) {
+      height: 32px;
+    }
+    @media (min-width: 1366px) {
+      height: 40px;
+    }
+    @media (min-width: 1440px) {
+      height: 42px;
     }
   }
 

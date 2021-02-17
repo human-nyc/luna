@@ -7,15 +7,23 @@
 
   &__option {
     margin: var(--gutter) 0 0;
-    padding: 0 28px;
-    
+    box-sizing: border-box;
+
     @media (max-width: 767px) {
-      padding: 0 14px;
       flex-basis: 33.33%;
+      flex-basis: 50%;
     }
 
     img {
       max-width: 100%;
+
+      @media (min-width: 768px) {
+        height: 72px;
+      }
+
+      @media (min-width: 1024px) {
+        height: 92px;
+      }
     }
   }
 

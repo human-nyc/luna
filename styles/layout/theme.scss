@@ -58,12 +58,17 @@ blockquote {
 h1,
 h2,
 h3 {
+  font-family: var(--font-serif);
+  font-weight: normal;
+  line-height: 1.2;
 }
 
 h4,
 h5,
 h6 {
+  font-family: var(--font-sans-serif);
 }
+
 
 h2.section-header {
   font-family: var(--font-serif);
