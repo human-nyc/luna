@@ -25,7 +25,7 @@
       <thead>
         <tr>
           <th>{{ 'customer.order.product' | t }}</th>
-          <th>{{ 'customer.order.sku' | t }}</th>
+          {% comment %} <th>{{ 'customer.order.sku' | t }}</th> {% endcomment %}
           <th>{{ 'customer.order.price' | t }}</th>
           <th>{{ 'customer.order.quantity' | t }}</th>
           <th>{{ 'customer.order.total' | t }}</th>
@@ -50,17 +50,19 @@
                     </dd>
                   {% endif %}
 
-                  <dt>{{ 'customer.order.tracking_company' | t }}</dt>
-                  <dd>{{ line_item.fulfillment.tracking_company }}</dd>
+                  {% if line_item.fulfillment.tracking_company %}
+                    {% comment %} <dt>{{ 'customer.order.tracking_company' | t }}</dt> {% endcomment %}
+                    <dd>{{ line_item.fulfillment.tracking_company }}</dd>
+                  {% endif %}
 
                   {% if line_item.fulfillment.tracking_number %}
-                    <dt>{{ 'customer.order.tracking_number' | t }}</dt>
+                    {% comment %} <dt>{{ 'customer.order.tracking_number' | t }}</dt> {% endcomment %}
                     <dd>{{ line_item.fulfillment.tracking_number }}</dd>
                   {% endif %}
                 </dl>
               {% endif %}
             </td>
-            <td data-label="{{ 'customer.order.sku' | t }}">{{ line_item.sku }}</td>
+            {% comment %} <td data-label="{{ 'customer.order.sku' | t }}">{{ line_item.sku }}</td> {% endcomment %}
             <td data-label="{{ 'customer.order.price' | t }}">{{ line_item.price | money }}</td>
             <td data-label="{{ 'customer.order.quantity' | t }}">{{ line_item.quantity }}</td>
             <td data-label="{{ 'customer.order.total' | t }}">{{ line_item.quantity | times: line_item.price | money }}</td>
@@ -99,10 +101,6 @@
           <td data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money }} {{ order.currency }}</td>
         </tr>
 
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
       </tfoot>
     </table>
   </div>
