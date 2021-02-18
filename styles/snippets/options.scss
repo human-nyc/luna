@@ -235,6 +235,7 @@
 // .product-hero .option--weight {
 .option--weight {
   input[type='radio'] {
+    all: unset;
     align-self: center;
     appearance: none;
     background-position: center;
