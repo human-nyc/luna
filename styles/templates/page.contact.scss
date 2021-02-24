@@ -55,9 +55,9 @@
       resize: none;
     }
 
-    input[type='submit'] {
-      all: unset;
+    button[type='submit'] {
       appearance: none;
+      -webkit-appearance: none;
       background-color: var(--primary-brand-color);
       border: 0;
       border-radius: 30px;
