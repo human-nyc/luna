@@ -254,9 +254,11 @@
 .product-tabs__benefits,
 .product-tabs__details {
   opacity: 0;
+  pointer-events: none;
 
   &.active {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 

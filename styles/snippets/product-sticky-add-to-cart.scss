@@ -2,6 +2,7 @@
   @media (max-width: 1023px) {
     display: none;
   }
+
   align-items: center;
   background-color: var(--light-pink);
   box-sizing: border-box;
@@ -18,7 +19,7 @@
   transition: opacity var(--fast);
   z-index: var(--z-navigation);
 
-  .active & {
+  :root:not(.mini-cart--open) .active & {
     opacity: 1;
     pointer-events: auto;
   }
