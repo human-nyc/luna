@@ -4,7 +4,6 @@ import Flickity from 'flickity';
 document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.shopify-section-press').forEach(sectionEl => {
-
     const pressLogosEl = sectionEl.querySelector('.press__logos');
     const pressQuotesEl = sectionEl.querySelector('.press__quotes');
 
