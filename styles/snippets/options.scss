@@ -24,6 +24,7 @@
 .option-name::before {
   counter-increment: my-sec-counter;
   content: counter(my-sec-counter, decimal-leading-zero) '. ';
+  padding-right: 0.25em;
 }
 .option-name.Color::before {
   content: counter(my-sec-counter, decimal-leading-zero) '. Choose a\00a0';
@@ -137,6 +138,7 @@
     border-radius: 50%;
     box-sizing: border-box;
     display: inline-block;
+    display: none;
     font-size: 12px;
     grid-row: 1 / span 1;
     height: 1em;
@@ -153,17 +155,23 @@
     }
 
     & + label {
+      border: 2px solid transparent;
+      border-radius: 2em;
     }
     &:checked + label {
+      border-color: currentColor;
       color: inherit;
     }
   }
 
   .values {
+    text-align: center;
 
     @media (max-width: 767px) {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
+      justify-content: center;
       padding: 1em 1em 0 0;
     }
   }
@@ -196,9 +204,13 @@
   }
 
   .option-value__value {
+    display: block;
+    margin-top: 1em;
   }
 
   .option-value__info {
+    display: block;
+    margin-bottom: -1em;
   }
 
   .option-value__image {
@@ -207,28 +219,27 @@
     background-size: contain;
     display: block;
 
-    height: 36px;
+    height: 88px;
 
     @media (min-width: 375px) {
-      height: 44px;
+      height: 106px;
     }
     @media (min-width: 414px) {
-      height: 50px;
+      height: 120px;
     }
     @media (min-width: 768px) {
-      height: 99px;
+      height: 122px;
     }
     @media (min-width: 1024px) {
-      height: 32px;
+      height: 80px;
     }
     @media (min-width: 1366px) {
-      height: 40px;
+      height: 104px;
     }
     @media (min-width: 1440px) {
-      height: 42px;
+      height: 110px;
     }
   }
-
 }
 
 // Weight options

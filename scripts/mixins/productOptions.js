@@ -3,6 +3,7 @@ import querystring from 'querystring';
 export default {
   methods: {
     activateOption(optionIdx) {
+      console.log(`activateOption(${optionIdx})`);
       this.activeOptionIdx = optionIdx;
     },
 

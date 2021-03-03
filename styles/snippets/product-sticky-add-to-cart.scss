@@ -125,13 +125,31 @@
         &.option--color .option-values {
           padding: 5px 3px 0px;
         }
-        &.option--size .option-values {
-          padding: 5px 3.5px 10px;
+        &.option--size {
+
+          .option-values {
+            padding: 5px 3.5px 10px;
+
+          }
+
+          input[type=radio] {
+            display: inline-block;
+          }
+
+          input[type=radio] + label {
+            border:none;
+          }
 
           .value {
             margin: 10px 6px;
           }
+
+          .option-value__image {
+            height: 48px;
+          }
         }
+
+
         &.option--weight .option-values {
           padding: 8px 8px 3px;
         }
@@ -144,6 +162,7 @@
     }
     .form-button {
       align-self: center;
+      padding: 0.75em 1em;
       width: 160px;
     }
   }
