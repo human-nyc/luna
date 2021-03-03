@@ -10,3 +10,8 @@
 @import '../snippets/options';
 
 @import '../sections/subscribe-callout';
+
+
+.chart-section__content {
+  padding: 0 var(--gutter);
+}
