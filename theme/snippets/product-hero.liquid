@@ -40,15 +40,13 @@
 
         <div class="product-tabs__main">
           <div class="product-tabs__content">
-            <template v-if="tab === 'benefits'">
+            <div class="product-tabs__benefits" :class="{'active': tab === 'benefits'}">
               {{ product.description }}
-            </template>
+            </div>
 
-            {% if product.metafields.global.details %}
-              <template v-if="tab === 'details'">
-                {{ product.metafields.global.details }}
-              </template>
-            {% endif %}
+            <div class="product-tabs__details" :class="{'active': tab === 'details'}">
+              {{ product.metafields.global.details }}
+            </div>
           </div>
         </div>
       </div>

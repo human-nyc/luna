@@ -234,6 +234,8 @@
 
 .product-tabs__content {
   font-size: 12px;
+  display: grid;
+  grid-template: "benefits details" auto / 1fr 1fr;
 
   h4 {
     margin: 1em 0;
@@ -248,6 +250,24 @@
     font-weight: 500;
   }
 }
+
+.product-tabs__benefits,
+.product-tabs__details {
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.product-tabs__benefits {
+  margin-right: -100%;
+}
+
+.product-tabs__details {
+  margin-left: -100%;
+}
+
 
 // Product Form
 .quantity-and-price {
