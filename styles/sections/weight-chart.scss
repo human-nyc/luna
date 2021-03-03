@@ -1,12 +1,12 @@
 // Weight Chart
 
 .weight-chart {
-  width: 100%;
+  display: grid;
+  gap: var(--gutter);
+  grid-template: "table1" auto "table2" auto / auto;
 
   @include tablet-portrait {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template: "table1 table2" auto / 1fr 1fr;
   }
 }
 
@@ -18,13 +18,19 @@
 }
 
 .weight-chart__table {
-  padding: 0 var(--gutter);
   text-align: center;
 
+  &:nth-child(1) {
+    grid-area: table1;
+  }
+
+  &:nth-child(2) {
+    grid-area: table2;
+    border-bottom: 56px solid transparent;
+  }
+
   @include tablet-portrait {
-    flex: 0 0 auto;
-    padding: 0 30px;
-    width: 50%;
+    border-bottom: 56px solid transparent;
   }
 
   table {
@@ -35,12 +41,8 @@
   td, th {
     border-bottom: 1px solid var(--primary-brand-color);
     line-height: 1.5;
-    padding: 17px 10px;
+    padding: 17px 1px;
     width: 50%;
-
-    @include small-viewport {
-      font-size: 14px;
-    }
   }
 
   th {
@@ -62,8 +64,20 @@
     }
   }
 
+  td:nth-child(1) {
+    font-size: 14px;
+
+    @include tablet-portrait {
+      font-size: 16px;
+    }
+  }
+
   td:nth-child(2) {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
+
+    @include tablet-portrait {
+      font-size: 20px;
+    }
   }
 }

@@ -61,15 +61,15 @@
   color: var(--deep-blue-color);
   display: grid;
   grid-template:
-    ". . close-button" var(--gutter)
-    ". description ." auto
-    / var(--gutter) auto var(--gutter);
+    ". close-button" 15px
+    "description ." auto
+    / auto 56px;
   margin: var(--padding-v) auto;
   max-height: calc(100vh - (var(--padding-v) * 2));
   max-width: 940px;
   opacity: 0;
   overflow: auto;
-  padding: var(--gutter);
+  padding: 19px 0 0 47px;
   position: relative;
   transform: translateY(1em);
   transition-property: box-shadow, opacity, transform;
@@ -108,6 +108,8 @@
   svg {
     display: block;
     margin: auto;
+    width: 15px;
+    height: 15px;
   }
 }
 
