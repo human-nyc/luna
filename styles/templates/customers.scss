@@ -125,6 +125,10 @@
     }
   }
 
+  th:first-child {
+    text-align: left;
+  }
+
   tr:last-child td {
     border-bottom: 0;
   }
@@ -135,47 +139,5 @@
     @include small-viewport {
       font-size: var(--font-size-p);
     }
-  }
-
-  td:nth-child(2),
-  th:nth-child(2) {
-    background-color: var(--primary-brand-color);
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color);
-    width: 180px;
-
-    :root.color-scheme--dark & {
-      background-color: var(--white-color);
-      border-bottom-color: var(--primary-brand-color);
-      color: var(--primary-brand-color);
-    }
-
-    @include small-viewport {
-      font-size: var(--font-size-p);
-    }
-  }
-
-  td:nth-child(2) {
-    font-weight: 500;
-    line-height: 1.2;
-
-    @include small-viewport {
-      font-size: var(--font-size-p);
-    }
-  }
-
-  td:nth-child(1),
-  th:nth-child(1) {
-    font-weight: 500;
-    width: 130px;
-
-    @include small-viewport {
-      font-size: 12px;
-    }
-  }
-
-  td:nth-child(4),
-  th:nth-child(4) {
-    width: 160px;
   }
 }

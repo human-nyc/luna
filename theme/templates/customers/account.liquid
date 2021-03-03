@@ -13,7 +13,7 @@
         <table>
           <thead>
             <tr>
-              <th scope="col">order #</th>
+              <th scope="col">order</th>
               <th scope="col">date</th>
               <th scope="col">payment status</th>
               <th scope="col">fulfillment status</th>
@@ -23,21 +23,15 @@
           <tbody>
             {% for order in customer.orders %}
               <tr>
-                <th data-label="order_number" scope="row">
-                  <a href="{{ order.customer_url }}" class="button" aria-label="order_number_link">{{ order.name }}</a>
-                </th>
+                <td data-label="order_number" scope="row">
+                  <a href="{{ order.customer_url }}" class="order_number_link" aria-label="order_number_link">{{ order.name }}</a>
+                </td>
                 <td data-label="date">{{ order.created_at | time_tag: '%b %d, %Y' }}</td>
                 <td data-label="payment_status">{{ order.financial_status_label }}</td>
                 <td data-label="fulfillment_status">{{ order.fulfillment_status_label }}</td>
                 <td data-label="total">{{ order.total_price | money }}</td>
               </tr>
             {% endfor %}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
           </tbody>
         </table>
 

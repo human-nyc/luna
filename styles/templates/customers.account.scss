@@ -21,6 +21,12 @@
       text-decoration: underline;
     }
   }
+
+  .order_number_link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .account-page__top {
