@@ -30,13 +30,13 @@
   --page-width: 1360px;
   --padding-v-desktop: 80px;
   --padding-v-mobile: 40px;
-  --banner-height: 40px;
+  --banner-height: 36px;
   --header-height: 72px;
 
   --padding-v: 40px;
 
   @include tablet-portrait {
-    --banner-height: 40px;
+    --banner-height: 35px;
     --header-height: 100px;
     --padding-v: 40px;
   }
