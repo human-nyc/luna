@@ -5,13 +5,12 @@
   position: relative;
 
   @include tablet-landscape {
-    margin-top: calc(var(--header-height) * -1);
     padding-bottom: 0;
   }
 }
 
 .product-hero__corner {
-  grid-area: corner-badge;
+  grid-area: badge;
   position: relative;
   left: calc(var(--gutter) * -1);
   display: none;
@@ -19,6 +18,7 @@
   @include tablet-landscape {
     align-self: flex-end;
     display: block;
+    margin: 0 200% 0 -300%;
     padding-top: 180px;
     position: relative;
     overflow: hidden;
@@ -73,94 +73,25 @@
   row-gap: 1em;
 
   @include tablet-landscape {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows:
-      var(--header-height)
-      minmax(102px, auto)
-      auto
-      1fr;
-    min-height: calc(100vh - var(--banner-height));
-    max-height: 100vh;
-  }
+    grid-template:
+      'image title  .  form' minmax(102px, auto)
+      'image info   .  form' auto
+      'image badge  .  form' auto
+      / 3fr  1fr   1fr 1fr;
 
-  &:not(.has-variants) {
-    @include tablet-landscape {
-      align-self: center;
-      grid-template-areas:
-        '.            .     form'
-        'title        title form'
-        'info         image form'
-        'corner-badge image form';
-    }
-  }
-
-  &.has-variants {
-    @include tablet-landscape {
-      grid-template-areas:
-        '.            .     .   '
-        'title        title form'
-        'info         image form'
-        'star-rating  image form'
-        'corner-badge image form';
-    }
-  }
-
-  @include tablet-landscape {
-    // grid-template-columns: 7fr 11fr 7fr;
-    grid-template-columns: 336fr 672fr 312fr;
-    // grid-template-columns: 336px auto 312px;
-  }
-
-  @include desktop-xl {
-    grid-template-columns: 336fr 672fr 312fr;
-  }
-}
-
-.product-hero__title {
-  align-self: center;
-  font-family: var(--font-serif);
-  font-weight: normal;
-  font-size: 36px;
-  grid-area: title;
-  line-height: 1.11;
-  margin: 1em auto 0;
-  max-width: 453px;
-  position: relative;
-  text-align: center;
-
-  @include tablet-landscape {
-    font-size: 40px;
-    letter-spacing: -1px;
-    line-height: 1.2;
-    margin: 0;
-    position: relative;
-    text-align: left;
-  }
-}
-
-.product-hero__info {
-  grid-area: info;
-  margin-top: var(--padding-v-mobile);
-  order: 10;
-
-  @include tablet-landscape {
-    margin-top: 0;
-    position: relative;
   }
 }
 
 .product-hero__image {
-  align-self: flex-start;
   background: var(--offwhite-color);
   grid-area: image;
 
   @include tablet-landscape {
-    grid-area: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    align-self: flex-start;
+    // height: calc(100vh - var(--header-height));
+    margin-right: -100%;
+    position: sticky;
+    top: var(--header-height);
     z-index: -1;
   }
 
@@ -188,6 +119,38 @@
   }
 }
 
+.product-hero__title {
+  align-self: center;
+  font-family: var(--font-serif);
+  font-weight: normal;
+  font-size: 36px;
+  grid-area: title;
+  line-height: 1.11;
+  margin: 1em auto 0;
+  max-width: 453px;
+  position: relative;
+  text-align: center;
+
+  @include tablet-landscape {
+    font-size: 40px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin: 0 100% 0 -300%;
+    position: relative;
+    text-align: left;
+  }
+}
+
+.product-hero__info {
+  grid-area: info;
+  margin-top: var(--padding-v-mobile);
+  order: 10;
+
+  @include tablet-landscape {
+    margin: 0 200% 0 -300%;
+    position: relative;
+  }
+}
 .product-hero .product__options {
   flex-grow: 1;
   grid-area: options;
@@ -205,6 +168,7 @@
     position: sticky;
     top: var(--header-height);
     // bottom: 0;
+    margin: 52px 0 0 -100%;
   }
 
   &[v-cloak] {
@@ -215,17 +179,11 @@
     @include tablet-landscape {
       align-self: stretch;
       align-self: flex-start;
-      margin: 52px 0;
     }
   }
 
-  .product__options {
-    // flex-grow: 1;
-    // margin: 2em 0;
-
-    &:empty {
-      display: none;
-    }
+  .product__options:empty {
+    display: none;
   }
 
   .option--color {
@@ -299,11 +257,6 @@
   grid-template: 'quantity-selector price compare-at-price' auto / 1fr 1fr auto;
   justify-content: space-between;
   margin: 40px 0;
-
-  // @media (min-width: 992px) and (max-width: 1359px) {
-  //   grid-template: "quantity-selector quantity-selector" auto "price compare-at-price" auto / 1fr 1fr;
-  //   row-gap: 1em;
-  // }
 
   .quantity-selector-outer {
     grid-area: quantity-selector;

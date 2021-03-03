@@ -85,6 +85,14 @@
 
 .footer__aside {
   padding: 0 var(--gutter);
+  padding: 0 var(--gutter);
+  max-width: 476px;
+  margin: auto;
+  box-sizing: content-box;
+
+  @include tablet-landscape {
+    margin: 0;
+  }
 }
 
 .footer__columns {
