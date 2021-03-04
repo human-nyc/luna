@@ -153,7 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         submitDisabled() {
-          if (this.selectedVariant.available === false) return true;
+          if (this.selectedVariant.available === false) {
+            return true;
+          };
 
           return !(this.optionsWithValues.length === 1 || this.selectionMade);
         },

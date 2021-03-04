@@ -58,14 +58,13 @@ const mutations = {
 
 const actions = {
   addToCart({ commit }, cartData = {}) {
-    console.log('Adding...', cartData);
     const body = JSON.stringify(cartData);
 
     return fetch('/cart/add.js', { body, credentials, headers, method })
-      .then(response => response.json())
-      .catch(error => {
-        throw new Error(error);
-      });
+    .then(response => response.json())
+    .catch(error => {
+      throw new Error(error);
+    });
   },
 
   changeCartItem({ commit }, itemData = {}) {

@@ -6,12 +6,9 @@ async function initPolicyPageHero() {
 
   if(document.body.id == 'refund-policy' || document.body.id == 'shipping-policy' || document.body.id == 'terms-of-service' || document.body.id == 'privacy-policy') {
     var sectionResp = await fetch('/?section_id=faq-hero');
-    console.log({sectionResp});
     var responseFragment = await sectionResp.text();
-    console.log({responseFragment});
 
     let frag = document.createRange().createContextualFragment(responseFragment);
-    console.log(frag);
     mainEl.prepend(frag);
 
 
@@ -26,14 +23,12 @@ async function initPolicyPageSidebar() {
 
   if(document.body.id == 'refund-policy') {
     var sectionResp = await fetch('/?section_id=faq-sidebar');
-    console.log({sectionResp});
+
     var responseFragment = await sectionResp.text();
-    console.log({responseFragment});
 
     let frag = document.createRange().createContextualFragment(responseFragment);
-    console.log(frag);
-    containerEl.appendChild(frag);
 
+    containerEl.appendChild(frag);
 
     document.querySelectorAll(`[href="${window.location.pathname}"]`).forEach(el => {
       el.classList.add('active');

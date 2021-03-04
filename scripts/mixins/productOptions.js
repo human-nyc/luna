@@ -3,7 +3,6 @@ import querystring from 'querystring';
 export default {
   methods: {
     activateOption(optionIdx) {
-      console.log(`activateOption(${optionIdx})`);
       this.activeOptionIdx = optionIdx;
     },
 
@@ -161,7 +160,6 @@ export default {
           return acc
         }, []));
       }
-      console.log('potential');
 
       return new Set(this.potentialVariants.map(variant => variant.options[2]));
     },
@@ -183,7 +181,6 @@ export default {
       get() {
         if (this.product.variants) {
           let result = this.product.variants.filter(variant => {
-
             const matchesEverySelectedOption = this.options.every((option, index) => {
               return variant.options[index] === option;
             });

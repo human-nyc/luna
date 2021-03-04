@@ -41,9 +41,6 @@ const ProductOverlay = Vue.component('product-overlay', {
       </div>
     </div>
   `),
-  mounted: function() {
-    console.log('Mounted', this.product);
-  },
   methods: {
     begin: function() {
       this.step += 1;
@@ -68,7 +65,6 @@ const MiniProduct = new Vue({
     fetch('/products/' + this.product + '.json')
       .then((response) => response.json()).then(data => {
         const { product } = data;
-        console.log({ product });
         this.productData = product;
         this.colors = formatColors(product);
         this.updateImage();

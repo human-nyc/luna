@@ -1,6 +1,6 @@
 .product__options {
   counter-reset: my-sec-counter;
-  font: 500 12px/1.6 var(--font-sans-serif);
+  font: 500 10px/1.6 var(--font-sans-serif);
   list-style-position: inside;
   list-style-type: decimal;
 
@@ -138,11 +138,11 @@
     border-radius: 50%;
     box-sizing: border-box;
     display: inline-block;
-    display: none;
     font-size: 12px;
     grid-row: 1 / span 1;
     height: 1em;
     justify-self: center;
+    margin: 0;
     width: 1em;
 
     &:checked {
@@ -153,26 +153,19 @@
     &:focus {
       outline-style: none;
     }
-
-    & + label {
-      border: 2px solid transparent;
-      border-radius: 2em;
-    }
-    &:checked + label {
-      border-color: currentColor;
-      color: inherit;
-    }
   }
 
   .values {
     text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
     @media (max-width: 767px) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      justify-content: center;
-      padding: 1em 1em 0 0;
+      // display: flex;
+      // flex-wrap: wrap;
+      // justify-content: space-around;
+      // justify-content: center;
+      // padding: 1em 1em 0 0;
     }
   }
 
@@ -180,12 +173,10 @@
     display: inline-block;
     grid-row: 2 / span 1;
     text-align: center;
-    border-color: currentColor;
-
 
     span::after {
       display: block;
-      font: 10px/2 var(--font-sans-serif);
+      font: 10px/1 var(--font-sans-serif);
     }
   }
 
@@ -206,11 +197,11 @@
   .option-value__value {
     display: block;
     margin-top: 1em;
+    text-transform: uppercase;
   }
 
   .option-value__info {
     display: block;
-    margin-bottom: -1em;
   }
 
   .option-value__image {
@@ -218,27 +209,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
-
-    height: 88px;
-
-    @media (min-width: 375px) {
-      height: 106px;
-    }
-    @media (min-width: 414px) {
-      height: 120px;
-    }
-    @media (min-width: 768px) {
-      height: 122px;
-    }
-    @media (min-width: 1024px) {
-      height: 80px;
-    }
-    @media (min-width: 1366px) {
-      height: 104px;
-    }
-    @media (min-width: 1440px) {
-      height: 110px;
-    }
+    height: auto;
+    width: 100%;
   }
 }
 
