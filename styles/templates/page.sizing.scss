@@ -15,3 +15,21 @@
 .chart-section__content {
   padding: 0 var(--gutter);
 }
+
+:root .page-hero__content .page-hero__title {
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
+}
+
+:root .page-hero__content .page-hero__body p {
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+}
+
+:root .page-hero__content .page-hero__body:last-child {
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
+}
