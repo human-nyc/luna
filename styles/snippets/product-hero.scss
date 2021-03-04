@@ -73,7 +73,6 @@
 
   @include tablet-landscape {
     grid-template:
-      'image image image' auto
       'title  title  form' minmax(102px, auto)
       'info   .  form' auto
       'badge  .  form' auto
@@ -86,10 +85,11 @@
   grid-area: image;
 
   @include tablet-landscape {
-    align-self: flex-start;
-    height: 100vh;
-    margin-bottom: -100vh;
-    margin-top: calc(var(--header-height) * -1);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: calc(var(--header-height) * -1);
     z-index: -1;
   }
 
@@ -97,7 +97,7 @@
     display: block;
     mix-blend-mode: multiply;
     position: relative;
-    transition: opacity var(--slow);
+    transition: opacity var(--slow) var(--slow);
     width: 100%;
 
     @include tablet-landscape {
@@ -106,14 +106,13 @@
       object-fit: contain;
       width: 50%;
     }
-  }
 
-  &[v-cloak] {
-    display: block;
 
-    img {
+    &[v-cloak] {
+      display: block;
       opacity: 0;
     }
+
   }
 }
 
