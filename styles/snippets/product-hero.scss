@@ -75,8 +75,13 @@
     grid-template:
       'title  title  form' minmax(102px, auto)
       'info   .  form' auto
-      'badge  .  form' auto
+      'badge  .  form' 1fr
       / 1fr 2fr 1fr;
+  }
+
+
+  @media (orientation: landscape) and (min-width: 768px) {
+    min-height: calc(100vh - var(--banner-height) - var(--header-height));
   }
 }
 
@@ -273,6 +278,10 @@
   grid-template: 'quantity-selector price' auto / 1fr 1fr;
   justify-content: space-between;
   margin: 40px 0;
+
+  &[v-cloak] {
+    opacity: 0;
+  }
 
   .quantity-selector-outer {
     grid-area: quantity-selector;

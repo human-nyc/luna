@@ -1,4 +1,4 @@
-<div class="product__options" v-if="optionsWithValues.length > 1">
+<div class="product__options" v-if="optionsWithValues.length > 1" v-cloak>
   <div v-bind="optionAttributes(option, optionIdx)" v-for="(option, optionIdx) in optionsWithValues">
     <h4 class="option-name option.name" @click="activateOption(optionIdx)">${option.name}<template v-if="options[optionIdx]">: ${options[optionIdx]}</template>{% render 'svg-down-arrow' %}</h4>
 
