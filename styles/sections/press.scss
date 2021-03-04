@@ -46,7 +46,7 @@
 
 .press__inner {
   margin: var(--padding-v) auto 0;
-  max-width: 758px;
+  // max-width: 758px;
 }
 
 .press__header {
@@ -65,7 +65,8 @@
 .press__logos {
   align-items: center;
   justify-content: center;
-  margin: var(--padding-v) 0;
+  margin: var(--padding-v) auto;
+  max-width: 540px;
 }
 
 .press-logo {
@@ -97,7 +98,7 @@
     font-family: var(--font-serif);
     font-size: 36px;
     font-style: italic;
-    line-height: 1.5;
+    line-height: normal;
     margin: 0 0 var(--padding-v);
     text-align: center;
     width: 355px;
@@ -114,5 +115,14 @@
     &::after {
       content: close-quote;
     }
+  }
+}
+
+.press__quote {
+  opacity: 0;
+  transition: opacity var(--fast);
+
+  &.is-selected {
+    opacity: 1;
   }
 }
