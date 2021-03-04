@@ -325,6 +325,11 @@
   img {
     display: block;
     width: 100%;
+
+    @media (max-width: 767px) {
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 
@@ -334,5 +339,5 @@
 
 .product-grid-item .cta-button {
   align-self: center;
-  margin-bottom: 1em;
+  margin-bottom: var(--gutter);
 }
